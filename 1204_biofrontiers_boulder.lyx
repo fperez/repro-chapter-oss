@@ -1,0 +1,3101 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass beamer
+\begin_preamble
+% Include only certain frames - this speeds up compilation
+% The frames to be included need to be labeled, by using ERT
+% as [label=LABELNAME] (no backslashes or {})
+%\includeonlyframes{currentt}
+
+% To make a printable handout (one page per frame), pass
+% the handout option to the doc class (Layout menu)
+
+% For good fonts in PDFs, use pslatex fonts (Layout menu)
+
+% Colors and symbols
+\usepackage{latexsym}
+\usepackage{color}
+% Display covered items in transparent form (as opposed
+% to not showing them at all)
+\newcommand{\coveredinvisible}{
+    \setbeamercovered{invisible}
+}
+\newcommand{\coveredvisible}{
+    \setbeamercovered{highly dynamic}
+}
+
+% Choose default setting here:
+\coveredvisible
+
+\newcommand{\ps}{\vspace{-4mm} }
+
+% Theme configuration.  I've basically built a custom theme out of 
+% Warsaw, adding infoline and changing the nav. symbol bar
+
+% Warning: the commands below are order-sensitive!
+
+% load the infolines theme, b/c I want the headline Warsaw 
+% uses (split), but the footline from infolines.
+% In the document body, these will be deactivated for the title and
+% turned on later
+\useoutertheme{infolines}
+% Main theme
+\usetheme{Warsaw}
+% Adjust the color for the center (title) box to be that of
+% infolines, which Warsaw changes
+\setbeamercolor*{title in head/foot}{parent=palette secondary}
+
+% Define a minimal set of navigation symbols
+\defbeamertemplate*{navigation symbols}{minmal}
+{%
+  \hbox{%
+    \hbox{\insertframenavigationsymbol}
+    \hbox{\insertdocnavigationsymbol}
+    \hbox{\insertbackfindforwardnavigationsymbol}%
+  }%
+}
+% activate the minimal navbar
+\setbeamertemplate{navigation symbols}[minimal]
+
+%%%%% HACK %%%%%
+% I started getting errors because LyX is emmitting a color 'none'
+% call, which confuses xcolor.  I'm defining 'none' to be black here.
+\definecolor{none}{cmyk}{0,0,0,1}
+%%%%% /HACK %%%%%
+
+\usepackage{url}
+
+\usepackage{listings}
+
+% A few colors to replace the defaults for certain link types
+\definecolor{orange}{cmyk}{0,0.4,0.8,0.2}
+\definecolor{darkorange}{rgb}{.71,0.21,0.01}
+\definecolor{darkgreen}{rgb}{.12,.54,.11}
+\definecolor{gray}{rgb}{0.45, 0.45, 0.45}
+\definecolor{myteal}{rgb}{.26, .44, .56}
+\lstset{
+language=python,
+frame=single,
+breaklines=true,
+basicstyle=\scriptsize \ttfamily,
+%numbers=left,
+numberstyle=\tiny,
+showstringspaces=false,
+keywordstyle=\color{blue}\bfseries\emph,
+commentstyle=\color{myteal},
+stringstyle=\color{darkgreen},
+identifyerstyle=\color{darkorange},
+xleftmargin=3mm,
+}
+
+%-----------------------------------------------------------------------------
+% This helps prevent overly long lines that stretch beyond the margins
+\sloppy
+\end_preamble
+\options compress
+\use_default_options false
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman palatino
+\font_sans lmss
+\font_typewriter lmtt
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_amsmath 2
+\use_esint 0
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation landscape
+\suppress_date false
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 2
+\tocdepth 2
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Some things to fix in a future version:
+\end_layout
+
+\begin_layout Plain Layout
+- trim a bit of time
+\end_layout
+
+\begin_layout Plain Layout
+- add more about ipython and my own python work, reduce that of others
+\end_layout
+
+\begin_layout Plain Layout
+- add a final python pros/cons, esp.
+ the cons part.
+ It will make things more balanced.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+% disable the bottom bar for the title and outline pages
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+setbeamertemplate{footline}{}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace*{-5mm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Title
+The scientific Python ecosystem: open source tools for better computing
+ in science
+\begin_inset Argument
+status open
+
+\begin_layout Plain Layout
+Python for science
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Author
+Fernando
+\begin_inset space ~
+\end_inset
+
+Pérez
+\begin_inset Newline newline
+\end_inset
+
+
+\family typewriter
+\size scriptsize
+http://fperez.org
+\begin_inset Newline newline
+\end_inset
+
+Fernando.Perez@berkeley.edu
+\family default
+\size default
+
+\begin_inset Argument
+status open
+
+\begin_layout Plain Layout
+FP
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+This is used by the 'split' footline theme on the left side of the page
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{2mm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Institute
+Helen Wills Neuroscience Institute, UC Berkeley
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+- Use the 
+\backslash
+inst command only if there are several affiliations.
+\end_layout
+
+\begin_layout Plain Layout
+- Keep it simple, no one is interested in your street address.
+\end_layout
+
+\end_inset
+
+
+\begin_inset Argument
+status open
+
+\begin_layout Plain Layout
+UC Berkeley
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+optional, but mostly needed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{5mm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Date
+BioFrontiers, CU Boulder
+\begin_inset Newline newline
+\end_inset
+
+April 2, 2012
+\begin_inset Argument
+status open
+
+\begin_layout Plain Layout
+4/2/12
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+If you have a file called "institution-logo-filename.xxx", where xxx is a
+ graphic format that can be processed by latex or pdflatex, resp., then you
+ can add a logo by uncommenting the following:
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%
+\backslash
+pgfdeclareimage[height=0.5cm]{institution-logo}{institution-logo-filename}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\backslash
+logo{
+\backslash
+pgfuseimage{institution-logo}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+The following causes the table of contents to be shown at the beginning
+ of every Section.
+ Delete this, if you do not want it.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+AtBeginSection[]{
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+frame<beamer>{ 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+frametitle{Outline}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+tableofcontents[currentsection]
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+If you wish to uncover everything in a step-wise fashion, uncomment the
+ following command:
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%
+\backslash
+beamerdefaultoverlayspecification{<+->}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+% reactivate the footline
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+setbeamertemplate{footline}[infolines theme]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout BeginFrame
+Outline
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Changes in Science & Computing
+\begin_inset Argument
+status open
+
+\begin_layout Plain Layout
+Changes
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout BeginFrame
+Computing: part of the DNA of science
+\end_layout
+
+\begin_layout FrameSubtitle
+Much more than 
+\begin_inset Quotes eld
+\end_inset
+
+the third branch
+\begin_inset Quotes erd
+\end_inset
+
+ of science
+\end_layout
+
+\begin_layout Itemize
+An avalanche of 
+\color blue
+experimental quantitative data
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Biology, genetics, neuroscience, astronomy, climate modeling...
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+All scientists must now do real computing
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Quotes eld
+\end_inset
+
+Big Data
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+Cloud computing
+\begin_inset Quotes erd
+\end_inset
+
+, etc: lots of buzzwords...
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+They will 
+\series bold
+NOT
+\series default
+ automatically produce good science
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Good computing is now a 
+\color blue
+necessary
+\color inherit
+ (though 
+\color red
+not sufficient
+\color inherit
+!) condition for good science.
+\end_layout
+
+\begin_layout Pause
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\size large
+The 
+\color blue
+rigor
+\color inherit
+, 
+\color blue
+openness
+\color inherit
+, culture of 
+\color blue
+validation
+\color inherit
+, 
+\color blue
+collaboration
+\color inherit
+ and other aspects of science 
+\series bold
+\color blue
+must
+\series default
+\color inherit
+ also become part of scientific computing.
+\end_layout
+
+\begin_layout BeginPlainFrame
+Not all clouds are necessarily good...
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename fig/storm_clouds.jpg
+	lyxscale 60
+	width 95page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout BeginFrame
+A crisis of credibility and real issues
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+<+>
+\end_layout
+
+\end_inset
+
+
+\series bold
+The Duke clinical trials 
+\color red
+scandal
+\color inherit
+ 
+\series default
+- Potti/Nevin
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+A compounding of (common and otherwise) data analysis errors.
+\end_layout
+
+\begin_layout Itemize
+No materials allowing validation/reproduction of results.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color red
+Patients were harmed
+\series default
+\color inherit
+.
+\end_layout
+
+\begin_layout Itemize
+Lawsuits, resignations.
+\end_layout
+
+\begin_layout Itemize
+Major policy reviews and changes: NCI, IOM, ...
+\end_layout
+
+\begin_layout Itemize
+More: see 
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "K. Baggerly's \"starter set\" page"
+target "http://bioinformatics.mdanderson.org/Supplements/ReproRsch-All/Modified/StarterSet/index.html"
+
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+<+>
+\end_layout
+
+\end_inset
+
+The Duke situation is more 
+\color red
+common
+\color inherit
+ than we'd like to believe!
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Begley & Ellis, Nature, 3/28/12: 
+\emph on
+\color blue
+Drug development: Raise standards for preclinical cancer research.
+\end_layout
+
+\begin_layout Itemize
+
+\color red
+47 out of 53 
+\begin_inset Quotes eld
+\end_inset
+
+landmark papers
+\begin_inset Quotes erd
+\end_inset
+
+ could not be replicated.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+<+>
+\end_layout
+
+\end_inset
+
+Nature, Feb 2012, Ince et al: 
+\emph on
+\color blue
+The case for open computer programs
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Quotes eld
+\end_inset
+
+The scientific community places 
+\color red
+more faith in computation than is justified
+\color inherit
+
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Quotes eld
+\end_inset
+
+anything less than the release of actual source code is 
+\color red
+an indefensible approach
+\color inherit
+ for any scientific results that depend on computation
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout BeginFrame
+
+\color blue
+Related changes: Open *
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+<+>
+\end_layout
+
+\end_inset
+
+
+\series bold
+\color blue
+Internet
+\series default
+\color inherit
+: interactions for 
+\color blue
+humans
+\color inherit
+, 
+\color blue
+code
+\color inherit
+ and 
+\color blue
+data
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+<+>
+\end_layout
+
+\end_inset
+
+
+\series bold
+Open Source 
+\color blue
+Software
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+development akin to scientific culture
+\end_layout
+
+\begin_layout Itemize
+viable alternatives to proprietary software
+\end_layout
+
+\begin_layout Itemize
+tools and lessons for improving the scientific process: 
+\color blue
+Github
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+<+>
+\end_layout
+
+\end_inset
+
+
+\series bold
+Open 
+\color blue
+Access
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+thecostofknowledge.org
+\end_layout
+
+\end_inset
+
+: Elsevier boycott
+\end_layout
+
+\begin_layout Itemize
+FRPAA House hearing on March 29th.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+<+>
+\end_layout
+
+\end_inset
+
+
+\series bold
+Open 
+\color blue
+Education
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+MIT Open Courseware, Khan Academy...
+\end_layout
+
+\begin_layout Itemize
+Stanford CS 221 in fall 2011: ~160,000 students.
+\end_layout
+
+\begin_layout Itemize
+Spring 2012:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Sebastian Thrun leaves Stanford: Udacity.
+\end_layout
+
+\begin_layout Itemize
+Stanford: Coursera.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+MITx, TED-Ed...
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Two vignettes
+\end_layout
+
+\begin_layout BeginPlainFrame
+#1: Adaptive, multiwavelet PDE tools
+\end_layout
+
+\begin_layout FrameSubtitle
+Gregory Beylkin, Vani Cheruvu, FP.
+ Applied Math, CU Boulder.
+\end_layout
+
+\begin_layout Itemize
+Fast application of integral kernels.
+ (Partial Differential Equations)
+\end_layout
+
+\begin_layout Itemize
+Implementation went from 1 to 3 dimensions directly (
+\emph on
+extremely
+\emph default
+ unusual).
+\end_layout
+
+\begin_layout Itemize
+Complex algorithm: beyond pure numerics.
+\end_layout
+
+\begin_layout Itemize
+Very good performance, thanks to NumPy, F2PY and weave.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Dynamically generated C++ sources: code as a run-time resource.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename fig/rho_2d_surf.png
+	lyxscale 80
+	width 35text%
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace{1cm}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename fig/rho_2d_skel.eps
+	lyxscale 80
+	width 25text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout BeginPlainFrame
+#2: Mining the literature on macaque brain connectivity
+\end_layout
+
+\begin_layout FrameSubtitle
+Mark D'Esposito, Rob Blumenfeld, Daniel Bliss, FP; UC Berkeley.
+\end_layout
+
+\begin_layout Itemize
+Anatomical brain connectivity experiments: difficult and expensive.
+\end_layout
+
+\begin_layout Itemize
+Invaluable dataset in a web server.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename fig/cocomac.org_screenshot.png
+	lyxscale 60
+	height 70theight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout BeginPlainFrame
+From messy data to graph descriptions
+\end_layout
+
+\begin_layout Itemize
+Programatically query web server.
+\end_layout
+
+\begin_layout Itemize
+Parse XML into rich graphs.
+\end_layout
+
+\begin_layout Itemize
+NetworkX graph library: Aric Hagberg at LANL.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename fig/cocomac_2011_sagittal.pdf
+	lyxscale 60
+	height 70theight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Scientific Python
+\end_layout
+
+\begin_layout BeginPlainFrame
+Beyond (floating point) number crunching
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename fig/scicomp_timeline.pdf
+	lyxscale 60
+	width 90text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout BeginFrame
+Python in this context
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename ../1009_berkeley_urban/fig/python-logo-inkscape.pdf
+	lyxscale 40
+	width 30text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\color blue
+Open Source, free
+\color none
+, highly portable.
+\end_layout
+
+\begin_layout Itemize
+Extremely readable
+\color blue
+: 
+\begin_inset Quotes eld
+\end_inset
+
+executable pseudo-code
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\color none
+Simple: 
+\color blue
+
+\begin_inset Quotes eld
+\end_inset
+
+fits your brain
+\begin_inset Quotes erd
+\end_inset
+
+
+\color none
+.
+\end_layout
+
+\begin_layout Itemize
+Rich types and library: 
+\color blue
+
+\begin_inset Quotes eld
+\end_inset
+
+batteries included
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\color blue
+Easy to wrap
+\color inherit
+ C, C++ and FORTRAN.
+\end_layout
+
+\begin_layout Itemize
+
+\color blue
+NumPy
+\color inherit
+: IDL/Matlab-like 
+\color blue
+arrays.
+\end_layout
+
+\begin_layout BeginPlainFrame
+The scientific Python ecosystem (incomplete view)
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename fig/scipy_ecosystem.pdf
+	lyxscale 60
+	width 90text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout BeginPlainFrame
+NumPy: the foundation for array processing
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename fig/numpy_logo.png
+	lyxscale 60
+	width 20text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+A flexible, efficient, 
+\color blue
+multidimensional array
+\color inherit
+ object.
+\end_layout
+
+\begin_layout Itemize
+
+\color blue
+Convenient syntax:
+\color inherit
+ 
+\family typewriter
+c = a+b.
+\end_layout
+
+\begin_layout Itemize
+
+\color blue
+Math library
+\color inherit
+ that operates on arrays: 
+\family typewriter
+y = sin(k*t).
+\end_layout
+
+\begin_layout Itemize
+
+\color blue
+Basic
+\color inherit
+ scientific functionality:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Linear algebra
+\end_layout
+
+\begin_layout Itemize
+FFTs
+\end_layout
+
+\begin_layout Itemize
+Random number generation
+\end_layout
+
+\end_deeper
+\begin_layout BeginPlainFrame
+SciPy: numerical algorithms galore
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+linalg
+\series default
+\color inherit
+ : Linear algebra routines (including BLAS/LAPACK)
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+sparse
+\series default
+\color inherit
+ : Sparse Matrices (including UMFPACK, ARPACK,...)
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+fftpack
+\series default
+\color inherit
+ : Discrete Fourier Transform algorithms
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+cluster
+\series default
+\color inherit
+ : Vector Quantization / Kmeans 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+odr
+\series default
+\color inherit
+ : Orthogonal Distance Regression 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+special
+\series default
+\color inherit
+ : Special Functions (Airy, Bessel, etc).
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+stats
+\series default
+\color inherit
+ : Statistical Functions 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+optimize
+\series default
+\color inherit
+ : Optimization Tools 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+maxentropy
+\series default
+\color inherit
+ : Routines for fitting maximum entropy models 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+integrate
+\series default
+\color inherit
+ : Numerical Integration routines 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+ndimage
+\series default
+\color inherit
+ : n-dimensional image package 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+interpolate
+\series default
+\color inherit
+ : Interpolation Tools 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+signal
+\series default
+\color inherit
+ : Signal Processing Tools 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+io
+\series default
+\color inherit
+ : Data input and output 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Lots more...
+\end_layout
+
+\begin_layout BeginPlainFrame
+Matplotlib: high-quality data visualization
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename fig/matplotlib_summary.pdf
+	lyxscale 60
+	width 90text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout BeginPlainFrame
+MayaVi: 3d visualization (VTK)
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/fperez/talks/figs/mayavi_brain_ipython.png
+	lyxscale 50
+	height 95theight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout BeginPlainFrame
+FluidLab: a MayaVi based CFD visualization tool
+\end_layout
+
+\begin_layout Standard
+K.
+ Julien, P.
+ Schmitt (now NCAR), B.
+ Barrow, F.
+ Pérez (App.
+ Math, CU).
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename fig/Fluidlab6.png
+	lyxscale 50
+	width 95text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout BeginPlainFrame
+Sympy: symbolic and multiprecision computing
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename fig/sympy_notebook.png
+	lyxscale 50
+	height 95theight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout BeginPlainFrame
+NetworkX: tools for complex networks
+\end_layout
+
+\begin_layout FrameSubtitle
+Aric Hagberg, Pieter Swart et.
+\begin_inset space ~
+\end_inset
+
+al., Los Alamos Theory Division
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace*{-3mm}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../0906_lbl/fig/nx_atlas.png
+	lyxscale 30
+	width 42mm
+	height 42mm
+	keepAspectRatio
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../0906_lbl/fig/nx_chess_masters.png
+	lyxscale 30
+	width 42mm
+	height 42mm
+	keepAspectRatio
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../0906_lbl/fig/nx_degree_histogram.png
+	lyxscale 30
+	width 42mm
+	height 42mm
+	keepAspectRatio
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../0906_lbl/fig/nx_giant_component.png
+	lyxscale 30
+	width 42mm
+	height 42mm
+	keepAspectRatio
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../0906_lbl/fig/nx_knuth_miles.png
+	lyxscale 30
+	width 42mm
+	height 42mm
+	keepAspectRatio
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../0906_lbl/fig/nx_lanl_routes.png
+	lyxscale 30
+	width 42mm
+	height 42mm
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout BeginPlainFrame
+Scikits Learn: (easy to use) machine learning
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/fperez/talks/figs/sklearn_ica2d.pdf
+	lyxscale 25
+	width 49text%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /home/fperez/talks/figs/sklearn_lda_qda.pdf
+	lyxscale 25
+	width 49text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/fperez/talks/figs/sklearn_svm_rbf.pdf
+	lyxscale 25
+	width 49text%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /home/fperez/talks/figs/sklearn_svm_weighted.pdf
+	lyxscale 25
+	width 49text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+IPython
+\end_layout
+
+\begin_layout BeginFrame
+IPython: Interactive Scientific Computing
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+A CU Boulder project
+\end_layout
+
+\begin_layout Itemize
+Started when I was a graduate student in Physics (2001).
+\end_layout
+
+\begin_layout Itemize
+Continued as a postdoc in Applied Mathematics.
+\end_layout
+
+\begin_layout Itemize
+Brian Granger: CU Physics.
+\end_layout
+
+\begin_layout Pause
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\series bold
+\size largest
+\color blue
+In brief
+\end_layout
+
+\begin_layout Enumerate
+
+\color blue
+A better Python shell
+\end_layout
+
+\begin_layout Enumerate
+
+\color blue
+Embeddable Kernel and powerful interactive clients
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\color none
+Terminal
+\end_layout
+
+\begin_layout Enumerate
+
+\color none
+Qt console
+\end_layout
+
+\begin_layout Enumerate
+
+\color none
+Web notebook
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\color blue
+Flexible parallel computing
+\end_layout
+
+\begin_layout BeginPlainFrame
+IPython: Matlab/IDL-like interactive use
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename fig/pylab-screen.png
+	lyxscale 30
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout BeginPlainFrame
+Qt console: inline plots, html, multiline editing, ...
+\end_layout
+
+\begin_layout FrameSubtitle
+Evan Patterson (Enthought)
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename ../1203_pycon/fig/ipython_qtconsole2.png
+	lyxscale 30
+	height 95theight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout BeginPlainFrame
+Microsoft Visual Studio 2010 integrated console
+\end_layout
+
+\begin_layout FrameSubtitle
+Dino Viehland and Shahrokh Mortazavi; 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://pytools.codeplex.com
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename ../1203_pycon/fig/ipython_ms_visual_studio.png
+	lyxscale 50
+	width 95page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout BeginPlainFrame
+Browser-based notebook: rich text, code, plots, ...
+\end_layout
+
+\begin_layout FrameSubtitle
+Brian Granger, James Gao (Berkeley), rest of the team
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename ../1203_pycon/fig/ipython-notebook-specgram-2.png
+	lyxscale 30
+	height 95theight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout BeginPlainFrame
+Interactive and high-level parallel APIs
+\end_layout
+
+\begin_layout FrameSubtitle
+Min Ragan-Kelley, Brian Granger 
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename ../1203_pycon/fig/ipython_dist_architecture.png
+	lyxscale 50
+	width 90text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout BeginPlainFrame
+A mid-size project by now
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename ../1203_pycon/fig/ipython_ohloh_stats_20120303.png
+	lyxscale 30
+	width 95text%
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout BeginPlainFrame
+Other projects using IPython
+\end_layout
+
+\begin_layout ColumnsTopAligned
+
+\end_layout
+
+\begin_deeper
+\begin_layout Column
+7cm
+\end_layout
+
+\begin_layout Block
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{Scientific}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\size footnotesize
+EPD:
+\series default
+ Enthought Python Distribution.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\size footnotesize
+Sage
+\series default
+: open source mathematics.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\size footnotesize
+PyRAF
+\series default
+: Space Telescope Science Institute
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\size footnotesize
+CASA
+\series default
+: Nat.
+ Radio Astronomy Observatory
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\size footnotesize
+Ganga
+\series default
+: CERN
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\size footnotesize
+PyMAD
+\series default
+: neutron spectrom., Laue Langevin
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\size footnotesize
+Sardana
+\series default
+: European Synchrotron Radiation
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\size footnotesize
+ASCEND
+\series default
+: eng.
+ modeling (Carnegie Mellon).
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\size footnotesize
+JModelica
+\series default
+: dynamical systems.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\size footnotesize
+DASH
+\series default
+: Denver Aerosol Sources and Health.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\size footnotesize
+Trilinos
+\series default
+: Sandia National Lab.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\size footnotesize
+DoD
+\series default
+: baseline configuration.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\size footnotesize
+Mayavi
+\series default
+: 3d visualization, Enthought.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\size footnotesize
+NiPype
+\series default
+: computational pipelines, MIT.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\size footnotesize
+PyIMSL
+\series default
+ Studio, by Visual Numerics.
+\end_layout
+
+\begin_layout Itemize
+...
+\end_layout
+
+\end_deeper
+\begin_layout Column
+4.3cm
+\end_layout
+
+\begin_layout ExampleBlock
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{Web/Other}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\size footnotesize
+Visual Studio 2010
+\series default
+: MS.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\size footnotesize
+Django
+\series default
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\size footnotesize
+Turbo
+\series default
+ 
+\series bold
+Gears
+\series default
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\size footnotesize
+Pylons
+\series default
+ web framework
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\size footnotesize
+Zope
+\series default
+ and 
+\series bold
+Plone
+\series default
+ CMS.
+\end_layout
+
+\begin_layout Itemize
+
+\size footnotesize
+Axon Shell, BBC 
+\series bold
+Kamaelia
+\series default
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\size footnotesize
+Schevo
+\series default
+ database.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\size footnotesize
+Pitz
+\series default
+: distributed task/bug tracking.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\size footnotesize
+iVR
+\series default
+ (interactive Virtual Reality).
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\size footnotesize
+Movable Python 
+\series default
+(portable Python environment).
+\end_layout
+
+\begin_layout Itemize
+
+\size footnotesize
+...
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout BeginPlainFrame
+Support
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Enthought
+\series default
+\color inherit
+, Austin, TX: 
+\series bold
+\color blue
+Lots!
+\end_layout
+
+\begin_layout Itemize
+
+\color blue
+Tech-X
+\color inherit
+ Corporation, Boulder, CO: Parallel/notebook (previous versions)
+\end_layout
+
+\begin_layout Itemize
+
+\color blue
+Microsoft
+\color inherit
+: WinHPC support, Visual Studio integration
+\end_layout
+
+\begin_layout Itemize
+
+\color blue
+NIH
+\color inherit
+: via NiPy grant
+\end_layout
+
+\begin_layout Itemize
+
+\color blue
+NSF
+\color inherit
+: via Sage compmath grant
+\end_layout
+
+\begin_layout Itemize
+
+\color blue
+Google
+\color inherit
+: summer of code 2005, 2010.
+\end_layout
+
+\begin_layout Itemize
+
+\color blue
+DoD/HPTi
+\color inherit
+.
+\end_layout
+
+\begin_layout BeginPlainFrame
+(Incomplete) Cast of Characters
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\size footnotesize
+Brian Granger
+\series default
+ - Cal State San Luis Obispo Physics
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\size footnotesize
+Min Ragan-Kelley
+\series default
+ - UC Berkeley Nuclear engineering.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\size footnotesize
+Thomas Kluyver
+\series default
+ - U.
+ Sheffield Plant biology
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\size footnotesize
+Jörgen Stenarson 
+\series default
+- SP Technical Research Institute of Sweden
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\size footnotesize
+Paul Ivanov
+\series default
+ - UC Berkeley neuroscience
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\size footnotesize
+Robert Kern
+\series default
+ - Enthought
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\size footnotesize
+Evan Patterson - 
+\series default
+Caltech Physics/Enthought 
+\end_layout
+
+\begin_layout Itemize
+
+\size footnotesize
+Stefan van der Walt - UC Berkeley
+\end_layout
+
+\begin_layout Itemize
+
+\size footnotesize
+John Hunter - TradeLink Securities, Chicago.
+\end_layout
+
+\begin_layout Itemize
+
+\size footnotesize
+Prabhu Ramachandran - Aerospace Engineering, IIT Bombay
+\end_layout
+
+\begin_layout Itemize
+
+\size footnotesize
+Satra Ghosh- MIT Neuroscience
+\end_layout
+
+\begin_layout Itemize
+
+\size footnotesize
+Gaël
+\series bold
+ 
+\series default
+Varoquaux - Neurospin (Orsay, France)
+\end_layout
+
+\begin_layout Itemize
+
+\size footnotesize
+Ville Vainio - CS, Tampere University of Technology, Finland
+\end_layout
+
+\begin_layout Itemize
+
+\size footnotesize
+Barry Wark - Neuroscience, U.
+ Washington.
+\end_layout
+
+\begin_layout Itemize
+
+\size footnotesize
+Ondrej Certik - Physics, U Nevada Reno
+\end_layout
+
+\begin_layout Itemize
+
+\size footnotesize
+Darren Dale - Cornell
+\end_layout
+
+\begin_layout Itemize
+
+\size footnotesize
+Justin Riley - MIT 
+\end_layout
+
+\begin_layout Itemize
+
+\size footnotesize
+Mark Voorhies - UC San Francisco
+\end_layout
+
+\begin_layout Itemize
+
+\size footnotesize
+Nicholas Rougier - INRIA Nancy Grand Est
+\end_layout
+
+\begin_layout Itemize
+
+\size footnotesize
+Thomas Spura - Fedora project
+\end_layout
+
+\begin_layout Itemize
+
+\size footnotesize
+Julian Taylor - Debian/Ubuntu
+\end_layout
+
+\begin_layout Itemize
+
+\size footnotesize
+\color blue
+Many more! (~140 commit authors)
+\end_layout
+
+\begin_layout Section
+Lessons from the open source world
+\end_layout
+
+\begin_layout BeginPlainFrame
+What does it take to get reproducible research 
+\emph on
+results?
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\series bold
+\size larger
+\color blue
+Reproducible research practices!
+\end_layout
+
+\begin_layout Pause
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\series bold
+\size larger
+\color blue
+Reproducibility at publication time? 
+\color red
+
+\begin_inset Newline newline
+\end_inset
+
+It's already too late.
+\end_layout
+
+\begin_layout Pause
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\series bold
+\size larger
+\color blue
+Learn from a community (open source) where reproducibility is an everyday
+ practice 
+\begin_inset Newline newline
+\end_inset
+
+(by necessity)
+\end_layout
+
+\begin_layout BeginPlainFrame
+FOSS better than scientific research?
+\end_layout
+
+\begin_layout FrameSubtitle
+FOSS: Free and Open Source Software
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\series bold
+\size large
+\color blue
+Public distributed version control: provenance tracking
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/fperez/talks/fig/ipython_github_commits.png
+	lyxscale 30
+	height 85theight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout BeginPlainFrame
+Pull requests: ongoing peer review
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/fperez/talks/fig/ipython_github_pull1.png
+	lyxscale 30
+	width 90page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout BeginPlainFrame
+Pull requests: back and forth discussion
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/fperez/talks/fig/ipython_github_pull2.png
+	lyxscale 30
+	width 95page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout BeginPlainFrame
+Branches: exploratory work with control
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/fperez/talks/fig/ipython_git_branches2.png
+	lyxscale 30
+	width 95page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout BeginPlainFrame
+Automated tests: validation
+\end_layout
+
+\begin_layout FrameSubtitle
+The IPython build Dashboard: immediate feedback
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename fig/ipython_shining_panda.png
+	lyxscale 30
+	width 95page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout BeginPlainFrame
+Public bug trackers
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename fig/ipython_issues_github.png
+	lyxscale 30
+	width 95page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout BeginPlainFrame
+Versioned science
+\end_layout
+
+\begin_layout FrameSubtitle
+Git: the tool you didn't know you needed
+\end_layout
+
+\begin_layout ExampleBlock
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+Reproducibility? 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Tracking and recreating every step of your work
+\end_layout
+
+\begin_layout Itemize
+In the software world: it's called Version Control!
+\end_layout
+
+\end_deeper
+\begin_layout Pause
+
+\end_layout
+
+\begin_layout Block
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+Git: an enabling technology.
+ Use version control for everything
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Paper/grant 
+\color blue
+writing
+\color inherit
+ (
+\color red
+never
+\color inherit
+ get 
+\family typewriter
+paper_v5_john.tex
+\family default
+ by email again!)
+\end_layout
+
+\begin_layout Itemize
+Everyday research: 
+\color blue
+track your results
+\end_layout
+
+\begin_layout Itemize
+
+\color blue
+Teaching
+\color inherit
+ (
+\color red
+never
+\color inherit
+ accept an emailed homework assignment again!)
+\end_layout
+
+\end_deeper
+\begin_layout BeginPlainFrame
+Git for running a course? 
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/fperez/talks/fig/indefero_projects_notes.png
+	lyxscale 30
+	width 95page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout BeginPlainFrame
+One student's work
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/fperez/talks/fig/indefero_projects1.png
+	lyxscale 30
+	width 95page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout BeginPlainFrame
+Details
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/fperez/talks/fig/indefero_projects2.png
+	lyxscale 30
+	width 95page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout BeginPlainFrame
+Benefits of teaching 
+\emph on
+with
+\emph default
+ Git
+\end_layout
+
+\begin_layout Itemize
+Automatic 
+\color blue
+timestamping
+\color inherit
+ of all work.
+\end_layout
+
+\begin_layout Itemize
+
+\color blue
+Distributed backup
+\color inherit
+: the dog can 
+\emph on
+not
+\emph default
+ eat their homework!
+\end_layout
+
+\begin_layout Itemize
+They can work from any computer.
+\end_layout
+
+\begin_layout Itemize
+Easy downloading of all class materials without a million clicks.
+\end_layout
+
+\begin_layout Itemize
+The end of the email attachment madness.
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\series bold
+\color blue
+Version control as an natural tool, as common as email.
+\end_layout
+
+\begin_layout Section
+Where is this going?
+\end_layout
+
+\begin_layout BeginFrame
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\series bold
+\size largest
+\color blue
+A brief demo of the IPython notebook
+\end_layout
+
+\begin_layout BeginFrame
+IPython 
+\series bold
+\size largest
+\color blue
+and the lifecycle of scientific ideas
+\end_layout
+
+\begin_layout Itemize
+
+\color blue
+Individual exploration
+\end_layout
+
+\begin_layout Itemize
+
+\color blue
+Collaboration
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Quotes eld
+\end_inset
+
+Google docs with a brain
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\color blue
+Large-scale parallel production work
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+IPython notebook on Amazon EC2: MIT's StarCluster
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\color blue
+Publication
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Generation of HTML/PDF/EPub...
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Quotes eld
+\end_inset
+
+Executable papers
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\color blue
+Education
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Workshops and bootcamps (UC Berkeley, elsewhere)
+\end_layout
+
+\end_deeper
+\begin_layout BeginFrame
+The executable paper: Titus Brown (MSU), 3/21/12
+\end_layout
+
+\begin_layout FrameSubtitle
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://arxiv.org/abs/1203.4802
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename fig/titus_diginorm_paper.png
+	lyxscale 30
+	width 85text%
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout BeginFrame
+Titus' IPython notebook, runs on Amazon Cloud
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename fig/titus_diginorm_paper1.png
+	lyxscale 30
+	width 85text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout BeginPlainFrame
+Next steps...
+\end_layout
+
+\begin_layout Itemize
+
+\color blue
+IPython
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Executable examples in 
+\color blue
+books
+\color inherit
+ (with a large US publisher)
+\end_layout
+
+\begin_layout Itemize
+A full book on 
+\color blue
+brain imaging and statistics
+\color inherit
+ (JB Poline - Neurospin).
+\end_layout
+
+\begin_layout Itemize
+
+\color blue
+DoD
+\color inherit
+ - classic 
+\color blue
+HPC
+\color inherit
+ environments.
+\end_layout
+
+\begin_layout Itemize
+Notebook: a 
+\color blue
+format beyond Python
+\color inherit
+ (R, matlab, etc...)
+\end_layout
+
+\begin_layout Itemize
+
+\color blue
+UK
+\color inherit
+: Python in education and the Raspberry Pi.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\color blue
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+Numfocus.org
+\end_layout
+
+\end_inset
+
+
+\color inherit
+: a foundation
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+interface with industry.
+\end_layout
+
+\begin_layout Itemize
+support open source scientific Python
+\end_layout
+
+\begin_layout Itemize
+produce educational materials
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\color blue
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+Github.com
+\end_layout
+
+\end_inset
+
+
+\color inherit
+: collaborations on 'versioned science'.
+\end_layout
+
+\begin_layout BeginPlainFrame
+Things are changing...
+\end_layout
+
+\begin_layout Itemize
+
+\color blue
+Journal
+\color inherit
+ policies...
+\end_layout
+
+\begin_layout Itemize
+
+\color blue
+Funding
+\color inherit
+ agencies...
+\end_layout
+
+\begin_layout Itemize
+Needs of everyday 
+\color blue
+science
+\color inherit
+...
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+So we 
+\color blue
+must
+\color inherit
+ also change:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Improve our computational 
+\color blue
+praxis
+\end_layout
+
+\begin_layout Itemize
+Better 
+\color blue
+educate
+\color inherit
+ our students
+\end_layout
+
+\begin_layout Itemize
+
+\color blue
+Acknowledge
+\color inherit
+ computational work alongside other metrics of academic work.
+\end_layout
+
+\end_deeper
+\begin_layout EndFrame
+
+\end_layout
+
+\end_body
+\end_document

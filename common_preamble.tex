@@ -1,0 +1,89 @@
+% Latex preamble that can be included in all subdocuments of a compound lyx/tex
+% file.  This allows each subfile to be compiled on its own for quick checks,
+% while the master file can also be built for final distribution with full
+% cross-references, bibliography, etc.
+%-----------------------------------------------------------------------------
+% Special-purpose color definitions (dark enough to print OK in black and white)
+\usepackage{color}
+
+% A few colors to replace the defaults for certain link types
+\definecolor{orange}{cmyk}{0,0.4,0.8,0.2}
+\definecolor{darkorange}{rgb}{.71,0.21,0.01}
+\definecolor{darkgreen}{rgb}{.12,.54,.11}
+
+%-----------------------------------------------------------------------------
+% The hyperref package gives us a pdf with properly built
+% internal navigation ('pdf bookmarks' for the table of contents,
+% internal cross-reference links, web links for URLs, etc.)
+\usepackage{hyperref}
+\hypersetup{pdftex,  % needed for pdflatex
+  breaklinks=true,  % so long urls are correctly broken across lines
+  colorlinks=true,
+  urlcolor=blue,
+  linkcolor=darkorange,
+  citecolor=darkgreen,
+  }
+
+%-----------------------------------------------------------------------------
+% This helps prevent overly long lines that stretch beyond the margins
+\sloppy
+
+%-----------------------------------------------------------------------------
+% Use and configure listings package for nicely formatted code
+\usepackage{listings}
+\lstset{
+  language=Python,
+  basicstyle=\small\ttfamily,
+  commentstyle=\ttfamily\color{blue},
+  stringstyle=\ttfamily\color{darkorange},
+  showstringspaces=false,
+  breaklines=true,
+  postbreak = \space\dots
+}
+
+%-----------------------------------------------------------------------------
+%
+% Commands for annotating the docs with fixme and inter-author notes.  See
+% below for how to disable these.
+%
+% Define a \fixme command to mark visually things needing fixing in the draft,
+% as well as similar commands for each author to leave initialed special
+% comments in the document.
+% For final printing or to simply disable these bright warnings, copy
+% (there's a target macros_off' in the makefile that does this) the file
+% macros_off.tex to macros.tex
+
+\newcommand{\fix}[1] { \textcolor{red} {
+{\fbox{ {\bf FIX} \ensuremath{\blacktriangleright }} {\bf #1}
+\fbox{\ensuremath{\blacktriangleleft} } } } }
+
+% And similarly, one (less jarring, with fewer symbols and no boldface) command
+% for each one of us to leave comments in the main text.
+\newcommand{\fperez}[1] { \textcolor{blue} {
+\ensuremath{\blacklozenge} {\bf fperez:}  {#1}
+\ensuremath{\blacklozenge} } }
+
+\newcommand{\bgranger}[1] { \textcolor{darkgreen} {
+\ensuremath{\bullet} {\bf bgranger:}  {#1}
+\ensuremath{\bullet} } }
+
+\newcommand{\mbrett}[1] { \textcolor{darkorange} {
+\ensuremath{\blacksquare} {\bf mbrett:}  {#1}
+\ensuremath{\blacksquare} } }
+
+\newcommand{\jb}[1] { \textcolor{darkgreen} {
+\ensuremath{\bigstar} {\bf jb:}  {#1}
+\ensuremath{\bigstar} } }
+
+% Input a file that can optionally disable these special macros.  By writing
+% this file out, we can de-activate these macros with one call to produce final
+% distribution-ready versions of the document.  Use the makefile target 'make
+% macros_off' for this purpose.
+%\input{macros}
+
+% Label figures consequetively, rather than per section
+% \usepackage{caption}
+% \captionsetup{%
+%   figurewithin=none,
+%   tablewithin=none
+% }
