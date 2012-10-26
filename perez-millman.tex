@@ -1,0 +1,516 @@
+\documentclass[ChapterTOCs,krantz2]{krantz} % Use krantz2 for 7" x 10" trim size
+\usepackage{graphicx}
+\usepackage{subfigure}
+
+%-----------------------------------------------------------------------------
+% The hyperref package gives us a pdf with properly built
+% internal navigation ('pdf bookmarks' for the table of contents,
+% internal cross-reference links, web links for URLs, etc.)
+%\usepackage{hyperref}
+
+\usepackage{url}
+
+%% Define a new 'leo' style for the package that will use a smaller font.
+\makeatletter
+\def\url@leostyle{%
+  \@ifundefined{selectfont}{\def\UrlFont{\sf}}{\def\UrlFont{\small\ttfamily}}}
+\makeatother
+%% Now actually use the newly defined style.
+\urlstyle{leo}
+
+\begin{document}
+
+\title{Dummy title}
+\author{Dummy author}
+\chapter*{Dummy chapter needed for the \textbackslash chapterauthor command to work later}
+
+\mainmatter
+
+\chapterauthor{Fernando P\'{e}rez}{Henry H. Wheeler Jr. Brain Imaging Center\\
+Helen Wills Neuroscience Institute\\
+University of California, Berkeley}
+\chapterauthor{K. Jarrod Millman}{Division of Biostatistics\\
+School of Public Health\\
+University of California, Berkeley}
+
+
+\chapter{Open source software and scientific research}
+
+As active members of both the scientific research and the open-source
+software development communities, we have observed that the latter
+often lives up better than the former to our ideals of scientific
+openness and reproducibility.  We explore the reasons behind this,
+and argue that these problems are particularly acute in computational
+domains where they should be in fact less prevalent.   We discuss
+how we can draw specific lessons from the open source community both
+in terms of technical approaches and of changing the structure of
+incentives, to make progress towards a more solid base for reproducible
+computational research.
+
+\section{Introduction}\label{intro}
+\begin{itemize}
+\item Levels of reproducibility: replication, validation, reproduction,
+new construction.
+\item Conditions: clarity, transparency and traceability, predictability
+(which requires automation), communicability
+\end{itemize}
+
+\subsection{Crisis in computationally-driven science}
+
+Computing: part of the DNA of science
+
+Much more than ``the third branch'' of science
+\begin{itemize}
+\item An avalanche of experimental quantitative data
+
+\begin{itemize}
+\item Biology, genetics, neuroscience, astronomy, climate modeling...
+\end{itemize}
+\item All scientists must now do real computing
+\item ``Big Data'', ``Cloud computing'', etc: lots of buzzwords...
+
+\begin{itemize}
+\item They will \textbf{NOT} automatically produce good science
+\end{itemize}
+\item Good computing is now a necessary (though not
+sufficient!) condition for good science.
+\end{itemize}
+A crisis of credibility and real issues
+\begin{itemize}
+\item <+>\textbf{The Duke clinical trials }\textbf{scandal}\textbf{
+}- Potti/Nevin
+
+\begin{itemize}
+\item A compounding of (common and otherwise) data analysis errors.
+\item No materials allowing validation/reproduction of results.
+\item \textbf{Patients were harmed}.
+\item Lawsuits, resignations.
+\item Major policy reviews and changes: NCI, IOM, ...
+%\item More: see ef{http://bioinformatics.mdanderson.org/Supplements/ReproRsch-All/Modified/StarterSet/index.html}{K. Baggerly's "starter set" page}.
+\end{itemize}
+\item The Duke situation is more common than we'd like
+to believe!
+
+\begin{itemize}
+\item Begley \& Ellis, Nature, 3/28/12: {\emph Drug development:
+Raise standards for preclinical cancer research.}
+\item 47 out of 53 ``landmark papers'' could not be replicated.
+\end{itemize}
+\item Nature, Feb 2012, Ince et al: {\emph The case
+for open computer programs}
+
+\begin{itemize}
+\item The scientific community places more faith in computation
+than is justified
+\item anything less than the release of actual source code is an
+indefensible approach for any scientific results that depend on computation
+\end{itemize}
+\item Retraction rates are going up (find citation)
+\end{itemize}
+
+\subsection{A contrast in cultures }
+
+Open source software development uses public fora for most discussion
+and systems for sharing code and data that are, in practice, powerful
+provenance tracking systems. There is a strong culture of public disclosure,
+tracking and fixing of bugs, and development often includes exhaustive
+validation tests that are executed automatically whenever changes
+are made to the software and whose output is publicly available on
+the internet. This helps with early detection of problems, mitigates
+their recurrence, and ensures that the state and quality of the software
+is a known quantity under a wide variety of situations (operating
+systems, inputs, parameter ranges, etc). Additionally, the same systems
+that are used for sharing the code track the authorship of contributions.
+All of this ensures that open collaboration does not dilute the merit
+or recognition of any individual developer, and allows for a meritocracy
+of contributors to develop while enabling highly effective collaboration.
+
+In sharp contrast, the incentives in computational research are strongly
+biased towards the rapid publication of papers without any realistic
+requirement of validation. The outcome is that results from publications
+in computationally-based research (applied to any specific field of
+inquiry) are often, in practice, impossible to reproduce. Sometimes
+this is due to the code not being available at all in the first place.
+Authors often do make codes available --thus fulfilling a token requirement
+of disclosure-- but in such a state that this disclosure is not a
+practical solution to the reproducibility problem. A static archive
+of source code that has never been tested in a computer or operating
+system outside of the author's, never been audited by external eyes
+and with no automatic testing built into it, is highly unlikely to
+work reliably when used in a completely new environment.
+
+
+\subsection{The realities of transplanting approaches }
+
+Notwithstanding the above, there are real issues with attempting to
+naïvely transplant the practices of open source development verbatim
+to computational research. The open source model ends up being one
+where, in practice, the copyright and authorship of any large collaborative
+project is spread amongst many authors, possibly thousands. While
+the source control tools in use do allow for a relatively precise
+provenance analysis to be performed if desired, this is rarely done
+and its success is contingent on the community having followed certain
+steps rigorously to ensure that attribution was correctly recorded
+during development.
+
+This is not a major issue in open source, as the rewards mechanisms
+tend to be more informal and based on the overall recognition of any
+one contributor in the community. Sometimes people contribute to open
+source projects as part of their official work responsibilities, and
+in that case a company can enact whatever policies it deems necessary;
+often contributions are made by volunteers for whom an acknowledgment
+in the project's credits is sufficient recognition.
+
+In contrast, the academic world overwhelmingly weighs the authorship
+of scholarly articles and conference proceedings as the main driver
+of all forms of professional advancement and reward. In this system,
+the pecking order of authorship matters enormously (with the many
+unpleasant consequences familiar to all of us), and so does the total
+number of authors in a publication. While in certain communities papers
+with thousands of authors do exist (experimental high-energy physics
+being the classic example), most scientists need the prominent visibility
+they can achieve in a short author list. This dilution of authorship
+that can result from a largely open collaborative development model
+is an important issue that must be addressed by any proposal we present.
+
+Furthermore, the notion of a fully open development model typical
+of open source projects is at sharp odds with another aspect of the
+scientific publication and reward system: the ``first
+to publish'' race. Most scientists would, understandably,
+be very leery of exposing their projects to an openly accessible website
+when in their embryonic stages. The fear of being scooped by others
+is very real, and again we must properly address it as we consider
+how to apply the lessons of open source development to the scientific
+context.
+
+
+\subsection{The limits of scientific computational reproducibility }
+
+As we seek to learn how the open source praxis can inform our scientific
+work, we must recognize that the ideal of scientific reproducibility
+is by necessity a reality of shades. We can see a gradation that goes
+from a pure mathematical result whose proof should be accessible to
+any person skilled in the necessary specialty, to one-of-a-kind experiments
+such as the Large Hadron Collider or the Hubble Space Telescope, that
+can't be reproduced in any realistic sense. At each point in this
+spectrum, however, we can always find ways to improve our confidence
+in the results: whether we re-analyze the same unique datasets with
+independently developed packages run by separate groups or we re-acquire
+partial samplings of critical data multiple times, we should never
+completely renounce the ideals of reproducibility because of practical
+difficulties.
+
+Similarly, in computational research we also have certain areas where
+complete reproducibility is more challenging than others. Some projects
+require computations carried on the largest supercomputers on the
+planet, and these are very expensive resources that can't be arbitrarily
+allocated for repeated executions of the same problem. Others may
+require access to enormous datasets that can't easily be transferred
+to the desktop of any researcher wishing to re-execute an analysis.
+But again, alternatives exist: it should be possible to validate scaled
+versions of the largest problems run independently, against scaled
+specimens created on the supercomputers for this very purpose, and
+sub-sampled datasets can be used to collect at least validation statistics
+that may be informative of the trust we place on the published analysis.
+
+ 
+\subsection{Some ideas moving forward }
+
+Ultimately, while it is true that there are real issues with applying
+the ideals of computational reproducibility from open source software
+development to computational research, we can and must do better.
+We sketch here some ideas on concrete lessons we can learn from software
+development in this direction:
+\begin{itemize}
+\item Pervasive version control: research codes should be developed, while
+still in-house, \emph{always} using version control systems that track
+the actual history of everyone's contributions.
+\item Journals should mandate that upon paper \emph{approval} (but before
+actual publication and with said publication being conditioned on
+the author meeting this last condition), authors must expose their
+version control system to the public, and that the publicly available
+version can faithfully reproduce (within the limitations discussed
+above) the published results. This public version then becomes available
+for the scientific community not only for download, but also as a
+starting point for further contribution and development.
+\item By using a distributed version control system, authors can continue
+to maintain a private branch where new work (say leading to a new
+publication) is conducted while tracking the public development. This
+will enable them to maintain exclusive access to their new work until
+it is published, while continuing to develop the openly accessible
+code with the rest of the scientific community. Once the code is published,
+since it was developed using the same version control machinery of
+the public branch, the new contributions can be seamlessly merged
+with the public version and their entire provenance (including information
+such as time of invention and individual credit within the lab) becomes
+available for inspection.
+\end{itemize}
+In summary, we think that a few simple lessons can be learned from
+the practices of the open source world which, if carefully assimilated,
+can lead to significant improvements in the state of reproducible
+computational research. 
+
+
+
+
+%\begin{center}
+%{\large The }\textcolor{blue}{\large rigor}{\large , }\textcolor{blue}{\large openness}{\large ,
+%culture of }\textcolor{blue}{\large validation}{\large , }\textcolor{blue}{\large collaboration}{\large{}
+%and other aspects of science }\textbf{\textcolor{blue}{\large must}}{\large{}
+%also become part of scientific computing.}
+%\par\end{center}{\large \par}
+
+\section{Lessons from Open Source}
+
+\subsection{A history of two cultures}
+
+
+\subsubsection{The ideals of science and the reality of today's praxis}
+
+Royal society motto, religion vs science, central authority vs the
+ability of individuals to verify, the triumph of reason.
+
+
+\subsubsection{The early days of computing}
+
+The early days of computing \emph{were open}: von Neumann's reports
+(SIAM article, SIAM review \textbf{53} (4) 2011, pp607-682. A history
+of how open early computing was. 
+
+
+\subsubsection{The software crisis}
+
+Dijkstra's quote, 1972 ACM.
+
+
+\subsubsection{The world of OSS}
+
+Computing started to close up in the 70's, AT\&T's lockdown of Unix
+and Bill Gates' letter to computer hobbyists (Jan'76). Stallman's
+story with printer drivers, a reaction to centralized, locked-down
+models: the GNU/FSF movement is born. Linux: OSS for the masses. The
+rise of the internet as powered by linux.
+
+
+\subsubsection{Why OSS is relevant to science}
+\begin{itemize}
+\item Science becomes computing
+\item Both building a hierarchical structure
+\item freedom to believe differently
+\end{itemize}
+
+
+
+
+\subsection{Best practices}
+
+
+\subsection{Distributed version control and collaboration}
+
+
+
+\section{\label{sec:lifecycle}The lifecycle of computational research}
+
+Scientific research has become pervasively computational. In addition
+to experiment and theory, the notions of simulation and data-intensive
+discovery have emerged as third and fourth pillars of science \cite{4th-paradigm}.
+Today, even theory and experiment are computational, as virtually
+all experimental work requires computing (whether in data collection,
+pre-processing or analysis) and most theoretical work requires symbolic
+and numerical support to develop and refine models. Scanning the pages
+of any major scientific journal, one is hard-pressed to find a publication
+in any discipline that doesn't depend on computing for its findings.
+
+And yet, for all its importance, computing is often treated as an
+afterthought both in the training of our scientists and in the conduct
+of everyday research. Most working scientists have witnessed how computing
+is treated as a task of secondary importance that students and postdocs
+learn ``on the go'' with little training to ensure that results
+are trustworthy, comprehensible and ultimately a solid foundation
+for reproducible outcomes. Software and data are stored with poor
+organization, documentation and tests. A patchwork of software tools
+is used with limited attention paid to capturing the complex workflows
+that emerge, and the evolution of code is often not tracked over time,
+making it difficult to understand how a result was obtained. Finally,
+many of the software packages used by scientists in research are proprietary
+and closed-source, preventing the community from having a complete
+understanding of the final scientific results. The consequences of
+this cavalier approach are serious. Consider, just to name two widely
+publicized cases, the loss of public confidence in the``Climategate''
+fiasco \cite{Hef10} or the Duke cancer trials scandal, where sloppy
+computational practices likely led to severe health consequences for
+several patients \cite{Cou10}. 
+
+This is a large and complex problem that requires changing the educational
+process for new scientists, the incentive models for promotions and
+rewards, the publication system, and more. We do not aim to tackle
+all of these issues here, but our belief is that a central element
+of this problem is the nature and quality of the software tools available
+for computational work in science. Based on our experience over the
+last decade as practicing researchers, educators and software developers,
+we propose an integrated approach to computing where the entire life-cycle
+of scientific research is considered, from the initial exploration
+of ideas and data to the presentation of final results. Briefly, this
+life-cycle can be broken down into the following phases:
+\begin{itemize}
+\item \textbf{Individual exploration:} a single investigator tests an idea,
+algorithm or question, likely with a small-scale test data set or
+simulation.
+\item \textbf{Collaboration:} if the initial exploration appears promising,
+more often than not some kind of collaborative effort ensues.
+\item \textbf{Production-scale execution:} large data sets and complex simulations
+often require the use of clusters, supercomputers or cloud resources
+in parallel.
+\item \textbf{Publication:} whether as a paper or an internal report for
+discussion with colleagues, results need to be presented to others
+in a coherent form.
+\item \textbf{Education:} ultimately, research results become part of the
+corpus of a discipline that is shared with students and colleagues,
+thus seeding the next cycle of research.
+\end{itemize}
+In this project, we tackle the following problem.\textbf{ There are
+no software tools capable of spanning the entire lifecycle of computational
+research.} The result is that researchers are forced to use a large
+number of disjoint software tools in each of these phases in an awkward
+workflow that hinders collaboration and reduces efficiency, quality,
+robustness and reproducibility.
+
+These can be illustrated with an example: a researcher might use Matlab
+for prototyping, develop high-performance code in C, run post-processing
+by twiddling controls in a Graphical User Interface (GUI), import
+data back into Matlab for generating plots, polish the resulting plots
+by hand in Adobe Illustrator, and finally paste the plots into a publication
+manuscript or PowerPoint presentation. But what if months later the
+researcher realizes there is a problem with the results? What are
+the chances they will be able to know what buttons they clicked, to
+reproduce the workflow that can generate the updated plots, manuscript
+and presentation? What are the chances that other researchers or students
+could reproduce these steps to learn the new method or understand
+how the result was obtained? How can reviewers validate that the programs
+and overall workflow are free of errors? Even if the researcher successfully
+documents each program and the entire workflow, they have to carry
+an immense cognitive burden just to keep track of everything.
+
+
+\subsection{The patchwork of existing software tools}
+
+For \textbf{individual exploratory work}, researchers use various
+interactive computing environments: Microsoft Excel, Matlab, Mathematica,
+Sage \cite{sage}, and more specialized systems like R, SPSS and STATA
+for statistics. These environments combine interactive, high-level
+programming languages with a rich set of numerical and visualization
+libraries. The impact of these environments cannot be overstated;
+they are used almost universally by researchers for rapid prototyping,
+interactive exploration and data analysis and visualization. However,
+these environments have a number of limitations: (a) some of them
+are proprietary and/or expensive (Excel, Matlab, Mathematica), (b)
+most (except for Sage) are focused on coding in a single, relatively
+slow, programming language and (c) most (except for Sage and Mathematica)
+do not have a document format that is rich, i.e., that can include
+text, equations, images and video in addition to source code. While
+the use of proprietary tools isn't a problem \emph{per se} and may
+be a good solution in industry, it is a barrier to scientific collaboration
+and to the construction of a common scientific heritage. Scientists
+can't share work unless all colleagues can purchase the same package,
+students are forced to work with black boxes they are legally prevented
+from inspecting (spectacularly defeating the very essence of scientific
+inquiry), and years down the road we may not be able to reproduce
+a result that relied on a proprietary package. Furthermore, because
+of their limitations in performance and handling large, complex code
+bases, these tools are mostly used for prototyping: researchers eventually
+have to switch tools for building production systems.
+
+For \textbf{collaboration}, researchers currently use a mix of email,
+version control systems and shared network folders (Dropbox, etc.).
+Version control systems (Git, SVN, CVS, etc.) are critically important
+in making research collaborative and reproducible. They allow groups
+to work collaboratively on documents and track how those documents
+evolve over time. Ideally, all aspects of computational research would
+be hosted on publicly available version control repositories, such
+GitHub or Google Code. Unfortunately, the most common approach is
+still for researchers to email documents to each other. This form
+of collaboration makes it nearly impossible to track the development
+of a large project and establish reproducible and testable workflows.
+When it works at all, it most certainly doesn't scale beyond a very
+small group, as painfully experienced by anyone who has participated
+in the madness of a flurry of email attachments. 
+
+For \textbf{production-scale execution}, researchers are forced to
+turn away from the convenient interactive computing environments to
+compiled code (C/C++/Fortran) and parallel computing libraries (MPI,
+Hadoop), as most interactive systems don't provide the performance
+necessary for large-scale work and have primitive parallel support.
+These tools are difficult to learn and use and require large time
+investments. We emphasize that before production-scale computations
+begin, the researchers have already developed a mostly functional
+prototype in an interactive computing environment. Turning to C/C++/Fortran
+for production means starting over from scratch and maintaining at
+least two versions of the code moving forward. Furthermore, data produced
+by the compiled version has to be imported back into the interactive
+environment for visualization and analysis. The resulting back-and-forth,
+complex workflow is nearly impossible to capture and put into version
+control systems, again making the computational research difficult
+to reproduce.
+
+For \textbf{publications} and\textbf{ presentations}, researchers
+use tools such as \LaTeX{}, Google Docs or Microsoft Word/PowerPoint.
+The most important attribute of these tools in this context is that
+they don't integrate well with version control systems (\LaTeX{} excepted)
+and with other computational tools. Digital artifacts (code, data
+and visualizations) have to be manually pasted into these documents,
+so that the same content is duplicated in many different places. When
+the artifacts change, the documents quickly become out of sync. 
+
+
+\subsection{IPython}
+
+We propose that the open source IPython project \cite{PER-GRA:2007}
+offers a solution to these problems; a single software tool capable
+of spanning the entire life-cycle of computational research. Amongst
+high-level open source programming languages, Python is today the
+leading tool for general-purpose source scientific computing (along
+with R for statistics), finding wide adoption across research disciplines,
+education and industry and being a core infrastructure tool at institutions
+such as CERN and the Hubble Space Telescope Science Institute \cite{Perez2011,ganga09,SST}.
+The PIs created IPython as a system for interactive and parallel computing
+that is the\emph{ de facto} environment for scientific Python. In
+the last year we have developed the IPython Notebook, a web-based\emph{
+interactive computational notebook} that combines code, text, mathematics,
+plots and rich media into a single document format (see Fig.~\ref{fig:IPython-notebook}).
+The IPython Notebook was designed to enable researchers to move fluidly
+between all the phases of the research life-cycle and has gained rapid
+adoption. It provides an integrated environment for all computation,
+without locking scientists into a specific tool or format: Notebooks
+can always be exported into regular scripts and IPython supports the
+execution of code in other languages such as R, Octave, bash, etc.
+In this project we will expand its capabilities and relevance in the
+following phases of the research cycle: interactive exploration, collaboration
+and publication/presentation.
+
+\begin{figure}
+\begin{centering}
+\includegraphics[width=3.2in]{fig/ipython-notebook-specgram.png}
+\par\end{centering}
+
+\caption{\label{fig:IPython-notebook}The web-based IPython Notebook combines
+explanatory text, mathematics, multimedia, code and the results from
+executing the code.}
+\end{figure}
+
+
+
+\section{Conclusion}\label{conclusion}
+
+\subsection{Changing the culture of science and the role of incentive models}
+
+Science has become computational, but the incentive models of science
+are single-mindedly focused on paper-oriented publications that completely
+ignore the very existence of a computational process. Papers are accepted 
+
+Open{*}: software, access (Elsevier), education, review.
+
+
+\bibliographystyle{plain}
+\bibliography{ipython}
+
+\end{document}
