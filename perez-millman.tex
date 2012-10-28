@@ -298,35 +298,23 @@ In the remainder of this chapter, we \ldots
 
 \section{Lessons from Open Source}
 
-Lab-based software package competition
-
-- state-of-the-art algorithms seldomly used
-
-  - code not available
-  - code not usable
-
-- solved problems in theory |emdash| not in practice
-- competition at the level of software |emdash| not algorithms
-
 Scientists as developers
 
 Reasons
 
-- developing state-of-the-art methods
-- developing as exploration
+\begin{itemize}
+\item  developing state-of-the-art methods
+\item developing as exploration
+\end{itemize}
 
 Implications
 
-- need development tools to enable
-- scientists will need to be computationally literate
+\begin{itemize}
+\item need development tools to enable
+\item scientists will need to be computationally literate
+\end{itemize}
 
 Purpose:  Better Research
-
-Neuroscience ideas and analysis ideas develop together. Good
-ideas come from understanding; understanding comes from clarity, and clarity
-must come from well-designed teaching materials and well-designed software. The
-software must be designed as a natural extension of the underlying ideas.
-
 
 \subsection{Two cultures}
 
@@ -530,6 +518,20 @@ Hashing
 
 \subsection{Collaboration}
 
+Lab-based software package competition
+
+\begin{itemize}
+\item  state-of-the-art algorithms seldomly used
+
+\begin{itemize}
+\item code not available
+\item code not usable
+\end{itemize}
+
+\item solved problems in theory---not in practice
+\item competition at the level of software---not algorithms
+\end{itemize}
+
 \paragraph{ {\bf Distributed version control}}
 
 \begin{itemize}
@@ -548,6 +550,11 @@ available for inspection.
 
 \paragraph{ {\bf Pull requests: ongoing peer review}}
 
+\paragraph{ {\bf Pull requests: back and forth discussion}}
+
+\paragraph{ {\bf Branches: exploratory work with control}}
+
+
 \subsection{Moving forward }
 
 Ultimately, while it is true that there are real issues with applying
@@ -555,16 +562,6 @@ the ideals of computational reproducibility from open source software
 development to computational research, we can and must do better.
 We sketch here some ideas on concrete lessons we can learn from software
 development in this direction:
-\begin{itemize}
-\item Journals should mandate that upon paper \emph{approval} (but before
-actual publication and with said publication being conditioned on
-the author meeting this last condition), authors must expose their
-version control system to the public, and that the publicly available
-version can faithfully reproduce (within the limitations discussed
-above) the published results. This public version then becomes available
-for the scientific community not only for download, but also as a
-starting point for further contribution and development.
-\end{itemize}
 In summary, we think that a few simple lessons can be learned from
 the practices of the open source world which, if carefully assimilated,
 can lead to significant improvements in the state of reproducible
@@ -730,9 +727,9 @@ execution of code in other languages such as R, Octave, bash, etc.
 \item interactive exploration
 \item collaboration
 \item production-scale
-\item publication/presentation
+\item publication/presentation \cite{brown2012single}
 \item education
-
+ 
 \end{itemize}
 \begin{figure}
 \begin{centering}
@@ -752,9 +749,43 @@ This is a large and complex problem that requires changing the educational
 process for new scientists, the incentive models for promotions and
 rewards, the publication system, and more.
 
-Open{*}: software, access (Elsevier), education, review.
 
 \subsection{Changing culture}
+
+Open{*}: software, access (Elsevier), education, review.
+
+Internet: interactions for humans, code and data
+
+\begin{itemize}
+\item Open Source Software
+
+\begin{itemize}
+\item development akin to scientific culture
+\item viable alternatives to proprietary software
+\item tools and lessons for improving the scientific process: Github
+\end{itemize}
+
+\item Open Access
+
+\begin{itemize}
+\item \url{thecostofknowledge.org}: Elsevier boycott
+\item FRPAA House hearing on March 29th.
+\end{itemize}
+
+\item Open Education
+
+\begin{itemize}
+\item MIT Open Courseware, Khan Academy\ldots
+\item Stanford CS 221 in fall 2011: \textasciitilde{}160,000 students.
+\item Spring 2012:
+
+\begin{itemize}
+\item Sebastian Thrun leaves Stanford: Udacity.
+\item Stanford: Coursera.
+\end{itemize}
+\item MITx, TED-Ed\ldots
+\end{itemize}
+\end{itemize}
 
 \subsection{Incentive models}
 
@@ -765,6 +796,14 @@ ignore the very existence of a computational process. Papers are accepted
 What role should journals play?
 
 \begin{itemize}
+\item Journals should mandate that upon paper \emph{approval} (but before
+actual publication and with said publication being conditioned on
+the author meeting this last condition), authors must expose their
+version control system to the public, and that the publicly available
+version can faithfully reproduce (within the limitations discussed
+above) the published results. This public version then becomes available
+for the scientific community not only for download, but also as a
+starting point for further contribution and development.
 
 \item supplemental material
 
