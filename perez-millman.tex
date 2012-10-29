@@ -87,7 +87,7 @@ discovery have emerged as third and fourth pillars of science \cite{4th-paradigm
 Today, even theory and experiment are computational, as virtually
 all experimental work requires computing (whether in data collection,
 pre-processing or analysis) and most theoretical work requires symbolic
-and numerical support to develop and refine models. Scanning the pages
+and numerical computing to develop and refine models. Scanning the pages
 of any major scientific journal, one is hard-pressed to find a publication
 in any discipline that doesn't depend on computing for its findings.
 
@@ -96,7 +96,7 @@ afterthought both in the training of new scientists and in the conduct
 of everyday research. Most working scientists have witnessed how computing
 is treated as a task of secondary importance that students and postdocs
 learn ``on the go'' with little training to ensure that results
-are trustworthy, comprehensible and ultimately a solid foundation
+are trustworthy, comprehensible and ultimately a secure foundation
 for reproducible outcomes. Software and data are stored with poor
 organization, documentation and tests. A patchwork of software tools
 is used with limited attention paid to capturing the complex workflows
@@ -108,71 +108,47 @@ understanding of the final scientific results.
 
 \subsection{Growing crisis}
 
-The consequences of
-this cavalier approach are serious. Consider, just to name two widely
-publicized cases, the loss of public confidence in the``Climategate''
-fiasco \cite{Hef10} or the Duke cancer trials scandal, where sloppy
-computational practices likely led to severe health consequences for
-several patients \cite{Cou10}. 
+The situation above will be familiar to all scientists and this familiarity
+may breed complacency. However, the consequences of this situation are serious
+at present and will become disastorous if the situation is not dealt with
+directly. 
 
-Computing: part of the DNA of science
+Much more than a ``third branch'' of science, computing has become so central
+to scientific practice that it is almost unimaginable to find a working
+scientist that could claim the don't use computers at all.  Experimentalist
+from biology to physics and observationalist from astronomy to climate study
+are confronted with an avalanche of quatitative data.  All scientists must now
+do real computing.  As computers continue to increase in compuational power and
+storage capacity, the problems only compound.  While better computing practices
+won't directly translate to better science, current practices do lead to bad
+science.
 
-Much more than ``the third branch'' of science
-\begin{itemize}
-\item An avalanche of experimental quantitative data
+Consider, just to name two widely publicized cases, the loss of public
+confidence in the``Climategate'' fiasco \cite{Hef10} or the Duke cancer trials
+scandal, where sloppy computational practices likely led to severe health
+consequences for several patients \cite{Cou10}. 
 
-\begin{itemize}
-\item Biology, genetics, neuroscience, astronomy, climate modeling...
-\end{itemize}
-\item All scientists must now do real computing
-\item ``Big Data'', ``Cloud computing'', etc: lots of buzzwords...
-
-\begin{itemize}
-\item They will \textbf{NOT} automatically produce good science
-\end{itemize}
-\item Good computing is now a necessary (though not
-sufficient!) condition for good science.
-\end{itemize}
-A crisis of credibility and real issues
-\begin{itemize}
-\item <+>\textbf{The Duke clinical trials }\textbf{scandal}\textbf{
-}- Potti/Nevin
-
-\begin{itemize}
-\item A compounding of (common and otherwise) data analysis errors.
-\item No materials allowing validation/reproduction of results.
-\item \textbf{Patients were harmed}.
-\item Lawsuits, resignations.
-\item Major policy reviews and changes: NCI, IOM, ...
-%\item More: see ef{http://bioinformatics.mdanderson.org/Supplements/ReproRsch-All/Modified/StarterSet/index.html}{K. Baggerly's "starter set" page}.
-\end{itemize}
-\item The Duke situation is more common than we'd like
-to believe!
-
+The situation is more common than we'd like to believe:
 \begin{itemize}
 \item Begley \& Ellis, Nature, 3/28/12: {\emph Drug development:
 Raise standards for preclinical cancer research.}
 \item 47 out of 53 ``landmark papers'' could not be replicated.
 \end{itemize}
-\item Nature, Feb 2012, Ince et al: {\emph The case
-for open computer programs}
-
+See Nature, Feb 2012, Ince et al: {\emph The case for open computer programs}
 \begin{itemize}
 \item The scientific community places more faith in computation
 than is justified
 \item anything less than the release of actual source code is an
 indefensible approach for any scientific results that depend on computation
 \end{itemize}
-\item Retraction rates are going up (find citation)
-\end{itemize}
 
-Doubt is a defining characteristic of the scientific attitude.  It is
-what enable us to question our received knowledge and it is this
-questioning that 
 
 The ability to reproduce and verify results is a hallmark of the
 scientific method.
 
+A crisis of credibility and real issues
+
+Retraction rates are going up \cite{cokol2008retraction,steen2011retractions} 
 \subsection{Contrast of cultures}
 
 Open source software development uses public fora for most discussion
@@ -190,11 +166,11 @@ All of this ensures that open collaboration does not dilute the merit
 or recognition of any individual developer, and allows for a meritocracy
 of contributors to develop while enabling highly effective collaboration.
 
-In sharp contrast, the incentives in computational research are strongly
-biased towards the rapid publication of papers without any realistic
+In contrast, the incentives in scientific research are strongly
+biased towards the rapid publication of novel results without any serious
 requirement of validation. The outcome is that results from publications
-in computationally-based research (applied to any specific field of
-inquiry) are often, in practice, impossible to reproduce. Sometimes
+in computationally-based research, which means essentially any type of
+scientific research, are often impossible to reproduce. Sometimes
 this is due to the code not being available at all in the first place.
 Authors often do make codes available---thus fulfilling a token requirement
 of disclosure---but in such a state that this disclosure is not a
@@ -204,14 +180,13 @@ system outside of the author's, never been audited by external eyes
 and with no automatic testing built into it, is highly unlikely to
 work reliably when used in a completely new environment.
 
-
 \subsection{Pragmatic approach}
 
 Notwithstanding the above, there are real issues with attempting to
 naively transplant the practices of open source development verbatim
 to computational research. The open source model ends up being one
 where, in practice, the copyright and authorship of any large collaborative
-project is spread amongst many authors, possibly thousands. While
+project is spread among many authors, possibly thousands. While
 the source control tools in use do allow for a relatively precise
 provenance analysis to be performed if desired, this is rarely done
 and its success is contingent on the community having followed certain
@@ -234,15 +209,15 @@ unpleasant consequences familiar to all of us), and so does the total
 number of authors in a publication. While in certain communities papers
 with thousands of authors do exist (experimental high-energy physics
 being the classic example), most scientists need the prominent visibility
-they can achieve in a short author list. This dilution of authorship
-that can result from a largely open collaborative development model
-is an important issue that must be addressed by any proposal we present.
+they can achieve in a short author list. The dilution of authorship
+results from a largely open collaborative development model
+is an important issue that must be addressed.
 
 Furthermore, the notion of a fully open development model typical
-of open source projects is at sharp odds with another aspect of the
+of open source projects is at odds with another aspect of the
 scientific publication and reward system: the ``first
-to publish'' race. Most scientists would, understandably,
-be very leery of exposing their projects to an openly accessible website
+to publish'' race. Many scientists are, understandably,
+be leery of exposing their projects on an openly accessible website
 when in their embryonic stages. The fear of being scooped by others
 is very real, and again we must properly address it as we consider
 how to apply the lessons of open source development to the scientific
@@ -250,13 +225,6 @@ context.
 
 
 \subsection{Limits of reproducibility}
-
-\begin{itemize}
-\item Levels of reproducibility: replication, validation, reproduction,
-new construction.
-\item Conditions: clarity, transparency and traceability, predictability
-(which requires automation), communicability
-\end{itemize}
 
 As we seek to learn how the open source praxis can inform our scientific
 work, we must recognize that the ideal of scientific reproducibility
@@ -285,42 +253,84 @@ specimens created on the supercomputers for this very purpose, and
 sub-sampled datasets can be used to collect at least validation statistics
 that may be informative of the trust we place on the published analysis.
 
-%\begin{center}
-%{\large The }\textcolor{blue}{\large rigor}{\large , }\textcolor{blue}{\large openness}{\large ,
-%culture of }\textcolor{blue}{\large validation}{\large , }\textcolor{blue}{\large collaboration}{\large{}
-%and other aspects of science }\textbf{\textcolor{blue}{\large must}}{\large{}
-%also become part of scientific computing.}
-%\par\end{center}{\large \par}
+\begin{itemize}
+\item Levels of reproducibility: replication, validation, reproduction,
+new construction.
+\item Conditions: clarity, transparency and traceability, predictability
+(which requires automation), communicability
+\end{itemize}
+
+While the simple mechanical reproduction of computational results is not a
+pancea in itself; the rigor, openness, culture of validation, collaboration and
+other aspects of science must become a routine part of our compuational practices.
 
 \parasep
 
-In the remainder of this chapter, we \ldots
+In the next section, we share some essential lessons we've learned from our
+participation in several open source development projects and describe how
+these lessons can be applied to scientific practice.  In the following section,
+we present a comprehensive view of the role computing plays in the lifecycle of
+scientific investigation.  In addition to surveying the standard approaches,
+this section ends with a detailed overview of the open source IPython project
+\cite{PER-GRA:2007}, which is a single software tool capable of spanning the
+entire life-cycle of computational research.  Finally, we conclude with a brief
+discussion of how we see the culture changing and the need for reviewing our
+current incentive models and the training of new scientists. 
 
 \section{Lessons from Open Source}
 
-Scientists as developers
+Over the last decade, we've had the privelege of participating in a community
+of scientists, researchers, and engineers to help create a powerful stack of
+tools for scientific computing written in Python.  Among high-level open source
+programming languages, Python is today the leading tool for general-purpose
+source scientific computing (along with R for statistics), finding wide
+adoption across research disciplines, education and industry and being a core
+infrastructure tool at institutions such as CERN and the Hubble Space Telescope
+Science Institute \cite{millman2011python,Perez2011,ganga09,SST}.
 
-Reasons
+Participation in this community has taught us several several important lessons.
 
-\begin{itemize}
-\item  developing state-of-the-art methods
-\item developing as exploration
-\end{itemize}
 
-Implications
-
-\begin{itemize}
-\item need development tools to enable
-\item scientists will need to be computationally literate
-\end{itemize}
-
-Purpose:  Better Research
 
 \subsection{Two cultures}
 
-In his 1959 Rede Lecture, C. P. Snow warned that a lack of understanding
-of scientific ideas among the intellectual classes was a major
-impedement to solving the problems of modern society \cite{snow1960two}.
+In his famous 1959 Rede Lecture, C. P. Snow lamented the separating the two
+cultures of science and humanities.  In particular, he warned that a lack of
+understanding of scientific ideas among the intellectual classes was a major
+impediment to solving the problems of modern society \cite{snow1960two}.
+
+\begin{quote}
+A good many times I have been present at gatherings of people who, by the
+standards of the traditional culture, are thought highly educated and who have
+with considerable gusto been expressing their incredulity at the illiteracy of
+scientists. Once or twice I have been provoked and have asked the company how
+many of them could describe the Second Law of Thermodynamics. The response was
+cold: it was also negative. Yet I was asking something which is about the
+scientific equivalent of: Have you read a work of Shakespeare’s?
+\end{quote}
+
+Similarly we've noticed a separation between the predominant culture of
+science today and that of open source software development. Among the
+many smart, highly-trained, and well-educated scientists we've been
+fortunate to know and work with, it is remarkable how few have basic
+fluency with the standard best practices developed for software development.
+Even among widely-used software analysis packages, it is surprising how
+many are developed without following these practice by routine.
+
+When discussing the situation with colleagues and friends, we've heard numerous
+excuses:
+\begin{itemize}
+\item On using ``We're not software engineers.''
+\item On haphazard and disorganized computational analysis ``We're not curing cancer.''
+\item On programming courses: ``No intelectual content.''
+\item On difficulty of learning new practices: ``Not the way I was trained.''
+\item ``Don't have time.''
+\end{itemize}
+
+Since we've encountered so much resistance among scientists to following best
+practices when writing software, we briefly argue for the necessity for
+scientists to learn these lessons so basic to the culture of open source
+software development.
 
 \paragraph{ {\bf Nullius in Verba}} 
 
@@ -365,6 +375,14 @@ Scientific method
 
 1946  computer simulation
 
+    origin of the scientific method
+        Francis Bacon's Novum Organum (1620) one of the early proponents of experimental science
+        the beginning of the use of controlled, repeatable experiments to advance knowledge
+        provided a method for questioning received wisdom
+    origin of scientific communities
+        small groups started forming
+        official societies such as the Royal Society of London for Improving Natural Knowledge (1660s)
+            Royal Society's motto of nullius in verba (Take nobody's word for it)
 
 \paragraph{ {\bf Cargo cult science}}
 
@@ -379,6 +397,23 @@ Scientific method
 }%
 {\textit{Cargo Cult Science (1974)}\\ \textsc{Richard Feynman} }
 
+%popularized term after his 1974 Caltech commencement speech
+
+As explorers and traders arrived on remote Pacific islands, during the
+late nineteenth century and early twentieth century, they brought manufactured
+goods with them.  Unfamilar with modern industrial manufacturing processes, the
+pre-industrial tribal societies often attributed the cargo to divine origin.
+Among these societies, there are several documented incidents of ``cargo cults''
+arising to bring more cargo to their islands.
+
+ritualistic practices mimicking 
+
+Introduction, Methods, Results and Discussion (IMRAD) structure of the
+scientific paper \cite{sollaci2004introduction,spier2002history}.
+ 
+\cite{medawar1963scientific}.
+
+
 Scientific journals
 
 1660s  first scientific journals
@@ -388,6 +423,27 @@ Scientific journals
 1960s  open access movement begins
 
 1990s  open access becomes more prevalent
+
+the scientific journal and review process have evolved over time as both science and the scientific community have evolved
+
+    the origin of the scientific journal
+        as these scientific societies grew they needed a mechanism to disseminate work and provide attribution
+        journals such as the Society's Philosphical Transactions (1665) edited by Henry Oldenburg appeared
+        initially submission acceptance in these journals was left to the editor's discretion
+        as the volume and diversity of submissions increased, new review procedures were needed
+            (1750s): select group of members formed to review submissions and make recommendations to the editor
+        early scientific journals had more space than articles so journals began adding assistant editors to help solicit articles and reviews
+    peer review limited by existing technologies
+        in addition to a shortage of work to be published technology limited the journals ability create copies of submissions for review
+            advent of typewriters / carbon papers in 1890s simplified making 3-5 copies
+            photocopiers (1959)
+            modern personal computers / printers these limitations vanished
+    new technologies are again changing scientific publications
+        online publications: preprints, continuous revision, open discussion
+    new technologies are also changing the everyday practice of science
+        increased data storage is rapidly expanding the amount of experimental data we can acquire and analyze
+        increased computational power is vastly increasing our ability to model and
+
 
 
 \paragraph{ {\bf Computational practice}}
@@ -441,7 +497,26 @@ models: the GNU/FSF movement is born. Linux: OSS for the masses. The
 rise of the internet as powered by linux.
 
 
-\paragraph{ {\bf OSS relevance to science}}
+\paragraph{ {\bf Scientist programmer}}
+
+Scientists as developers
+
+Reasons
+
+\begin{itemize}
+\item  developing state-of-the-art methods
+\item developing as exploration
+\end{itemize}
+
+Implications
+
+\begin{itemize}
+\item need development tools to enable
+\item scientists will need to be computationally literate
+\end{itemize}
+
+Purpose:  Better Research
+
 \begin{itemize}
 \item Science becomes computing
 \item Both building a hierarchical structure
@@ -468,19 +543,12 @@ Cargo cult programming
 
 Deep magic begins here\ldots
 
-* deep magic
-* black magic
-* shotgun debugging
-* rain dance/waving the dead chicken
-
   deep magic - based on esoteric theoretical knowledge
   
   black magic - based on techniques w/out theoretical explanation
   
   heavy wizadry - based on obscure/undocumented inticracies of specific 
                   harware/software
-  
-  cargo cult programming
   
   shotgun debugging
   
@@ -489,8 +557,6 @@ Deep magic begins here\ldots
   understand.
 
   rain dance - ceremonial action taken to correct a hardware problem
-
-
 
 The recent archiv preprint \ldots \cite{2012arXiv1210.0530A}.
 \paragraph{ {\bf Version control}}
@@ -506,10 +572,84 @@ the actual history of everyone's contributions.
 \end{itemize}
 
 \paragraph{ {\bf Testing}}
+Computing is error-prone
+Testing and debugging
+
+Assertions, input, etc.
+
+Automate it
+
+Regression tests
+
+* don't break existing functionality
+* verify conservation
+* unit tests (white box testing)
+* measure test coverage
+
+dashboard. automated testing on code checkin
+
+Test-Driven Development (TDD)
+
+Add a Failing Test. focuses interface rather implementation, examples of intended code use 
+
+Write Code to Pass Test. the simplest thing that could possibly work.
+
+Refactor. tests give rapid check correctness
+
+Improves code quality
+
+* it is easy to get lost in implementation details
+
+* unit tests redirect attention to thinking about use cases for the code
+
+* difficult to test huge functions with both output and side effects
+
+Improves documentation
+
+* an example is often better than an explanation
+
+* tests don't get out-of-date
+
+More robust code
+
+* TDD leads to quicker isolation of bugs
+
+* that leads to shorter debugging
+
+* facilitates change
+
+* simplifies integration
+
+As E. W. Dijkstra observed, ``Program testing can be used to show the presence
+of bugs, but never to show their absence!`` \cite{dahl1972structured}
 
 \paragraph{ {\bf Project management}}
 
 \paragraph{ {\bf Documentation systems}}
+
+A good documentation tool should
+
+* Be easy to use
+
+* Readable in plain text format, *but* produce beautiful HTML and PDF
+
+* Let you use the editors and tools you prefer
+
+* Facilitate collaboration
+
+NumPy documentation system \cite{SciPyProceedings_27}
+
+Sphinx
+
+* Official documentation tool of python
+
+* And numpy, scipy, ipython, matplotlib, mayavi, \ldots
+
+* Content is searchable, indexed, and cross-referenced
+
+* Generates HTMl and PDF
+
+* Extensible!
 
 \paragraph{ {\bf Data integrity}}
 
@@ -702,16 +842,9 @@ Statistic's community
 
 \subsection{IPython}
 
-We propose that the open source IPython project \cite{PER-GRA:2007}
-offers a solution to these problems; a single software tool capable
-of spanning the entire life-cycle of computational research. Amongst
-high-level open source programming languages, Python is today the
-leading tool for general-purpose source scientific computing (along
-with R for statistics), finding wide adoption across research disciplines,
-education and industry and being a core infrastructure tool at institutions
-such as CERN and the Hubble Space Telescope Science Institute \cite{Perez2011,ganga09,SST}.
-The PIs created IPython as a system for interactive and parallel computing
-that is the\emph{ de facto} environment for scientific Python. In
+
+IPython, a system for interactive and parallel computing, has become
+the\emph{ de facto} environment for scientific Python. In
 the last year we have developed the IPython Notebook, a web-based\emph{
 interactive computational notebook} that combines code, text, mathematics,
 plots and rich media into a single document format (see Fig.~\ref{fig:IPython-notebook}).
