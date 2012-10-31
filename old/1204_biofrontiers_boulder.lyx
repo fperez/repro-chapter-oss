@@ -153,43 +153,12 @@ xleftmargin=3mm,
 \begin_body
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Some things to fix in a future version:
-\end_layout
-
-\begin_layout Plain Layout
-- trim a bit of time
-\end_layout
-
-\begin_layout Plain Layout
-- add more about ipython and my own python work, reduce that of others
-\end_layout
-
-\begin_layout Plain Layout
-- add a final python pros/cons, esp.
- the cons part.
- It will make things more balanced.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 \begin_inset ERT
 status open
 
 \begin_layout Plain Layout
 
 % disable the bottom bar for the title and outline pages
-\end_layout
-
-\begin_layout Plain Layout
-
 \end_layout
 
 \begin_layout Plain Layout
@@ -1159,7 +1128,7 @@ Python in this context
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename ../1009_berkeley_urban/fig/python-logo-inkscape.pdf
+	filename fig/python-logo-inkscape.pdf
 	lyxscale 40
 	width 30text%
 
@@ -1496,7 +1465,7 @@ MayaVi: 3d visualization (VTK)
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename /home/fperez/talks/figs/mayavi_brain_ipython.png
+	filename fig/mayavi_brain_ipython.png
 	lyxscale 50
 	height 95theight%
 
@@ -1574,7 +1543,7 @@ vspace*{-3mm}
 
 
 \begin_inset Graphics
-	filename ../0906_lbl/fig/nx_atlas.png
+	filename fig/nx_atlas.png
 	lyxscale 30
 	width 42mm
 	height 42mm
@@ -1584,7 +1553,7 @@ vspace*{-3mm}
 
 
 \begin_inset Graphics
-	filename ../0906_lbl/fig/nx_chess_masters.png
+	filename fig/nx_chess_masters.png
 	lyxscale 30
 	width 42mm
 	height 42mm
@@ -1594,7 +1563,7 @@ vspace*{-3mm}
 
 
 \begin_inset Graphics
-	filename ../0906_lbl/fig/nx_degree_histogram.png
+	filename fig/nx_degree_histogram.png
 	lyxscale 30
 	width 42mm
 	height 42mm
@@ -1608,7 +1577,7 @@ vspace*{-3mm}
 
 
 \begin_inset Graphics
-	filename ../0906_lbl/fig/nx_giant_component.png
+	filename fig/nx_giant_component.png
 	lyxscale 30
 	width 42mm
 	height 42mm
@@ -1618,7 +1587,7 @@ vspace*{-3mm}
 
 
 \begin_inset Graphics
-	filename ../0906_lbl/fig/nx_knuth_miles.png
+	filename fig/nx_knuth_miles.png
 	lyxscale 30
 	width 42mm
 	height 42mm
@@ -1628,7 +1597,7 @@ vspace*{-3mm}
 
 
 \begin_inset Graphics
-	filename ../0906_lbl/fig/nx_lanl_routes.png
+	filename fig/nx_lanl_routes.png
 	lyxscale 30
 	width 42mm
 	height 42mm
@@ -1646,7 +1615,7 @@ Scikits Learn: (easy to use) machine learning
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename /home/fperez/talks/figs/sklearn_ica2d.pdf
+	filename fig/sklearn_ica2d.pdf
 	lyxscale 25
 	width 49text%
 
@@ -1654,7 +1623,7 @@ Scikits Learn: (easy to use) machine learning
 
 
 \begin_inset Graphics
-	filename /home/fperez/talks/figs/sklearn_lda_qda.pdf
+	filename fig/sklearn_lda_qda.pdf
 	lyxscale 25
 	width 49text%
 
@@ -1666,7 +1635,7 @@ Scikits Learn: (easy to use) machine learning
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename /home/fperez/talks/figs/sklearn_svm_rbf.pdf
+	filename fig/sklearn_svm_rbf.pdf
 	lyxscale 25
 	width 49text%
 
@@ -1674,7 +1643,7 @@ Scikits Learn: (easy to use) machine learning
 
 
 \begin_inset Graphics
-	filename /home/fperez/talks/figs/sklearn_svm_weighted.pdf
+	filename fig/sklearn_svm_weighted.pdf
 	lyxscale 25
 	width 49text%
 
@@ -1787,7 +1756,7 @@ Evan Patterson (Enthought)
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename ../1203_pycon/fig/ipython_qtconsole2.png
+	filename fig/ipython_qtconsole2.png
 	lyxscale 30
 	height 95theight%
 
@@ -1818,7 +1787,7 @@ http://pytools.codeplex.com
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename ../1203_pycon/fig/ipython_ms_visual_studio.png
+	filename fig/ipython_ms_visual_studio.png
 	lyxscale 50
 	width 95page%
 
@@ -1838,7 +1807,7 @@ Brian Granger, James Gao (Berkeley), rest of the team
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename ../1203_pycon/fig/ipython-notebook-specgram-2.png
+	filename fig/ipython-notebook-specgram-2.png
 	lyxscale 30
 	height 95theight%
 
@@ -1858,7 +1827,7 @@ Min Ragan-Kelley, Brian Granger
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename ../1203_pycon/fig/ipython_dist_architecture.png
+	filename fig/ipython_dist_architecture.png
 	lyxscale 50
 	width 90text%
 
@@ -1874,7 +1843,7 @@ A mid-size project by now
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename ../1203_pycon/fig/ipython_ohloh_stats_20120303.png
+	filename fig/ipython_ohloh_stats_20120303.png
 	lyxscale 30
 	width 95text%
 
@@ -2484,7 +2453,7 @@ Public distributed version control: provenance tracking
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename /home/fperez/talks/fig/ipython_github_commits.png
+	filename fig/ipython_github_commits.png
 	lyxscale 30
 	height 85theight%
 
@@ -2500,7 +2469,7 @@ Pull requests: ongoing peer review
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename /home/fperez/talks/fig/ipython_github_pull1.png
+	filename fig/ipython_github_pull1.png
 	lyxscale 30
 	width 90page%
 
@@ -2516,7 +2485,7 @@ Pull requests: back and forth discussion
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename /home/fperez/talks/fig/ipython_github_pull2.png
+	filename fig/ipython_github_pull2.png
 	lyxscale 30
 	width 95page%
 
@@ -2532,7 +2501,7 @@ Branches: exploratory work with control
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename /home/fperez/talks/fig/ipython_git_branches2.png
+	filename fig/ipython_git_branches2.png
 	lyxscale 30
 	width 95page%
 
@@ -2693,7 +2662,7 @@ Git for running a course?
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename /home/fperez/talks/fig/indefero_projects_notes.png
+	filename fig/indefero_projects_notes.png
 	lyxscale 30
 	width 95page%
 
@@ -2709,7 +2678,7 @@ One student's work
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename /home/fperez/talks/fig/indefero_projects1.png
+	filename fig/indefero_projects1.png
 	lyxscale 30
 	width 95page%
 
@@ -2725,7 +2694,7 @@ Details
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename /home/fperez/talks/fig/indefero_projects2.png
+	filename fig/indefero_projects2.png
 	lyxscale 30
 	width 95page%
 
