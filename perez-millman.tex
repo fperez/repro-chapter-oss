@@ -277,7 +277,7 @@ entire life-cycle of computational research.  Finally, we conclude with a brief
 discussion of how we see the culture changing and the need for reviewing our
 current incentive models and the training of new scientists.
 
-\section{Lessons from Open Source}
+\section{Lessons from Open Source}\label{lessons-oss}
 
 Over the last decade, we've had the privilege of participating in a loose-knit
 community of scientists, researchers, and engineers working to create a powerful
@@ -886,33 +886,61 @@ pasted into these documents, so that the same content is duplicated in many
 different places. When the artifacts change, the documents become out of sync
 and require manual updating, something that is error-prone and easy to forget.
 
-There are two main lessons that we draw from this perspective:
+From this perspective, we now draw a few lessions:
 
 \begin{enumerate}[(a)]
-  \item The common approach and tools used today has sharp gaps between each of
-    these phases.  This forces researchers to switch tools at each stage, which
-    then makes it difficult to move fluidly back and forth.  Driven by the
-    pressure to publish, people will then naturally only move \emph{forward},
-    pressing on to assemble results but rarely going back to question
-    assumptions, replicate earlier experiments with updated versions of code or
-    parameter tweaks, etc.  Since reproducing results effectively requires
-    going \emph{back} to the 
+  \item The common approach and tools used today introduces sharp gaps between
+    the stages of this workflow.  This forces researchers to switch tools at
+    each stage, which in turn makes it difficult to move fluidly back and
+    forth.  Driven by the pressure to publish, people will then naturally only
+    move \emph{forward}, pressing on to assemble results but rarely going back
+    to question assumptions, replicate earlier experiments with updated
+    versions of code or parameter tweaks, etc.  Since reproducing results
+    effectively requires going \emph{back} to the very beginning of the
+    pipeline, a workflow that from the onset makes this inherently difficult
+    will likely result in outcomes that nobody, not even the original authors,
+    can reliably reproduce.
 
-  \item Two...
-    
-As we see, the common thread in all of the
+  \item A key element of the problem is the disconnect that exists between what
+    we view as ``final outcomes'' of the scientific effort (papers and
+    presentations that contain artifacts such as figures, tables and other
+    outcomes of the computation) and the pipeline that feeds these outcomes.
+    Because most workflows involve a manual transfer of information (often with
+    unrecorded manual changes along the way), the chances that these final
+    outcomes don't match what the computational pipeline actually produces at
+    any given time are high.
+
+  \item The problems listed above are \emph{both} technical and social.  While
+    we focus somewhat on the tools aspect, it is critical to understand that at
+    the end of the day, only when researchers make a conscious decision to
+    adopt improved work habits will we see significant improvements on this
+    problem.  Obviously higher-quality tools will make it easier and more
+    appealing to adopt such changes, but other factors are also at play, from
+    the natural inertia of ingrained habits to the external pressures applied
+    by the incentive models of modern research.
 \end{enumerate}
 
-\subsection{Literate programming}
 
-Statistic's community
+\subsection{Bridging the gaps}
+
+With the above in mind, our approach to the problem of reproducibility in
+computational research will then be focused on building tools that enable
+researchers to naturally consider the entire cycle of research as a continuum
+and where ``doing the right thing'' is the easy and natural path rather than
+the awkward and cumbersome one.  This, coupled to a discussion of improved
+habits and practices such as 
+
+While the questions about
+
+Python 
+
+\subsection{Literate Computing}
+
 \begin{itemize}
 \item Sweave
 \item knitr
 \item Sphinx
 \end{itemize}
-
-\subsection{IPython}
 
 
 IPython, a system for interactive and parallel computing, has become the \emph{
