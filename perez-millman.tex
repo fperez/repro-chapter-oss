@@ -324,7 +324,8 @@ Even among widely-used software analysis packages, it is surprising how
 many are developed without following these practice by routine.
 
 When discussing the situation with colleagues and friends, we've heard numerous
-excuses:
+arguments for why it isn't a problem that the general scientific community
+is unfamiliar with best practice:
 \begin{itemize}
 \item On using ``We're not software engineers.''
 \item On haphazard and disorganized computational analysis ``We're not curing cancer.''
@@ -467,7 +468,7 @@ the scientific journal and review process have evolved over time as both science
 
 Computing is now synonymous with the use of automated, electronic machines.  So
 synonymous, in fact, that is easy to forget that computing has always been part
-of scientific investigation. Of course, the types of problems amendable to
+of scientific investigation. Of course, the types of problems amenable to
 computing by hand on paper or with early calculating machines (e.g., abacus)
 were limited. 
 
@@ -568,10 +569,10 @@ Purpose:  Better Research
 }%
 {\textit{Novum Organum (1620)}\\ \textsc{Francis Bacon} }
 
-
-- years of experience writing and maintaining code
-
-- teaching scientific programming courses
+The practices recommended in this section are distilled
+from our years of experience writing and maintaining software,
+teaching programming courses to students and scientists, as well
+as extensive 
 
 - working with scientists
 
@@ -607,8 +608,11 @@ the actual history of everyone's contributions.
 
 \end{itemize}
 
+The use of version control for us is so routine that we use it for everything:
+writing grants and papers, teaching materials, homework, slides for talks, etc.
+
 \paragraph{ {\bf Testing}}
-Computing is error-prone
+Computing is error-prone.
 Testing and debugging
 
 Assertions, input, etc.
@@ -657,9 +661,21 @@ More robust code
 * simplifies integration
 
 As E. W. Dijkstra observed, ``Program testing can be used to show the presence
-of bugs, but never to show their absence!`` \cite{dahl1972structured}
+of bugs, but never to show their absence!'' \cite{dahl1972structured}
 
 \paragraph{ {\bf Project management}}
+
+documentation, code, figures/results, process, distribution, etc.
+
+directory structure and naming conventions, with a manual process
+for building, installing, ad executing.
+
+- Makefile
+
+- IDE project
+
+- online resources: trac, redmine, vs hosted project management like
+sourceforge, github
 
 \paragraph{ {\bf Documentation systems}}
 
@@ -723,6 +739,9 @@ are already of great benefit.  And, often you are dealing with research
 assistants, graduate students, postdoc, and PI \ldots  Furthermore, there are a
 growing number of multiple PI projects due to growing specialization and
 interdisciplinary research areas.
+
+- talk about how the adoption of tools and practices have dramatically
+impacted IPython project
 
 \paragraph{ {\bf Distributed version control}}
 
