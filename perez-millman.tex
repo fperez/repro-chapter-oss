@@ -152,7 +152,7 @@ Retraction rates are going up \cite{cokol2008retraction,steen2011retractions}
 \subsection{Contrast of cultures}
 
 Open source software development uses public fora for most discussion
-and systems for sharing code and data that are, in practice, powerful
+and systems for sharing code and data that are powerful
 provenance tracking systems. There is a strong culture of public disclosure,
 tracking and fixing of bugs, and development often includes exhaustive
 validation tests that are executed automatically whenever changes
@@ -183,7 +183,7 @@ work reliably when used in a completely new environment.
 \subsection{Pragmatic approach}
 
 Notwithstanding the above, there are real issues with attempting to
-naively transplant the practices of open source development verbatim
+naively transplant the practices of open source development directly
 to computational research. The open source model ends up being one
 where, in practice, the copyright and authorship of any large collaborative
 project is spread among many authors, possibly thousands. While
@@ -226,7 +226,7 @@ context.
 
 \subsection{Limits of reproducibility}
 
-As we seek to learn how the open source praxis can inform our scientific
+As we seek to learn how the open source practice can inform our scientific
 work, we must recognize that the ideal of scientific reproducibility
 is by necessity a reality of shades. We can see a gradation that goes
 from a pure mathematical result whose proof should be accessible to
@@ -260,7 +260,7 @@ new construction.
 (which requires automation), communicability
 \end{itemize}
 
-While the simple mechanical reproduction of computational results is not a
+While the mechanical reproduction of computational results is not a
 panacea in itself; the rigor, openness, culture of validation, collaboration and
 other aspects of science must become a routine part of our computational practices.
 
@@ -289,6 +289,7 @@ being a core infrastructure tool at institutions such as CERN and the Hubble
 Space Telescope Science Institute
 \cite{millman2011python,Perez2011,ganga09,SST}.
 
+
 core tools: numpy, scipy, matplotlib, and ipython
 
 - simultaneously we've interacted heavily with researchers in
@@ -300,7 +301,7 @@ other disciplines and
 
 \subsection{Two cultures}
 
-In his famous 1959 Rede Lecture, C. P. Snow lamented the separation between the
+In his influential 1959 Rede Lecture, C. P. Snow lamented the separation between the
 two cultures of science and humanities.  In particular, he warned that a lack
 of understanding of scientific ideas among the intellectual classes was a major
 impediment to solving the problems of modern society \cite{snow1960two}.
@@ -320,19 +321,14 @@ science today and that of open source software development. Among the
 many smart, highly-trained, and well-educated scientists we've been
 fortunate to know and work with, it is remarkable how few have basic
 fluency with the standard best practices developed for software development.
-Even among widely-used software analysis packages, it is surprising how
+Even among widely-used scientific analysis software, it is surprising how
 many are developed without following these practice by routine.
 
-When discussing the situation with colleagues and friends, we've heard numerous
-arguments for why it isn't a problem that the general scientific community
-is unfamiliar with best practice:
-\begin{itemize}
-\item On using ``We're not software engineers.''
-\item On haphazard and disorganized computational analysis ``We're not curing cancer.''
-\item On programming courses: ``No intellectual content.''
-\item On difficulty of learning new practices: ``Not the way I was trained.''
-\item ``Don't have time.''
-\end{itemize}
+When encouraging our scientific colleagues and friends to adopt, what we
+consider, basic best practices for their software development, we've often
+encountered a strong resistance and a litany of dismissive rejoinders ranging
+from ``We're not software engineers'' to ``We're not curing cancer''.
+\footnote{Comment on Potti cancer fiasco.}
 
 Since we've encountered so much resistance among scientists to following best
 practices when writing software, we briefly argue for the necessity for
@@ -353,43 +349,27 @@ software development.
 }%
 {\textit{Book I, epistle i, line 14.}\\ \textsc{Horace} }
 
-The scientific method arose, in part, as a rejection of authority as
-the source of knowledge. Academic thought in Europe's medieval universities
-centered on the study of classic texts.
+While a detailed discussion of the origin of modern science is beyond the scope
+of this chapter, we briefly want to address how the scientific method arose, in
+part, as a rejection of authority as the source of knowledge. Over the last
+several centuries, the idea that knowledge of the natural world must be based
+on observation and experiment has become so pervasive that it seems almost
+self-evident. Academic thought, however, in Europe's medieval universities
+centered on the study of classic texts (particularly from the Greeks). The
+scientific approach---appealing to facts over authority---was widely debated
+and its ascendance was not a foregone conclusion \cite{shapin2011leviathan}.
 
-rejection of scholasticism
+Ideas such as controlled experiments, repeatability, and hypothesis/prediction,
+slowly coalesced during the 17th century.  Simulatenous with the advance of these
+ideas, scientific communities began arising across Europe to discuss and promote
+them. The Royal Society of London for Improving Natural Knowledge (the Royal Society),
+perhaps most notable of these communities, was founded in November 1660 with the motto
+'Nullius in verba', roughly translated as 'Take nobody's word for it'. This motto
+succintly captures the ethos of this new approach to knowledge that prized above
+all the ability of individuals to verify for themselves over received wisdom.
 
-appeal to facts, not authority
-
-observation and experiment as basis of knowledge
-
-Royal Society of London for Improving Natural Knowledge (1600s)
-
-motto 'Nullius in verba' roughly 'Take nobody's word for it'
-
-meet weekly to experiment and discuss ``science''. 
-
-Royal society motto, religion vs science, central authority vs the
-ability of individuals to verify, the triumph of reason.
-
-Scientific method
-
-1590  controlled experiment (Bacon)
-
-1665  repeatability (Boyle)
-
-1687  hypothesis/prediction (Newton)
-
-1946  computer simulation
-
-    origin of the scientific method
-        Francis Bacon's Novum Organum (1620) one of the early proponents of experimental science
-        the beginning of the use of controlled, repeatable experiments to advance knowledge
-        provided a method for questioning received wisdom
-    origin of scientific communities
-        small groups started forming
-        official societies such as the Royal Society of London for Improving Natural Knowledge (1660s)
-            Royal Society's motto of nullius in verba (Take nobody's word for it)
+As computation pervades the scientific endevour, it becomes important to assure
+that we don't lose this central aspect of the scientific approach.
 
 \paragraph{ {\bf Cargo cult science}}
 
@@ -416,7 +396,7 @@ arising to bring more cargo to their islands.
 ritualistic practices mimicking 
 
 Introduction, Methods, Results and Discussion (IMRAD) structure of the
-scientific paper \cite{sollaci2004introduction,spier2002history}.
+scientific paper \cite{sollaci2004introduction}.
  
 \cite{medawar1963scientific}.
 
@@ -451,6 +431,7 @@ the scientific journal and review process have evolved over time as both science
         increased data storage is rapidly expanding the amount of experimental data we can acquire and analyze
         increased computational power is vastly increasing our ability to model and
 
+\cite{spier2002history}
 
 
 \paragraph{ {\bf Computational practice}}
@@ -520,11 +501,11 @@ No silver bullets \cite{brooks1995mythical}.
 }%
 {\textit{The Cathedral and the Bazaar (2000)}\\ \textsc{Eric Steven Raymond} }
 
-Computing started to close up in the 70's, AT\&T's lockdown of Unix
+Computing started to close up in the 70's, AT\&T's lock-down of Unix
 and Bill Gates' letter to computer hobbyists (Jan'76). Stallman's
 story with printer drivers, a reaction to centralized, locked-down
 models: the GNU/FSF movement is born. Linux: OSS for the masses. The
-rise of the internet as powered by linux.
+rise of the internet as powered by Linux.
 
 
 \paragraph{ {\bf Scientist programmer}}
@@ -745,8 +726,7 @@ impacted IPython project
 
 \paragraph{ {\bf Distributed version control}}
 
-\begin{itemize}
-\item By using a distributed version control system, authors can continue
+By using a distributed version control system, authors can continue
 to maintain a private branch where new work (say leading to a new
 publication) is conducted while tracking the public development. This
 will enable them to maintain exclusive access to their new work until
@@ -757,7 +737,6 @@ the public branch, the new contributions can be seamlessly merged
 with the public version and their entire provenance (including information
 such as time of invention and individual credit within the lab) becomes
 available for inspection.
-\end{itemize}
 
 \paragraph{ {\bf Pull requests: ongoing peer review}}
 
@@ -778,7 +757,6 @@ the practices of the open source world which, if carefully assimilated,
 can lead to significant improvements in the state of reproducible
 computational research. 
 
-Ref \cite{10.3389/fncom.2012.00018}.
 
 \section{\label{sec:life-cycle}Computational research life-cycle}
 
@@ -789,7 +767,7 @@ computational research that takes a unified view of the life-cycle of research
 ideas, to show how the majority of existing tools make it difficult to manage
 this life-cycle in a way that naturally leads to reproducible outcomes.  We will
 briefly review some of the existing prior work dating back to D. Knuth on
-literate programming and mention current progress in that direction mostly
+literate programming \cite{knuth_literate} and mention current progress in that direction mostly
 coming from the vibrant R community, and we will then focus on work recently
 done in the scientific Python community that takes a slightly different angle
 on these questions than the traditional literate programming approach.
@@ -886,7 +864,7 @@ pasted into these documents, so that the same content is duplicated in many
 different places. When the artifacts change, the documents become out of sync
 and require manual updating, something that is error-prone and easy to forget.
 
-From this perspective, we now draw a few lessions:
+From this perspective, we now draw a few lessons:
 
 \begin{enumerate}[(a)]
   \item The common approach and tools used today introduces sharp gaps between
@@ -990,7 +968,7 @@ Open{*}: software, access (Elsevier), education, review.
 Internet: interactions for humans, code and data
 
 \begin{itemize}
-\item Open Source Software
+\item Open source software
 
 \begin{itemize}
 \item development akin to scientific culture
@@ -998,14 +976,17 @@ Internet: interactions for humans, code and data
 \item tools and lessons for improving the scientific process: Github
 \end{itemize}
 
-\item Open Access
+\item Open access
 
 \begin{itemize}
 \item \url{thecostofknowledge.org}: Elsevier boycott
 \item FRPAA House hearing on March 29th.
 \end{itemize}
 
-\item Open Education
+\item Open review
+Ref \cite{10.3389/fncom.2012.00018}.
+
+\item Open education
 
 \begin{itemize}
 \item MIT Open Courseware, Khan Academy\ldots
@@ -1087,7 +1068,7 @@ How will all this impact scientists?
 \end{itemize}
 
 
-\section*{Acknowledgements}
+\section*{Acknowledgments}
 We would like to thank
 \begin{itemize}
 \item members of the scientific Python community
