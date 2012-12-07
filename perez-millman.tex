@@ -601,57 +601,71 @@ the actual history of everyone's contributions.
 The use of version control for us is so routine that we use it for everything:
 writing grants and papers, teaching materials, homework, slides for talks, etc.
 
-\paragraph{ {\bf Testing}}
-Computing is error-prone.
-Testing and debugging
+\paragraph{ {\bf Testing}} Computing is notoriously error-prone. This truism is
+apparent to anyone who has done any amount of computing. While there is no
+fool-proof way to take these errors out of the process, there are ways to limit
+them. One of the most successful and widely used techniques involves rigorous
+testing.  However, as E. W. Dijkstra famously observed, ``Program testing can
+be used to show the presence of bugs, but never to show their absence!''
+\cite{dahl1972structured}
 
-Assertions, input, etc.
+Given that computing is inherently error-prone, it is inevitable that you
+will find bugs in any software that you write. Finding these bugs as soon
+as possible in the development process is extremely valuable. Depending on
+the nature of the bug, it may reveal a fundemental problem with the overall
+design of your code or it may require rerunning months of data analysis. Debugging
+is the process of fixing bugs that you find and it can be a painstaking
+ordeal. To reduce the amount of time it takes to uncover bugs and to ease the
+pain of debugging your code, it is essential to adopt a rigorous testing practice.
+Testing is a systematic and determined process of trying to break your code.
+To assist in this process, programmers have developed a number of tools and pratices
+that we highly recommend. While we believe testing is extremely useful practice, we
+should also point out that it is often much more interesting work than debugging.
 
-Automate it
+Testing should be as comprehensive and automated as possible.
 
-Regression tests
+\begin{itemize}
+\item Assertions, input, etc.
+\item Regression tests --- don't break existing functionality
+\item verify conservation
+\item unit tests (white box testing)
+\item measure test coverage
+\item dashboard. automated testing on code check in
+\end{itemize}
 
-* don't break existing functionality
-* verify conservation
-* unit tests (white box testing)
-* measure test coverage
+Testing should also be done as early as possible in the development process.
+\begin{itemize}
+\item Test-Driven Development (TDD)
+\begin{itemize}
+ \item Add a Failing Test. focuses interface rather implementation, examples of intended code use 
+ \item Write Code to Pass Test. the simplest thing that could possibly work.
+ \item Refactor. tests give rapid check correctness
+\end{itemize}
 
-dashboard. automated testing on code check in
+\item Improves code quality
 
-Test-Driven Development (TDD)
+\begin{itemize}
+\item it is easy to get lost in implementation details
+\item unit tests redirect attention to thinking about use cases for the code
+\item difficult to test huge functions with both output and side effects
+\end{itemize}
 
-Add a Failing Test. focuses interface rather implementation, examples of intended code use 
+\item Improves documentation
+\begin{itemize}
+\item an example is often better than an explanation
+\item tests don't get out-of-date
+\end{itemize}
 
-Write Code to Pass Test. the simplest thing that could possibly work.
+\item More robust code
 
-Refactor. tests give rapid check correctness
+\begin{itemize}
+\item TDD leads to quicker isolation of bugs
+\item that leads to shorter debugging
+\item facilitates change
+\item simplifies integration
+\end{itemize}
 
-Improves code quality
-
-* it is easy to get lost in implementation details
-
-* unit tests redirect attention to thinking about use cases for the code
-
-* difficult to test huge functions with both output and side effects
-
-Improves documentation
-
-* an example is often better than an explanation
-
-* tests don't get out-of-date
-
-More robust code
-
-* TDD leads to quicker isolation of bugs
-
-* that leads to shorter debugging
-
-* facilitates change
-
-* simplifies integration
-
-As E. W. Dijkstra observed, ``Program testing can be used to show the presence
-of bugs, but never to show their absence!'' \cite{dahl1972structured}
+\end{itemize}
 
 \paragraph{ {\bf Project management}}
 
