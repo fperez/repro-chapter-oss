@@ -3,7 +3,6 @@
 \usepackage{subfigure}
 \usepackage{epigraph}
 
-
 %-----------------------------------------------------------------------------
 % The hyperref package gives us a pdf with properly built
 % internal navigation ('pdf bookmarks' for the table of contents,
@@ -578,20 +577,39 @@ collaboration with other researchers.
 
 \paragraph{ {\bf Version control}}
 
-Version control systems 
+Whether you are collecting data, running different analyses,
+or writing papers, you will inevitably need to keep track
+of the various versions of your work:  data is augmented and curated;
+code is adapted and improved; and writing is revised and expanded.
+While simply keeping the most recent version of your work sounds
+like a reasonable approach, in practice, this is seldom sufficient.
+There are tenative new directions, dead ends, and alternative
+routes.
 
-In practice, it is impossible not to use some system for managing
-different versions of your work. While writing a paper, you need to
-keep track of drafts, proofs, and camera-ready 
+We've witnessed numerous researchers attempting to manage different versions of
+their work using manual and laborious kludges. The most common patterns include
+using \emph{ad hoc} naming schemes (e.g., \texttt{file.txt.bak},
+\texttt{file.txt.1st}, etc.), emailing different versions to yourself, or using
+the specialized functionality built into the tool you happen to use (e.g.,
+Microsoft Words' Track Changes functionality).  While these solutions don't
+require learning any new tools, they are cumbersome and prone to failure.
 
-code is adapted, improved, and refactored
-
-writing is corrected, revised, and expanded
-
-data is augmented and curated
-
+Since this is such a common problem, programmers have developed general
+purpose software tools to help track the various versions of
+their work. While many of these tools provide similar functionality, we
+will illustrate the basic features using \texttt{git}.
 
 \begin{itemize}
+
+\item terminology:  repository, commit, checkout, branch, merge, conflict, resolve, hash (SHA1)... 
+
+\item checking in specific version with comment
+
+\item branching
+
+\item pushing to central repository
+
+\item looking at logs
 
 \item Code provenance.
 
