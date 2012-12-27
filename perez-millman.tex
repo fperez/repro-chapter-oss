@@ -806,22 +806,25 @@ nature and quality of the software tools available for computational work in
 science.  In this section, we will present a perspective on the problem of
 computational research that takes a unified view of the life-cycle of research
 ideas, to show how the majority of existing tools make it difficult to manage
-this life-cycle in a way that naturally leads to reproducible outcomes.  We will
-briefly review some of the existing prior work dating back to D. Knuth on
-literate programming \cite{knuth_literate} and mention current progress in that direction mostly
-coming from the vibrant R community, and we will then focus on work recently
-done in the scientific Python community that takes a slightly different angle
-on these questions than the traditional literate programming approach.
+this life-cycle in a way that naturally leads to reproducible outcomes.  We
+will briefly review some of the existing prior work dating back to D. Knuth on
+literate programming \cite{knuth_literate} and mention current progress in that
+direction mostly coming from the vibrant R community, and we will then focus on
+work recently done in the scientific Python community that takes a slightly
+different angle on these questions than the traditional literate programming
+approach.
 
 To frame the question, we view the life-cycle of computational research from an
-admittedly idealized perspective that is still realistic and useful. Let us
-consider that this cycle can be be broken down into the following phases:
+admittedly simplified perspective that is still realistic enough to be
+useful. Let us consider that this cycle can be be broken down into the
+following phases:
 
 \begin{itemize}
 \item \textbf{Individual exploration:} a single investigator tests an idea,
   algorithm or question, likely with a small-scale test data set or simulation.
 \item \textbf{Collaboration:} if the initial exploration appears promising,
-  more often than not some kind of collaborative effort ensues.
+  more often than not some kind of collaborative effort ensues to bring
+  together complementary expertise from colleagues.
 \item \textbf{Production-scale execution:} large data sets and complex
   simulations often require the use of clusters, supercomputers or cloud
   resources in parallel.
@@ -830,8 +833,23 @@ consider that this cycle can be be broken down into the following phases:
   coherent form.
 \item \textbf{Education:} ultimately, research results become part of the
   corpus of a discipline that is shared with students and colleagues, thus
-  seeding the next iteration in this cycle of research.
+  seeding the next iteration in the cycle of research.
 \end{itemize}
+
+If we want to ensure that any computational research is truly reproducible, we
+need to consider this entire life-cycle in an integral way and from the
+beginning.  Asking about reproducibility by the time a manuscript is ready for
+submission to a journal is simply too late: this problem must be tackled from
+the start as one of tools and practices throughout the process of research, not
+as an afterthought tacked-on at publication time.  Furthermore, it must be
+considered in an integral way, so that we can move fluidly \emph{back and
+  forth} between the above steps. The pressure to publish in today's world
+encourages all scientists to charge forward chasing the goal of an accepted
+manuscript, but the very term ``reproducibility'' implies repetition and thus a
+requirement to also move \emph{back} to retrace one's steps, question or change
+assumptions and move forward again.  Therefore, we should look for approaches
+that allow the researcher to move back and forth as the problem dictates rather
+than funneling him or her blindly towards a published result only.
 
 \subsection{Patchwork of tools}
 
@@ -855,22 +873,20 @@ and video in addition to source code. While the use of proprietary tools isn't
 a problem \emph{per se} and may be a good solution in industry, it is a barrier
 to scientific collaboration and to the construction of a common scientific
 heritage where anyone can validate the work of others and build upon it.
-Scientists can't share work unless all colleagues can purchase the same
-package, students are forced to work with black boxes they are legally
-prevented from inspecting (spectacularly defeating the very essence of
-scientific inquiry), and years down the road we may not be able to reproduce a
-result that relied on a proprietary package. Furthermore, because of their
-limitations in performance and handling large, complex code bases, these tools
-are mostly used for prototyping: researchers eventually have to switch tools
-for building production systems.
+Scientists can't share work unless all colleagues can purchase the same package
+and students are forced to work with black boxes they are legally prevented
+from inspecting (spectacularly defeating the very essence of scientific
+inquiry). Furthermore, because of their limitations in performance and handling
+large, complex code bases, these tools are mostly used for prototyping:
+researchers eventually have to switch tools for building production systems.
 
 For \textbf{collaboration}, researchers tend to use a mix of email, version
 control systems and shared network folders (Dropbox, etc.).  Version control
 systems (Git, SVN, CVS, etc.) are critically important in making research
 collaborative and reproducible. They allow groups to work collaboratively on
-documents and track how those documents evolve over time. Ideally, all aspects
-of computational research would be hosted on publicly available version control
-repositories, such GitHub or Google Code. Unfortunately, the most common
+documents and track how they evolve over time. Ideally, all aspects of
+computational research would be hosted on publicly available version control
+repositories, such GitHub or Google Code. Unfortunately, an all-too common
 approach is still for researchers to email documents to each other with ad-hoc
 naming conventions that effectively provide a poor man's version control (and
 are the source of endless confusion and frequent mistakes). This form of
@@ -881,29 +897,36 @@ beyond a few collaborators, as painfully experienced by anyone who has
 participated in the madness of a flurry of email attachments with oddly-named
 files such as {\tt paper-final-v2-REALLY-FINAL-john-oct9.doc}.
 
-For \textbf{production-scale execution}, researchers are forced to turn away
-from the convenient interactive computing environments to compiled code
+For \textbf{production-scale execution}, researchers typically turn away from
+the convenience of interactive computing environments to compiled code
 (C/C++/Fortran) and parallel computing libraries (MPI, Hadoop), as most
 interactive systems don't provide the performance necessary for large-scale
-work and have primitive parallel support.  These tools are difficult to learn
-and use and require large time investments. We emphasize that before
-production-scale computations begin, the researchers have already developed a
-mostly functional prototype in an interactive computing environment. Turning to
-C/C++/Fortran for production means starting over from scratch and maintaining
-at least two versions of the code moving forward. Furthermore, data produced by
-the compiled version has to be imported back into the interactive environment
-for visualization and analysis. The resulting back-and-forth, complex workflow
-is nearly impossible to capture and put into version control systems, again
-making the computational research difficult to reproduce.
+work and have limited support for distributed and parallel computing.  These
+tools are specialized enough that their mastery requires a significant
+investment of time. We emphasize that before production-scale computations
+begin, the researchers already have working prototype in an interactive
+computing environment. Therefore, turning to new parallel tools means starting
+over and maintaining at least two versions of the code moving
+forward. Furthermore, data produced by the compiled version is often imported
+back into the interactive environment for visualization and analysis. The
+resulting back-and-forth, complex workflow is nearly impossible to capture and
+put into version control systems, again making the computational research
+difficult to reproduce.  Obviously the alternative, taken by many, is simply to
+run the slow serial codes for a very long time and wait for the results while
+working on something else.  This is hardly a solution to our questions, as
+runtimes in the weeks or months become in practice single-shot efforts that
+nobody will attempt to replicate.
 
 For \textbf{publications} and\textbf{education}, researchers use tools such as
 \LaTeX, Google Docs or Microsoft Word/PowerPoint.  The most important attribute
-of these tools in this context is that they don't integrate well with version
-control systems (\LaTeX{} excepted) and with the output of the computational
-pipelines. Digital artifacts (code, data and visualizations) are often manually
-pasted into these documents, so that the same content is duplicated in many
-different places. When the artifacts change, the documents become out of sync
-and require manual updating, something that is error-prone and easy to forget.
+of these tools in this context is that, \LaTeX{} excepted, they integrate
+poorly with version control systems and are ill-suited for workflow automation.
+Digital artifacts (code, data and visualizations) are often manually pasted
+into these documents and will therefore diverge XXX
+
+so that the same content is duplicated in many different
+places. When the artifacts change, the documents become out of sync and require
+manual updating, something that is error-prone and easy to forget.
 
 From this perspective, we now draw a few lessons:
 
