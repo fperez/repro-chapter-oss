@@ -2,6 +2,14 @@
 \usepackage{graphicx}
 \usepackage{subfigure}
 \usepackage{epigraph}
+%-----------------------------------------------------------------------------
+% Special-purpose color definitions (dark enough to print OK in black and white)
+\usepackage{color}
+
+% A few colors to replace the defaults for certain link types
+\definecolor{orange}{cmyk}{0,0.4,0.8,0.2}
+\definecolor{darkorange}{rgb}{.71,0.21,0.01}
+\definecolor{darkgreen}{rgb}{.12,.54,.11}
 
 %-----------------------------------------------------------------------------
 % The hyperref package gives us a pdf with properly built
@@ -38,6 +46,43 @@
     \begin{tabular}{@{}cc@{}%
   \multicolumn2c*\\[-2ex]*&*%
 \end{tabular}}}}}
+
+%-----------------------------------------------------------------------------
+%
+% Commands for annotating the docs with fixme and inter-author notes.  See
+% below for how to disable these.
+%
+% Define a \fixme command to mark visually things needing fixing in the draft,
+% as well as similar commands for each author to leave initialed special
+% comments in the document.
+% For final printing or to simply disable these bright warnings, copy
+% (there's a target macros_off' in the makefile that does this) the file
+% macros_off.tex to macros.tex
+\usepackage{amssymb}
+
+\newcommand{\fix}[1] { \textcolor{red} {
+{\fbox{ {\bf Fix:} \ensuremath{\blacktriangleright }} {\bf #1}
+\fbox{\ensuremath{\blacktriangleleft} } } } }
+
+% And similarly, one (less jarring, with fewer symbols and no boldface) command
+% for each one of us to leave comments in the main text.
+\newcommand{\fperez}[1] { \textcolor{blue} {
+\ensuremath{\blacklozenge} {\bf fperez:}  {#1}
+\ensuremath{\blacklozenge} } }
+
+\newcommand{\jarrod}[1] { \textcolor{darkgreen} {
+\ensuremath{\bigstar} {\bf jarrod:}  {#1}
+\ensuremath{\bigstar} } }
+
+\newcommand{\mref}[1] { \textcolor{darkorange} {
+\ensuremath{\blacksquare} {\bf missing ref:}  {#1}
+\ensuremath{\blacksquare} } }
+
+%% Uncomment these to turn all the special marker commands off
+%\renewcommand{\fix}[1]{}
+%\renewcommand{\fperez}[1]{}
+%\renewcommand{\jarrod}[1]{}
+%\renewcommand{\mref}[1]{}
 
 \begin{document}
 
@@ -992,11 +1037,11 @@ existing tools for literate programming as the backdrop against which we will
 introduce a contrasting approach that we refer to as ``literate computing''.
 We argue that this approach is a better fit to the needs of reproducibility in
 computational research and will present tools that have been developed recently
-in the open source community
+in the open source community in this direction.
 
 \subsection{Literate programming}
 
-
+\mref{Knuth - lit. prog}
 
 \subsection{Literate computing}
 
