@@ -856,21 +856,6 @@ following phases:
   seeding the next iteration in the cycle of research.
 \end{itemize}
 
-If we want to ensure that any computational research is truly reproducible, we
-need to consider this entire life-cycle in an integral way and from the
-beginning.  Asking about reproducibility by the time a manuscript is ready for
-submission to a journal is simply too late: this problem must be tackled from
-the start as one of tools and practices throughout the process of research, not
-as an afterthought tacked-on at publication time.  Furthermore, it must be
-considered in an integral way, so that we can move fluidly \emph{back and
-  forth} between the above steps. The pressure to publish in today's world
-encourages all scientists to charge forward chasing the goal of an accepted
-manuscript, but the very term ``reproducibility'' implies repetition and thus a
-requirement to also move \emph{back} to retrace one's steps, question or change
-assumptions and move forward again.  Therefore, we should look for approaches
-that allow the researcher to move back and forth as the problem dictates rather
-than funneling him or her blindly towards a published result only.
-
 \subsection{Patchwork of tools}
 
 Let us look at the typical tools and approaches that most working scientists
@@ -942,61 +927,85 @@ For \textbf{publications} and\textbf{education}, researchers use tools such as
 of these tools in this context is that, \LaTeX{} excepted, they integrate
 poorly with version control systems and are ill-suited for workflow automation.
 Digital artifacts (code, data and visualizations) are often manually pasted
-into these documents and will therefore diverge XXX
-
-so that the same content is duplicated in many different
-places. When the artifacts change, the documents become out of sync and require
+into these documents, which easily leads to a divergence between the
+computational outcomes and the published version.  Managing this requires
 manual updating, something that is error-prone and easy to forget.
 
 From this perspective, we now draw a few lessons:
 
 \begin{enumerate}[(a)]
-  \item The common approach and tools used today introduces sharp gaps between
-    the stages of this workflow.  This forces researchers to switch tools at
-    each stage, which in turn makes it difficult to move fluidly back and
-    forth.  Driven by the pressure to publish, people will then naturally only
-    move \emph{forward}, pressing on to assemble results but rarely going back
-    to question assumptions, replicate earlier experiments with updated
-    versions of code or parameter tweaks, etc.  Since reproducing results
-    effectively requires going \emph{back} to the very beginning of the
-    pipeline, a workflow that from the onset makes this inherently difficult
-    will likely result in outcomes that nobody, not even the original authors,
-    can reliably reproduce.
 
-  \item A key element of the problem is the disconnect that exists between what
-    we view as ``final outcomes'' of the scientific effort (papers and
-    presentations that contain artifacts such as figures, tables and other
-    outcomes of the computation) and the pipeline that feeds these outcomes.
-    Because most workflows involve a manual transfer of information (often with
-    unrecorded manual changes along the way), the chances that these final
-    outcomes don't match what the computational pipeline actually produces at
-    any given time are high.
+\item The common approach and tools used today introduces sharp gaps between
+  the stages of this workflow.  This forces researchers to switch tools at each
+  stage, which in turn makes it difficult to move fluidly back and forth.
+  Driven by the pressure to publish, people will then naturally charge
+  \emph{forward}, pressing on to assemble results in the chase for an accepted
+  manuscript but rarely going back to question assumptions, replicate earlier
+  experiments with updated versions of code or parameter tweaks, etc.  Since
+  reproducing results effectively requires going \emph{back} to the very
+  beginning of the pipeline, a workflow that from the onset makes this
+  inherently difficult will likely result in outcomes that nobody, not even the
+  original authors, can reliably reproduce.
 
-  \item The problems listed above are \emph{both} technical and social.  While
-    we focus somewhat on the tools aspect, it is critical to understand that at
-    the end of the day, only when researchers make a conscious decision to
-    adopt improved work habits will we see significant improvements on this
-    problem.  Obviously higher-quality tools will make it easier and more
-    appealing to adopt such changes, but other factors are also at play, from
-    the natural inertia of ingrained habits to the external pressures applied
-    by the incentive models of modern research.
+  The pressure to publish in today's world encourages all scientists to charge
+  forward chasing the goal of an accepted manuscript, but the very term
+  ``reproducibility'' implies repetition and thus a requirement to also move
+  \emph{back} to retrace one's steps, question or change assumptions and move
+  forward again.
+
+\item A key element of the problem is the disconnect that exists between what
+  we view as ``final outcomes'' of the scientific effort (papers and
+  presentations that contain artifacts such as figures, tables and other
+  outcomes of the computation) and the pipeline that feeds these outcomes.
+  Because most workflows involve a manual transfer of information (often with
+  unrecorded manual changes along the way), the chances that these final
+  outcomes don't match what the computational pipeline actually produces at any
+  given time are high.
+
+\item The problems listed above are \emph{both} technical and social.  While we
+  focus somewhat on the tools aspect, it is critical to understand that at the
+  end of the day, only when researchers make a conscious decision to adopt
+  improved work habits will we see significant improvements on this problem.
+  Obviously higher-quality tools will make it easier and more appealing to
+  adopt such changes, but other factors are also at play, from the natural
+  inertia of ingrained habits to the external pressures applied by the
+  incentive models of modern research.
 \end{enumerate}
 
-
-\subsection{Bridging the gaps}
+In summary, if we want to ensure that any computational research is truly
+reproducible, we need to consider this entire life-cycle in an integral way and
+from the beginning of a research project.  Asking about reproducibility by the
+time a manuscript is ready for submission to a journal is simply too late: this
+problem must be tackled from the start, not as an afterthought tacked-on at
+publication time.  We must therefore look for approaches that allow researchers
+to fluidly move back and forth between the above stages and that integrate
+naturally into their everyday practices of research, collaboration and
+publishing, so that we can make simultaneous progress on the technical and
+social aspects of this issue.
 
 With the above in mind, our approach to the problem of reproducibility in
-computational research will then be focused on building tools that enable
-researchers to naturally consider the entire cycle of research as a continuum
-and where ``doing the right thing'' is the easy and natural path rather than
-the awkward and cumbersome one.  This, coupled to a discussion of improved
-habits and practices such as 
+computational research will then be focused on building tools and practices
+that enable researchers to naturally consider the entire cycle of research as a
+continuum, and where ``doing the right thing'' is the easy and natural path
+rather than the awkward and cumbersome one.  We will first briefly describe the
+existing tools for literate programming as the backdrop against which we will
+introduce a contrasting approach that we refer to as ``literate computing''.
+We argue that this approach is a better fit to the needs of reproducibility in
+computational research and will present tools that have been developed recently
+in the open source community
+
+\subsection{Literate programming}
+
+
+
+\subsection{Literate computing}
+
+Mathematica, Maple.
+
 
 While the questions about
 
-Python 
-
-\subsection{Literate computing}
+Python
 
 \begin{itemize}
 \item Sweave
