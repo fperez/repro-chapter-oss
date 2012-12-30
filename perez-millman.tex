@@ -622,12 +622,11 @@ collaborative work.
 
 \paragraph{ {\bf Version control}}
 
-Whether you are collecting data, running different analyses,
-or writing papers, you will inevitably need to keep track
-of the various versions of your work:  data is augmented and curated;
-code is adapted and improved; and writing is revised and expanded.
-While simply keeping the most recent version of your work sounds
-like a reasonable approach, in practice, this is seldom sufficient.
+Whether you are collecting data, running different analyses, or writing papers,
+you will inevitably need to keep track of the various versions of your work:
+data is augmented and curated; code is adapted and improved; and writing is
+revised and expanded.  While simply keeping the most recent version of your
+work sounds like a reasonable approach, in practice, this is seldom sufficient.
 There are tentative new directions, detours, and dead ends.
 
 We've witnessed numerous researchers attempting to manage different versions of
@@ -636,37 +635,38 @@ using \emph{ad hoc} naming schemes (e.g., \texttt{file.txt.bak},
 \texttt{file.txt.1st}, etc.), emailing different versions to yourself, or using
 the specialized functionality built into the tool you happen to use (e.g.,
 Microsoft Words' Track Changes functionality).  While these approaches are
-partial solutions to the problem, they are also cumbersome and prone to failure.
+partial solutions to the problem, they are also cumbersome and prone to
+failure.
 
-Since tracking and managing how work evolves over time, programmers have
-developed specialized software tools to do exactly this. These software tools
-are called \emph{version control} systems. Several open source version
-control systems (VC) are available including CVS, SVN, Git, and Mecurial. Graphical
-interfaces exist for many of these tools, but our prefered mechanism for interaction
-is the commandline.
+Since tracking and managing how work evolves over time is so fundemental to the
+workflow of software development, programmers have created specialized software
+tools to do exactly this. These software tools are called \emph{version
+control} systems. Several open source version control systems (VC) are
+available including CVS, SVN, Git, and Mecurial.
 
 While there are notable differences among these tools, they all share some
 basic concepts.  In most VC systems, you store all your project files (code,
 text, figures, etc.) in a \emph{repository}.  There are commands to add and
 remove files to a repository.  When you change a file in your repository that
-you want to track, you can \emph{commit} those changes with a \emph{commit message}.
-These messages are very important if you need to revert to a different commit.
+you want to track, you can \emph{commit} those changes with a \emph{commit
+message}.  The repository and commit mechanism provide a complete historical
+log of the project from inception to current state, including every change made
+along with timestamps and author for each modification to the codebase
 
 Commonly you're changes may follow a simple linear progression of commits.
 However your series of commits may not always follow such a straight route from
 beginning to end. For example, given the exploratory nature of research, you
 may have several alternative approaches that you want to follow. In such cases,
-your commits will resemble a tree with several \emph{branches} diverging from a common
-base or trunk. When exploring these alternative approaches on different branches,
-you may find that several branches naturally start converging. At this point, you
-will need a way to \emph{merge} these branches back together. If you worked on
-different parts of your project in the separate branches, merging those parts
-together is straightforward and completely automatic. When you have \emph{conflicting}
-changes in different branches (e.g., edits to the same line of code), then the
-VC systems require manual intervention. While any VC system
-must allow commits in a repository, their support for efficient branching and
-merging vary greatly.
-
+your commits will resemble a tree with several \emph{branches} diverging from a
+common base or trunk. When exploring these alternative approaches on different
+branches, you may find that several branches naturally start converging. At
+this point, you will need a way to \emph{merge} these branches back together.
+If you worked on different parts of your project in the separate branches,
+merging those parts together is straightforward and completely automatic. When
+you have \emph{conflicting} changes in different branches (e.g., edits to the
+same line of code), then the VC systems require manual intervention. While any
+VC system must allow commits in a repository, their support for efficient
+branching and merging vary greatly.
 
 \begin{itemize}
 
@@ -674,9 +674,6 @@ merging vary greatly.
 
 \item pushing to central repository
 
-\item looking at logs
-
-\item Code provenance.
 
 \item Pervasive version control: research codes should be developed, while
 still in-house, \emph{always} using version control systems that track
@@ -695,38 +692,65 @@ testing.  However, as E. W. Dijkstra famously observed, ``Program testing can
 be used to show the presence of bugs, but never to show their absence!''
 \cite{dahl1972structured}
 
-Given that computing is inherently error-prone, it is inevitable that you
-will find bugs in any software that you write. Finding these bugs as soon
-as possible in the development process is extremely valuable. Depending on
-the nature of the bug, it may reveal a fundamental problem with the overall
-design of your code or it may require rerunning months of data analysis. Debugging
-is the process of fixing bugs that you find and it can be a painstaking
-ordeal. To reduce the amount of time it takes to uncover bugs and to ease the
-pain of debugging your code, it is essential to adopt a rigorous testing practice.
+Given that computing is inherently error-prone, it is inevitable that you will
+find bugs in any software that you write. Finding these bugs as soon as
+possible in the development process is extremely valuable. Depending on the
+nature of the bug, it may reveal a fundamental problem with the overall design
+of your code or it may require rerunning months of data analysis. Debugging is
+the process of fixing bugs that you find and it can be a painstaking ordeal. To
+reduce the amount of time it takes to uncover bugs and to ease the pain of
+debugging your code, it is essential to adopt a rigorous testing practice.
 Testing is a systematic and determined process of trying to break your code.
-To assist in this process, programmers have developed a number of tools and practices
-that we highly recommend. While we believe testing is extremely useful practice, we
-should also point out that it is often much more interesting work than debugging.
+To assist in this process, programmers have developed a number of tools and
+practices that we highly recommend. While we believe testing is extremely
+useful practice, we should also point out that it is often much more
+interesting work than debugging.
 
-Testing should be as comprehensive and automated as possible.
+Testing should be performed on multiple levels. If the programming takes input
+either from a user or file, then it is important that your code tests that the
+input is exactly what the program expects. You will also want to write \emph{unit
+tests} to ensure that unitary code elements like functions, classes, and
+class methods function correctly. And finally, you will want to write
+\emph{regression tests} to make sure you don't break existing functionality.
+For instance, you could have a previous analysis rerun to make sure that
+the program reproduces your previous results.
+
 
 \begin{itemize}
-\item Assertions, input, etc.
-\item Regression tests --- don't break existing functionality
-\item verify conservation
-\item unit tests (white box testing)
 \item measure test coverage
 \item dashboard. automated testing on code check in
 \end{itemize}
 
 Testing should also be done as early as possible in the development process.
+Some programmers go so far as advocate Test-Driven Development (TDD), an
+iterative programming methodology that consists of repeatedly writing automated
+unit test cases and then implementing only the code necessary to pass the test
+\cite{Bec02, Ast03}.  TDD can be thought of as a continuous cycle of 3 steps:
+
+\begin{enumerate}
+
+\item {\bf Add a Failing Test.} This forces you to think about what you want a
+piece of code to do, rather than how it does it.  It also validates that the
+unit test fails and that new functioning code is required in order for the test
+to pass. By starting the development of each new feature with the creation of a
+unit test, you focus on the code interface rather than its implementation, and
+you also have a simple examples of code use that may be helpful later.
+
+\item {\bf Write Code to Pass Test.} Don't worry whether the code is elegant or
+optimized. The only aim is to produce code that passes the test and introduces
+no functionality, which doesn't already have a unit test.
+
+\item {\bf Refactor.} Once your code passes the unit test, you can then iteratively
+refine the code to make it easier to read and understand as well as removing code
+duplication. As your code evolves and these tests let you know that it still
+behaves correctly.
+
+\end{enumerate}
+
+This methodology ensures that all written code is covered by a unit test and
+limits the number of defects.
+
 \begin{itemize}
-\item Test-Driven Development (TDD)
-\begin{itemize}
- \item Add a Failing Test. focuses interface rather implementation, examples of intended code use 
- \item Write Code to Pass Test. the simplest thing that could possibly work.
- \item Refactor. tests give rapid check correctness
-\end{itemize}
 
 \item Improves code quality
 
@@ -752,7 +776,6 @@ Testing should also be done as early as possible in the development process.
 \end{itemize}
 
 \end{itemize}
-
 \paragraph{ {\bf Project management}}
 
 documentation, code, figures/results, process, distribution, etc.
