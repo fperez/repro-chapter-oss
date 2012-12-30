@@ -572,8 +572,8 @@ We begin by discussing practices and tools that should be applied
 to even exploratory, individual research.  These practices are so
 essential to efficient and productive use of computational resources
 that we routinely use them whenever we use a computer. In the following
-section, we discuss practices and tools that become essential in
-collaboration with other researchers. 
+section, we discuss how these practices and tools naturally extend to
+collaborative work. 
 
 \paragraph{ {\bf Version control}}
 
@@ -583,29 +583,49 @@ of the various versions of your work:  data is augmented and curated;
 code is adapted and improved; and writing is revised and expanded.
 While simply keeping the most recent version of your work sounds
 like a reasonable approach, in practice, this is seldom sufficient.
-There are tenative new directions, dead ends, and alternative
-routes.
+There are tentative new directions, detours, and dead ends.
 
 We've witnessed numerous researchers attempting to manage different versions of
 their work using manual and laborious kludges. The most common patterns include
 using \emph{ad hoc} naming schemes (e.g., \texttt{file.txt.bak},
 \texttt{file.txt.1st}, etc.), emailing different versions to yourself, or using
 the specialized functionality built into the tool you happen to use (e.g.,
-Microsoft Words' Track Changes functionality).  While these solutions don't
-require learning any new tools, they are cumbersome and prone to failure.
+Microsoft Words' Track Changes functionality).  While these approaches are
+partial solutions to the problem, they are also cumbersome and prone to failure.
 
-Since this is such a common problem, programmers have developed general
-purpose software tools to help track the various versions of
-their work. While many of these tools provide similar functionality, we
-will illustrate the basic features using \texttt{git}.
+Since tracking and managing how work evolves over time, programmers have
+developed specialized software tools to do exactly this. These software tools
+are called \emph{version control} systems. Several open source version
+control systems (VC) are available including CVS, SVN, Git, and Mecurial. Graphical
+interfaces exist for many of these tools, but our prefered mechanism for interaction
+is the commandline.
+
+While there are notable differences among these tools, they all share some
+basic concepts.  In most VC systems, you store all your project files (code,
+text, figures, etc.) in a \emph{repository}.  There are commands to add and
+remove files to a repository.  When you change a file in your repository that
+you want to track, you can \emph{commit} those changes with a \emph{commit message}.
+These messages are very important if you need to revert to a different commit.
+
+Commonly you're changes may follow a simple linear progression of commits.
+However your series of commits may not always follow such a straight route from
+beginning to end. For example, given the exploratory nature of research, you
+may have several alternative approaches that you want to follow. In such cases,
+your commits will resemble a tree with several \emph{branches} diverging from a common
+base or trunk. When exploring these alternative approaches on different branches,
+you may find that several branches naturally start converging. At this point, you
+will need a way to \emph{merge} these branches back together. If you worked on
+different parts of your project in the separate branches, merging those parts
+together is straightforward and completely automatic. When you have \emph{conflicting}
+changes in different branches (e.g., edits to the same line of code), then the
+VC systems require manual intervention. While any VC system
+must allow commits in a repository, their support for efficient branching and
+merging vary greatly.
+
 
 \begin{itemize}
 
-\item terminology:  repository, commit, checkout, branch, merge, conflict, resolve, hash (SHA1)... 
-
-\item checking in specific version with comment
-
-\item branching
+\item hash (SHA1)... 
 
 \item pushing to central repository
 
