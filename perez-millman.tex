@@ -1077,25 +1077,45 @@ for compilation and execution by a computer, and a ``woven'' file containing
 the formatted documentation.  Knuth's original implementation, the WEB system
 \cite{Knuth:1983:WSS}, was focused on producing Pascal code and \LaTeX
 documentation, but this basic idea has been extended to many other programming
-languages and documentation systems.
+languages and documentation systems.  
 
+The R community has actively embraced the ideas behind literate programming,
+and a mature implementation of the concept exists for R in the Sweave system
+\mref{sweave}.  Sweave is one of the central elements of the Bioconductor
+system \cite{Gentleman2004, Dudoit2003} for computational biology and
+bioinformatics.  As all Bioconductor packages must be accompanied by at least
+one ``vignette'', a literate programming document that contains executable code
+illustrating the tasks the package is meant to perform.  Vignettes can be read
+in PDF format, but functions exist to automatically extract all the R code for
+immediate execution.
 
-to produce either a document meant for human reading 
+In recent years, a new entrant to the R community that is gaining very rapid
+adoption is the Knitr package \mref{knitr}.  Knitr can be seen as a highly
+evolved Sweave with a number of improvements on many fronts, but still within
+the conceptual lineage of literate programming tools.
 
 \subsection{Literate computing}
+
+The tools described in the previous section for literate programming are mature
+and have been used to great effect to improve the quality of documentation in
+scientific programs and data analysis, especially in the R community.  But they
+remain firmly rooted in the original model proposed by Knuth, of authoring a
+literate file that is then post-processed by various tools to produce either
+documentation or executable code.  
+
+In this section, we will contrast these tools with an alternate approach to the
+same questions of improving the connection between code and documentation, that
+we refer to as ``literate computing''.  Our choice of terminology points to the
+fact that we emphasize the act of computing itself rather than the writing of
+code, as all the systems we will describe are all centered around
+\emph{interactive environments} where the user can enter code for immediate
+execution, obtain results, and continue with more commands that produce new
+results based on the previous ones.
 
 Mathematica, Maple.
 
 
-While the questions about
-
 Python
-
-\begin{itemize}
-\item Sweave
-\item knitr
-\item Sphinx
-\end{itemize}
 
 
 IPython, a system for interactive and parallel computing, has become the \emph{
