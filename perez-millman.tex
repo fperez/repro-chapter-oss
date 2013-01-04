@@ -133,7 +133,7 @@ all experimental work requires computing (whether in data collection,
 pre-processing or analysis) and most theoretical work requires symbolic
 and numerical computing to develop and refine models. Scanning the pages
 of any major scientific journal, one is hard-pressed to find a publication
-in any discipline that doesn't depend on computing for its findings.
+in any discipline that does not depend on computing for its findings.
 
 And yet, for all its importance, computing is often treated as an
 afterthought both in the training of new scientists and in the conduct
@@ -159,12 +159,12 @@ directly.
 
 Much more than a ``third branch'' of science, computing has become so central
 to scientific practice that it is almost unimaginable to find a working
-scientist that could claim the don't use computers at all.  Experimentalist
+scientist that could claim they do not use computers at all.  Experimentalist
 from biology to physics and observationalist from astronomy to climate study
 are confronted with an avalanche of quantitative data.  All scientists must now
 do real computing.  As computers continue to increase in computational power and
 storage capacity, the problems only compound.  While better computing practices
-won't directly translate to better science, current practices do lead to bad
+will not directly translate to better science, current practices do lead to bad
 science.
 
 Consider, just to name two widely publicized cases, the loss of public
@@ -263,7 +263,7 @@ scientific publication and reward system: the ``first
 to publish'' race. Many scientists are, understandably,
 be leery of exposing their projects on an openly accessible website
 when in their embryonic stages. The fear of being scooped by others
-is very real, and again we must properly address it as we consider
+is real, and again we must properly address it as we consider
 how to apply the lessons of open source development to the scientific
 context.
 
@@ -276,7 +276,7 @@ is by necessity a reality of shades. We can see a gradation that goes
 from a pure mathematical result whose proof should be accessible to
 any person skilled in the necessary specialty, to one-of-a-kind experiments
 such as the Large Hadron Collider or the Hubble Space Telescope, that
-can't be reproduced in any realistic sense. At each point in this
+can not be reproduced in any realistic sense. At each point in this
 spectrum, however, we can always find ways to improve our confidence
 in the results: whether we re-analyze the same unique datasets with
 independently developed packages run by separate groups or we re-acquire
@@ -287,13 +287,13 @@ difficulties.
 Similarly, in computational research we also have certain areas where
 complete reproducibility is more challenging than others. Some projects
 require computations carried on the largest supercomputers on the
-planet, and these are very expensive resources that can't be arbitrarily
+planet, and these are expensive resources that can not be arbitrarily
 allocated for repeated executions of the same problem. Others may
-require access to enormous datasets that can't easily be transferred
+require access to enormous datasets that can not easily be transferred
 to the desktop of any researcher wishing to re-execute an analysis.
 But again, alternatives exist: it should be possible to validate scaled
 versions of the largest problems run independently, against scaled
-specimens created on the supercomputers for this very purpose, and
+specimens created on the supercomputers for this purpose, and
 sub-sampled datasets can be used to collect at least validation statistics
 that may be informative of the trust we place on the published analysis.
 
@@ -374,7 +374,7 @@ encountered a strong resistance and a litany of dismissive rejoinders ranging
 from ``We're not software engineers'' to ``We're not curing cancer''.%
 \footnote{Comment on Potti cancer fiasco.}
 
-Since we've encountered so much resistance among scientists to following best
+Because we've encountered so much resistance among scientists to following best
 practices when writing software, we briefly argue for the necessity for
 scientists to learn these lessons so basic to the culture of open source
 software development.
@@ -413,7 +413,7 @@ succinctly captures the ethos of this new approach to knowledge that prized abov
 all the ability of individuals to verify for themselves over received wisdom.
 
 As computation pervades the scientific endeavor, it becomes important to assure
-that we don't lose this central aspect of the scientific approach.
+that we do not lose this central aspect of the scientific approach.
 
 \paragraph{ {\bf Cargo cult science}}
 
@@ -638,11 +638,11 @@ Microsoft Words' Track Changes functionality).  While these approaches are
 partial solutions to the problem, they are also cumbersome and prone to
 failure.
 
-Since tracking and managing how work evolves over time is so fundemental to the
+Because tracking and managing how work evolves over time is so fundamental to the
 workflow of software development, programmers have created specialized software
 tools to do exactly this. These software tools are called \emph{version
 control} systems. Several open source version control systems (VC) are
-available including CVS, SVN, Git, and Mecurial.
+available including CVS, SVN, Git, and Mercurial.
 
 While there are notable differences among these tools, they all share some
 basic concepts.  In most VC systems, you store all your project files (code,
@@ -651,7 +651,7 @@ remove files to a repository.  When you change a file in your repository that
 you want to track, you can \emph{commit} those changes with a \emph{commit
 message}.  The repository and commit mechanism provide a complete historical
 log of the project from inception to current state, including every change made
-along with timestamps and author for each modification to the codebase
+along with timestamps and author for each modification to the codebase.
 
 Commonly you're changes may follow a simple linear progression of commits.
 However your series of commits may not always follow such a straight route from
@@ -711,7 +711,7 @@ either from a user or file, then it is important that your code tests that the
 input is exactly what the program expects. You will also want to write \emph{unit
 tests} to ensure that unitary code elements like functions, classes, and
 class methods function correctly. And finally, you will want to write
-\emph{regression tests} to make sure you don't break existing functionality.
+\emph{regression tests} to make sure you do not break existing functionality.
 For instance, you could have a previous analysis rerun to make sure that
 the program reproduces your previous results.
 
@@ -736,9 +736,9 @@ to pass. By starting the development of each new feature with the creation of a
 unit test, you focus on the code interface rather than its implementation, and
 you also have a simple examples of code use that may be helpful later.
 
-\item {\bf Write Code to Pass Test.} Don't worry whether the code is elegant or
+\item {\bf Write Code to Pass Test.} Do not worry whether the code is elegant or
 optimized. The only aim is to produce code that passes the test and introduces
-no functionality, which doesn't already have a unit test.
+no functionality, which does not already have a unit test.
 
 \item {\bf Refactor.} Once your code passes the unit test, you can then iteratively
 refine the code to make it easier to read and understand as well as removing code
@@ -763,7 +763,7 @@ limits the number of defects.
 \item Improves documentation
 \begin{itemize}
 \item an example is often better than an explanation
-\item tests don't get out-of-date
+\item tests do not get out-of-date
 \end{itemize}
 
 \item More robust code
@@ -881,7 +881,7 @@ available for inspection.
 
 In summary, we think that a few simple lessons can be learned from
 the practices of the open source world which, if carefully assimilated,
-can lead to significant improvements in the state of reproducible
+can lead to substantial improvements in the state of reproducible
 computational research. 
 
 For more information, we highly recommend the recent archiv preprint
@@ -942,11 +942,11 @@ some of them are proprietary and/or expensive (Excel, Matlab, Mathematica), (b)
 most (except for Sage) are focused on coding in a single, relatively slow,
 programming language and (c) most (except for Sage and Mathematica) do not have
 a document format that is rich, i.e., that can include text, equations, images
-and video in addition to source code. While the use of proprietary tools isn't
+and video in addition to source code. While the use of proprietary tools is not
 a problem \emph{per se} and may be a good solution in industry, it is a barrier
 to scientific collaboration and to the construction of a common scientific
 heritage where anyone can validate the work of others and build upon it.
-Scientists can't share work unless all colleagues can purchase the same package
+Scientists can not share work unless all colleagues can purchase the same package
 and students are forced to work with black boxes they are legally prevented
 from inspecting (spectacularly defeating the very essence of scientific
 inquiry). Furthermore, because of their limitations in performance and handling
@@ -965,7 +965,7 @@ naming conventions that effectively provide a poor man's version control (and
 are the source of endless confusion and frequent mistakes). This form of
 collaboration makes it nearly impossible to track the development of a large
 project and establish reproducible and testable workflows.  While a small group
-can make this work by brute effort, this approach most certainly doesn't scale
+can make this work by brute effort, this approach most certainly does not scale
 beyond a few collaborators, as painfully experienced by anyone who has
 participated in the madness of a flurry of email attachments with oddly-named
 files such as {\tt paper-final-v2-REALLY-FINAL-john-oct9.doc}.
@@ -973,9 +973,9 @@ files such as {\tt paper-final-v2-REALLY-FINAL-john-oct9.doc}.
 For \textbf{production-scale execution}, researchers typically turn away from
 the convenience of interactive computing environments to compiled code
 (C/C++/Fortran) and parallel computing libraries (MPI, Hadoop), as most
-interactive systems don't provide the performance necessary for large-scale
+interactive systems do not provide the performance necessary for large-scale
 work and have limited support for distributed and parallel computing.  These
-tools are specialized enough that their mastery requires a significant
+tools are specialized enough that their mastery requires a substantial
 investment of time. We emphasize that before production-scale computations
 begin, the researchers already have working prototype in an interactive
 computing environment. Therefore, turning to new parallel tools means starting
@@ -985,7 +985,7 @@ back into the interactive environment for visualization and analysis. The
 resulting back-and-forth, complex workflow is nearly impossible to capture and
 put into version control systems, again making the computational research
 difficult to reproduce.  Obviously the alternative, taken by many, is simply to
-run the slow serial codes for a very long time and wait for the results while
+run the slow serial codes for a long time and wait for the results while
 working on something else.  This is hardly a solution to our questions, as
 runtimes in the weeks or months become in practice single-shot efforts that
 nobody will attempt to replicate.
@@ -1009,8 +1009,8 @@ From this perspective, we now draw a few lessons:
   Driven by the pressure to publish, people will then naturally charge
   \emph{forward}, pressing on to assemble results in the chase for an accepted
   manuscript but rarely going back to question assumptions, replicate earlier
-  experiments with updated versions of code or parameter tweaks, etc.  Since
-  reproducing results effectively requires going \emph{back} to the very
+  experiments with updated versions of code or parameter tweaks, etc.  Because
+  reproducing results effectively requires going \emph{back} to the
   beginning of the pipeline, a workflow that from the onset makes this
   inherently difficult will likely result in outcomes that nobody, not even the
   original authors, can reliably reproduce.
@@ -1027,13 +1027,13 @@ From this perspective, we now draw a few lessons:
   outcomes of the computation) and the pipeline that feeds these outcomes.
   Because most workflows involve a manual transfer of information (often with
   unrecorded manual changes along the way), the chances that these final
-  outcomes don't match what the computational pipeline actually produces at any
+  outcomes do not match what the computational pipeline actually produces at any
   given time are high.
 
 \item The problems listed above are \emph{both} technical and social.  While we
   focus somewhat on the tools aspect, it is critical to understand that at the
   end of the day, only when researchers make a conscious decision to adopt
-  improved work habits will we see significant improvements on this problem.
+  improved work habits will we see substantial improvements on this problem.
   Obviously higher-quality tools will make it easier and more appealing to
   adopt such changes, but other factors are also at play, from the natural
   inertia of ingrained habits to the external pressures applied by the
@@ -1089,7 +1089,7 @@ illustrating the tasks the package is meant to perform.  Vignettes can be read
 in PDF format, but functions exist to automatically extract all the R code for
 immediate execution.
 
-In recent years, a new entrant to the R community that is gaining very rapid
+In recent years, a new entrant to the R community that is gaining rapid
 adoption is the Knitr package \cite{xie2012knitr}.  Knitr can be seen as a highly
 evolved Sweave with a number of improvements on many fronts, but still within
 the conceptual lineage of literate programming tools.
@@ -1202,7 +1202,7 @@ Ref \cite{10.3389/fncom.2012.00018}.
 
 Science has become computational, but the incentive models of science
 are single-mindedly focused on paper-oriented publications that completely
-ignore the very existence of a computational process. Papers are accepted 
+ignore the computational process. Papers are accepted 
 
 What role should journals play?
 
