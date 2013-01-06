@@ -1169,38 +1169,24 @@ advantage of the superior graphical capabilities of NeXT.  Today a number of
 other systems (both open source and proprietary) provide similar capabilities;
 on the open-source front we notably mention the Maxima \mref{maxima notebook}
 symbolic computing package, the Sage \mref{sage} mathematical computing system,
-and the interactive computing project IPyhton, on which we will focus the rest
+and the interactive computing project IPython, on which we will focus the rest
 of our discussion.
 
-IPython, a system for interactive and parallel computing, has become the \emph{
-  de facto} environment for scientific computing and data analysis in the
-Python programming language.  IPython was created by F. P\'erez in in 2001 as
-an interactive command-line shell for Python, and has evolved into a large
-collaborative open-source project with contributions from a broad team of
-scientists \cite{PER-GRA:2007}.  In 2011, a web-based notebook was developed in
-IPython that connects to the same interactive core as the original command-line
-shell, but does so using a web browser as the user interface, automatically
-enabling either local or remote use as the system running the
+\subsection{IPython}
 
-In the last year we have developed the IPython
-Notebook, a web-based \emph{ interactive computational notebook} that combines
-code, text, mathematics, plots and rich media into a single document format
-(see Fig.~\ref{fig:IPython-notebook}).  The IPython Notebook was designed to
-enable researchers to move fluidly between all the phases of the research
-life-cycle and has gained rapid adoption. It provides an integrated environment
-for all computation, without locking scientists into a specific tool or format:
-Notebooks can always be exported into regular scripts and IPython supports the
-execution of code in other languages such as R, Octave, bash, etc.
-
-\begin{itemize}
-
-\item interactive exploration
-\item collaboration
-\item production-scale
-\item publication/presentation \cite{brown2012single}
-\item education
- 
-\end{itemize}
+IPython\footnote{\url{http://ipython.org}} is a system for interactive and
+parallel computing that has become the \emph{de facto} standard environment for
+scientific computing and data analysis in the Python programming language.  It
+was created by F. P\'erez in in 2001 as an interactive command-line shell for
+Python, and has evolved into a large collaborative open-source project with
+contributions from a broad team of scientists \cite{PER-GRA:2007}.  In 2011, a
+web-based notebook was developed in IPython that connects to the same
+interactive core as the original command-line shell, but does so using a web
+browser as the user interface, automatically enabling either local or remote
+use as the system running the web browser can be different from that executing
+the code, with all communication happening over the network.
+Fig.~\ref{fig:IPython-notebook} shows a typical notebook session with code,
+text, mathematics and figures.
 
 \begin{figure}
   \begin{centering}
@@ -1212,6 +1198,64 @@ execution of code in other languages such as R, Octave, bash, etc.
     executing the code.}
 \end{figure}
 
+The driving idea behind the IPython Notebook is to enable researchers to move
+fluidly between all the phases of the research life-cycle we described earlier.
+If the environment where they conduct their exploratory research can also
+support all subsequent stages of this cycle, and does so while smoothly
+integrating with the version control and process practices we've previously
+discussed, the likelihood that a final published result will be reproducible
+increases significantly.  The Notebook system is designed around two central
+ideas: (a) an openly specified protocol to control an interactive computational
+engine, and (b) an equally open format to record these interactions between the
+user and the computational engine, including the results produced by the
+computations.
+
+Before diving into the specifics of these two ideas, we note that the above
+design is independent of the Python language: while IPython started its life as
+a Python-specific project, the vision of the Notebook system is
+language-agnostic.  First, while working in Python, users can mark entire code
+blocks for execution via a separate language by using a special syntax on the
+block's first line: a user can for example start a block \texttt{\%\%R},
+\texttt{\%\%bash} or \texttt{\%\%ruby} and IPython will execute the entire
+block with the respective system.  Second, an \emph{entire notebook} can be
+executed in a different language if a remote engine (referred to as a
+\emph{kernel}) exists that implements the interaction protocol.  As of this
+writing, prototype kernels have been written in Ruby, JavaScript and R, and
+their development continues.
+
+The IPython architecture provides a way to capture, version control, re-execute
+and convert into other output formats, any computational session.  Notebooks
+can be shared with colleagues in their native form for re-execution or
+converted into HTML, \LaTeX or PDF formats for reading and dissemination.  They
+can be used in slideshow mode to give presentations that remain connected to a
+live computation and can be exported into plain scripts for traditional
+execution outside of the IPython framework.
+
+The IPython protocol consists of messages in JSON (JavaScript Object Notation)
+format that encode all actions that an interactive user can request of a
+computational kernel, such as executing code, transfering data or sending
+results, amongst many others.  While this protocol is implemented in IPython,
+third-parties can independently implement it and provide new kernels that will
+be able to interact with the notebook interface and clients.  The notebook file
+format is a simple JSON data structure that contains a series of one or more
+``worksheets'', each of which is a list of cells.  A cell can contain either
+text or code, and code cells can also have the output corresponding to the
+execution.  All sub-structures in the notebook format (the entire notebook, the
+worksheets and the individual cells) have attached flexible metadata
+containers; this metadata can be used by post-processing tools.  The file
+format stores the communication protocol's payloads unmodified, so it can be
+thought of as a structured and filtered log (since the user chooses what to
+keep while working interactively) of the computation.  
+
+The IPython project has taken elements pioneered by the Mathematica and Sage
+notebooks and created a generic protocol and file format to control and record
+literate computing sessions in any programming language.  This was a deliberate
+choice in contrast to the literate programming approach: by providing a tool
+that operates close to the live workflow of research computing (in contrast to
+the batch-processing mode encouraged by classic literate programming tools),
+the resulting documents are immediately reproducible sessions that can be
+published in their own right or as companion materials to a more traditional
+manuscript.  \fperez{add ISME story here to wrap it up?}
 
 
 \section{Conclusion}\label{conclusion}
