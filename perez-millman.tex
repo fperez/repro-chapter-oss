@@ -1213,7 +1213,7 @@ symbolic computing package, the Sage \mref{sage} mathematical computing system,
 and the interactive computing project IPython, on which we will focus the rest
 of our discussion.
 
-\paragraph{ {\bf IPython}}
+\paragraph{ {\bf IPython}} \fperez{why the change to paragraph?}
 
 IPython\footnote{\url{http://ipython.org}} is a system for interactive and
 parallel computing that has become the \emph{de facto} standard environment for
@@ -1304,7 +1304,7 @@ research.
 The real-world possibilities this offers were demonstrated during a
 collaboration in 2012 between the IPython team, a microbiology team led by Rob
 Knight from the University of Colorado and Greg Caporaso from the University of
-Northern Arizona, and Justin Riley at MIT who created the StarCluster system
+Northern Arizona, and Justin Riley from MIT who created the StarCluster system
 \mref{SC} for deployment and control of parallel resources on Amazon's EC2
 cloud platform.  As part of an NIH-funded workshop to explore the future of
 genomics data analysis in the cloud, this combined team collaborated on
@@ -1315,15 +1315,39 @@ this idea using their Qiime libraries \mref{qiime}, but a large-scale analysis
 with a full dataset would require roughly a month of CPU time on a single
 workstation.  By locating the IPython Notebook server on Amazon cloud
 instances, the entire team was able to log into a single instance and by
-editing the code collaboratively, turn this prototype into a set of production
-notebooks that would execute the analysis in parallel using multiple Amazon
-servers.  The net result was that the team took the prototype from start to
-production in a single day of collaborative editing; this resulted
+editing the code directly in the cloud, in a single day turn this prototype
+into a set of production notebooks that would execute the analysis in parallel
+using multiple Amazon servers.  Once the parallel was tested, it became evident
+that there was not only an interesting example of using cloud technologies for
+rapid development of research ideas but also a biologically relevant finding;
+within a week the team had completed a more extensive run using 24 hours of
+execution on 32 nodes and submitted a manuscript for publication \cite{RWM+12}.
+This paper is now accompanied by all of the IPython notebooks that enable any
+reader to fully reproduce our analysis, change parameters and question our
+assumptions, without having to re-implement absolutely anything or be hampered
+by lack of access to the code and data.  We have made available not only the
+final notebooks, but also the Amazon Virtual Machine Images (data files that
+represent a virtual computer on Amazon's cloud platform), so that the entire
+analysis can literally be re-executed under identical conditions by anyone with
+an Amazon account.
 
+This example, anecdotal as it may be, indicates there is validity in the vision
+we propose here: that by providing tools that encompass the entire cycle of
+research, from exploration to large-scale parallel production and publication,
+we can provide the scientific community with results that are immediately
+accessible to others and reproducible, seeding the continued evolution of the
+research processs.
 
-\fperez{add ISME story here to wrap it up?}
-
-% Software carpentry, Berkeley bootcamps.
+We close this section by noting that the above tools are also playing a role in
+the last stage of the cycle we outlined earlier.  We will increase our chance
+that the next generation of scientists adopts improved reproducibility
+practices if we educate them with the same tools that we use for everyday
+research, and a couple of modern efforts that aim to bring improved
+computational literacy to scientific research have adopted the IPython
+notebook.  The Software Carpentry
+project\footnote{\url{http://software-carpentry.org}}, funded by
+the Alfred P. Sloan Foundation, is a project led by Greg Wilson at the Mozilla
+Foundation that 
 
 
 \section{Conclusion}\label{conclusion}
