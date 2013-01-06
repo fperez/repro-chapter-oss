@@ -596,29 +596,26 @@ Purpose:  Better Research
 \setlength{\epigraphwidth}{.75\textwidth}
 \epigraph%
 {%
-  \ldots when a man tries all kinds of experiments without method or
+  when a man tries all kinds of experiments without method or
   order, this is mere groping in the dark; but when he proceeds with
   some direction and order in his experiments, it is as if he were
-  led by the hand \ldots
+  led by the hand
 }%
 {\textit{Novum Organum (1620)}\\ \textsc{Francis Bacon} }
 
-The practices recommended in this section are distilled
-from years of experience writing and maintaining software,
-teaching programming courses to students and scientists, as well
-as extensive interaction and discussion with a diverse group
-of scientists and engineers.  Whole books have been dedicated to
-best practices in software development with highly specialized
-tools and habits for individual programming languages and tools.
-In this short chapter, we highlight the practices and
-tools essential to any computational work.
+The practices recommended in this section are distilled from years of
+experience writing and maintaining software, teaching programming courses to
+students and scientists, as well as extensive interaction and discussion with a
+diverse group of scientists and engineers.  Whole books have been dedicated to
+best practices in software development with highly specialized tools and habits
+for individual programming languages and tools.  In this short chapter, we
+highlight the practices and tools essential to any computational work.
 
-We begin by discussing practices and tools that should be applied
-to even exploratory, individual research.  These practices are so
-essential to efficient and productive use of computational resources
-that we routinely use them whenever we use a computer. In the following
-section, we discuss how these practices and tools naturally extend to
-collaborative work. 
+We begin by discussing practices and tools that should be applied to even
+exploratory, individual research.  These practices are so essential to
+efficient and productive use of computational resources that we routinely use
+them whenever we use a computer. In the following section, we discuss how these
+practices and tools naturally extend to collaborative work. 
 
 \paragraph{ {\bf Version control}}
 
@@ -685,27 +682,22 @@ the actual history of everyone's contributions.
 The use of version control for us is so routine that we use it for everything:
 writing grants and papers, teaching materials, homework, slides for talks, etc.
 
-\paragraph{ {\bf Testing}} Computing is notoriously error-prone. This truism is
-apparent to anyone who has done any amount of computing. While there is no
+\paragraph{ {\bf Testing}} Computing is error-prone. While there is no
 fool-proof way to take these errors out of the process, there are ways to limit
-them. One of the most successful and widely used techniques involves rigorous
-testing.  However, as E. W. Dijkstra famously observed, ``Program testing can
-be used to show the presence of bugs, but never to show their absence!''
-\cite{dahl1972structured}
-
-Given that computing is inherently error-prone, it is inevitable that you will
-find bugs in any software that you write or use. Finding these bugs as soon as
+and reduce them. One of the most successful and widely used techniques involves
+rigorous testing, so that bugs (i.e., errors) are found quickly. Finding these bugs as soon as
 possible in the development process is extremely valuable. Depending on the
 nature of the bug, it may reveal a fundamental problem with the overall design
-of your code. Even small errors that are easily fixed may require rerunning
-months of analysis. Debugging is the process of fixing bugs that you find and
-it can be a painstaking ordeal. To reduce the amount of time it takes to
-uncover bugs and to ease the pain of debugging your code, it is essential to
-adopt a rigorous testing practice up front.  Testing is a systematic and
-determined process of trying to break code.  To assist in this process,
-programmers have developed a number of tools and practices. While we believe
-testing is extremely useful practice, we should also point out that it is often
-much more interesting work than debugging.
+of your code requiring months more of coding. Even small errors that are easily
+fixed may require rerunning months of analysis.  Debugging is the process of
+fixing bugs that you find and it can be a painstaking ordeal. To reduce the
+amount of time it takes to uncover bugs and to ease the pain of debugging your
+code, it is essential to adopt a rigorous testing practice up front.%
+\footnote{While testing is extremely useful practice, we should also point out
+that it is often much more interesting work than debugging.}
+Beware though, as E. W. Dijkstra famously observed, ``Program
+testing can be used to show the presence of bugs, but never to show their
+absence!'' \cite{dahl1972structured}
 
 Testing must be performed on multiple levels. If your program takes input
 either from a user or file, then it is important that the code tests that the
@@ -719,9 +711,8 @@ program reproduces your previous results.
 Testing should be done as early as possible in the development process.
 Some programmers go so far as advocate Test-Driven Development (TDD), an
 iterative programming methodology consisting of repeatedly writing automated
-unit test cases and then implementing only the code necessary to pass the test
+unit test cases and then implementing only the code necessary to pass them
 \cite{Bec02, Ast03}.  TDD is a continuous cycle of three steps:
-
 \begin{enumerate}
 
 \item {\bf Fail Test.} Before implementing any new functionality, first
@@ -744,35 +735,16 @@ behaves correctly.
 
 \end{enumerate}
 
-This methodology ensures that all written code is covered by a unit test and
-limits the number of defects.
-
-\begin{itemize}
-
-\item Improves code quality
-
-\begin{itemize}
-\item it is easy to get lost in implementation details
-\item unit tests redirect attention to thinking about use cases for the code
-\item difficult to test huge functions with both output and side effects
-\end{itemize}
-
-\item Improves documentation
-\begin{itemize}
-\item an example is often better than an explanation
-\item tests do not get out-of-date
-\end{itemize}
-
-\item More robust code
-
-\begin{itemize}
-\item TDD leads to quicker isolation of bugs
-\item that leads to shorter debugging
-\item facilitates change
-\item simplifies integration
-\end{itemize}
-
-\end{itemize}
+This practice ensures that all written code is covered by a unit test and
+limits the number of defects. It improves code quality by forcing you to focus
+on use cases rather than getting lost in implementation details. By thinking
+about the test from the outset, you can avoid finding that the code you just
+wrote is a huge untestable mess. It can also improve documentation because
+an example (i.e., the test case) is often better than an explanation. And because
+the test is being regularly run, you will quickly know when your code no longer
+works for the example (something you may never notice in the case of explanatory
+text). And, finally, you will have more robust code as you will more quickly
+isolate bugs, which makes them easier to fix.
 
 \begin{itemize}
 \item measure test coverage
@@ -792,99 +764,98 @@ if it's not readable.
 {foreward to \textit{Programming Python (1st ed.)}\\ \textsc{Guido van Rossum} }
 
 While writing code that is well-tested and systematically managed by a modern
-VC system is important, code that you (and your colleagues) can't read is 
+VC system is important, code that you (and your colleagues) can't read is
 nearly useless. Readable code is written with explanatory names, clear logicaly
-structure, and comprehensive documentation where necessary.
-There is an extensive and growing literature (e.g., \cite{boswell2011art,
-Fow00, kernighan1999practice, HT00, mcconnell2009code}) on ``stylistic''
-aspects of good programming. Because scientific papers and grant submissions
-have become the currency of the scientific realm, it is probable that a good
-number of our colleagues have spent at least some time reading classics such as
-Strunk \& White's \emph{Elements of Style}. Yet, even as an increasing amount
-of their work is produced in lines of code, there is a paucity of scientists
-paying the same attention to the elements of good programming style. The emphasis
-on readability is included in this section because even when you are the only
-one using or working on your code, the chance that you will need to read your
-own code is high. Even when your code is widely used and shared, the chances
-are that you still will be the one most frequently reading your own code.
+structure, and comprehensive documentation where necessary.  There is an
+extensive and growing literature (e.g., \cite{boswell2011art, Fow00,
+kernighan1999practice, HT00, mcconnell2009code}) on ``stylistic'' aspects of
+good programming. Because scientific papers and grant submissions have become
+the currency of the scientific realm, it is probable that a good number of our
+colleagues have spent at least some time reading classics such as Strunk \&
+White's \emph{Elements of Style}. Yet, even as an increasing amount of their
+work is produced in lines of code, there is a paucity of scientists paying the
+same attention to the elements of good programming style. The emphasis on
+readability is included in this section because even when you are the only one
+using or working on your code, the chance that you will need to read your own
+code is high. Even when your code is widely used and shared, the chances are
+that you still will be the one most frequently reading your own code.
 
 Given the literature on the subject, written by more experienced programmers,
-we will only briefly touch on self-documenting code. Self-documenting code,
-as the name implies, reduces the need for external documentation by placing
-an emphasis on clear, well-written code that is easy to read and understand.
-In mathematics, it is accepted practice to follow established naming conventions
+we will only briefly touch on self-documenting code. Self-documenting code, as
+the name implies, reduces the need for external documentation by placing an
+emphasis on clear, well-written code that is easy to read and understand.  In
+mathematics, it is accepted practice to follow established naming conventions
 (e.g., capital letters for sets and lower case letter for elements). It is
-equally expected that when making a mathematical argument, one shouldn't arbitrarily
-switch from functional to relational notation.  Similarly, using consistent
-and uniform naming conventions when programming should be standard
+equally expected that when making a mathematical argument, one shouldn't
+arbitrarily switch from functional to relational notation.  Similarly, using
+consistent and uniform naming conventions when programming should be standard
 practice. Brevity in naming should be balanced against explicit and descriptive
-words. For example, you might use the term \texttt{download} rather than \texttt{get} in
-a function call to download a specific dataset from the internet. Expressions are
-the next block to readability. While mathematical manipulation (e.g., De Morgan's laws)
-can be used to great effect in making your expressions more easily understood, it
-is often important to use the right level of abstraction. Higher level programming
-languages (e.g., Matlab, Python, and R) provide data structures (such as n-dimensional
-vectors or statistical formulas) that enable the code to be understood at the
-level of the mathematical ideas. Finally, the overall control flow of your code
-must be clear and easy to follow. Finding the best control flow requires a deep
-understanding of your problem and an in-depth knowledge of programming methodology
-and the specifics of the languauge you are working in. Like good writing, good
-coding is acheived through deliberate practice.
+words. For example, you might use the term \texttt{download} rather than
+\texttt{get} in a function call to download a specific dataset from the
+internet. Expressions are the next block to readability. While mathematical
+manipulation (e.g., De Morgan's laws) can be used to great effect in making
+your expressions more easily understood, it is often important to use the right
+level of abstraction. Higher level programming languages (e.g., Matlab, Python,
+and R) provide data structures (such as n-dimensional vectors or statistical
+formulas) that enable the code to be understood at the level of the
+mathematical ideas. Finally, the overall control flow of your code must be
+clear and easy to follow. Finding the best control flow requires a deep
+understanding of your problem and an in-depth knowledge of programming
+methodology and the specifics of the languauge you are working in. Like good
+writing, good coding is acheived through deliberate practice.
 
-Unlike prose, readability in programming encompasses not just the code itself, but
-the accompanying documentation. Code comments offer much to readability, but are
-sadly used to little positive effect. Inspired by the idea of self-documenting
-code, we've heard programmers argue that good code doesn't need comments. Indeed,
-liberally commenting your program to counter poorly written, obscure code is
-poor pratice. Comments that simply explain how a piece of code works are often
-unhelpful. If code is so obscure to need explanation, it is perhaps better
-to rewrite or refactor it. One problem with comments (as with many types of
-documentation) is that it is often uncoupled with the actual code. This means
-that there is no way to ensure that the two don't diverge. And, if they diverge,
-it may not be obvious which is at fault.
+Unlike prose, readability in programming encompasses not just the code itself,
+but the accompanying documentation. Code comments offer much to readability,
+but are sadly used to little positive effect. Inspired by the idea of
+self-documenting code, we've heard programmers argue that good code doesn't
+need comments. Indeed, liberally commenting your program to counter poorly
+written, obscure code is poor pratice. Comments that simply explain how a piece
+of code works are often unhelpful. If code is so obscure to need explanation,
+it is perhaps better to rewrite or refactor it. One problem with comments (as
+with many types of documentation) is that it is often uncoupled with the actual
+code. This means that there is no way to ensure that the two don't diverge.
+And, if they diverge, it may not be obvious which is at fault.
 
 To illustrate how comments and documentation can enhance readability of your
-code, we discuss the commenting and documentation system that has been developed
-by NumPy and is being used by other scientific Python projects. While this
-section is specific to the tools and processes put in place in the scientific
-Python community, the general ideas are more broadly applicable.
+code, we discuss the commenting and documentation system that has been
+developed by NumPy and is being used by other scientific Python projects. While
+this section is specific to the tools and processes put in place in the
+scientific Python community, the general ideas are more broadly applicable.
 
 By 2007, NumPy provided the foundation layer for numerical, scientific
-computing in Python. With over a decade of development effort behind it,
-NumPy had evolved (with the help of numerous developers and users) to
-a powerful and widely used package. However, there was a lack of good
-reference information for the various functions, classes, and modules
-it provided. Users and developers had access to the source code, an
-almost 400 page ``Guide to NumPy'', and an active mailing list. Yet,
-it was clear that this level of documentation wasn't enough. To address
-this, the community began a year long effort to develop a documentation
-string standard. In Python, a documentation string (or docstring) is any
-string in the first line in an object's (function, class, etc.)
-definition. Since docstrings are embedded in the source code,
-they are ready available to anyone directly viewing the source. The
-string is associated with the object and can be programmatically
-accessed as well.  They can be accessed from an interepeter using
-any object's \texttt{\_\_doc\_\_} attribute.  Docstrings can also be
-accessed for autogenerating documentation. Similar functionality
-exists in other programming languages such as R. And even in language
-that don't include this functionality, it is common practice to include
-comments at the beginning of object definitions that are used similarly.
+computing in Python. With over a decade of development effort behind it, NumPy
+had evolved (with the help of numerous developers and users) to a powerful and
+widely used package. However, there was a lack of good reference information
+for the various functions, classes, and modules it provided. Users and
+developers had access to the source code, an almost 400 page ``Guide to
+NumPy'', and an active mailing list. Yet, it was clear that this level of
+documentation wasn't enough. To address this, the community began a year long
+effort to develop a documentation string standard. In Python, a documentation
+string (or docstring) is any string in the first line in an object's (function,
+class, etc.) definition. Since docstrings are embedded in the source code, they
+are ready available to anyone directly viewing the source. The string is
+associated with the object and can be programmatically accessed as well.  They
+can be accessed from an interepeter using any object's \texttt{\_\_doc\_\_}
+attribute.  Docstrings can also be accessed for autogenerating documentation.
+Similar functionality exists in other programming languages such as R. And even
+in language that don't include this functionality, it is common practice to
+include comments at the beginning of object definitions that are used
+similarly.
 
 Given a recognized need for better documentation and documentation
-functionality that we wanted to leverage, the discussion focused
-on what this documentation should include. Besides the need to include
-information such as a brief statement of purpose as well as input and
-output parameters, there were several issues that arose with special
-relevance for scientific applications. For instance, many of the algorithms
-had simple mathematical expressions that weren't necessarily obvious
-from there implementation in Python. In these cases, a few equations
-written in \LaTeX{} were immediately useful. Moreover, in several cases
-we were implementing functionality that was described in peer-reviewed
-academic journals. And, finally, we could provide eextremely short examples
-of how to use the code. As an added benefit, Python makes it easy to
-include examples in the docstrings as part of the test suite; this
-improves the test coverage and helps ensure that the documentation doesn't
-get out of sync with the actual code.
+functionality that we wanted to leverage, the discussion focused on what this
+documentation should include. Besides the need to include information such as a
+brief statement of purpose as well as input and output parameters, there were
+several issues that arose with special relevance for scientific applications.
+For instance, many of the algorithms had simple mathematical expressions that
+weren't necessarily obvious from there implementation in Python. In these
+cases, a few equations written in \LaTeX{} were immediately useful. Moreover,
+in several cases we were implementing functionality that was described in
+peer-reviewed academic journals. And, finally, we could provide eextremely
+short examples of how to use the code. As an added benefit, Python makes it
+easy to include examples in the docstrings as part of the test suite; this
+improves the test coverage and helps ensure that the documentation doesn't get
+out of sync with the actual code.
 
 
 auto-generated API documentation, bug tracker, task list, project management
