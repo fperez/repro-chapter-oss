@@ -116,7 +116,7 @@ computational research.
 \section{Introduction}\label{intro}
 
 \setlength{\epigraphrule}{0pt}
-\setlength{\epigraphwidth}{.75\textwidth}
+\setlength{\epigraphwidth}{.90\textwidth}
 \epigraph%
 {%
   Science alone of all the subjects contains within itself the lesson of the
@@ -343,7 +343,7 @@ software development.
 \paragraph{ {\bf Nullius in Verba}} 
 
 \setlength{\epigraphrule}{0pt}
-\setlength{\epigraphwidth}{.75\textwidth}
+\setlength{\epigraphwidth}{.90\textwidth}
 \epigraph%
 {% 
   \emph{Nullius addictus iurare in verba magistri,
@@ -379,7 +379,7 @@ that we do not lose this central aspect of the scientific approach.
 \paragraph{ {\bf Cargo cult science}}
 
 \setlength{\epigraphrule}{0pt}
-\setlength{\epigraphwidth}{.75\textwidth}
+\setlength{\epigraphwidth}{.90\textwidth}
 \epigraph%
 {%
   In summary, the idea is to try to give all of the information to
@@ -446,7 +446,7 @@ personal computers and the internet \cite{spier2002history}.
 \paragraph{ {\bf Computational practice}}
 
 \setlength{\epigraphrule}{0pt}
-\setlength{\epigraphwidth}{.75\textwidth}
+\setlength{\epigraphwidth}{.90\textwidth}
 \epigraph%
 {%
   In ordinary computational practice by hand or by desk machines, it
@@ -480,7 +480,7 @@ The early days of computing \emph{were open}: von Neumann's reports
 \paragraph{ {\bf Software crisis}}
 
 \setlength{\epigraphrule}{0pt}
-\setlength{\epigraphwidth}{.75\textwidth}
+\setlength{\epigraphwidth}{.90\textwidth}
 \epigraph%
 {%
   The major cause of the software crisis is that the machines have become
@@ -503,7 +503,7 @@ No silver bullets \cite{brooks1995mythical}.
 \paragraph{ {\bf Open source}}
 
 \setlength{\epigraphrule}{0pt}
-\setlength{\epigraphwidth}{.75\textwidth}
+\setlength{\epigraphwidth}{.90\textwidth}
 \epigraph%
 {%
   a great babbling bazaar of differing agendas and approaches \ldots
@@ -554,7 +554,7 @@ Purpose:  Better Research
 \subsection{Best practices}
 
 \setlength{\epigraphrule}{0pt}
-\setlength{\epigraphwidth}{.75\textwidth}
+\setlength{\epigraphwidth}{.90\textwidth}
 \epigraph%
 {%
   when a man tries all kinds of experiments without method or
@@ -714,7 +714,7 @@ isolate bugs, which makes them easier to fix.
 
 \paragraph{ {\bf Readability}}
 \setlength{\epigraphrule}{0pt}
-\setlength{\epigraphwidth}{.75\textwidth}
+\setlength{\epigraphwidth}{.90\textwidth}
 \epigraph%
 {%
 This emphasis on readability is no accident. As an object-oriented language,
@@ -722,11 +722,11 @@ Python aims to encourage the creation of reusable code. Even if we all wrote
 perfect documentation all of the time, code can hardly be considered reusable
 if it's not readable.
 }%
-{foreward to \textit{Programming Python (1st ed.)}\\ \textsc{Guido van Rossum} }
+{foreword to \textit{Programming Python (1st ed.)}\\ \textsc{Guido van Rossum} }
 
 While writing code that is well-tested and systematically managed by a modern
 VC system is important, code that you (and your colleagues) can't read is
-nearly useless. Readable code is written with explanatory names, clear logicaly
+nearly useless. Readable code is written with explanatory names, clear logical
 structure, and comprehensive documentation where necessary.  There is an
 extensive and growing literature (e.g., \cite{boswell2011art, Fow00,
 kernighan1999practice, HT00, mcconnell2009code}) on ``stylistic'' aspects of
@@ -762,15 +762,15 @@ formulas) that enable the code to be understood at the level of the
 mathematical ideas. Finally, the overall control flow of your code must be
 clear and easy to follow. Finding the best control flow requires a deep
 understanding of your problem and an in-depth knowledge of programming
-methodology and the specifics of the languauge you are working in. Like good
-writing, good coding is acheived through deliberate practice.
+methodology and the specifics of the language you are working in. Like good
+writing, good coding is achieved through deliberate practice.
 
 Readability in programming encompasses not just the code itself,
 but the accompanying documentation. Code comments offer much to readability,
 but are sadly used to little positive effect. Inspired by the idea of
 self-documenting code, we've heard programmers argue that good code doesn't
 need comments. Indeed, liberally commenting your program to counter poorly
-written, obscure code is poor pratice. Comments that simply explain how a piece
+written, obscure code is poor practice. Comments that simply explain how a piece
 of code works are often unhelpful. If code is so obscure to need explanation,
 it is perhaps better to rewrite or refactor it. One problem with comments (as
 with many types of documentation) is that it is often uncoupled with the actual
@@ -796,7 +796,7 @@ string (or docstring) is any string in the first line in an object's (function,
 class, etc.) definition. Since docstrings are embedded in the source code, they
 are ready available to anyone directly viewing the source. The string is
 associated with the object and can be programmatically accessed as well.  They
-can be accessed from an interepeter using any object's \texttt{\_\_doc\_\_}
+can be accessed from an interpreter using any object's \texttt{\_\_doc\_\_}
 attribute.  Docstrings can also be accessed for autogenerating documentation.
 Similar functionality exists in other programming languages such as R. And even
 in language that don't include this functionality, it is common practice to
@@ -812,7 +812,7 @@ For instance, many of the algorithms had simple mathematical expressions that
 weren't necessarily obvious from there implementation in Python. In these
 cases, a few equations written in \LaTeX{} were immediately useful. Moreover,
 in several cases we were implementing functionality that was described in
-peer-reviewed academic journals. And, finally, we could provide eextremely
+peer-reviewed academic journals. And, finally, we could provide extremely
 short examples of how to use the code. As an added benefit, Python makes it
 easy to include examples in the docstrings as part of the test suite; this
 improves the test coverage and helps ensure that the documentation doesn't get
@@ -1107,6 +1107,17 @@ in the open source community in this direction.
 
 \subsection{Literate programming}
 
+
+\setlength{\epigraphrule}{0pt}
+\setlength{\epigraphwidth}{.90\textwidth}
+\epigraph%
+{%
+Instead of imagining that our main task is to instruct a \emph{computer}
+what to do, let us concentrate rather on explaining to \emph{human beings}
+what we want a computer to do.
+}%
+{\textit{Literate programming (1984)}\\ \textsc{Donald Knuth} }
+
 The concept of \emph{Literate Programming} was introduced by Donald Knuth in
 the early 1980's \cite{Knuth:1983:LP} and a complete description of this
 approach to computer programming can be found in his later book of the same
@@ -1124,23 +1135,23 @@ languages and documentation systems.
 
 The R community has actively embraced the ideas behind literate programming,
 and a mature implementation of the concept exists for R in the Sweave system
-\cite{lmucs-papers:Leisch:2002}.  Sweave is one of the central elements of the Bioconductor
-system \cite{Gentleman2004, Dudoit2003} for computational biology and
-bioinformatics.  As all Bioconductor packages must be accompanied by at least
-one ``vignette'', a literate programming document that contains executable code
-illustrating the tasks the package is meant to perform.  Vignettes can be read
-in PDF format, but functions exist to automatically extract all the R code for
-immediate execution.
+\cite{lmucs-papers:Leisch:2002}.  Sweave is one of the central elements of the
+Bioconductor system \cite{Gentleman2004, Dudoit2003} for computational biology
+and bioinformatics.  As all Bioconductor packages must be accompanied by at
+least one ``vignette'', a literate programming document that contains
+executable code illustrating the tasks the package is meant to perform.
+Vignettes can be read in PDF format, but functions exist to automatically
+extract all the R code for immediate execution.
 
 In recent years, a new entrant to the R community that is gaining rapid
-adoption is the Knitr package \cite{xie2012knitr}.  Knitr can be seen as a highly
-evolved Sweave with a number of improvements on many fronts, but still within
-the conceptual lineage of literate programming tools.
+adoption is the Knitr package \cite{xie2012knitr}.  Knitr can be seen as a
+highly evolved Sweave with a number of improvements on many fronts, but still
+within the conceptual lineage of literate programming tools.
 
 \subsection{Literate computing}
 
-Tools described in the previous section for literate programming are mature
-and have been used to great effect to improve the quality of documentation in
+Tools described in the previous section for literate programming are mature and
+have been used to great effect to improve the quality of documentation in
 scientific programs and data analysis, especially in the R community.  But they
 remain firmly rooted in the original model proposed by Knuth, of authoring a
 literate file that is then post-processed by various tools to produce either
@@ -1158,8 +1169,8 @@ that allows users not only to execute commands but also to store in a literate
 document format the results of these commands along with figures and free-form
 text that typically can include formatted mathematical expressions.  In
 practice it can be seen as a blend of a command-line environment such as the
-Unix shell with a word processor, since the resulting documents can be
-read like text, but contain blocks of code that were executed by the underlying
+Unix shell with a word processor, since the resulting documents can be read
+like text, but contain blocks of code that were executed by the underlying
 computational system.
 
 The earliest full-fledged implementation of these ideas is the graphical user
@@ -1172,7 +1183,7 @@ symbolic computing package, the Sage \mref{sage} mathematical computing system,
 and the interactive computing project IPython, on which we will focus the rest
 of our discussion.
 
-\subsection{IPython}
+\paragraph{ {\bf IPython}}
 
 IPython\footnote{\url{http://ipython.org}} is a system for interactive and
 parallel computing that has become the \emph{de facto} standard environment for
@@ -1233,8 +1244,8 @@ execution outside of the IPython framework.
 
 The IPython protocol consists of messages in JSON (JavaScript Object Notation)
 format that encode all actions that an interactive user can request of a
-computational kernel, such as executing code, transfering data or sending
-results, amongst many others.  While this protocol is implemented in IPython,
+computational kernel, such as executing code, transferring data or sending
+results, among many others.  While this protocol is implemented in IPython,
 third-parties can independently implement it and provide new kernels that will
 be able to interact with the notebook interface and clients.  The notebook file
 format is a simple JSON data structure that contains a series of one or more
