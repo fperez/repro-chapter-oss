@@ -1,4 +1,4 @@
-TITLE="perez-millman"
+TITLE="millman-perez"
 
 all:
 	pdflatex $(TITLE).tex
