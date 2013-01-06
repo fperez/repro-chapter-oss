@@ -268,45 +268,6 @@ how to apply the lessons of open source development to the scientific
 context.
 
 
-\subsection{Limits of reproducibility}
-
-As we seek to learn how the open source practice can inform our scientific
-work, we must recognize that the ideal of scientific reproducibility
-is by necessity a reality of shades. We can see a gradation that goes
-from a pure mathematical result whose proof should be accessible to
-any person skilled in the necessary specialty, to one-of-a-kind experiments
-such as the Large Hadron Collider or the Hubble Space Telescope, that
-can not be reproduced in any realistic sense. At each point in this
-spectrum, however, we can always find ways to improve our confidence
-in the results: whether we re-analyze the same unique datasets with
-independently developed packages run by separate groups or we re-acquire
-partial sampling of critical data multiple times, we should never
-completely renounce the ideals of reproducibility because of practical
-difficulties.
-
-Similarly, in computational research we also have certain areas where
-complete reproducibility is more challenging than others. Some projects
-require computations carried on the largest supercomputers on the
-planet, and these are expensive resources that can not be arbitrarily
-allocated for repeated executions of the same problem. Others may
-require access to enormous datasets that can not easily be transferred
-to the desktop of any researcher wishing to re-execute an analysis.
-But again, alternatives exist: it should be possible to validate scaled
-versions of the largest problems run independently, against scaled
-specimens created on the supercomputers for this purpose, and
-sub-sampled datasets can be used to collect at least validation statistics
-that may be informative of the trust we place on the published analysis.
-
-\begin{itemize}
-\item Levels of reproducibility: replication, validation, reproduction,
-new construction.
-\item Conditions: clarity, transparency and trace-ability, predictability
-(which requires automation), communicability
-\end{itemize}
-
-While the mechanical reproduction of computational results is not a
-panacea in itself; the rigor, openness, culture of validation, collaboration and
-other aspects of science must become a routine part of our computational practices.
 
 \parasep
 
@@ -683,8 +644,8 @@ The use of version control for us is so routine that we use it for everything:
 writing grants and papers, teaching materials, homework, slides for talks, etc.
 
 \paragraph{ {\bf Testing}} Computing is error-prone. While there is no
-fool-proof way to take these errors out of the process, there are ways to limit
-and reduce them. One of the most successful and widely used techniques involves
+fool-proof way to rid computing of error, there are ways to limit
+and reduce it. One of the most successful and widely used techniques involves
 rigorous testing, so that bugs (i.e., errors) are found quickly. Finding these bugs as soon as
 possible in the development process is extremely valuable. Depending on the
 nature of the bug, it may reveal a fundamental problem with the overall design
@@ -735,7 +696,7 @@ behaves correctly.
 
 \end{enumerate}
 
-This practice ensures that all written code is covered by a unit test and
+This practice ensures that all written code is tested and
 limits the number of defects. It improves code quality by forcing you to focus
 on use cases rather than getting lost in implementation details. By thinking
 about the test from the outset, you can avoid finding that the code you just
@@ -804,7 +765,7 @@ understanding of your problem and an in-depth knowledge of programming
 methodology and the specifics of the languauge you are working in. Like good
 writing, good coding is acheived through deliberate practice.
 
-Unlike prose, readability in programming encompasses not just the code itself,
+Readability in programming encompasses not just the code itself,
 but the accompanying documentation. Code comments offer much to readability,
 but are sadly used to little positive effect. Inspired by the idea of
 self-documenting code, we've heard programmers argue that good code doesn't
@@ -884,7 +845,7 @@ A good documentation tool should
 
 * Facilitate collaboration
 
-\paragraph{ {\bf Project management}}
+\paragraph{ {\bf Infrastructure}}
 
 documentation, code, figures/results, process, distribution, etc.
 
@@ -948,14 +909,18 @@ with the public version and their entire provenance (including information
 such as time of invention and individual credit within the lab) becomes
 available for inspection.
 
-\paragraph{ {\bf Pull requests: ongoing peer review}}
+\begin{itemize}
 
-\paragraph{ {\bf Pull requests: back and forth discussion}}
+\item Pull requests: ongoing peer review
 
-\paragraph{ {\bf Branches: exploratory work with control}}
+\item Pull requests: back and forth discussion
 
+\item Branches: exploratory work with control
 
-\subsection{Moving forward }
+\end{itemize}
+
+\paragraph{ {\bf Infrastructure redux}}
+
 
 In summary, we think that a few simple lessons can be learned from
 the practices of the open source world which, if carefully assimilated,
@@ -1230,6 +1195,44 @@ executing the code.}
 
 
 \section{Conclusion}\label{conclusion}
+
+As we seek to learn how the open source practice can inform our scientific
+work, we must recognize that the ideal of scientific reproducibility
+is by necessity a reality of shades. We can see a gradation that goes
+from a pure mathematical result whose proof should be accessible to
+any person skilled in the necessary specialty, to one-of-a-kind experiments
+such as the Large Hadron Collider or the Hubble Space Telescope, that
+can not be reproduced in any realistic sense. At each point in this
+spectrum, however, we can always find ways to improve our confidence
+in the results: whether we re-analyze the same unique datasets with
+independently developed packages run by separate groups or we re-acquire
+partial sampling of critical data multiple times, we should never
+completely renounce the ideals of reproducibility because of practical
+difficulties.
+
+Similarly, in computational research we also have certain areas where
+complete reproducibility is more challenging than others. Some projects
+require computations carried on the largest supercomputers on the
+planet, and these are expensive resources that can not be arbitrarily
+allocated for repeated executions of the same problem. Others may
+require access to enormous datasets that can not easily be transferred
+to the desktop of any researcher wishing to re-execute an analysis.
+But again, alternatives exist: it should be possible to validate scaled
+versions of the largest problems run independently, against scaled
+specimens created on the supercomputers for this purpose, and
+sub-sampled datasets can be used to collect at least validation statistics
+that may be informative of the trust we place on the published analysis.
+
+\begin{itemize}
+\item Levels of reproducibility: replication, validation, reproduction,
+new construction.
+\item Conditions: clarity, transparency and trace-ability, predictability
+(which requires automation), communicability
+\end{itemize}
+
+While the mechanical reproduction of computational results is not a
+panacea in itself; the rigor, openness, culture of validation, collaboration and
+other aspects of science must become a routine part of our computational practices.
 
 This is a large and complex problem that requires changing the educational
 process for new scientists, the incentive models for promotions and
