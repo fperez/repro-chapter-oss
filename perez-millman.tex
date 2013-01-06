@@ -724,7 +724,7 @@ unit test cases and then implementing only the code necessary to pass the test
 
 \begin{enumerate}
 
-\item {\bf Failing Test.} Before implementing any new functionality, first
+\item {\bf Fail Test.} Before implementing any new functionality, first
 write a failing test case (it should fail because the new functionality doesn't
 exist yet). This forces you to think about what you want a
 piece of code to do, rather than how it does it.  It also validates that the
@@ -828,12 +828,64 @@ vectors or statistical formulas) that enable the code to be understood at the
 level of the mathematical ideas. Finally, the overall control flow of your code
 must be clear and easy to follow. Finding the best control flow requires a deep
 understanding of your problem and an in-depth knowledge of programming methodology
-and the specifics of the languauge you are working in.
+and the specifics of the languauge you are working in. Like good writing, good
+coding is acheived through deliberate practice.
 
-Unlike prose, readability in programming includes not just the code itself, but
-the accompanying documentation.
+Unlike prose, readability in programming encompasses not just the code itself, but
+the accompanying documentation. Code comments offer much to readability, but are
+sadly used to little positive effect. Inspired by the idea of self-documenting
+code, we've heard programmers argue that good code doesn't need comments. Indeed,
+liberally commenting your program to counter poorly written, obscure code is
+poor pratice. Comments that simply explain how a piece of code works are often
+unhelpful. If code is so obscure to need explanation, it is perhaps better
+to rewrite or refactor it. One problem with comments (as with many types of
+documentation) is that it is often uncoupled with the actual code. This means
+that there is no way to ensure that the two don't diverge. And, if they diverge,
+it may not be obvious which is at fault.
 
-code comments
+To illustrate how comments and documentation can enhance readability of your
+code, we discuss the commenting and documentation system that has been developed
+by NumPy and is being used by other scientific Python projects. While this
+section is specific to the tools and processes put in place in the scientific
+Python community, the general ideas are more broadly applicable.
+
+By 2007, NumPy provided the foundation layer for numerical, scientific
+computing in Python. With over a decade of development effort behind it,
+NumPy had evolved (with the help of numerous developers and users) to
+a powerful and widely used package. However, there was a lack of good
+reference information for the various functions, classes, and modules
+it provided. Users and developers had access to the source code, an
+almost 400 page ``Guide to NumPy'', and an active mailing list. Yet,
+it was clear that this level of documentation wasn't enough. To address
+this, the community began a year long effort to develop a documentation
+string standard. In Python, a documentation string (or docstring) is any
+string in the first line in an object's (function, class, etc.)
+definition. Since docstrings are embedded in the source code,
+they are ready available to anyone directly viewing the source. The
+string is associated with the object and can be programmatically
+accessed as well.  They can be accessed from an interepeter using
+any object's \texttt{\_\_doc\_\_} attribute.  Docstrings can also be
+accessed for autogenerating documentation. Similar functionality
+exists in other programming languages such as R. And even in language
+that don't include this functionality, it is common practice to include
+comments at the beginning of object definitions that are used similarly.
+
+Given a recognized need for better documentation and documentation
+functionality that we wanted to leverage, the discussion focused
+on what this documentation should include. Besides the need to include
+information such as a brief statement of purpose as well as input and
+output parameters, there were several issues that arose with special
+relevance for scientific applications. For instance, many of the algorithms
+had simple mathematical expressions that weren't necessarily obvious
+from there implementation in Python. In these cases, a few equations
+written in \LaTeX{} were immediately useful. Moreover, in several cases
+we were implementing functionality that was described in peer-reviewed
+academic journals. And, finally, we could provide eextremely short examples
+of how to use the code. As an added benefit, Python makes it easy to
+include examples in the docstrings as part of the test suite; this
+improves the test coverage and helps ensure that the documentation doesn't
+get out of sync with the actual code.
+
 
 auto-generated API documentation, bug tracker, task list, project management
 
