@@ -1033,7 +1033,7 @@ working on something else.  This is hardly a solution to our questions, as
 runtimes in the weeks or months become in practice single-shot efforts that
 nobody will attempt to replicate.
 
-For \textbf{publications} and\textbf{education}, researchers use tools such as
+For \textbf{publications} and \textbf{education}, researchers use tools such as
 \LaTeX, Google Docs or Microsoft Word/PowerPoint.  The most important attribute
 of these tools in this context is that, \LaTeX{} excepted, they integrate
 poorly with version control systems and are ill-suited for workflow automation.
@@ -1107,7 +1107,7 @@ in the open source community in this direction.
 
 \subsection{Literate programming}
 
-The concept of {\emph Literate Programming} was introduced by Donald Knuth in
+The concept of \emph{Literate Programming} was introduced by Donald Knuth in
 the early 1980's \cite{Knuth:1983:LP} and a complete description of this
 approach to computer programming can be found in his later book of the same
 title \cite{Knuth92}.  Knuth's concern was the development of a better approach
@@ -1146,32 +1146,51 @@ remain firmly rooted in the original model proposed by Knuth, of authoring a
 literate file that is then post-processed by various tools to produce either
 documentation or executable code.  
 
-In this section, we will contrast these tools with an alternate approach to the
-same questions of improving the connection between code and documentation, that
-we refer to as ``literate computing''.  Our choice of terminology points to the
+In this section, we will contrast these with an alternate approach to the same
+questions of improving the connection between code and documentation, that we
+refer to as ``literate computing''.  Our choice of terminology points to the
 fact that we emphasize the act of computing itself rather than the writing of
 code, as all the systems we will describe are all centered around
 \emph{interactive environments} where the user can enter code for immediate
 execution, obtain results, and continue with more commands that produce new
-results based on the previous ones.
+results based on the previous ones.  A literate computing environment is one
+that allows users not only to execute commands but also to store in a literate
+document format the results of these commands along with figures and free-form
+text that typically can include formatted mathematical expressions.  In
+practice it can be seen as a blend of a command-line environment such as the
+Unix shell with a word processor, since the resulting documents can be
+read like text, but contain blocks of code that were executed by the underlying
+computational system.
 
-Mathematica, Maple.
-
-
-Python
-
+The earliest full-fledged implementation of these ideas is the graphical user
+interface of the Mathematica\textregistered \emph{Notebook} system which dates
+back to early versions of Mathematica on the NeXT computer platform and took
+advantage of the superior graphical capabilities of NeXT.  Today a number of
+other systems (both open source and proprietary) provide similar capabilities;
+on the open-source front we notably mention the Maxima \mref{maxima notebook}
+symbolic computing package, the Sage \mref{sage} mathematical computing system,
+and the interactive computing project IPyhton, on which we will focus the rest
+of our discussion.
 
 IPython, a system for interactive and parallel computing, has become the \emph{
-  de facto} environment for scientific Python. In the last year we have
-developed the IPython Notebook, a web-based \emph{ interactive computational
-  notebook} that combines code, text, mathematics, plots and rich media into a
-single document format (see Fig.~\ref{fig:IPython-notebook}).  The IPython
-Notebook was designed to enable researchers to move fluidly between all the
-phases of the research life-cycle and has gained rapid adoption. It provides an
-integrated environment for all computation, without locking scientists into a
-specific tool or format: Notebooks can always be exported into regular scripts
-and IPython supports the execution of code in other languages such as R,
-Octave, bash, etc.
+  de facto} environment for scientific computing and data analysis in the
+Python programming language.  IPython was created by F. P\'erez in in 2001 as
+an interactive command-line shell for Python, and has evolved into a large
+collaborative open-source project with contributions from a broad team of
+scientists \cite{PER-GRA:2007}.  In 2011, a web-based notebook was developed in
+IPython that connects to the same interactive core as the original command-line
+shell, but does so using a web browser as the user interface, automatically
+enabling either local or remote use as the system running the
+
+In the last year we have developed the IPython
+Notebook, a web-based \emph{ interactive computational notebook} that combines
+code, text, mathematics, plots and rich media into a single document format
+(see Fig.~\ref{fig:IPython-notebook}).  The IPython Notebook was designed to
+enable researchers to move fluidly between all the phases of the research
+life-cycle and has gained rapid adoption. It provides an integrated environment
+for all computation, without locking scientists into a specific tool or format:
+Notebooks can always be exported into regular scripts and IPython supports the
+execution of code in other languages such as R, Octave, bash, etc.
 
 \begin{itemize}
 
@@ -1182,14 +1201,15 @@ Octave, bash, etc.
 \item education
  
 \end{itemize}
-\begin{figure}
-\begin{centering}
-\includegraphics[width=3.2in]{fig/ipython-notebook-specgram.png}
-\par\end{centering}
 
-\caption{\label{fig:IPython-notebook}The web-based IPython Notebook combines
-explanatory text, mathematics, multimedia, code and the results from
-executing the code.}
+\begin{figure}
+  \begin{centering}
+    \includegraphics[width=3.2in]{fig/ipython-notebook-specgram.png}\par
+  \end{centering}
+
+  \caption{\label{fig:IPython-notebook}The web-based IPython Notebook combines
+    explanatory text, mathematics, multimedia, code and the results from
+    executing the code.}
 \end{figure}
 
 
