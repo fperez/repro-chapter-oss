@@ -5,6 +5,7 @@
 %-----------------------------------------------------------------------------
 % Special-purpose color definitions (dark enough to print OK in black and white)
 \usepackage{color}
+\usepackage{amsthm}
 
 % A few colors to replace the defaults for certain link types
 \definecolor{orange}{cmyk}{0,0.4,0.8,0.2}
@@ -46,6 +47,9 @@
     \begin{tabular}{@{}cc@{}%
   \multicolumn2c*\\[-2ex]*&*%
 \end{tabular}}}}}
+
+\theoremstyle{definition}
+\newtheorem{practice}{Practice}
 
 %-----------------------------------------------------------------------------
 %
@@ -261,7 +265,7 @@ Furthermore, the notion of a fully open development model typical
 of open source projects is at odds with another aspect of the
 scientific publication and reward system: the ``first
 to publish'' race. Many scientists are, understandably,
-be leery of exposing their projects on an openly accessible website
+leery of exposing their projects on an openly accessible website
 when in their embryonic stages. The fear of being scooped by others
 is real, and again we must properly address it as we consider
 how to apply the lessons of open source development to the scientific
@@ -340,7 +344,7 @@ practices when writing software, we briefly argue for the necessity for
 scientists to learn these lessons so basic to the culture of open source
 software development.
 
-\paragraph{ {\bf Nullius in Verba}} 
+\paragraph{ {\bf Nobody's word}} 
 
 \setlength{\epigraphrule}{0pt}
 \setlength{\epigraphwidth}{.90\textwidth}
@@ -596,9 +600,9 @@ Microsoft Word's Track Changes functionality).  While these approaches are
 partial solutions to the problem, they are also cumbersome and prone to
 failure.
 
-Because tracking and managing how work evolves over time is so fundamental to the
-workflow of software development, programmers have created specialized software
-tools to do exactly this. These software tools are called \emph{version
+Because tracking and managing how work evolves over time is so fundamental to
+the workflow of software development, programmers have created specialized
+software tools to do exactly this. These tools are called \emph{version
 control} systems. Several open source version control systems (VC) are
 available including CVS, SVN, Git, and Mercurial.
 
@@ -627,41 +631,48 @@ same line of code), then the VC systems require manual intervention. While any
 VC system must allow commits in a repository, their support for efficient
 branching and merging vary greatly.
 
-\begin{itemize}
+\fperez{Would you take a stab at turning this into a couple of sentences:
+- Newer version control systems such as Git and Mercurial provide 
+- cryptographic hash (SHA1)... data integrity, git-annex
+}
 
-\item hash (SHA1)... data integrity, git-annex
-
-\item pushing to central repository
-
-
-\item Pervasive version control: research codes should be developed, while
+\fbox{
+    \parbox[c]{12cm}{
+Pervasive version control: research codes should be developed, while
 still in-house, \emph{always} using version control systems that track
 the actual history of everyone's contributions.
+    }
+}
 
-\end{itemize}
+\begin{practice}
+Pervasive version control: research codes should be developed, while
+still in-house, \emph{always} using version control systems that track
+the actual history of everyone's contributions.
+\end{practice}
 
 The use of version control for us is so routine that we use it for everything:
 writing grants and papers, teaching materials, homework, slides for talks, etc.
 
 \paragraph{ {\bf Testing}} Computing is error-prone. While there is no
-fool-proof way to rid computing of error, there are ways to limit
-and reduce it. One of the most successful and widely used techniques involves
-rigorous testing, so that bugs (i.e., errors) are found quickly. Finding these bugs as soon as
-possible in the development process is extremely valuable. Depending on the
-nature of the bug, it may reveal a fundamental problem with the overall design
-of your code requiring months more of coding. Even small errors that are easily
-fixed may require rerunning months of analysis.  Debugging is the process of
-fixing bugs that you find and it can be a painstaking ordeal. To reduce the
-amount of time it takes to uncover bugs and to ease the pain of debugging your
-code, it is essential to adopt a rigorous testing practice up front.%
-\footnote{While testing is extremely useful practice, we should also point out
-that it is often much more interesting work than debugging.}
-Beware though, as E. W. Dijkstra famously observed, ``Program
+fool-proof way to rid computing of error, there are ways to limit and reduce
+it. One of the most successful and widely used techniques involves
+comprehensive testing, so that bugs (i.e., errors) are found quickly. Finding
+bugs as soon as possible in the development process is extremely valuable.
+Depending on the nature of the bug, it may reveal a fundamental problem with
+the overall design of your code requiring months more of coding.  Even small
+errors that are easily fixed may require rerunning months of analysis.
+Debugging is the process of fixing bugs that you find and it can be a
+painstaking ordeal. To reduce the amount of time it takes to uncover bugs and
+to ease the pain of debugging your code, it is essential to adopt a rigorous
+testing practice up front.%
+\footnote{While testing is extremely useful
+practice, we should also point out that it is often much more interesting work
+than debugging.} Beware though, as E. W. Dijkstra famously observed, ``Program
 testing can be used to show the presence of bugs, but never to show their
 absence!'' \cite{dahl1972structured}
 
 Testing must be performed on multiple levels. If your program takes input
-either from a user or file, then it is important that the code tests that the
+either from a user or file, then it is important that the code checks that the
 input is exactly what the program expects. You will also want to write
 \emph{unit tests} to ensure that unitary code elements like functions, classes,
 and class methods behave correctly. And finally, you will want to write
@@ -696,21 +707,17 @@ behaves correctly.
 
 \end{enumerate}
 
-This practice ensures that all written code is tested and
-limits the number of defects. It improves code quality by forcing you to focus
-on use cases rather than getting lost in implementation details. By thinking
-about the test from the outset, you can avoid finding that the code you just
-wrote is a huge untestable mess. It can also improve documentation because
-an example (i.e., the test case) is often better than an explanation. And because
-the test is being regularly run, you will quickly know when your code no longer
-works for the example (something you may never notice in the case of explanatory
-text). And, finally, you will have more robust code as you will more quickly
-isolate bugs, which makes them easier to fix.
+This practice ensures that all written code is tested and limits the number of
+defects. It improves code quality by forcing you to focus on use cases rather
+than getting lost in implementation details. By thinking about the test from
+the outset, you can avoid finding that the code you just wrote is a huge
+untestable mess. It can also improve documentation because an example (i.e.,
+the test case) is often better than an explanation. And if you regularly run
+the test, you will quickly know when your code no longer works for the example
+(something you may never notice in the case of explanatory text).  Finally, you
+will have more robust code as you will more quickly isolate bugs, which makes
+them easier to fix.\cite{oram2010making}
 
-\begin{itemize}
-\item measure test coverage
-\item dashboard. automated testing on code check in
-\end{itemize}
 
 \paragraph{ {\bf Readability}}
 \setlength{\epigraphrule}{0pt}
@@ -818,6 +825,16 @@ easy to include examples in the docstrings as part of the test suite; this
 improves the test coverage and helps ensure that the documentation doesn't get
 out of sync with the actual code.
 
+\paragraph{ {\bf Infrastructure}}
+
+As your research project progresses the amount of code and data that you need
+to manage will grow. At the outset, it may be possible to mentally or manually
+keep track of all the components of your project. But, eventually, you will need
+tools and procedures in place to take care of these details for you.
+
+automation
+
+documentation, code, figures/results, process, distribution, etc.
 
 auto-generated API documentation, bug tracker, task list, project management
 
@@ -845,9 +862,7 @@ A good documentation tool should
 
 * Facilitate collaboration
 
-\paragraph{ {\bf Infrastructure}}
-
-documentation, code, figures/results, process, distribution, etc.
+\cite{doar2005practical}
 
 directory structure and naming conventions, with a manual process
 for building, installing, ad executing.
@@ -856,19 +871,29 @@ for building, installing, ad executing.
 
 - IDE project
 
+- pushing to central repository
+
 - online resources: trac, redmine, vs hosted project management like
 sourceforge, github
 
+\begin{itemize}
+\item measure test coverage
+\item dashboard. automated testing on code check in
+\end{itemize}
 
 \subsection{Collaboration}
 
-the practices and tools in open source software development
-are much more advanced when it comes to collaboration.
+Collaboration is an essential aspect of the scientific enterprise.
 
-- since development communities are geographically spread
-and often dependent on contributions from volunteers, there
-has been careful attention paid to efficient and productive
-tools and processes for managing collaborations.
+Scientific research is inherently collaborative enterprise.
+
+builds on itself
+
+However, even in the student / teacher scenario, better collaborative tools
+are already of great benefit.  And, often you are dealing with research
+assistants, graduate students, postdoc, and PI \ldots  Furthermore, there are a
+growing number of multiple PI projects due to growing specialization and
+interdisciplinary research areas.
 
 Why do scientists need to collaborate on software tools?
 
@@ -886,14 +911,19 @@ Lab-based software package competition
 \item competition at the level of software---not algorithms
 \end{itemize}
 
-However, even in the student / teacher scenario, better collaborative tools
-are already of great benefit.  And, often you are dealing with research
-assistants, graduate students, postdoc, and PI \ldots  Furthermore, there are a
-growing number of multiple PI projects due to growing specialization and
-interdisciplinary research areas.
 
 - talk about how the adoption of tools and practices have dramatically
 impacted IPython project
+
+
+the practices and tools in open source software development
+are much more advanced when it comes to collaboration.
+
+- since development communities are geographically spread
+and often dependent on contributions from volunteers, there
+has been careful attention paid to efficient and productive
+tools and processes for managing collaborations.
+
 
 \paragraph{ {\bf Distributed version control}}
 
