@@ -575,7 +575,7 @@ experience writing and maintaining software, teaching programming courses to
 students and scientists, as well as extensive interaction and discussion with a
 diverse group of scientists and engineers.  Whole books have been dedicated to
 best practices in software development with highly specialized tools and habits
-for individual programming languages and tools.  In this short chapter, we
+for individual programming languages and tools.  In this short section, we
 highlight the practices and tools essential to any computational work.
 
 We begin by discussing practices and tools that should be applied to even
@@ -598,62 +598,97 @@ their work using manual and laborious kludges. The most common patterns include
 using \emph{ad hoc} naming schemes (e.g., \texttt{file.txt.bak},
 \texttt{file.txt.1st}, etc.), emailing different versions to yourself, or using
 the specialized functionality built into the tool you happen to use (e.g.,
-Microsoft Word's Track Changes functionality).  While these approaches are
+Microsoft Word's ``Track Changes'' functionality).  While these approaches are
 partial solutions to the problem, they are also cumbersome and prone to
-failure.
+failure.  More importantly, they are completely unsustainable beyond very
+simple scenarios with only one or two files and do not scale to any kind of
+sensible collaboration workflow.
 
 Because tracking and managing how work evolves over time is so fundamental to
 the workflow of software development, programmers have created specialized
 software tools to do exactly this. These tools are called \emph{version
-control} systems. Several open source version control systems (VC) are
-available including CVS, SVN, Git, and Mercurial.
+  control} systems. Several open source version control (VC) systems have been
+developed over the years, the most well known being CVS, SVN, Git, and
+Mercurial.
 
 While there are notable differences among these tools, they all share some
 basic concepts.  In most VC systems, you store all your project files (code,
 text, figures, etc.) in a \emph{repository} (often represented on disk in a
-directory hierarchy).  There are commands to add and
-remove files to a repository.  When you change a file in your repository that
-you want to track, you can \emph{commit} those changes with a \emph{commit
-message}.  The repository and commit mechanism provide a complete historical
-log of the project from inception to current state, including every change made
-along with timestamps and author for each modification to the codebase.
+directory hierarchy).  There are commands to add and remove files to a
+repository.  When you change a file in your repository that you want to track,
+you can \emph{commit} those changes with a \emph{commit message}.  The
+repository and commit mechanism provide a complete historical log of the
+project from inception to current state, including every change made along with
+timestamps, author, comments and other metadata for each modification to the
+codebase.
 
 Commonly your changes may follow a simple linear progression of commits.
-However your series of commits may not always follow such a straight route from
-beginning to end. For example, given the exploratory nature of research, you
-may have several alternative approaches that you want to follow. In such cases,
-your commits will resemble a tree with several \emph{branches} diverging from a
-common base or trunk. When exploring these alternative approaches on different
-branches, you may find that several branches converge. At
-this point, you will need a way to \emph{merge} these branches back together.
-If you worked on different parts of your project in the separate branches,
-merging those parts together is straightforward and completely automatic. When
-you have \emph{conflicting} changes in different branches (e.g., edits to the
-same line of code), then the VC systems require manual intervention. While any
-VC system must allow commits in a repository, their support for efficient
-branching and merging vary greatly.
+However it is reasonable to have a project evolve so that it does not follow a
+straight route from beginning to end. For example, given the exploratory nature
+of research, you may have several alternative approaches that you want to try
+out. In such cases, your commits will resemble a tree with several
+\emph{branches} diverging from a common base or trunk. When exploring these
+alternative approaches on different branches, you may find that several
+branches converge. At this point, you will need a way to \emph{merge} these
+branches back together.  If the changes in each of these branches don't overlap
+with one another, the VC system is capable of merging them all together in a
+completely automated fashion.  When you have \emph{conflicting} changes in
+different branches (e.g., edits to the same line of code), then the VC systems
+require manual intervention where you have to choose which of the conflicting
+changes should ultimately prevail.  But in all cases, a VC system is the only
+reasonable solution for managing the evolution of multiple branches of parallel
+development in a set of files (whether written documents, computer code or
+data).
 
-\fperez{Would you take a stab at turning this into a couple of sentences:
-- Newer version control systems such as Git and Mercurial provide 
-- cryptographic hash (SHA1)... data integrity, git-annex
-}
+In the design of more modern VC systems such as Mercurial and Git, an important
+consideration has been woven into the core of the system: built-in \emph{data
+  integrity verification} via cryptographically robust fingerprinting of all
+content.  The basic idea is that at every commit, the VC system computes a
+``fingerprint'' of the content being committed as well as the data it depended
+on\footnote{More precisely, a hash function is evaluated on the content of the
+  commit and the hash of all commits it depends on, which creates a directed
+  acyclic graph of hash values that signs the entire repository.  Today these
+  systems employ the SHA1 hash function, but other hashes could be equally used
+  if necessary}.  In this manner, at any point in time it is possible to
+establish the integrity of the entire history of a repository, by recomputing
+these fingerprints and comparing them against what has been stored.  By the
+nature of hash functions, if even a single byte is changed in the entire
+repository all subsequent hashes will be modified and the change can thus be
+detected.  This key design idea is used by VC systems for all kinds of internal
+operations, but it also means that when a scientist gets a copy of a
+repository, he or she can be confident, with near mathematical certainty, that
+the entire history contained therein has not been tampered with in any way when
+copmared to another repository with the same hashes.  
 
-\fbox{
-    \parbox[c]{12cm}{
-Pervasive version control: research codes should be developed, while
-still in-house, \emph{always} using version control systems that track
-the actual history of everyone's contributions.
-    }
-}
+Strong guarantees on data integrity are a necessary condition of any
+reproducible workflow, and one of the reasons why we emphasize so much the
+pervasive use of modern verstion control systems as the foundation of a
+reproducible research environment.
+
+It is important to note that VC systems were developed originally for the
+management of human-generated content such as computer source code or text
+documents, not for the handling of large binary data that is common in science.
+By virtue of their design, they tend to be somewhat inefficient if one attempts
+to store all the changes in a project with many frequently changing large
+binary files, and this somewhat limits their use for the tracking of all assets
+in a research project.  But new efforts exist to mitigate these limitations,
+such as the git-annex project\footnote{\url{http://git-annex.branchable.com}}
+that uses git itself for storing all metadata about large binary assets, along
+with a static (configurable) storage resource external to git for the assets
+themselves.  This approach makes it possible to smoothly integrate the
+management of binary data within a VC workflow, without creating an explosion
+in the size of the VC storage area.
+
+In summary, the use of version control should be seen as a ''background
+technology''; in our case its use is so routine that we use it for everything:
+writing grants and papers, teaching materials, homework, slides for talks, etc.
+This leads us to suggest our first ``recipe'' in terms of best practices:
 
 \begin{practice}
-Pervasive version control: research codes should be developed, while
-still in-house, \emph{always} using version control systems that track
-the actual history of everyone's contributions.
+  Pervasive version control: research codes, manuscripts and data analysis
+  projects should be developed, from the beginning, \emph{always} using version
+  control systems that track the actual history of everyone's contributions.
 \end{practice}
-
-The use of version control for us is so routine that we use it for everything:
-writing grants and papers, teaching materials, homework, slides for talks, etc.
 
 \paragraph{ {\bf Testing}} Computing is error-prone. While there is no
 fool-proof way to rid computing of error, there are ways to limit and reduce
@@ -929,30 +964,150 @@ tools and processes for managing collaborations.
 
 \paragraph{ {\bf Distributed version control}}
 
-By using a distributed version control system, authors can continue
-to maintain a private branch where new work (say leading to a new
-publication) is conducted while tracking the public development. This
-will enable them to maintain exclusive access to their new work until
-it is published, while continuing to develop the openly accessible
-code with the rest of the scientific community. Once the code is published,
-since it was developed using the same version control machinery of
-the public branch, the new contributions can be seamlessly merged
-with the public version and their entire provenance (including information
-such as time of invention and individual credit within the lab) becomes
-available for inspection.
+Earlier we discussed how version control (VC) should be the foundation of a
+reproducible research workflow, even for a single investigator working in
+isolation.  But the true power of these systems comes into its own when
+considering the need to collaborate with others.  Modern systems such as Git
+and Mercurial were designed from the ground up for large-scale distributed
+collaboration: Git was written by Linus Torvalds, the creator of the Linux
+kernel, to coordinate its development.  The Linux kernel is arguably the
+largest and most complex single open source development project today: version
+3.7 of the kernel included roughly 12,000 distinct sets of changes affecting
+over 1,100,000 lines of code by nearly 1,300 individual
+contributors\footnote{url{https://lwn.net/Articles/526748}}.  Git's entire
+design aims to make collaboration on this scale smooth and efficient, and it
+succeeds admirably at the task.  Scientists can benefit from this power as well
+for any project that requires collaboration, whether it is the development of
+an open source research code or the writing of a manuscript or grant proposal
+with multiple authors.
 
-\begin{itemize}
+Git and other tools like it are called \emph{distributed} version control
+systems (DVCS) because they don't on any central server for their functioning,
+instead maintaining an entire history of a project inside every repository.
+This is in contrast to legacy systems such as CVS and SVN, that made a
+distinction between the ``working copy'' that users would work on and which
+contained only the most recent version of files, and a special repository
+hosted on a central server that had the entire project history.  The
+centralized model does enable collaboration, but it also creates a number of
+problems that the distributed model addresses.  In a DVCS there is no single
+point of failure, as every repository carries all the project history and
+therefore serves as an automatic backup.
 
-\item Pull requests: ongoing peer review
+More importantly, a DVCS enables anyone who can \emph{clone} a repository (the
+term used to indicate getting a full copy of an existing repository to start
+new work off of it) to develop their own history with new commits, even if they
+don't have write permissions to the original source that they cloned from.
+This means that once you have a clone a repository (which could be someone
+else's or yours from a different computer), you can start working on that copy
+and building new history even if you are disconnected from the original system,
+such as when working on a plane or train without internet access.  If at a
+later stage you decide to merge your new history with the original repository,
+the merge capabilities in all DVC systems make this very straightforward.
 
-\item Pull requests: back and forth discussion
+This model of cloning an existing repository, building new history in isolation
+and then merging it back into a common history, is the basis for how these
+systems enable a very fluid workflow for collaboration.  When the time comes to
+need a merge operation, DVC systems can communicate the necessary changes even
+via email attachments, but the simplest way to do so is to have a special
+repository\footnote{We note that this central repository does not change the
+  distributed nature of the process: while it plays a special role for purposes
+  of \emph{synchronization}, the central repository is otherwise completely
+  symmetrical to everyone's personal copy in the information it holds, and can
+  be replaced at any time in case it is lost or damaged from anyone's copy.} in
+a common location that all parties have access to and where the changes are
+\emph{pushed} to.  Pushing, as the term suggests, means sending the set of
+changes from one repository into another; once the changes have been put into
+this central repository, all parties can \emph{pull} them into their personal
+copies to synchronize their states and continue working again.  So in practice,
+the simplest and most common collaboration workflow with a DVCS is one where
+each person has a copy they develop on, and they all connect in a star topology
+to a central node where a shared copy exists that is used for synchronization.
 
-\item Branches: exploratory work with control
+In recent years, a number of web services have appeared that play the role of
+this central node; the most popular of them by far is
+GitHub\footnote{\url{http://github.com}}, but others such as
+BitBucket\footnote{\url{https://bitbucket.org}} and
+Gitorious\footnote{\url{http://gitorious.org}} play similar roles.  GitHub has
+had a tremendous impact in the open source community, reaching in a few years
+millions of active users and gaining rapidly popularity in scientific circles.
+We can attest to the power of this platform with our own experience: the open
+source IPython project (see §~\ref{IPython}) moved its development to GitHub in
+early 2010 and immediately saw a rapid uptick in the pace of contributions.
+The workflow for collaboration enabled by GitHub was so much smoother than all
+previously availalbe tools that many people were more willing to send
+contributions, while the core team was able to review and integrate these
+contributions at a much more rapid pace.
 
-\end{itemize}
+The core element of the collaborative process on GitHub is known as a
+\emph{pull request}, and it is something akin to a public peer review of a set
+of changes to a manuscript.  Let us illustrate how it works with a simple
+example: Alice wants to contribute to IPython, a project available on github at
+\url{http://github.com/ipython} but to which she does not have write access.
+She can do so by getting her own personal copy of the IPython git repository
+where she makes all the changes she wants, and once she is ready to share them
+with the IPython team she can publish them on her GitHub user account at
+\url{http://gitub.com/alice/ipython} (presuming her GitHub user name is
+\texttt{alice} for the sake of this example).  At that point, she can click on
+a button to create a ``pull request'' for these changes: this contacts the
+IPython developers and creates a special page on the website that summarizes
+her changes as well as allowing everyone to begin a discussion about the nature
+of these changes.  This discussion page allows the developers to ask Alice
+questions (even making comments on specific lines of her new code), and she can
+respond to these questions, update her code with new commits in order to
+address any required improvements, etc.  Once the IPython developers are
+satisfied with this review and discussion (which may happen immediately or may
+require a lengthy back-and-forth process, depending on the nature of the
+changes), they can apply the changes to the official IPython repository with a
+click of a button\footnote{This is an example of a real pull request page for
+  IPython that already went through the entire review process:
+  \url{https://github.com/ipython/ipython/pull/1732}}.  Once the changes are
+merged, they become part of the official project source and every individual
+commit that was merged is credited to Alice from the time she made it while she
+was working on her personal copy.  Furthermore, even closed pull requests
+remain available on the website to inform future discussions, making the entire
+collaboration process an open one.
+
+This pull request process allows for a dynamic and open peer review process of
+all proposed changes to a project, while everyone has access to the same
+version control tools while they work.  The only special role that the official
+project authors have is the ability to approve the final merging of new
+changes, but otherwise everyone participates on an equal footing in terms of
+access to tools.  
+
+In our experience, this highly symmetrical structure proves to be extremely
+beneficial in encouraging a very meritocratic process of contribution and
+review, where there are very few points of special authority and where the
+discussions can remain focused around the contribution that initiated the pull
+request.  Paraphrasing how some of the GitHub employees describe the process in
+public presentations: ``a pull request is a conversation that starts with
+code''.  From a scientific research perspective, we should consider these ideas
+in a broader context that goes beyond code: while peer review is one of the
+very pillars of how the scientific community moves forward, in practice modern
+scientific peer review is often an opaque, arbitrary and limited process.  The
+open, dynamic and ongoing process of peer review enabled by the GitHub pull
+request system (or the equivalent ones that exist on other similar siervices)
+stands in sharp contrast to some of our scientific traditions, and in our
+opinion our community could benefit significantly from adopting some of these
+ideas in a more pervasive manner in our own review practices
+\cite{10.3389/fncom.2012.00018}.
+
+It is worth noting that by using a DVCS, authors can maintain private work
+branches in the context of a publicly available project; this can be useful if
+new work needs to be developed in practice prior to publication and subsequent
+public release. By tracking the public repository but keeping a private branch,
+they can maintain exclusive access to their new work until it is published,
+while continuing to develop the openly accessible code with the rest of the
+scientific community. Once the code is published, since it was developed using
+the same version control machinery of the public branch, the new contributions
+can be seamlessly merged with the public version and their entire provenance
+(including information such as time of invention and individual credit within
+the lab) becomes available for inspection.  This simple observation shows how
+these tools can be used to balance the sometimes valid requests for privacy
+that may exist in a research environment with the desire for subsequent
+disclosure and publication, without losing any of the benefits of version
+control with regards to attribution and provenance tracking.
 
 \paragraph{ {\bf Infrastructure redux}}
-
 
 In summary, we think that a few simple lessons can be learned from
 the practices of the open source world which, if carefully assimilated,
@@ -1216,7 +1371,7 @@ package, the Sage \mref{sage} mathematical computing system, and the
 interactive computing project IPython, on which we will focus the rest of our
 discussion.
 
-\subsection{IPython}
+\subsection{IPython}\label{IPython}
 
 IPython\footnote{\url{http://ipython.org}} is a system for interactive and
 parallel computing that has become the \emph{de facto} standard environment for
