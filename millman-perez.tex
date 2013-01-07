@@ -1,4 +1,6 @@
 \documentclass[ChapterTOCs,krantz2]{krantz} % Use krantz2 for 7" x 10" trim size
+
+\usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \usepackage{subfigure}
 \usepackage{epigraph}
@@ -99,7 +101,7 @@
 \chapterauthor{K. Jarrod Millman}{Division of Biostatistics\\
 School of Public Health\\
 University of California, Berkeley}
-\chapterauthor{Fernando P\'{e}rez}{Henry H. Wheeler Jr. Brain Imaging Center\\
+\chapterauthor{Fernando Pérez}{Henry H. Wheeler Jr. Brain Imaging Center\\
 Helen Wills Neuroscience Institute\\
 University of California, Berkeley}
 
@@ -331,7 +333,7 @@ many smart, highly-trained, and well-educated scientists we've been
 fortunate to know and work with, it is remarkable how few have basic
 fluency with the standard best practices developed for software development.
 Even among widely-used scientific analysis software, it is surprising how
-many are developed without following these practice by routine.
+jmany are developed without following these practice by routine.
 
 When encouraging our scientific colleagues and friends to adopt, what we
 consider, basic best practices for their software development, we've often
@@ -1004,27 +1006,28 @@ use for each of these phases today, in particular considering their impact on
 the reproducibility of the final outcomes. 
 
 For \textbf{individual exploratory work}, researchers use various interactive
-computing environments: Microsoft Excel, Matlab, Mathematica, Sage \cite{sage},
-and more specialized systems like R, SPSS and STATA for statistics. These
-environments combine interactive, high-level programming languages with a rich
-set of numerical and visualization libraries. The impact of these environments
-cannot be overstated; they are used almost universally by researchers for rapid
-prototyping, interactive exploration and data analysis and
-visualization. However, these environments have a number of limitations: (a)
-some of them are proprietary and/or expensive (Excel, Matlab, Mathematica), (b)
-most (except for Sage) are focused on coding in a single, relatively slow,
+computing environments: Microsoft Excel, Matlab, Mathematica\textregistered\,
+Sage \cite{sage}, and more specialized systems like R, SPSS and STATA for
+statistics. These environments combine interactive, high-level programming
+languages with a rich set of numerical and visualization libraries. The impact
+of these environments cannot be overstated; they are used almost universally by
+researchers for rapid prototyping, interactive exploration and data analysis
+and visualization. However, these environments have a number of limitations:
+(a) some of them are proprietary and/or expensive (Excel, Matlab, Mathematica),
+(b) most (except for Sage) are focused on coding in a single, relatively slow,
 programming language and (c) most (except for Sage and Mathematica) do not have
 a document format that is rich, i.e., that can include text, equations, images
 and video in addition to source code. While the use of proprietary tools is not
 a problem \emph{per se} and may be a good solution in industry, it is a barrier
 to scientific collaboration and to the construction of a common scientific
 heritage where anyone can validate the work of others and build upon it.
-Scientists can not share work unless all colleagues can purchase the same package
-and students are forced to work with black boxes they are legally prevented
-from inspecting (spectacularly defeating the very essence of scientific
-inquiry). Furthermore, because of their limitations in performance and handling
-large, complex code bases, these tools are mostly used for prototyping:
-researchers eventually have to switch tools for building production systems.
+Scientists can not share work unless all colleagues can purchase the same
+package and students are forced to work with black boxes they are legally
+prevented from inspecting (spectacularly defeating the very essence of
+scientific inquiry). Furthermore, because of their limitations in performance
+and handling large, complex code bases, these tools are mostly used for
+prototyping: researchers eventually have to switch tools for building
+production systems.
 
 For \textbf{collaboration}, researchers tend to use a mix of email, version
 control systems and shared network folders (Dropbox, etc.).  Version control
@@ -1204,28 +1207,41 @@ like text, but contain blocks of code that were executed by the underlying
 computational system.
 
 The earliest full-fledged implementation of these ideas is the graphical user
-interface of the Mathematica\textregistered \emph{Notebook} system which dates
-back to early versions of Mathematica on the NeXT computer platform and took
-advantage of the superior graphical capabilities of NeXT.  Today a number of
-other systems (both open source and proprietary) provide similar capabilities;
-on the open-source front we notably mention the Maxima \mref{maxima notebook}
-symbolic computing package, the Sage \mref{sage} mathematical computing system,
-and the interactive computing project IPython, on which we will focus the rest
-of our discussion.
+interface of the Mathematica \emph{Notebook} system which dates back to early
+versions of Mathematica on the NeXT computer platform and took advantage of the
+superior graphical capabilities of NeXT.  Today a number of other systems (both
+open source and proprietary) provide similar capabilities; on the open-source
+front we notably mention the Maxima \mref{maxima notebook} symbolic computing
+package, the Sage \mref{sage} mathematical computing system, and the
+interactive computing project IPython, on which we will focus the rest of our
+discussion.
 
-\paragraph{ {\bf IPython}} \fperez{why the change to paragraph?}
+\subsection{IPython}
 
 IPython\footnote{\url{http://ipython.org}} is a system for interactive and
 parallel computing that has become the \emph{de facto} standard environment for
 scientific computing and data analysis in the Python programming language.  It
-was created by F. P\'erez in in 2001 as an interactive command-line shell for
+was created by F. Pérez in in 2001 as an interactive command-line shell for
 Python, and has evolved into a large collaborative open-source project with
-contributions from a broad team of scientists \cite{PER-GRA:2007}.  In 2011, a
-web-based notebook was developed in IPython that connects to the same
-interactive core as the original command-line shell, but does so using a web
-browser as the user interface, automatically enabling either local or remote
-use as the system running the web browser can be different from that executing
-the code, with all communication happening over the network.
+contributions from a broad team of scientists \cite{PER-GRA:2007}.  IPython
+started with the simple purpose of building a better interactive environment
+for everyday computational work by a single researcher.  But as it grew into a
+broader open source project, the team working on it (most of them practicing
+scientists) learned many of the skills of the trade from open source software
+developers.  It is precisely from this interplay between scientific research
+and software development that we highlight here, as through contact with the
+tools and culture of the open source world, we saw how in many respects this
+community had outpaced scientists in its robust and rigorous use of
+computational resources.  Through the years, we have thus led a dual life,
+where the contact with this open source community continually informs and
+enriches our approach to computational research and has helped us build IPython
+into a better scientific tool.
+
+In 2011, a web-based notebook was developed in IPython that connects to the
+same interactive core as the original command-line shell, but does so using a
+web browser as the user interface, automatically enabling either local or
+remote use as the system running the web browser can be different from that
+executing the code, with all communication happening over the network.
 Fig.~\ref{fig:IPython-notebook} shows a typical notebook session with code,
 text, mathematics and figures.
 
@@ -1339,15 +1355,41 @@ accessible to others and reproducible, seeding the continued evolution of the
 research processs.
 
 We close this section by noting that the above tools are also playing a role in
-the last stage of the cycle we outlined earlier.  We will increase our chance
-that the next generation of scientists adopts improved reproducibility
-practices if we educate them with the same tools that we use for everyday
-research, and a couple of modern efforts that aim to bring improved
-computational literacy to scientific research have adopted the IPython
-notebook.  The Software Carpentry
-project\footnote{\url{http://software-carpentry.org}}, funded by
-the Alfred P. Sloan Foundation, is a project led by Greg Wilson at the Mozilla
-Foundation that 
+the last stage of the cycle we outlined earlier, education.  We will increase
+our chance that the next generation of scientists adopts improved
+reproducibility practices if we educate them with the same tools that we use
+for everyday research, and a couple of modern efforts that aim to bring
+improved computational literacy to scientific research have adopted the IPython
+notebook.  Software Carpentry\footnote{\url{http://software-carpentry.org}} is
+a project funded by the Alfred P. Sloan Foundation and led by Greg Wilson at
+the Mozilla Foundation whose motto is Richard Feynman's famous ``What I cannot
+create, I do not understand.''.  They produce, with rigorous follow-up and
+assesment, workshops aimed at working scientists (typically graduate students
+and postdocs, but always open to broad audiences) and whose purpose is to
+instill in them a collection of skills and best practices for effectively using
+computing as a daily research tool.  The Software Carpentry workshops cover
+topics ranging from the basics of the Unix shell to version control, Makefile
+automation of processes and basics of scientific Python including data analysis
+and visualization.  They have recently adopted the IPython Notebook as the base
+system for teaching the scientific Python parts of their curricula, and provide
+the IPython team with direct feedback on its strengths and weaknesses as an
+educational tool.  In a similar vein, Josh Bloom from the astronomy department
+at UC Berkeley has led for a number of years 3-day workshops on the use of
+Python as a tool for scientific
+computing\footnote{\url{http://pythonbootcamp.info}}.  These are open to the
+entire cammpus community and followed by an optional for-credit seminar where
+students laern more advanced skills for using Python as a research tool.
+F. Pérez and other members of the IPython team at UC Berkeley regularly lecture
+in the bootcamp and courses, where the notebook is the means for delivery of
+course materials and interactive lecturing.  While we have identified a number
+of weaknesses and areas for improvement, we have also found this environment to
+be markedly superior to all previous tools we had used in the past for teaching
+in similar contexts.
+
+In summary, IPython embodies the main ideas we've woven into our discussion: it
+was born out of the interplay between everyday scientific research and open
+source software development, and it tries to be a natural part of the entire
+research cycle in order to make it more fluid, efficient and reproducible.
 
 
 \section{Conclusion}\label{conclusion}
