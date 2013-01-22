@@ -111,18 +111,17 @@ University of California, Berkeley}
 \fix{We need to figure out how to move this dedication to the top, below the
   title, where those things typically go}
 \emph{Dedicated to the memory of John~D.~Hunter~III, 1968-2012.}
-\vspace{5mm}
 
-As members of both the scientific research and the open-source
-software development communities, we have observed that the latter
-often lives up better than the former to our ideals of scientific
-openness and reproducibility.  We explore the reasons behind this,
-and argue that these problems are particularly acute in computational
-domains where they should be in fact less prevalent.   We discuss
-how we can draw specific lessons from the open source community both
-in terms of technical approaches and of changing the structure of
-incentives, to make progress towards a more solid base for reproducible
-computational research.
+%As members of both the scientific research and the open-source
+%software development communities, we have observed that the latter
+%often lives up better than the former to our ideals of scientific
+%openness and reproducibility.  We explore the reasons behind this,
+%and argue that these problems are particularly acute in computational
+%domains where they should be in fact less prevalent.   We discuss
+%how we can draw specific lessons from the open source community both
+%in terms of technical approaches and of changing the structure of
+%incentives, to make progress towards a more solid base for reproducible
+%computational research.
 
 \section{Introduction}\label{intro}
 
@@ -136,7 +135,7 @@ computational research.
 }%
 {\textit{What is Science? (1969)}\\ \textsc{Richard Feynman} }
 
-Scientific research has become pervasively computational. In addition
+Computational tools are at the core of modern research. In addition
 to experiment and theory, the notions of simulation and data-intensive
 discovery have emerged as third and fourth pillars of science \cite{4th-paradigm}.
 Today, even theory and experiment are computational, as virtually
@@ -147,25 +146,22 @@ of any major scientific journal, one is hard-pressed to find a publication
 in any discipline that does not depend on computing for its findings.
 
 And yet, for all its importance, computing is often treated as an
-afterthought both in the training of new scientists and in the conduct
-of everyday research. Most working scientists have witnessed how computing
-is treated as a task of secondary importance that students and postdocs
-learn ``on the go'' with little training to ensure that results
-are trustworthy, comprehensible and ultimately a secure foundation
-for reproducible outcomes. Software and data are stored with poor
-organization, documentation and tests. A patchwork of software tools
-is used with limited attention paid to capturing the complex workflows
-that emerge, and the evolution of code is often not tracked over time,
-making it difficult to understand how a result was obtained. Finally,
-many of the software packages used by scientists in research are proprietary
-and closed-source, preventing the community from having a complete
-understanding of the final scientific results.
+afterthought both in the training of new scientists and in the conduct of
+everyday research. Most working scientists have witnessed how computing is
+treated as a task of secondary importance that students and postdocs learn
+``on the go'' with little training to ensure that results are trustworthy,
+comprehensible and ultimately a secure foundation for reproducible outcomes.
+Software and data are stored with poor organization, documentation and tests.
+A patchwork of software tools is used with limited attention paid to
+capturing the complex workflows that emerge, and the evolution of code is
+often not tracked over time, making it difficult to understand how a result
+was obtained. Finally, many of the software packages used by scientists in
+research are proprietary and closed-source, preventing the community from
+having a complete understanding of the final scientific results.
 
-\subsection{Growing crisis}
-
-The situation above will be familiar to all scientists and this familiarity
-may breed complacency. However, the consequences of this situation are serious
-at present and will become disastrous if the situation is not dealt with
+The situation is familiar to all scientists and this familiarity may breed
+complacency. However, the consequences of this situation are serious at
+present and will become disastrous if the situation is not dealt with
 directly. 
 
 Much more than a ``third branch'' of science, computing has become so central
@@ -204,6 +200,61 @@ science.
 %A crisis of credibility and real issues
 %
 %Retraction rates are going up \cite{cokol2008retraction,steen2011retractions} 
+
+As research grows increasingly dependent on computing, it becomes critical
+for our computational resources to be developed with the same rigor, open review
+and access as the results they support.  For this reason, we actively promote:
+
+\begin{itemize}
+
+\item sharing of scientific software, data, and knowledge necessary for
+reproducible research
+
+\item open source software developed by collaborative, meritocratic
+communities
+
+\item openly tested, validated, and documented software as the basis for
+reliable scientific outcomes
+
+\item high standards of computational literacy in the education of
+mathematicians, scientists, and engineers
+
+\end{itemize}
+
+\parasep
+
+In the next section, we share lessons we've learned from our participation in
+several open source development projects and describe how these lessons can be
+applied to scientific practice.  In the following section, we present a
+comprehensive view of the role computing plays in the life-cycle of scientific
+investigation.  In addition to surveying the standard approaches, this section
+ends with a detailed overview of the open source IPython project
+\cite{PER-GRA:2007}, which is a single software tool capable of spanning the
+entire life-cycle of computational research.  Finally, we conclude with a brief
+discussion of how we see the culture changing and the need for reviewing our
+current incentive models and the training of new scientists.
+
+\section{Lessons from open source}\label{lessons-oss}
+
+Over the last decade, we've had the privilege of participating in a loose-knit
+community of scientists, researchers, and engineers working to create a powerful
+stack of open source tools for scientific computing written in Python.  Among
+high-level open source programming languages, Python is today the leading tool
+for general-purpose scientific computing (along with R for statistics),
+finding wide adoption across research disciplines, education and industry and
+being a core infrastructure tool at institutions such as CERN and the Hubble
+Space Telescope Science Institute
+\cite{millman2011python,Perez2011,ganga09,SST}.
+
+
+core tools: numpy, scipy, matplotlib, and ipython
+
+- simultaneously we've interacted heavily with researchers in
+physics, psychology, neuroscience, and medicine.
+
+- we've also talked with members of SciPy community representing
+other disciplines and 
+
 \subsection{Contrast of cultures}
 
 Open source software development uses public fora for most discussion
@@ -282,57 +333,9 @@ context.
 
 \parasep
 
-In the next section, we share lessons we've learned from our participation in
-several open source development projects and describe how these lessons can be
-applied to scientific practice.  In the following section, we present a
-comprehensive view of the role computing plays in the life-cycle of scientific
-investigation.  In addition to surveying the standard approaches, this section
-ends with a detailed overview of the open source IPython project
-\cite{PER-GRA:2007}, which is a single software tool capable of spanning the
-entire life-cycle of computational research.  Finally, we conclude with a brief
-discussion of how we see the culture changing and the need for reviewing our
-current incentive models and the training of new scientists.
-
-\section{Lessons from open source}\label{lessons-oss}
-
-Over the last decade, we've had the privilege of participating in a loose-knit
-community of scientists, researchers, and engineers working to create a powerful
-stack of open source tools for scientific computing written in Python.  Among
-high-level open source programming languages, Python is today the leading tool
-for general-purpose scientific computing (along with R for statistics),
-finding wide adoption across research disciplines, education and industry and
-being a core infrastructure tool at institutions such as CERN and the Hubble
-Space Telescope Science Institute
-\cite{millman2011python,Perez2011,ganga09,SST}.
 
 
-core tools: numpy, scipy, matplotlib, and ipython
-
-- simultaneously we've interacted heavily with researchers in
-physics, psychology, neuroscience, and medicine.
-
-- we've also talked with members of SciPy community representing
-other disciplines and 
-
-
-\subsection{Two cultures}
-
-In his influential 1959 Rede Lecture, C. P. Snow lamented the separation between the
-two cultures of science and humanities.  In particular, he warned that a lack
-of understanding of scientific ideas among the intellectual classes was a major
-impediment to solving the problems of modern society \cite{snow1960two}.
-
-\begin{quote}
-A good many times I have been present at gatherings of people who, by the
-standards of the traditional culture, are thought highly educated and who have
-with considerable gusto been expressing their incredulity at the illiteracy of
-scientists. Once or twice I have been provoked and have asked the company how
-many of them could describe the Second Law of Thermodynamics. The response was
-cold: it was also negative. Yet I was asking something which is about the
-scientific equivalent of: Have you read a work of Shakespeare’s?
-\end{quote}
-
-Similarly we've noticed a separation between the predominant culture of
+We've noticed a separation between the predominant culture of
 science today and that of open source software development. Among the
 many smart, highly-trained, and well-educated scientists we've been
 fortunate to know and work with, it is remarkable how few have basic
@@ -351,165 +354,62 @@ practices when writing software, we briefly argue for the necessity for
 scientists to learn these lessons so basic to the culture of open source
 software development.
 
-%\paragraph{ {\bf Nobody's word}} 
-%
-%\setlength{\epigraphrule}{0pt}
-%\setlength{\epigraphwidth}{.90\textwidth}
-%\epigraph%
-%{% 
-%  \emph{Nullius addictus iurare in verba magistri,
-%  quo me cumque rapit tempestas, deferor hospes.}
-%
-%  I am not bound over to swear allegiance to any master; where the storm
-%  drives me I turn in for shelter.
-%}%
-%{\textit{Book I, epistle i, line 14.}\\ \textsc{Horace} }
-%
-%While a detailed discussion of the origin of modern science is beyond the scope
-%of this chapter, we briefly want to address how the scientific method arose, in
-%part, as a rejection of authority as the source of knowledge. Over the last
-%several centuries, the idea that knowledge of the natural world must be based
-%on observation and experiment has become so pervasive that it seems almost
-%self-evident. Academic thought, however, in Europe's medieval universities
-%centered on the study of classic texts (particularly from the Greeks). The
-%scientific approach---appealing to facts over authority---was widely debated
-%and its ascendance was not a foregone conclusion \cite{shapin2011leviathan}.
-%
-%Ideas such as controlled experiments, repeatability, and hypothesis/prediction,
-%slowly coalesced during the 17th century.  Simultaneous with the advance of these
-%ideas, scientific communities began arising across Europe to discuss and promote
-%them. The Royal Society of London for Improving Natural Knowledge (the Royal Society),
-%perhaps most notable of these communities, was founded in November 1660 with the motto
-%'Nullius in verba', roughly translated as 'Take nobody's word for it'. This motto
-%succinctly captures the ethos of this new approach to knowledge that prized above
-%all the ability of individuals to verify for themselves over received wisdom.
-%
-%As computation pervades the scientific endeavor, it becomes important to assure
-%that we do not lose this central aspect of the scientific approach.
-
-%\paragraph{ {\bf Cargo cult science}}
+%\paragraph{ {\bf Computational practice}}
 %
 %\setlength{\epigraphrule}{0pt}
 %\setlength{\epigraphwidth}{.90\textwidth}
 %\epigraph%
 %{%
-%  In summary, the idea is to try to give all of the information to
-%  help others to judge the value of your contribution; not just the
-%  information that leads to judgment in one particular direction or
-%  another.
+%  In ordinary computational practice by hand or by desk machines, it
+%  is the custom to check every step of the computation and, when an
+%  error is found, to localize it by a backward process starting from
+%  the first point where the error is noted.
 %}%
-%{\textit{Cargo Cult Science (1974)}\\ \textsc{Richard Feynman} }
+%{\textit{Cybernetics (1948)}\\ \textsc{Norbert Wiener} }
 %
-%%popularized term after his 1974 Caltech commencement speech
+%Computing is now synonymous with the use of automated, electronic machines.  So
+%synonymous, in fact, that is easy to forget that computing has always been part
+%of scientific investigation. Of course, the types of problems amenable to
+%computing by hand on paper or with early calculating machines (e.g., abacus)
+%were limited. 
 %
-%Anthropologist have documented a curious phenomena arising among several tribal
-%island societies after encountering the material wealth of modern society. As
-%explorers and traders arrived on remote Pacific islands, during the late
-%nineteenth century and early twentieth century, they brought manufactured goods
-%with them.  Unfamiliar with modern industrial manufacturing processes, the
-%pre-industrial tribal societies often attributed the cargo to divine, rather
-%than human, origin. Among these societies, there are several documented
-%incidents of ``cargo cults'' arising to bring more cargo to their islands.
-%These cults are documented to have attempted to reproduce the rituals associated
-%with the arrival of cargo---constructing mock runways lined with fires and manned
-%by islanders in fake control towers---in the mistaken
-%belief that these rituals could cause the arrival of airplanes laden with
-%cargo.
+%Lessons we all were taught in our elementary mathematics classes:
 %
-%While there is a continuing debate about the meaning and status of cargo cults
-%among anthropologist \cite{jebens2004cargo}, the phrase has resonated among both
-%scientists and programmers leading to discussions of ``cargo cult science'' and
-%``cargo cult programming''. Ritualistic practices mimicking the form of past
-%attempts abound. We argue that the scientific publication, which lies at the
-%heart of scientific practice, is in danger of becoming such a ritual. We are
-%by no means the first to remark on this danger.
+%- show your work
 %
-%In the early 1960s, Peter Medawar pointed out that the classic form of the
-%scientific publication was a fiction \cite{medawar1963scientific}. Still
-%it is common for editors to insist that accepted publications follow the
-%standard Introduction, Methods, Results and Discussion (IMRAD) structure of the
-%scientific paper \cite{sollaci2004introduction}.
+%- need to double check answers
 %
-%Almost 300 years earlier, the Royal Society's Philosophical Transactions (1665)
-%edited by Henry Oldenburg appeared. As one of the first publications that could be
-%recognized as a scientific journal, the Philosophical Transactions provided a
-%mechanism to disseminate work and provide attribution. Early journals, such as this,
-%initially left acceptance and review of submissions to the discretion of their
-%editors. As the number and diversity of submissions increased, new review procedures
-%evolved to meet the growing needs of the scientific community. At first, small
-%editorial boards were formed to assist editors in soliciting, reviewing,
-%and recommending articles worth of publication. Existing technologies greatly
-%limited journals in this process. Duplication and distribution of manuscripts
-%to be reviewed was greatly aided by the arrival of new technologies such as
-%the typewriter, carbon copies, photocopies, and eventually the arrival of
-%personal computers and the internet \cite{spier2002history}.
+%- ease of making a mistake
 %
-%``
-%    new technologies are again changing scientific publications
-%        online publications: preprints, continuous revision, open discussion
-%    new technologies are also changing the everyday practice of science
-%        increased data storage is rapidly expanding the amount of experimental data we can acquire and analyze
-%        increased computational power is vastly increasing our ability to model and
-%''
+%As automated, electronic computing machines were developed by scientists,
+%those same grade school practices were standard.  Code and methods were
+%openly shared and discussed, rigorous testing procedures, etc.
+%
+%The early days of computing \emph{were open}: von Neumann's reports
+%\cite{grcar2011john}.
 
-
-
-\paragraph{ {\bf Computational practice}}
-
-\setlength{\epigraphrule}{0pt}
-\setlength{\epigraphwidth}{.90\textwidth}
-\epigraph%
-{%
-  In ordinary computational practice by hand or by desk machines, it
-  is the custom to check every step of the computation and, when an
-  error is found, to localize it by a backward process starting from
-  the first point where the error is noted.
-}%
-{\textit{Cybernetics (1948)}\\ \textsc{Norbert Wiener} }
-
-Computing is now synonymous with the use of automated, electronic machines.  So
-synonymous, in fact, that is easy to forget that computing has always been part
-of scientific investigation. Of course, the types of problems amenable to
-computing by hand on paper or with early calculating machines (e.g., abacus)
-were limited. 
-
-Lessons we all were taught in our elementary mathematics classes:
-
-- show your work
-
-- need to double check answers
-
-- ease of making a mistake
-
-As automated, electronic computing machines were developed by scientists,
-those same grade school practices were standard.  Code and methods were
-openly shared and discussed, rigorous testing procedures, etc.
-
-The early days of computing \emph{were open}: von Neumann's reports
-\cite{grcar2011john}.
-
-\paragraph{ {\bf Software crisis}}
-
-\setlength{\epigraphrule}{0pt}
-\setlength{\epigraphwidth}{.90\textwidth}
-\epigraph%
-{%
-  The major cause of the software crisis is that the machines have become
-  several orders of magnitude more powerful! To put it quite bluntly: as long
-  as there were no machines, programming was no problem at all; when we had a
-  few weak computers, programming became a mild problem, and now we have
-  gigantic computers, programming has become an equally gigantic problem.
-}%
-{\textit{The Humble Programmer (1972)}\\ \textsc{Edsger Dijkstra} }
-
-By the early 1970s, computer scientists, software engineers, and project
-managers were facing a growing ``software crisis''. The explosive growth in
-computing power had quickly out-paced the ability of humans to tell those machines
-what to do. Major software projects were routinely running over budget and
-time. Software bugs were causing huge monetary losses and even death as code
-was beginning to control everything from medical devices to industrial processes.
-
-No silver bullets \cite{brooks1995mythical}.
+%\paragraph{ {\bf Software crisis}}
+%
+%\setlength{\epigraphrule}{0pt}
+%\setlength{\epigraphwidth}{.90\textwidth}
+%\epigraph%
+%{%
+%  The major cause of the software crisis is that the machines have become
+%  several orders of magnitude more powerful! To put it quite bluntly: as long
+%  as there were no machines, programming was no problem at all; when we had a
+%  few weak computers, programming became a mild problem, and now we have
+%  gigantic computers, programming has become an equally gigantic problem.
+%}%
+%{\textit{The Humble Programmer (1972)}\\ \textsc{Edsger Dijkstra} }
+%
+%By the early 1970s, computer scientists, software engineers, and project
+%managers were facing a growing ``software crisis''. The explosive growth in
+%computing power had quickly out-paced the ability of humans to tell those machines
+%what to do. Major software projects were routinely running over budget and
+%time. Software bugs were causing huge monetary losses and even death as code
+%was beginning to control everything from medical devices to industrial processes.
+%
+%No silver bullets \cite{brooks1995mythical}.
 
 %\paragraph{ {\bf Open source}}
 %
@@ -528,12 +428,7 @@ No silver bullets \cite{brooks1995mythical}.
 %rise of the internet as powered by Linux.
 
 
-\paragraph{ {\bf Scientist programmer}}
-
-Early computers were extremely costly and only available to highly mathematical
-engineers and scientists. As continued improvements in manufacturing processes
-drove down costs and increased the speed and storage capacity of computers, their
-prevalence in scientific practice has rapidly grown.
+\subsection{ Scientist programmer}
 
 Scientists as developers
 
@@ -562,7 +457,7 @@ Purpose:  Better Research
 
 
 
-\subsection{Best practices}
+\section{Routine practices}
 
 \setlength{\epigraphrule}{0pt}
 \setlength{\epigraphwidth}{.90\textwidth}
@@ -589,7 +484,7 @@ efficient and productive use of computational resources that we routinely use
 them whenever we use a computer. In the following section, we discuss how these
 practices and tools naturally extend to collaborative work. 
 
-\paragraph{ {\bf Version control}}
+\subsection{Version control}
 
 Whether you are collecting data, running analyses, or writing papers,
 you will inevitably need to keep track of the various versions of your work:
@@ -695,7 +590,9 @@ This leads us to suggest our first ``recipe'' in terms of best practices:
   control systems that track the actual history of everyone's contributions.
 \end{practice}
 
-\paragraph{ {\bf Testing}} Computing is error-prone. While there is no
+\subsection{Testing}
+
+Computing is error-prone. While there is no
 fool-proof way to rid computing of error, there are ways to limit and reduce
 it. One of the most successful and widely used techniques involves
 comprehensive testing, so that bugs (i.e., errors) are found quickly. Finding
@@ -761,7 +658,7 @@ will have more robust code as you will more quickly isolate bugs, which makes
 them easier to fix.\cite{oram2010making}
 
 
-\paragraph{ {\bf Readability}}
+\subsection{Readability}
 \setlength{\epigraphrule}{0pt}
 \setlength{\epigraphwidth}{.90\textwidth}
 \epigraph%
@@ -867,7 +764,7 @@ easy to include examples in the docstrings as part of the test suite; this
 improves the test coverage and helps ensure that the documentation doesn't get
 out of sync with the actual code.
 
-\paragraph{ {\bf Infrastructure}}
+\subsection{Infrastructure}
 
 For very small projects, managing everything by hand may be straightforward.
 But as your research project (code, data, and text) evolves, the burden of
@@ -890,35 +787,7 @@ can manually manage things, automating these tasks can be extremely beneficial.
 
 \end{itemize}
 
-%documentation, code, figures/results, process, distribution, etc.
-%
-%auto-generated API documentation, bug tracker, task list, project management
-%
-%
-%Sphinx
-%
-%* Official documentation tool of python
-%
-%* And numpy, scipy, ipython, matplotlib, mayavi, \ldots
-%
-%* Content is searchable, indexed, and cross-referenced
-%
-%* Generates HTML and PDF
-%
-%* Extensible!
-%
-%A good documentation tool should
-%
-%* Be easy to use
-%
-%* Readable in plain text format, *but* produce beautiful HTML and PDF
-%
-%* Let you use the editors and tools you prefer
-%
-%* Facilitate collaboration
-
-
-\subsection{Collaboration}
+\section{Collaboration}
 
 Collaboration is essential to both the scientific and open source
 communities. Open source developers build on one another's work just
@@ -945,7 +814,7 @@ there has been careful attention paid to efficient and productive tools and
 processes for managing collaborations.
 
 
-\paragraph{ {\bf Distributed version control}}
+\subsection{Distributed version control}
 
 Earlier we discussed how version control (VC) should be the foundation of a
 reproducible research workflow, even for a single investigator working in
@@ -1005,6 +874,8 @@ copies to synchronize their states and continue working again.  So in practice,
 the simplest and most common collaboration workflow with a DVCS is one where
 each person has a copy they develop on, and they all connect in a star topology
 to a central node where a shared copy exists that is used for synchronization.
+
+\subsection{Code review}
 
 In recent years, a number of web services have appeared that play the role of
 this central node; the most popular of them by far is
@@ -1090,7 +961,7 @@ that may exist in a research environment with the desire for subsequent
 disclosure and publication, without losing any of the benefits of version
 control with regards to attribution and provenance tracking.
 
-\paragraph{ {\bf Infrastructure redux}}
+\subsection{Infrastructure redux}
 
 In summary, we think that a few simple lessons can be learned from
 the practices of the open source world which, if carefully assimilated,
@@ -1318,6 +1189,33 @@ In recent years, a new entrant to the R community that is gaining rapid
 adoption is the Knitr package \cite{xie2012knitr}.  Knitr can be seen as a
 highly evolved Sweave with a number of improvements on many fronts, but still
 within the conceptual lineage of literate programming tools.
+
+\subsection{Sphinx}
+
+%documentation, code, figures/results, process, distribution, etc.
+%
+%auto-generated API documentation, bug tracker, task list, project management
+%
+%
+* Official documentation tool of python
+
+* And numpy, scipy, ipython, matplotlib, mayavi, \ldots
+
+* Content is searchable, indexed, and cross-referenced
+
+* Generates HTML and PDF
+
+* Extensible!
+
+A good documentation tool should
+
+* Be easy to use
+
+* Readable in plain text format, *but* produce beautiful HTML and PDF
+
+* Let you use the editors and tools you prefer
+
+* Facilitate collaboration
 
 \subsection{Literate computing}
 
