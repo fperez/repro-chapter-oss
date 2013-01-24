@@ -422,17 +422,6 @@ Purpose:  Better Research
 
 \section{Routine practices}
 
-\setlength{\epigraphrule}{0pt}
-\setlength{\epigraphwidth}{.90\textwidth}
-\epigraph%
-{%
-  when a man tries all kinds of experiments without method or
-  order, this is mere groping in the dark; but when he proceeds with
-  some direction and order in his experiments, it is as if he were
-  led by the hand
-}%
-{\textit{Novum Organum (1620)}\\ \textsc{Francis Bacon} }
-
 The practices recommended in this section are distilled from years of
 experience writing and maintaining software, teaching programming courses to
 students and scientists, as well as extensive interaction and discussion with a
@@ -582,55 +571,20 @@ For instance, you could have a previous analysis rerun to make sure that the
 program reproduces your previous results.
 
 Testing should be done as early as possible in the development process.
-Some programmers go so far as advocate Test-Driven Development (TDD), an
-iterative programming methodology consisting of repeatedly writing
-unit test cases and then implementing only the code necessary to pass them
-\cite{Bec02, Ast03}.  TDD is a continuous cycle of three steps:
-\begin{enumerate}
-
-\item {\bf Fail Test.} Before implementing any new functionality, first
-write a failing test case (it should fail because the new functionality doesn't
-exist yet). This forces you to think about what you want a
-piece of code to do, rather than how it does it.  It also validates that the
-unit test fails and that new functioning code is required for the test
-to pass. By starting the development of each new feature with the creation of a
-unit test, you focus on the code interface rather than its implementation, and
-you also have a simple examples of code use that may be helpful later.
-
-\item {\bf Pass Test.} Do not worry whether the code is elegant or
-optimized. The only aim is to produce code that passes the test and introduces
-no functionality, which does not already have a unit test.
-
-\item {\bf Refactor.} Once your code passes the unit test, you can then iteratively
-refine the code to make it easier to read and understand as well as removing code
-duplication. As your code evolves, these tests let you know that it still
-behaves correctly.
-
-\end{enumerate}
-
-This practice ensures that all written code is tested and limits the number of
-defects. It improves code quality by forcing you to focus on use cases rather
-than getting lost in implementation details. By thinking about the test from
-the outset, you can avoid finding that the code you just wrote is a huge
-untestable mess. It can also improve documentation because an example (i.e.,
-the test case) is often better than an explanation. And if you regularly run
-the test, you will quickly know when your code no longer works for the example
-(something you may never notice in the case of explanatory text).  Finally, you
-will have more robust code as you will more quickly isolate bugs, which makes
-them easier to fix.\cite{oram2010making}
+Writing unit tests early in the process of implementing new functionality
+forces you to think about what you want a piece of code to do, rather than how
+it does it. This practice helps improves code quality by forcing you to focus
+on use cases rather than getting lost in implementation details. By thinking
+about the test at the outset, you can avoid finding that the code you just
+wrote is a huge untestable mess. It can also improve documentation because an
+example (i.e., the test case) is often better than an explanation. And if you
+regularly run the test, you will quickly know when your code no longer works
+for the example (something you may never notice in the case of explanatory
+text). Finally, you will have more robust code as you will more quickly
+isolate bugs, which makes them easier to fix.\cite{oram2010making}
 
 
 \subsection{Readability}
-\setlength{\epigraphrule}{0pt}
-\setlength{\epigraphwidth}{.90\textwidth}
-\epigraph%
-{%
-This emphasis on readability is no accident. As an object-oriented language,
-Python aims to encourage the creation of reusable code. Even if we all wrote
-perfect documentation all of the time, code can hardly be considered reusable
-if it's not readable.
-}%
-{foreword to \textit{Programming Python (1st ed.)}\\ \textsc{Guido van Rossum} }
 
 While writing code that is well-tested and systematically managed by a modern
 VCS is important, code that you (and your colleagues) can't read is
