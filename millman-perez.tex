@@ -106,7 +106,7 @@ Helen Wills Neuroscience Institute\\
 University of California, Berkeley}
 
 
-\chapter{Two cultures: open source software and scientific research}
+\chapter{Lessons from open source for better science}
 
 \fix{We need to figure out how to move this dedication to the top, below the
   title, where those things typically go}
@@ -125,81 +125,8 @@ University of California, Berkeley}
 
 \section{Introduction}\label{intro}
 
-\setlength{\epigraphrule}{0pt}
-\setlength{\epigraphwidth}{.90\textwidth}
-\epigraph%
-{%
-  Science alone of all the subjects contains within itself the lesson of the
-  danger of belief in the infallibility of the greatest teachers in the
-  preceding generation\ldots Learn from science that you must doubt the experts.
-}%
-{\textit{What is Science? (1969)}\\ \textsc{Richard Feynman} }
 
-Computational tools are at the core of modern research. In addition
-to experiment and theory, the notions of simulation and data-intensive
-discovery have emerged as third and fourth pillars of science \cite{4th-paradigm}.
-Today, even theory and experiment are computational, as virtually
-all experimental work requires computing (whether in data collection,
-pre-processing or analysis) and most theoretical work requires symbolic
-and numerical computing to develop and refine models. Scanning the pages
-of any major scientific journal, one is hard-pressed to find a publication
-in any discipline that does not depend on computing for its findings.
 
-And yet, for all its importance, computing is often treated as an
-afterthought both in the training of new scientists and in the conduct of
-everyday research. Most working scientists have witnessed how computing is
-treated as a task of secondary importance that students and postdocs learn
-``on the go'' with little training to ensure that results are trustworthy,
-comprehensible and ultimately a secure foundation for reproducible outcomes.
-Software and data are stored with poor organization, documentation and tests.
-A patchwork of software tools is used with limited attention paid to
-capturing the complex workflows that emerge, and the evolution of code is
-often not tracked over time, making it difficult to understand how a result
-was obtained. Finally, many of the software packages used by scientists in
-research are proprietary and closed-source, preventing the community from
-having a complete understanding of the final scientific results.
-
-The situation is familiar to all scientists and this familiarity may breed
-complacency. However, the consequences of this situation are serious at
-present and will become disastrous if the situation is not dealt with
-directly. 
-
-Much more than a ``third branch'' of science, computing has become so central
-to scientific practice that it is almost unimaginable to find a working
-scientist that could claim they do not use computers at all.  Experimentalist
-from biology to physics and observationalist from astronomy to climate study
-are confronted with an avalanche of quantitative data.  All scientists must now
-do real computing.  As computers continue to increase in computational power and
-storage capacity, the problems only compound.  While better computing practices
-will not directly translate to better science, current practices do lead to bad
-science.
-
-%Consider, just to name two widely publicized cases, the loss of public
-%confidence in the``Climategate'' fiasco \cite{Hef10} or the Duke cancer trials
-%scandal, where sloppy computational practices likely led to severe health
-%consequences for several patients \cite{Cou10}. 
-
-%The situation is more common than we'd like to believe:
-%\begin{itemize}
-%\item Begley \& Ellis, Nature, 3/28/12: {\emph Drug development:
-%Raise standards for preclinical cancer research.}
-%\item 47 out of 53 ``landmark papers'' could not be replicated.
-%\end{itemize}
-%See Nature, Feb 2012, Ince et al: {\emph The case for open computer programs}
-%\begin{itemize}
-%\item The scientific community places more faith in computation
-%than is justified
-%\item anything less than the release of actual source code is an
-%indefensible approach for any scientific results that depend on computation
-%\end{itemize}
-%
-%
-%The ability to reproduce and verify results is a hallmark of the
-%scientific method.
-%
-%A crisis of credibility and real issues
-%
-%Retraction rates are going up \cite{cokol2008retraction,steen2011retractions} 
 
 As research grows increasingly dependent on computing, it becomes critical
 for our computational resources to be developed with the same rigor, open review
@@ -223,18 +150,16 @@ mathematicians, scientists, and engineers
 
 \parasep
 
-In the next section, we share lessons we've learned from our participation in
-several open source development projects and describe how these lessons can be
-applied to scientific practice.  In the following section, we present a
-comprehensive view of the role computing plays in the life-cycle of scientific
-investigation.  In addition to surveying the standard approaches, this section
-ends with a detailed overview of the open source IPython project
-\cite{PER-GRA:2007}, which is a single software tool capable of spanning the
-entire life-cycle of computational research.  Finally, we conclude with a brief
-discussion of how we see the culture changing and the need for reviewing our
-current incentive models and the training of new scientists.
-
-\section{Lessons from open source}\label{lessons-oss}
+%In the next section, we share lessons we've learned from our participation in
+%several open source development projects and describe how these lessons can be
+%applied to scientific practice.  In the following section, we present a
+%comprehensive view of the role computing plays in the life-cycle of scientific
+%investigation.  In addition to surveying the standard approaches, this section
+%ends with a detailed overview of the open source IPython project
+%\cite{PER-GRA:2007}, which is a single software tool capable of spanning the
+%entire life-cycle of computational research.  Finally, we conclude with a brief
+%discussion of how we see the culture changing and the need for reviewing our
+%current incentive models and the training of new scientists.
 
 Over the last decade, we've had the privilege of participating in a loose-knit
 community of scientists, researchers, and engineers working to create a powerful
@@ -255,7 +180,7 @@ physics, psychology, neuroscience, and medicine.
 - we've also talked with members of SciPy community representing
 other disciplines and 
 
-\subsection{Contrast of cultures}
+\subsection{Two cultures}
 
 Open source software development uses public fora for most discussion
 and systems for sharing code and data that are powerful
@@ -272,23 +197,22 @@ All of this ensures that open collaboration does not dilute the merit
 or recognition of any individual developer, and allows for a meritocracy
 of contributors to develop while enabling highly effective collaboration.
 
-In contrast, the incentives in scientific research are strongly
-biased towards the rapid publication of novel results without any serious
-requirement of validation. The outcome is that results from publications
-in computationally-based research, which means essentially any type of
-scientific research, are often impossible to reproduce. Sometimes
-this is due to the code not being available at all in the first place.
-Authors often do make codes available---thus fulfilling a token requirement
-of disclosure---but in such a state that this disclosure is not a
-practical solution to the reproducibility problem. A static archive
-of source code that has never been tested in a computer or operating
-system outside of the author's, never been audited by external eyes
-and with no automatic testing built into it, is highly unlikely to
-work reliably when used in a completely new environment.
+In contrast, the incentives in scientific research are strongly biased towards
+the rapid publication of novel results without any serious requirement of
+validation. The outcome is that results from publications in
+computationally-based research, which means essentially any type of scientific
+research, are often impossible to reproduce. Sometimes this is due to the code
+not being available.  Authors often do make codes available---thus fulfilling a
+token requirement of disclosure---but in such a state that this disclosure is
+not a practical solution to the reproducibility problem. A static archive of
+source code that has never been tested on a computer or operating system
+outside of the author's, never been audited by external eyes and with no
+automatic testing built into it, is highly unlikely to work reliably when used
+in a completely new environment or under different conditions.
 
 \subsection{Pragmatic approach}
 
-Notwithstanding the above, there are real issues with attempting to
+There are real issues with attempting to
 naively transplant the practices of open source development directly
 to computational research. The open source model ends up being one
 where, in practice, the copyright and authorship of any large collaborative
@@ -316,7 +240,7 @@ number of authors in a publication. While in certain communities papers
 with thousands of authors do exist (experimental high-energy physics
 being the classic example), most scientists need the prominent visibility
 they can achieve in a short author list. The dilution of authorship
-results from a largely open collaborative development model
+resulting from a largely open collaborative development model
 is an important issue that must be addressed.
 
 Furthermore, the notion of a fully open development model typical
@@ -430,6 +354,45 @@ software development.
 
 \subsection{ Scientist programmer}
 
+Computational tools are at the core of modern research. In addition
+to experiment and theory, the notions of simulation and data-intensive
+discovery have emerged as third and fourth pillars of science \cite{4th-paradigm}.
+Today, even theory and experiment are computational, as virtually
+all experimental work requires computing (whether in data collection,
+pre-processing or analysis) and most theoretical work requires symbolic
+and numerical computing to develop and refine models. Scanning the pages
+of any major scientific journal, one is hard-pressed to find a publication
+in any discipline that does not depend on computing for its findings.
+
+And yet, for all its importance, computing is often treated as an
+afterthought both in the training of new scientists and in the conduct of
+everyday research. Most working scientists have witnessed how computing is
+treated as a task of secondary importance that students and postdocs learn
+``on the go'' with little training to ensure that results are trustworthy,
+comprehensible and ultimately a secure foundation for reproducible outcomes.
+Software and data are stored with poor organization, documentation and tests.
+A patchwork of software tools is used with limited attention paid to
+capturing the complex workflows that emerge, and the evolution of code is
+often not tracked over time, making it difficult to understand how a result
+was obtained. Finally, many of the software packages used by scientists in
+research are proprietary and closed-source, preventing the community from
+having a complete understanding of the final scientific results.
+
+The situation is familiar to all scientists and this familiarity may breed
+complacency. However, the consequences of this situation are serious at
+present and will become disastrous if the situation is not dealt with
+directly. 
+
+Much more than a ``third branch'' of science, computing has become so central
+to scientific practice that it is almost unimaginable to find a working
+scientist that could claim they do not use computers at all.  Experimentalist
+from biology to physics and observationalist from astronomy to climate study
+are confronted with an avalanche of quantitative data.  All scientists must now
+do real computing.  As computers continue to increase in computational power and
+storage capacity, the problems only compound.  While better computing practices
+will not directly translate to better science, current practices do lead to bad
+science.
+
 Scientists as developers
 
 Reasons
@@ -500,27 +463,26 @@ using \emph{ad hoc} naming schemes (e.g., \texttt{file.txt.bak},
 the specialized functionality built into the tool you happen to use (e.g.,
 Microsoft Word's ``Track Changes'' functionality).  While these approaches are
 partial solutions to the problem, they are also cumbersome and prone to
-failure.  More importantly, they are completely unsustainable beyond very
+failure.  More importantly, they are unsustainable beyond very
 simple scenarios with only one or two files and do not scale to any kind of
 sensible collaboration workflow.
 
 Because tracking and managing how work evolves over time is so fundamental to
 the workflow of software development, programmers have created specialized
 software tools to do exactly this. These tools are called \emph{version
-  control} systems. Several open source version control (VC) systems have been
+  control} systems. Several open source version control systems (VCS) have been
 developed over the years, the most well known being CVS, SVN, Git, and
 Mercurial.
 
 While there are notable differences among these tools, they all share some
-basic concepts.  In most VC systems, you store all your project files (code,
+basic concepts.  You store all your project files (code,
 text, figures, etc.) in a \emph{repository} (often represented on disk in a
 directory hierarchy).  There are commands to add and remove files to a
 repository.  When you change a file in your repository that you want to track,
 you can \emph{commit} those changes with a \emph{commit message}.  The
 repository and commit mechanism provide a complete historical log of the
 project from inception to current state, including every change made along with
-timestamps, author, comments and other metadata for each modification to the
-codebase.
+timestamps, author, comments and other metadata for each modification.
 
 Commonly your changes may follow a simple linear progression of commits.
 However it is reasonable to have a project evolve so that it does not follow a
@@ -529,21 +491,21 @@ of research, you may have several alternative approaches that you want to try
 out. In such cases, your commits will resemble a tree with several
 \emph{branches} diverging from a common base or trunk. When exploring these
 alternative approaches on different branches, you may find that several
-branches converge. At this point, you will need a way to \emph{merge} these
+branches converge. At this point, you will \emph{merge} these
 branches back together.  If the changes in each of these branches don't overlap
-with one another, the VC system is capable of merging them all together in a
+with one another, the VCS is capable of merging them all together in a
 completely automated fashion.  When you have \emph{conflicting} changes in
-different branches (e.g., edits to the same line of code), then the VC systems
+different branches (e.g., edits to the same line of code), then the VCS
 require manual intervention where you have to choose which of the conflicting
-changes should ultimately prevail.  But in all cases, a VC system is the only
+changes should ultimately prevail.  But in all cases, a VCS is the only
 reasonable solution for managing the evolution of multiple branches of parallel
 development in a set of files (whether written documents, computer code or
 data).
 
-In the design of more modern VC systems such as Mercurial and Git, an important
+In the design of more modern VCS such as Mercurial and Git, an important
 consideration has been woven into the core of the system: built-in \emph{data
   integrity verification} via cryptographically robust fingerprinting of all
-content.  The basic idea is that at every commit, the VC system computes a
+content.  The basic idea is that at every commit, the VCS computes a
 ``fingerprint'' of the content being committed as well as the data it depended
 on\footnote{More precisely, a hash function is evaluated on the content of the
   commit and the hash of all commits it depends on, which creates a directed
@@ -554,7 +516,7 @@ establish the integrity of the entire history of a repository, by recomputing
 these fingerprints and comparing them against what has been stored.  By the
 nature of hash functions, if even a single byte is changed in the entire
 repository all subsequent hashes will be modified and the change can thus be
-detected.  This key design idea is used by VC systems for all kinds of internal
+detected.  This key design idea is used by VCS for all kinds of internal
 operations, but it also means that when a scientist gets a copy of a
 repository, he or she can be confident, with near mathematical certainty, that
 the entire history contained therein has not been tampered with in any way when
@@ -565,21 +527,21 @@ reproducible workflow, and one of the reasons why we emphasize so much the
 pervasive use of modern version control systems as the foundation of a
 reproducible research environment.
 
-It is important to note that VC systems were developed originally for the
+It is important to note that VCS were developed originally for the
 management of human-generated content such as computer source code or text
 documents, not for the handling of large binary data that is common in science.
-By virtue of their design, they tend to be somewhat inefficient if one attempts
+By virtue of their design, they tend to be somewhat inefficient if you attempt
 to store all the changes in a project with many frequently changing large
 binary files, and this somewhat limits their use for the tracking of all assets
 in a research project.  But new efforts exist to mitigate these limitations,
 such as the git-annex project\footnote{\url{http://git-annex.branchable.com}}
-that uses git itself for storing all metadata about large binary assets, along
-with a static (configurable) storage resource external to git for the assets
+that uses Git for storing all metadata about large binary assets, along
+with a static (configurable) storage resource external to Git for the assets
 themselves.  This approach makes it possible to smoothly integrate the
-management of binary data within a VC workflow, without creating an explosion
-in the size of the VC storage area.
+management of binary data within a VCS workflow, without creating an explosion
+in the size of the VCS storage area.
 
-In summary, the use of version control should be seen as a ''background
+In summary, the use of version control should be seen as a ``background
 technology''; in our case its use is so routine that we use it for everything:
 writing grants and papers, teaching materials, homework, slides for talks, etc.
 This leads us to suggest our first ``recipe'' in terms of best practices:
@@ -671,15 +633,14 @@ if it's not readable.
 {foreword to \textit{Programming Python (1st ed.)}\\ \textsc{Guido van Rossum} }
 
 While writing code that is well-tested and systematically managed by a modern
-VC system is important, code that you (and your colleagues) can't read is
+VCS is important, code that you (and your colleagues) can't read is
 nearly useless. Readable code is written with explanatory names, clear logical
 structure, and comprehensive documentation where necessary.  There is an
 extensive and growing literature (e.g., \cite{boswell2011art, Fow00,
 kernighan1999practice, HT00, mcconnell2009code}) on ``stylistic'' aspects of
 good programming. Because scientific papers and grant submissions have become
-the currency of the scientific realm, it is probable that a good number of our
-colleagues have spent at least some time reading classics such as Strunk \&
-White's \emph{Elements of Style}. Yet, even as an increasing amount of their
+the currency of the scientific realm, many scientists have spent at least some time reading classics such as Strunk \&
+White's \emph{Elements of Style}. Yet, even as an increasing amount of our
 work is produced in lines of code, there is a paucity of scientists paying the
 same attention to the elements of good programming style. The emphasis on
 readability is included in this section because even when you are the only one
@@ -692,7 +653,7 @@ we will only briefly touch on self-documenting code. Self-documenting code, as
 the name implies, reduces the need for external documentation by placing an
 emphasis on clear, well-written code that is easy to read and understand.  In
 mathematics, it is accepted practice to follow established naming conventions
-(e.g., capital letters for sets and lower case letter for elements). It is
+(e.g., capital letters for sets and lower case letter for set elements). It is
 equally expected that when making a mathematical argument, one shouldn't
 arbitrarily switch from functional to relational notation.  Similarly, using
 consistent and uniform naming conventions when programming should be standard
@@ -702,8 +663,8 @@ words. For example, you might use the term \texttt{download} rather than
 internet. Expressions are the next block to readability. While mathematical
 manipulation (e.g., De Morgan's laws) can be used to great effect in making
 your expressions more easily understood, it is often important to use the right
-level of abstraction. Higher level programming languages (e.g., Matlab, Python,
-and R) provide data structures (such as n-dimensional vectors or statistical
+level of abstraction. Higher level programming languages (e.g., Python
+and R) provide data structures (such as $n$-dimensional vectors or statistical
 formulas) that enable the code to be understood at the level of the
 mathematical ideas. Finally, the overall control flow of your code must be
 clear and easy to follow. Finding the best control flow requires a deep
@@ -712,7 +673,7 @@ methodology and the specifics of the language you are working in. Like good
 writing, good coding is achieved through deliberate practice.
 
 Readability in programming encompasses not just the code itself,
-but the accompanying documentation. Code comments offer much to readability,
+but also the accompanying documentation. Code comments offer much to readability,
 but are sadly used to little positive effect. Inspired by the idea of
 self-documenting code, we've heard programmers argue that good code doesn't
 need comments. Indeed, liberally commenting your program to counter poorly
@@ -740,7 +701,7 @@ documentation wasn't enough. To address this, the community began a year long
 effort to develop a documentation string standard. In Python, a documentation
 string (or docstring) is any string in the first line in an object's (function,
 class, etc.) definition. Since docstrings are embedded in the source code, they
-are ready available to anyone directly viewing the source. The string is
+are readily available to anyone directly viewing the source. The string is
 associated with the object and can be programmatically accessed as well.  They
 can be accessed from an interpreter using any object's \texttt{\_\_doc\_\_}
 attribute.  Docstrings can also be accessed for autogenerating documentation.
@@ -757,7 +718,7 @@ several issues that arose with special relevance for scientific applications.
 For instance, many of the algorithms had simple mathematical expressions that
 weren't necessarily obvious from there implementation in Python. In these
 cases, a few equations written in \LaTeX{} were immediately useful. Moreover,
-in several cases we were implementing functionality that was described in
+in several cases, we were implementing functionality that was described in
 peer-reviewed academic journals. And, finally, we could provide extremely
 short examples of how to use the code. As an added benefit, Python makes it
 easy to include examples in the docstrings as part of the test suite; this
@@ -816,7 +777,7 @@ processes for managing collaborations.
 
 \subsection{Distributed version control}
 
-Earlier we discussed how version control (VC) should be the foundation of a
+Earlier we discussed how version control system (VCS) should be the foundation of a
 reproducible research workflow, even for a single investigator working in
 isolation.  But the true power of these systems comes into its own when
 considering the need to collaborate with others.  Modern systems such as Git
@@ -826,7 +787,7 @@ kernel, to coordinate its development.  The Linux kernel is arguably the
 largest and most complex single open source development project today: version
 3.7 of the kernel included roughly 12,000 distinct sets of changes affecting
 over 1,100,000 lines of code by nearly 1,300 individual
-contributors\footnote{url{https://lwn.net/Articles/526748}}.  Git's entire
+contributors\footnote{\url{https://lwn.net/Articles/526748}}.  Git's entire
 design aims to make collaboration on this scale smooth and efficient, and it
 succeeds admirably at the task.  Scientists can benefit from this power as well
 for any project that requires collaboration, whether it is the development of
@@ -848,18 +809,19 @@ therefore serves as an automatic backup.
 More importantly, a DVCS enables anyone who can \emph{clone} a repository (the
 term used to indicate getting a full copy of an existing repository to start
 new work off of it) to develop their own history with new commits, even if they
-don't have write permissions to the original source that they cloned from.
-This means that once you have a clone a repository (which could be someone
-else's or yours from a different computer), you can start working on that copy
-and building new history even if you are disconnected from the original system,
-such as when working on a plane or train without internet access.  If at a
-later stage you decide to merge your new history with the original repository,
-the merge capabilities in all DVC systems make this very straightforward.
+don't have write permission to the original source from where the repository
+was cloned.  This means that once you have a clone of a repository (which could
+be someone else's or yours from a different computer), you can start working on
+that copy and building new history even if you are disconnected from the
+original system, such as when working on a plane or train without internet
+access.  If at a later stage you decide to merge your new history with the
+original repository, the merge capabilities in all DVCS make this very
+straightforward.
 
 This model of cloning an existing repository, building new history in isolation
 and then merging it back into a common history, is the basis for how these
 systems enable a very fluid workflow for collaboration.  When the time comes to
-need a merge operation, DVC systems can communicate the necessary changes even
+need a merge operation, DVCS can communicate the necessary changes even
 via email attachments, but the simplest way to do so is to have a special
 repository\footnote{We note that this central repository does not change the
   distributed nature of the process: while it plays a special role for purposes
@@ -897,7 +859,7 @@ The core element of the collaborative process on GitHub is known as a
 of changes to a manuscript.  Let us illustrate how it works with a simple
 example: Alice wants to contribute to IPython, a project available on github at
 \url{http://github.com/ipython} but to which she does not have write access.
-She can do so by getting her own personal copy of the IPython git repository
+She can do so by getting her own personal copy of the IPython Git repository
 where she makes all the changes she wants, and once she is ready to share them
 with the IPython team she can publish them on her GitHub user account at
 \url{http://gitub.com/alice/ipython} (presuming her GitHub user name is
@@ -937,8 +899,8 @@ public presentations: ``a pull request is a conversation that starts with
 code''.  From a scientific research perspective, we should consider these ideas
 in a broader context that goes beyond code: while peer review is one of the
 very pillars of how the scientific community moves forward, in practice modern
-scientific peer review is often an opaque, arbitrary and limited process.  The
-open, dynamic and ongoing process of peer review enabled by the GitHub pull
+scientific peer review is often an opaque, arbitrary, and limited process.  The
+open, dynamic, and ongoing process of peer review enabled by the GitHub pull
 request system (or the equivalent ones that exist on other similar services)
 stands in sharp contrast to some of our scientific traditions, and in our
 opinion our community could benefit significantly from adopting some of these
@@ -947,7 +909,7 @@ ideas in a more pervasive manner in our own review practices
 
 It is worth noting that by using a DVCS, authors can maintain private work
 branches in the context of a publicly available project; this can be useful if
-new work needs to be developed in practice prior to publication and subsequent
+new work needs to be developed in private prior to publication and subsequent
 public release. By tracking the public repository but keeping a private branch,
 they can maintain exclusive access to their new work until it is published,
 while continuing to develop the openly accessible code with the rest of the
@@ -968,6 +930,8 @@ the practices of the open source world which, if carefully assimilated,
 can lead to substantial improvements in the state of reproducible
 computational research. 
 
+- github test integration
+
 For more information, we highly recommend the recent archiv preprint
 \ldots \cite{2012arXiv1210.0530A}.
 
@@ -975,7 +939,9 @@ For more information, we highly recommend the recent archiv preprint
 
 A central issue when considering the problem of reproducible research is the
 nature and quality of the software tools available for computational work in
-science.  In this section, we will present a perspective on the problem of
+science.
+
+In this section, we will present a perspective on the problem of
 computational research that takes a unified view of the life-cycle of research
 ideas, to show how the majority of existing tools make it difficult to manage
 this life-cycle in a way that naturally leads to reproducible outcomes.  We
@@ -1010,22 +976,22 @@ following phases:
 
 \subsection{Patchwork of tools}
 
-Let us look at the typical tools and approaches that most working scientists
-use for each of these phases today, in particular considering their impact on
-the reproducibility of the final outcomes. 
+We first describe what we believe to be the typical tools and approaches that
+most working scientists use for each of these phases today, in particular
+considering their impact on the reproducibility of the final outcomes. 
 
 For \textbf{individual exploratory work}, researchers use various interactive
-computing environments: Microsoft Excel, Matlab, Mathematica\textregistered\,
-Sage \cite{sage}, and more specialized systems like R, SPSS and STATA for
+computing environments: Microsoft Excel, Matlab, Mathematica\textregistered,
+Sage \cite{sage}, and more specialized systems like R, SPSS, SAS, and STATA for
 statistics. These environments combine interactive, high-level programming
 languages with a rich set of numerical and visualization libraries. The impact
 of these environments cannot be overstated; they are used almost universally by
-researchers for rapid prototyping, interactive exploration and data analysis
+researchers for rapid prototyping, interactive exploration and data analysis,
 and visualization. However, these environments have a number of limitations:
 (a) some of them are proprietary and/or expensive (Excel, Matlab, Mathematica),
 (b) most (except for Sage) are focused on coding in a single, relatively slow,
 programming language and (c) most (except for Sage and Mathematica) do not have
-a document format that is rich, i.e., that can include text, equations, images
+a document format that is rich, i.e., that can include text, equations, images,
 and video in addition to source code. While the use of proprietary tools is not
 a problem \emph{per se} and may be a good solution in industry, it is a barrier
 to scientific collaboration and to the construction of a common scientific
@@ -1190,6 +1156,8 @@ adoption is the Knitr package \cite{xie2012knitr}.  Knitr can be seen as a
 highly evolved Sweave with a number of improvements on many fronts, but still
 within the conceptual lineage of literate programming tools.
 
+- talk about use of knitr/sweave at Berkeley stat/biostats classes
+
 \subsection{Sphinx}
 
 %documentation, code, figures/results, process, distribution, etc.
@@ -1313,13 +1281,13 @@ block's first line: a user can for example start a block \texttt{\%\%R},
 block with the respective system.  Second, an \emph{entire notebook} can be
 executed in a different language if a remote engine (referred to as a
 \emph{kernel}) exists that implements the interaction protocol.  As of this
-writing, prototype kernels have been written in Ruby, JavaScript and R, and
+writing, prototype kernels have been written in Ruby, JavaScript, and R, and
 their development continues.
 
 The IPython architecture provides a way to capture, version control, re-execute
 and convert into other output formats, any computational session.  Notebooks
 can be shared with colleagues in their native form for re-execution or
-converted into HTML, \LaTeX or PDF formats for reading and dissemination.  They
+converted into HTML, \LaTeX, or PDF formats for reading and dissemination.  They
 can be used in slideshow mode to give presentations that remain connected to a
 live computation and can be exported into plain scripts for traditional
 execution outside of the IPython framework.
@@ -1394,7 +1362,7 @@ The IPython project also has developed tools that make it very easy to share
 and disseminate content created as notebooks in a variety of forms.  The
 Notebook Viewer hosted at \url{http://nbviewer.org} is a system that can render
 \emph{any} publicly available IPython notebook as a web page.  This enables
-users can share notebooks with others by simply putting them online and
+users to share notebooks with others by simply putting them online and
 pointing them to the rendered webpage, without the readers having to install
 anything on their own systems.  And the same technology that powers the
 notebook viewer service can also generate HTML files suitable for inclusion in
@@ -1442,8 +1410,7 @@ from the code and notebooks (along with additional narrative written by hand).
 This is an experiment we are conducting precisely with the intent of showing
 that it is viable to conduct research in an open and reproducible way, with all
 history of the code and manuscripts being held in publicly visible repositories
-that anyone can download and replicate even prior to publication.  Time will
-tell whether our experiment will be successful.
+that anyone can download and replicate even prior to publication. 
 
 We close this section by noting that the above tools are also playing a role in
 the last stage of the cycle we outlined earlier, education.  We will increase
@@ -1454,7 +1421,7 @@ improved computational literacy to scientific research have adopted the IPython
 notebook.  Software Carpentry\footnote{\url{http://software-carpentry.org}} is
 a project funded by the Alfred P. Sloan Foundation and led by Greg Wilson at
 the Mozilla Foundation whose motto is Richard Feynman's famous ``What I cannot
-create, I do not understand.''.  They produce, with rigorous follow-up and
+create, I do not understand.''  They produce, with rigorous follow-up and
 assessment, workshops aimed at working scientists (typically graduate students
 and postdocs, but always open to broad audiences) and whose purpose is to
 instill in them a collection of skills and best practices for effectively using
@@ -1465,7 +1432,7 @@ and visualization.  They have recently adopted the IPython Notebook as the base
 system for teaching the scientific Python parts of their curricula, and provide
 the IPython team with direct feedback on its strengths and weaknesses as an
 educational tool.  In a similar vein, Josh Bloom from the astronomy department
-at UC Berkeley has led for a number of years 3-day workshops on the use of
+at UC Berkeley has led, for a number of years, a 3-day workshops on the use of
 Python as a tool for scientific
 computing\footnote{\url{http://pythonbootcamp.info}}.  These are open to the
 entire campus community and followed by an optional for-credit seminar where
