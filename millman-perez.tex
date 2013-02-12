@@ -92,7 +92,7 @@
 
 \begin{document}
 
-\title{Dummy title}
+\title{Implementing Reproducible Research}
 \author{Dummy author}
 \chapter*{Dummy chapter needed for the \textbackslash chapterauthor command to work later}
 
@@ -103,26 +103,50 @@ School of Public Health\\
 University of California, Berkeley}
 \chapterauthor{Fernando Pérez}{Henry H. Wheeler Jr. Brain Imaging Center\\
 Helen Wills Neuroscience Institute\\
-University of California, Berkeley}
+University of California, Berkeley\\
+\\
+\begin{flushright}
+Dedicated to the memory of John~D.~Hunter~III, 1968-2012.
+\end{flushright}}
 
-\chapter{Lessons from open source for reproducible research}
-
-\fix{Move to the top}
-\emph{Dedicated to the memory of John~D.~Hunter~III, 1968-2012.}
-
+\chapter{Developing open source scientific practice}
 
 \section{Introduction}\label{intro}
 
-%As members of both the scientific research and the open-source
-%software development communities, we have observed that the latter
-%often lives up better than the former to our ideals of scientific
-%openness and reproducibility.  We explore the reasons behind this,
-%and argue that these problems are particularly acute in computational
-%domains where they should be in fact less prevalent.   We discuss
-%how we can draw specific lessons from the open source community both
-%in terms of technical approaches and of changing the structure of
-%incentives, to make progress towards a more solid base for reproducible
-%computational research.
+In December of 2004, we were both at a meeting on improving the software used
+in neuroimaging analysis. It was the first time we met: one of us (JM) was in
+charge of the data analysis system at Berkeley's Brain Imaging Center (BIC) and
+the other (FP) was a physics graduate student. We quickly realized that we had
+the same perspective on the importance of good computational tools and practice
+to the progress of scientific research.  We also shared the concern that most
+researchers did not have good training in computation, scientific coding, or
+data management. And we saw that this made it hard to document and replicate
+analyses.
+
+As an immediate result of that meeting, we co-wrote one of the individual
+research plans of a much larger program project proposal titled ``Building a
+platform for analysis replication and code sharing in neuroimaging''. While
+the grant wasn't funded, the meeting led to the Neuroimaging in Python (NIPY)
+project. It also led indirectly to FP joining the BIC as a research scientist
+in \fix{2008}.
+
+In §~\ref{sec:background}, we describe:
+
+why we had the initial meeting
+
+the basic idea:
+
+* shared scientific codes (scipy)
+
+* shared domain specific libraries (nipy)
+
+* lab-specific development branches
+
+In §~\ref{sec:practice} 
+
+In §~\ref{sec:collaboration} by
+
+In §~\ref{sec:communication} by
 
 %In the next section, we share lessons we've learned from our participation in
 %several open source development projects and describe how these lessons can be
@@ -135,200 +159,14 @@ University of California, Berkeley}
 %discussion of how we see the culture changing and the need for reviewing our
 %current incentive models and the training of new scientists.
 
-Over the last decade, we've had the privilege of participating in a loose-knit
-community of scientists, researchers, and engineers working to create a powerful
-stack of open source tools for scientific computing written in Python.  Among
-high-level open source programming languages, Python is today the leading tool
-for general-purpose scientific computing (along with R for statistics),
-finding wide adoption across research disciplines, education and industry and
-being a core infrastructure tool at institutions such as CERN and the Hubble
-Space Telescope Science Institute
-\cite{millman2011python,Perez2011,ganga09,SST}.
 
-
-core tools: numpy, scipy, matplotlib, and ipython
-
-- simultaneously we've interacted heavily with researchers in
-physics, psychology, neuroscience, and medicine.
-
-- we've also talked with members of SciPy community representing
-other disciplines and 
-
-
-Open source software development uses public fora for most discussion
-and systems for sharing code and data that are powerful
-provenance tracking systems. There is a strong culture of public disclosure,
-tracking and fixing of bugs, and development often includes exhaustive
-validation tests that are executed automatically whenever changes
-are made to the software and whose output is publicly available on
-the internet. This helps with early detection of problems, mitigates
-their recurrence, and ensures that the state and quality of the software
-is a known quantity under a wide variety of situations (operating
-systems, inputs, parameter ranges, etc). Additionally, the same systems
-that are used for sharing the code track the authorship of contributions.
-All of this ensures that open collaboration does not dilute the merit
-or recognition of any individual developer, and allows for a meritocracy
-of contributors to develop while enabling highly effective collaboration.
-
-In contrast, the incentives in scientific research are strongly biased towards
-the rapid publication of novel results without any serious requirement of
-validation. The outcome is that results from publications in
-computationally-based research, which means essentially any type of scientific
-research, are often impossible to reproduce. Sometimes this is due to the code
-not being available.  Authors often do make codes available---thus fulfilling a
-token requirement of disclosure---but in such a state that this disclosure is
-not a practical solution to the reproducibility problem. A static archive of
-source code that has never been tested on a computer or operating system
-outside of the author's, never been audited by external eyes and with no
-automatic testing built into it, is highly unlikely to work reliably when used
-in a completely new environment or under different conditions.
-
-
-%We've noticed a separation between the predominant culture of
-%science today and that of open source software development. Among the
-%many smart, highly-trained, and well-educated scientists we've been
-%fortunate to know and work with, it is remarkable how few have basic
-%fluency with the standard best practices developed for software development.
-%Even among widely-used scientific analysis software, it is surprising how
-%many are developed without following these practice by routine.
-%
-%When encouraging our scientific colleagues and friends to adopt, what we
-%consider, basic best practices for their software development, we've often
-%encountered a strong resistance and a litany of dismissive rejoinders ranging
-%from ``We're not software engineers'' to ``We're not curing cancer''.%
-%\footnote{Comment on Potti cancer fiasco.}
-%
-%Because we've encountered so much resistance among scientists to following best
-%practices when writing software, we briefly argue for the necessity for
-%scientists to learn these lessons so basic to the culture of open source
-%software development.
-
-%The early days of computing \emph{were open}: von Neumann's reports
-%\cite{grcar2011john}.
-
-%\paragraph{ {\bf Software crisis}}
-%
-%\setlength{\epigraphrule}{0pt}
-%\setlength{\epigraphwidth}{.90\textwidth}
-%\epigraph%
-%{%
-%  The major cause of the software crisis is that the machines have become
-%  several orders of magnitude more powerful! To put it quite bluntly: as long
-%  as there were no machines, programming was no problem at all; when we had a
-%  few weak computers, programming became a mild problem, and now we have
-%  gigantic computers, programming has become an equally gigantic problem.
-%}%
-%{\textit{The Humble Programmer (1972)}\\ \textsc{Edsger Dijkstra} }
-%
-%By the early 1970s, computer scientists, software engineers, and project
-%managers were facing a growing ``software crisis''. The explosive growth in
-%computing power had quickly out-paced the ability of humans to tell those machines
-%what to do. Major software projects were routinely running over budget and
-%time. Software bugs were causing huge monetary losses and even death as code
-%was beginning to control everything from medical devices to industrial processes.
-%
-%No silver bullets \cite{brooks1995mythical}.
-
-\section{Scientist programmer}
-
-Computational tools are at the core of modern research. In addition
-to experiment and theory, the notions of simulation and data-intensive
-discovery have emerged as third and fourth pillars of science \cite{4th-paradigm}.
-Today, even theory and experiment are computational, as virtually
-all experimental work requires computing (whether in data collection,
-pre-processing or analysis) and most theoretical work requires symbolic
-and numerical computing to develop and refine models. Scanning the pages
-of any major scientific journal, one is hard-pressed to find a publication
-in any discipline that does not depend on computing for its findings.
-
-And yet, for all its importance, computing is often treated as an
-afterthought both in the training of new scientists and in the conduct of
-everyday research. Most working scientists have witnessed how computing is
-treated as a task of secondary importance that students and postdocs learn
-``on the go'' with little training to ensure that results are trustworthy,
-comprehensible and ultimately a secure foundation for reproducible outcomes.
-Software and data are stored with poor organization, documentation and tests.
-A patchwork of software tools is used with limited attention paid to
-capturing the complex workflows that emerge, and the evolution of code is
-often not tracked over time, making it difficult to understand how a result
-was obtained. Finally, many of the software packages used by scientists in
-research are proprietary and closed-source, preventing the community from
-having a complete understanding of the final scientific results.
-
-The situation is familiar to all scientists and this familiarity may breed
-complacency. However, the consequences of this situation are serious at
-present and will become disastrous if the situation is not dealt with
-directly. 
-
-Much more than a ``third branch'' of science, computing has become so central
-to scientific practice that it is almost unimaginable to find a working
-scientist that could claim they do not use computers at all.  Experimentalist
-from biology to physics and observationalist from astronomy to climate study
-are confronted with an avalanche of quantitative data.  All scientists must now
-do real computing.  As computers continue to increase in computational power and
-storage capacity, the problems only compound.  While better computing practices
-will not directly translate to better science, current practices do lead to bad
-science.
-
-Scientists as developers
-
-Reasons
-
-\begin{itemize}
-\item  developing state-of-the-art methods
-\item developing as exploration
-\end{itemize}
-
-Implications
-
-\begin{itemize}
-\item need development tools to enable
-\item scientists will need to be computationally literate
-\end{itemize}
-
-Purpose:  Better Research
-
-\begin{itemize}
-\item Science becomes computing
-\item Both building a hierarchical structure
-\item freedom to believe differently
-\end{itemize}
-
-\subsection{\label{sec:life-cycle}Research life-cycle}
-
-A central issue when considering the problem of reproducible research is the
-nature and quality of the software tools available for computational work in
-science.
-
-To frame the question, we view the life-cycle of computational research from an
-admittedly simplified perspective that is still realistic enough to be
-useful. Let us consider that this cycle can be be broken down into the
-following phases:
-
-\begin{itemize}
-\item \textbf{Individual exploration:} a single investigator tests an idea,
-  algorithm or question, likely with a small-scale test data set or simulation.
-\item \textbf{Collaboration:} if the initial exploration appears promising,
-  more often than not some kind of collaborative effort ensues to bring
-  together complementary expertise from colleagues.
-\item \textbf{Production-scale execution:} large data sets and complex
-  simulations often require the use of clusters, supercomputers or cloud
-  resources in parallel.
-\item \textbf{Publication:} whether as a paper or an internal report for
-  discussion with colleagues, results need to be presented to others in a
-  coherent form.
-\item \textbf{Education:} ultimately, research results become part of the
-  corpus of a discipline that is shared with students and colleagues, thus
-  seeding the next iteration in the cycle of research.
-\end{itemize}
-
-\subsection{Patchwork of tools}
+\section{\label{sec:background}Background}
 
 We first describe what we believe to be the typical tools and approaches that
 most working scientists use for each of these phases today, in particular
 considering their impact on the reproducibility of the final outcomes. 
 
-For \textbf{individual exploratory work}, researchers use various interactive
+For \textbf{individual work}, researchers use various interactive
 computing environments: Microsoft Excel, Matlab, Mathematica\textregistered,
 Sage \cite{sage}, and more specialized systems like R, SPSS, SAS, and STATA for
 statistics. These environments combine interactive, high-level programming
@@ -368,26 +206,6 @@ can make this work by brute effort, this approach most certainly does not scale
 beyond a few collaborators, as painfully experienced by anyone who has
 participated in the madness of a flurry of email attachments with oddly-named
 files such as {\tt paper-final-v2-REALLY-FINAL-john-oct9.doc}.
-
-For \textbf{production-scale execution}, researchers typically turn away from
-the convenience of interactive computing environments to compiled code
-(C/C++/Fortran) and parallel computing libraries (MPI, Hadoop), as most
-interactive systems do not provide the performance necessary for large-scale
-work and have limited support for distributed and parallel computing.  These
-tools are specialized enough that their mastery requires a substantial
-investment of time. We emphasize that before production-scale computations
-begin, the researchers already have working prototype in an interactive
-computing environment. Therefore, turning to new parallel tools means starting
-over and maintaining at least two versions of the code moving
-forward. Furthermore, data produced by the compiled version is often imported
-back into the interactive environment for visualization and analysis. The
-resulting back-and-forth, complex workflow is nearly impossible to capture and
-put into version control systems, again making the computational research
-difficult to reproduce.  Obviously the alternative, taken by many, is simply to
-run the slow serial codes for a long time and wait for the results while
-working on something else.  This is hardly a solution to our questions, as
-runtimes in the weeks or months become in practice single-shot efforts that
-nobody will attempt to replicate.
 
 For \textbf{publications} and \textbf{education}, researchers use tools such as
 \LaTeX, Google Docs or Microsoft Word/PowerPoint.  The most important attribute
@@ -450,6 +268,55 @@ naturally into their everyday practices of research, collaboration and
 publishing, so that we can make simultaneous progress on the technical and
 social aspects of this issue.
 
+
+Scientists as developers
+
+Reasons
+
+\begin{itemize}
+\item  developing state-of-the-art methods
+\item developing as exploration
+\end{itemize}
+
+Implications
+
+\begin{itemize}
+\item need development tools to enable
+\item scientists will need to be computationally literate
+\end{itemize}
+
+Purpose:  Better Research
+
+\begin{itemize}
+\item Science becomes computing
+\item Both building a hierarchical structure
+\item freedom to believe differently
+\end{itemize}
+
+\subsection{Scientific Python}
+
+Over the last decade, we've had the privilege of participating in a loose-knit
+community of scientists, researchers, and engineers working to create a powerful
+stack of open source tools for scientific computing written in Python.  Among
+high-level open source programming languages, Python is today the leading tool
+for general-purpose scientific computing (along with R for statistics),
+finding wide adoption across research disciplines, education and industry and
+being a core infrastructure tool at institutions such as CERN and the Hubble
+Space Telescope Science Institute
+\cite{millman2011python,Perez2011,ganga09,SST}.
+
+
+core tools: numpy, scipy, matplotlib, and ipython
+
+- simultaneously we've interacted heavily with researchers in
+physics, psychology, neuroscience, and medicine.
+
+- we've also talked with members of SciPy community representing
+other disciplines and 
+
+\subsection{Neuroimaging in Python}
+
+\ldots
 
 \subsection{Moving forward}
 
@@ -514,7 +381,7 @@ is real, and again we must properly address it as we consider
 how to apply the lessons of open source development to the scientific
 context.
 
-\section{Routine practice}
+\section{\label{sec:practice}Routine practice}
 
 The practices recommended in this section are distilled from years of
 experience writing and maintaining software, teaching programming courses to
@@ -827,7 +694,7 @@ can manually manage things, automating these tasks can be extremely beneficial.
 
 \end{itemize}
 
-\section{Collaboration}
+\section{\label{sec:collaboration}Collaboration}
 
 Collaboration is essential to both the scientific and open source
 communities. Open source developers build on one another's work just
@@ -1380,6 +1247,35 @@ research cycle in order to make it more fluid, efficient and reproducible.
 
 
 \section{Conclusion}\label{conclusion}
+
+Computational tools are at the core of modern research. In addition
+to experiment and theory, the notions of simulation and data-intensive
+discovery have emerged as third and fourth pillars of science \cite{4th-paradigm}.
+Today, even theory and experiment are computational, as virtually
+all experimental work requires computing (whether in data collection,
+pre-processing or analysis) and most theoretical work requires symbolic
+and numerical computing to develop and refine models. Scanning the pages
+of any major scientific journal, one is hard-pressed to find a publication
+in any discipline that does not depend on computing for its findings.
+
+And yet, for all its importance, computing is often treated as an
+afterthought both in the training of new scientists and in the conduct of
+everyday research. Most working scientists have witnessed how computing is
+treated as a task of secondary importance that students and postdocs learn
+``on the go'' with little training to ensure that results are trustworthy,
+comprehensible and ultimately a secure foundation for reproducible outcomes.
+Software and data are stored with poor organization, documentation and tests.
+A patchwork of software tools is used with limited attention paid to
+capturing the complex workflows that emerge, and the evolution of code is
+often not tracked over time, making it difficult to understand how a result
+was obtained. Finally, many of the software packages used by scientists in
+research are proprietary and closed-source, preventing the community from
+having a complete understanding of the final scientific results.
+
+The situation is familiar to all scientists and this familiarity may breed
+complacency. However, the consequences of this situation are serious at
+present and will become disastrous if the situation is not dealt with
+directly. 
 
 As we seek to learn how the open source practice can inform our scientific
 work, we must recognize that the ideal of scientific reproducibility
