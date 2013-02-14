@@ -113,22 +113,31 @@ Dedicated to the memory of John~D.~Hunter~III, 1968-2012.
 
 \section{Introduction}\label{intro}
 
-In December of 2004, we were both at a meeting on improving the software used
-in neuroimaging analysis. It was the first time we met: one of us (JM) was in
-charge of the data analysis system at Berkeley's Brain Imaging Center (BIC) and
-the other (FP) was a physics graduate student. We quickly realized that we had
-the same perspective on the importance of good computational tools and practice
-to the progress of scientific research.  We also shared the concern that most
-researchers did not have good training in computation, scientific coding, or
-data management. And we saw that this made it hard to document and replicate
-analyses.
+Computational tools are at the core of modern research. In addition
+to experiment and theory, the notions of simulation and data-intensive
+discovery have emerged as third and fourth pillars of science \cite{4th-paradigm}.
+Today, even theory and experiment are computational, as virtually
+all experimental work requires computing (whether in data collection,
+pre-processing or analysis) and most theoretical work requires symbolic
+and numerical computing to develop and refine models. Scanning the pages
+of any major scientific journal, one is hard-pressed to find a publication
+in any discipline that does not depend on computing for its findings.
 
-As an immediate result of that meeting, we co-wrote one of the individual
-research plans of a much larger program project proposal titled ``Building a
-platform for analysis replication and code sharing in neuroimaging''. While
-the grant wasn't funded, the meeting led to the Neuroimaging in Python (NIPY)
-project. It also led indirectly to FP joining the BIC as a research scientist
-in \fix{2008}.
+And yet, for all its importance, computing is often treated as an
+afterthought both in the training of new scientists and in the conduct of
+everyday research. Most working scientists have witnessed how computing is
+treated as a task of secondary importance that students and postdocs learn
+``on the go'' with little training to ensure that results are trustworthy,
+comprehensible and ultimately a secure foundation for reproducible outcomes.
+Software and data are stored with poor organization, documentation and tests.
+A patchwork of software tools is used with limited attention paid to
+capturing the complex workflows that emerge, and the evolution of code is
+often not tracked over time, making it difficult to understand how a result
+was obtained. Finally, many of the software packages used by scientists in
+research are proprietary and closed-source, preventing the community from
+having a complete understanding of the final scientific results.
+
+\ldots
 
 In §~\ref{sec:background}, we describe:
 
@@ -380,6 +389,14 @@ when in their embryonic stages. The fear of being scooped by others
 is real, and again we must properly address it as we consider
 how to apply the lessons of open source development to the scientific
 context.
+
+In summary, we think that a few simple lessons can be learned from
+the practices of the open source world which, if carefully assimilated,
+can lead to substantial improvements in the state of reproducible
+computational research. 
+
+For more information, we highly recommend the recent archiv preprint
+\ldots \cite{2012arXiv1210.0530A}.
 
 \section{\label{sec:practice}Routine practice}
 
@@ -871,15 +888,9 @@ control with regards to attribution and provenance tracking.
 
 \subsection{Infrastructure redux}
 
-In summary, we think that a few simple lessons can be learned from
-the practices of the open source world which, if carefully assimilated,
-can lead to substantial improvements in the state of reproducible
-computational research. 
 
 - github test integration
 
-For more information, we highly recommend the recent archiv preprint
-\ldots \cite{2012arXiv1210.0530A}.
 
 
 \section{\label{sec:communication}Communication}
@@ -1248,34 +1259,6 @@ research cycle in order to make it more fluid, efficient and reproducible.
 
 \section{Conclusion}\label{conclusion}
 
-Computational tools are at the core of modern research. In addition
-to experiment and theory, the notions of simulation and data-intensive
-discovery have emerged as third and fourth pillars of science \cite{4th-paradigm}.
-Today, even theory and experiment are computational, as virtually
-all experimental work requires computing (whether in data collection,
-pre-processing or analysis) and most theoretical work requires symbolic
-and numerical computing to develop and refine models. Scanning the pages
-of any major scientific journal, one is hard-pressed to find a publication
-in any discipline that does not depend on computing for its findings.
-
-And yet, for all its importance, computing is often treated as an
-afterthought both in the training of new scientists and in the conduct of
-everyday research. Most working scientists have witnessed how computing is
-treated as a task of secondary importance that students and postdocs learn
-``on the go'' with little training to ensure that results are trustworthy,
-comprehensible and ultimately a secure foundation for reproducible outcomes.
-Software and data are stored with poor organization, documentation and tests.
-A patchwork of software tools is used with limited attention paid to
-capturing the complex workflows that emerge, and the evolution of code is
-often not tracked over time, making it difficult to understand how a result
-was obtained. Finally, many of the software packages used by scientists in
-research are proprietary and closed-source, preventing the community from
-having a complete understanding of the final scientific results.
-
-The situation is familiar to all scientists and this familiarity may breed
-complacency. However, the consequences of this situation are serious at
-present and will become disastrous if the situation is not dealt with
-directly. 
 
 As we seek to learn how the open source practice can inform our scientific
 work, we must recognize that the ideal of scientific reproducibility
