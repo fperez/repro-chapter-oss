@@ -956,41 +956,32 @@ and bioinformatics.  As all Bioconductor packages must be accompanied by at
 least one ``vignette'', a literate programming document that contains
 executable code illustrating the tasks the package is meant to perform.
 Vignettes can be read in PDF format, but functions exist to automatically
-extract all the R code for immediate execution.
+extract all the R code for immediate execution.  The journal Biostatistics
+encourages authors to use literate programming tools such as \LaTeX and Sweave
+when submitting articles they wish to be desingated reproducible \cite{Peng01072009}.
 
 In recent years, a new entrant to the R community that is gaining rapid
-adoption is the Knitr package \cite{xie2012knitr}.  Knitr can be seen as a
+adoption is the knitr package \cite{xie2012knitr}.  Knitr can be seen as a
 highly evolved Sweave with a number of improvements on many fronts, but still
-within the conceptual lineage of literate programming tools.
+within the conceptual lineage of literate programming tools.  The use of
+literate programming tools are gaining increasing traction in statistical
+education as well.  For instance, at UC Berkeley, students taking computational
+classes in both the Statistics Department and the Divison of Biostatistics are
+now strongly encouraged to use \LaTeX with Sweave or \LaTeX (or R Markdown) with 
+knitr.
 
-- talk about use of knitr/sweave at Berkeley stat/biostats classes
-
-Sphinx
-
-%documentation, code, figures/results, process, distribution, etc.
-%
-%auto-generated API documentation, bug tracker, task list, project management
-%
-%
-* Official documentation tool of python
-
-* And numpy, scipy, ipython, matplotlib, mayavi, \ldots
-
-* Content is searchable, indexed, and cross-referenced
-
-* Generates HTML and PDF
-
-* Extensible!
-
-A good documentation tool should
-
-* Be easy to use
-
-* Readable in plain text format, *but* produce beautiful HTML and PDF
-
-* Let you use the editors and tools you prefer
-
-* Facilitate collaboration
+As the above examples suggest, literate programming has been most commonly
+adopted when the desired final document is intend primarily for human
+consumption.  Few, if any, large software libraries are written this way.
+In fact, the most prevalent use of literate programming has been among
+scientists to communicate computational ideas and results to one another.
+The other area where these ideas have had a big impact is in open source
+software projects where tools have been developed to automatical generate
+project documentation based on source files or in creating ``live''
+documentation with embedded code run during document generation.\footnote{
+For instance, Sphinx (http://sphinx-doc.org/) is a document generation tool
+that is used for many Python projects including all the major scientific
+Python packages.} 
 
 \subsection{Literate computing}
 
