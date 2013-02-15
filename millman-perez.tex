@@ -141,7 +141,7 @@ In this chapter, we present a different approach to role of computing in how
 scientists should be trained and conduct their research. Our approach grows out
 of our experience over the last decade as members of both the research
 community and as part of the open source scientific Python community.  We begin
-(in §~\ref{sec:develop}) by describing our vision for the scientific
+(in §~\ref{sec:research}) by describing our vision for the scientific
 software development should play in everyday research. Then in the following
 sections we provide specific recommendations for computational work. First,
 we describe the routine practices (§~\ref{sec:practice}) that should be
@@ -153,17 +153,29 @@ literate computing and its relation to the more mature approach of literate
 programming (§~\ref{sec:communication}).
 
 
-\section{\label{sec:develop}Open development}
+\section{\label{sec:research}Computational research}
 
-\cite{turk2013scale}, \cite{joyner2007open}, \cite{prlic2012ten}
+To frame the question, we view the life-cycle of computational research from an
+admittedly simplified perspective that is still realistic enough to be
+useful. Let us consider that this cycle can be be broken down into the
+following phases:
 
-the basic idea:
-
-* shared scientific codes (scipy)
-
-* shared domain specific libraries (nipy)
-
-* lab-specific development branches
+\begin{itemize}
+\item \textbf{Individual exploration:} a single investigator tests an idea,
+  algorithm or question, likely with a small-scale test data set or simulation.
+\item \textbf{Collaboration:} if the initial exploration appears promising,
+  more often than not some kind of collaborative effort ensues to bring
+  together complementary expertise from colleagues.
+\item \textbf{Production-scale execution:} large data sets and complex
+  simulations often require the use of clusters, supercomputers or cloud
+  resources in parallel.
+\item \textbf{Publication:} whether as a paper or an internal report for
+  discussion with colleagues, results need to be presented to others in a
+  coherent form.
+\item \textbf{Education:} ultimately, research results become part of the
+  corpus of a discipline that is shared with students and colleagues, thus
+  seeding the next iteration in the cycle of research.
+\end{itemize}
 
 We first describe what we believe to be the typical tools and approaches that
 most working scientists use for each of these phases today, in particular
@@ -209,6 +221,26 @@ can make this work by brute effort, this approach most certainly does not scale
 beyond a few collaborators, as painfully experienced by anyone who has
 participated in the madness of a flurry of email attachments with oddly-named
 files such as {\tt paper-final-v2-REALLY-FINAL-john-oct9.doc}.
+
+For \textbf{production-scale execution}, researchers typically turn away from
+the convenience of interactive computing environments to compiled code
+(C/C++/Fortran) and parallel computing libraries (MPI, Hadoop), as most
+interactive systems do not provide the performance necessary for large-scale
+work and have limited support for distributed and parallel computing.  These
+tools are specialized enough that their mastery requires a substantial
+investment of time. We emphasize that before production-scale computations
+begin, the researchers already have working prototype in an interactive
+computing environment. Therefore, turning to new parallel tools means starting
+over and maintaining at least two versions of the code moving
+forward. Furthermore, data produced by the compiled version is often imported
+back into the interactive environment for visualization and analysis. The
+resulting back-and-forth, complex workflow is nearly impossible to capture and
+put into version control systems, again making the computational research
+difficult to reproduce.  Obviously the alternative, taken by many, is simply to
+run the slow serial codes for a long time and wait for the results while
+working on something else.  This is hardly a solution to our questions, as
+runtimes in the weeks or months become in practice single-shot efforts that
+nobody will attempt to replicate.
 
 For \textbf{publications} and \textbf{education}, researchers use tools such as
 \LaTeX, Google Docs or Microsoft Word/PowerPoint.  The most important attribute
@@ -271,6 +303,16 @@ naturally into their everyday practices of research, collaboration and
 publishing, so that we can make simultaneous progress on the technical and
 social aspects of this issue.
 
+\subsection{\label{sec:research}Development community}
+\cite{turk2013scale}, \cite{joyner2007open}, \cite{prlic2012ten}
+
+the basic idea:
+
+* shared scientific codes (scipy)
+
+* shared domain specific libraries (nipy)
+
+* lab-specific development branches
 
 Scientists as developers
 
@@ -286,14 +328,6 @@ Implications
 \begin{itemize}
 \item need development tools to enable
 \item scientists will need to be computationally literate
-\end{itemize}
-
-Purpose:  Better Research
-
-\begin{itemize}
-\item Science becomes computing
-\item Both building a hierarchical structure
-\item freedom to believe differently
 \end{itemize}
 
 \subsection{Scientific Python}
@@ -316,10 +350,6 @@ physics, psychology, neuroscience, and medicine.
 
 - we've also talked with members of SciPy community representing
 other disciplines and 
-
-\subsection{Neuroimaging in Python}
-
-\ldots
 
 \subsection{Moving forward}
 
