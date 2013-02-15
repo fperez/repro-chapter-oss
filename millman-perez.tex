@@ -113,29 +113,29 @@ Dedicated to the memory of John~D.~Hunter~III, 1968-2012.
 
 \section{Introduction}\label{intro}
 
-Computational tools are at the core of modern research. In addition
-to experiment and theory, the notions of simulation and data-intensive
-discovery have emerged as third and fourth pillars of science \cite{4th-paradigm}.
-And today, even theory and experiment are computational, as virtually
-all experimental work requires computing (whether in data collection,
-pre-processing, or analysis) and most theoretical work requires symbolic
-and numerical computing to develop and refine models. Scanning the pages
-of any major scientific journal, one is hard-pressed to find a publication
-in any discipline that does not depend on computing for its findings.
+Computational tools are at the core of modern research. In addition to
+experiment and theory, the notions of simulation and data-intensive discovery
+have emerged as third and fourth pillars of science \cite{4th-paradigm}.  And
+today, even theory and experiment are computational: experimental work requires
+computing (whether in data collection, pre-processing, or analysis) and
+theoretical work requires symbolic and numerical computing to develop and
+refine models. Scanning the pages of any major scientific journal, one is
+hard-pressed to find a publication that does not depend on
+computing for its findings.
 
-And yet, for all its importance, computing is often treated as an
-afterthought both in the training of new scientists and in the conduct of
-everyday research. Most working scientists have witnessed how computing is
-treated as a task of secondary importance that students and postdocs learn
-``on the go'' with little training to ensure that results are trustworthy,
-comprehensible, and ultimately a secure foundation for reproducible outcomes.
-Software and data are stored with poor organization, documentation, and tests.
-A patchwork of software tools is used with limited attention paid to
-capturing the complex workflows that emerge.  The evolution of code is
-often not tracked over time, making it difficult to understand how a result
-was obtained. Finally, many of the software packages used by scientists in
-research are proprietary and closed-source, preventing the community from
-having a complete understanding of the final scientific results.
+Yet, for all its importance, computing is often treated as an afterthought both
+in the training of new scientists and in the conduct of everyday research. Most
+working scientists have witnessed how computing is treated as a task of
+secondary importance that students and postdocs learn ``on the go'' with little
+training to ensure results are trustworthy, comprehensible, and ultimately a
+secure foundation for reproducible outcomes.  Software and data are stored with
+poor organization, little documentation, and few tests.  A patchwork of
+software tools is used with limited attention paid to capturing the complex
+workflows that emerge.  The evolution of code is often not tracked over time,
+making it difficult to understand how a result was obtained. Finally, many of
+the software packages used by scientists in research are proprietary and
+closed-source, preventing the community from having a complete understanding of
+the final scientific results.
 
 In this chapter, we argue for a different role for computing in how
 scientists are trained and conduct their research. Our approach grows out
@@ -303,54 +303,48 @@ naturally into their everyday practices of research, collaboration and
 publishing, so that we can make simultaneous progress on the technical and
 social aspects of this issue.
 
-\subsection{Development community}
+\subsection{Communities of practice}
 \cite{turk2013scale}, \cite{joyner2007open}, \cite{prlic2012ten}
 
-There are real issues with attempting to
-naively transplant the practices of open source development directly
-to computational research. The open source model ends up being one
-where, in practice, the copyright and authorship of any large collaborative
-project is spread among many authors, possibly thousands. While
-the source control tools in use do allow for a relatively precise
-provenance analysis to be performed if desired, this is rarely done
-and its success is contingent on the community having followed certain
-steps rigorously to ensure that attribution was correctly recorded
-during development.
+There are real issues with attempting to naively transplant the practices of
+open source development directly to computational research. The open source
+model ends up being one where, in practice, the copyright and authorship of any
+large collaborative project is spread among many authors, possibly thousands.
+While the source control tools in use do allow for a relatively precise
+provenance analysis to be performed if desired, this is rarely done and its
+success is contingent on the community having followed certain steps rigorously
+to ensure that attribution was correctly recorded during development.
 
-This is not a major issue in open source, as the rewards mechanisms
-tend to be more informal and based on the overall recognition of any
-one contributor in the community. Sometimes people contribute to open
-source projects as part of their official work responsibilities, and
-in that case a company can enact whatever policies it deems necessary;
-often contributions are made by volunteers for whom an acknowledgment
-in the project's credits is sufficient recognition.
+This is not a major issue in open source, as the rewards mechanisms tend to be
+more informal and based on the overall recognition of any one contributor in
+the community. Sometimes people contribute to open source projects as part of
+their official work responsibilities, and in that case a company can enact
+whatever policies it deems necessary; often contributions are made by
+volunteers for whom an acknowledgment in the project's credits is sufficient
+recognition.
 
-In contrast, the academic world overwhelmingly weighs the authorship
-of scholarly articles and conference proceedings as the main driver
-of all forms of professional advancement and reward. In this system,
-the pecking order of authorship matters enormously (with the many
-unpleasant consequences familiar to all of us), and so does the total
-number of authors in a publication. While in certain communities papers
-with thousands of authors do exist (experimental high-energy physics
-being the classic example), most scientists need the prominent visibility
-they can achieve in a short author list. The dilution of authorship
-resulting from a largely open collaborative development model
-is an important issue that must be addressed.
+In contrast, the academic world overwhelmingly weighs the authorship of
+scholarly articles and conference proceedings as the main driver of all forms
+of professional advancement and reward. In this system, the pecking order of
+authorship matters enormously (with the many unpleasant consequences familiar
+to all of us), and so does the total number of authors in a publication. While
+in certain communities papers with thousands of authors do exist (experimental
+high-energy physics being the classic example), most scientists need the
+prominent visibility they can achieve in a short author list. The dilution of
+authorship resulting from a largely open collaborative development model is an
+important issue that must be addressed.
 
-Furthermore, the notion of a fully open development model typical
-of open source projects is at odds with another aspect of the
-scientific publication and reward system: the ``first
-to publish'' race. Many scientists are, understandably,
-leery of exposing their projects on an openly accessible website
-when in their embryonic stages. The fear of being scooped by others
-is real, and again we must properly address it as we consider
-how to apply the lessons of open source development to the scientific
-context.
+Furthermore, the notion of a fully open development model typical of open
+source projects is at odds with another aspect of the scientific publication
+and reward system: the ``first to publish'' race. Many scientists are,
+understandably, leery of exposing their projects on an openly accessible
+website when in their embryonic stages. The fear of being scooped by others is
+real, and again we must properly address it as we consider how to apply the
+lessons of open source development to the scientific context.
 
-In summary, we think that a few simple lessons can be learned from
-the practices of the open source world which, if carefully assimilated,
-can lead to substantial improvements in the state of reproducible
-computational research. 
+In summary, we think that a few simple lessons can be learned from the
+practices of the open source world which, if carefully assimilated, can lead to
+substantial improvements in the state of reproducible computational research. 
 
 Scientists as developers
 
@@ -369,7 +363,7 @@ Implications
 \end{itemize}
 
 
-\subsection{Scientific Python}
+\subsection{Open source ecosystem}
 
 Over the last decade, we've had the privilege of participating in a loose-knit
 community of scientists, researchers, and engineers working to create a powerful
