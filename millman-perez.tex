@@ -137,17 +137,17 @@ was obtained. Finally, many of the software packages used by scientists in
 research are proprietary and closed-source, preventing the community from
 having a complete understanding of the final scientific results.
 
-In this chapter, we present a different approach to role of computing in how
-scientists should be trained and conduct their research. Our approach grows out
+In this chapter, we argue for a different role for computing in how
+scientists are trained and conduct their research. Our approach grows out
 of our experience over the last decade as members of both the research
 community and as part of the open source scientific Python community.  We begin
-(in §~\ref{sec:research}) by describing our vision for the scientific
-software development should play in everyday research. Then in the following
-sections we provide specific recommendations for computational work. First,
+(§~\ref{sec:research}) by describing our vision for the scientific
+software development in everyday research. In the remaining sections,
+we provide specific recommendations for computational work. First,
 we describe the routine practices (§~\ref{sec:practice}) that should be
-part of daily conduction of computational work. Next, we discuss some of
+part of the daily conduct of computational work. We next discuss some of
 the tools and practices developed by open source communities to enable
-and streamline collaboration (§~\ref{sec:collaboration}). And, finally,
+and streamline collaboration (§~\ref{sec:collaboration}). Finally,
 we present a new approach to communicating computational work that we call
 literate computing and its relation to the more mature approach of literate
 programming (§~\ref{sec:communication}).
@@ -303,75 +303,8 @@ naturally into their everyday practices of research, collaboration and
 publishing, so that we can make simultaneous progress on the technical and
 social aspects of this issue.
 
-\subsection{\label{sec:research}Development community}
+\subsection{Development community}
 \cite{turk2013scale}, \cite{joyner2007open}, \cite{prlic2012ten}
-
-the basic idea:
-
-* shared scientific codes (scipy)
-
-* shared domain specific libraries (nipy)
-
-* lab-specific development branches
-
-Scientists as developers
-
-Reasons
-
-\begin{itemize}
-\item  developing state-of-the-art methods
-\item developing as exploration
-\end{itemize}
-
-Implications
-
-\begin{itemize}
-\item need development tools to enable
-\item scientists will need to be computationally literate
-\end{itemize}
-
-\subsection{Scientific Python}
-
-Over the last decade, we've had the privilege of participating in a loose-knit
-community of scientists, researchers, and engineers working to create a powerful
-stack of open source tools for scientific computing written in Python.  Among
-high-level open source programming languages, Python is today the leading tool
-for general-purpose scientific computing (along with R for statistics),
-finding wide adoption across research disciplines, education and industry and
-being a core infrastructure tool at institutions such as CERN and the Hubble
-Space Telescope Science Institute
-\cite{millman2011python,Perez2011,ganga09,SST}.
-
-
-core tools: numpy, scipy, matplotlib, and ipython
-
-- simultaneously we've interacted heavily with researchers in
-physics, psychology, neuroscience, and medicine.
-
-- we've also talked with members of SciPy community representing
-other disciplines and 
-
-\subsection{Moving forward}
-
-As research grows increasingly dependent on computing, it becomes critical
-for our computational resources to be developed with the same rigor, open review
-and access as the results they support.  For this reason, we actively promote:
-
-\begin{itemize}
-
-\item sharing of scientific software, data, and knowledge necessary for
-reproducible research
-
-\item readable, tested, validated, and documented software as the basis for
-reliable scientific outcomes
-
-\item high standards of computational literacy in the education of
-mathematicians, scientists, and engineers
-
-\item open source software developed by collaborative, meritocratic
-communities
-
-\end{itemize}
 
 There are real issues with attempting to
 naively transplant the practices of open source development directly
@@ -418,6 +351,85 @@ In summary, we think that a few simple lessons can be learned from
 the practices of the open source world which, if carefully assimilated,
 can lead to substantial improvements in the state of reproducible
 computational research. 
+
+Scientists as developers
+
+Reasons
+
+\begin{itemize}
+\item  developing state-of-the-art methods
+\item developing as exploration
+\end{itemize}
+
+Implications
+
+\begin{itemize}
+\item need development tools to enable
+\item scientists will need to be computationally literate
+\end{itemize}
+
+
+\subsection{Scientific Python}
+
+Over the last decade, we've had the privilege of participating in a loose-knit
+community of scientists, researchers, and engineers working to create a powerful
+stack of open source tools for scientific computing written in Python.  Among
+high-level open source programming languages, Python is today the leading tool
+for general-purpose scientific computing (along with R for statistics),
+finding wide adoption across research disciplines, education and industry and
+being a core infrastructure tool at institutions such as CERN and the Hubble
+Space Telescope Science Institute
+\cite{millman2011python,Perez2011,ganga09,SST}.
+
+IPython\footnote{\url{http://ipython.org}} is a system for interactive and
+parallel computing that has become the \emph{de facto} standard environment for
+scientific computing and data analysis in the Python programming language.  It
+was created by F. Pérez in in 2001 as an interactive command-line shell for
+Python, and has evolved into a large collaborative open-source project with
+contributions from a broad team of scientists \cite{PER-GRA:2007}.  IPython
+started with the simple purpose of building a better interactive environment
+for everyday computational work by a single researcher.  But as it grew into a
+broader open source project, the team working on it (most of them practicing
+scientists) learned many of the skills of the trade from open source software
+developers.  It is precisely from this interplay between scientific research
+and software development that we highlight here, as through contact with the
+tools and culture of the open source world, we saw how in many respects this
+community had outpaced scientists in its robust and rigorous use of
+computational resources.  Through the years, we have thus led a dual life,
+where the contact with this open source community continually informs and
+enriches our approach to computational research and has helped us build IPython
+into a better scientific tool.
+
+
+the basic idea:
+
+* shared scientific codes (scipy)
+
+* shared domain specific libraries \cite{nipy_cise}.
+
+* lab-specific development branches
+
+\subsection{Moving forward}
+
+As research grows increasingly dependent on computing, it becomes critical
+for our computational resources to be developed with the same rigor, open review
+and access as the results they support.  For this reason, we actively promote:
+
+\begin{itemize}
+
+\item sharing of scientific software, data, and knowledge necessary for
+reproducible research
+
+\item readable, tested, validated, and documented software as the basis for
+reliable scientific outcomes
+
+\item high standards of computational literacy in the education of
+mathematicians, scientists, and engineers
+
+\item open source software developed by collaborative, meritocratic
+communities
+
+\end{itemize}
 
 For more information, we highly recommend the recent archiv preprint
 \ldots \cite{2012arXiv1210.0530A}.
@@ -838,7 +850,7 @@ Gitorious\footnote{\url{http://gitorious.org}} play similar roles.  GitHub has
 had a tremendous impact in the open source community, reaching in a few years
 millions of active users and gaining rapidly popularity in scientific circles.
 We can attest to the power of this platform with our own experience: the open
-source IPython project (see §~\ref{IPython}) moved its development to GitHub in
+source IPython project moved its development to GitHub in
 early 2010 and immediately saw a rapid uptick in the pace of contributions.
 The workflow for collaboration enabled by GitHub was so much smoother than all
 previously available tools that many people were more willing to send
@@ -1048,24 +1060,6 @@ discussion.
 
 \subsection{IPython notebook}\label{IPython}
 
-IPython\footnote{\url{http://ipython.org}} is a system for interactive and
-parallel computing that has become the \emph{de facto} standard environment for
-scientific computing and data analysis in the Python programming language.  It
-was created by F. Pérez in in 2001 as an interactive command-line shell for
-Python, and has evolved into a large collaborative open-source project with
-contributions from a broad team of scientists \cite{PER-GRA:2007}.  IPython
-started with the simple purpose of building a better interactive environment
-for everyday computational work by a single researcher.  But as it grew into a
-broader open source project, the team working on it (most of them practicing
-scientists) learned many of the skills of the trade from open source software
-developers.  It is precisely from this interplay between scientific research
-and software development that we highlight here, as through contact with the
-tools and culture of the open source world, we saw how in many respects this
-community had outpaced scientists in its robust and rigorous use of
-computational resources.  Through the years, we have thus led a dual life,
-where the contact with this open source community continually informs and
-enriches our approach to computational research and has helped us build IPython
-into a better scientific tool.
 
 In 2011, a web-based notebook was developed in IPython that connects to the
 same interactive core as the original command-line shell, but does so using a
