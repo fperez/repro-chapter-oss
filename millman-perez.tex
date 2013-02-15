@@ -116,9 +116,9 @@ Dedicated to the memory of John~D.~Hunter~III, 1968-2012.
 Computational tools are at the core of modern research. In addition
 to experiment and theory, the notions of simulation and data-intensive
 discovery have emerged as third and fourth pillars of science \cite{4th-paradigm}.
-Today, even theory and experiment are computational, as virtually
+And today, even theory and experiment are computational, as virtually
 all experimental work requires computing (whether in data collection,
-pre-processing or analysis) and most theoretical work requires symbolic
+pre-processing, or analysis) and most theoretical work requires symbolic
 and numerical computing to develop and refine models. Scanning the pages
 of any major scientific journal, one is hard-pressed to find a publication
 in any discipline that does not depend on computing for its findings.
@@ -128,20 +128,34 @@ afterthought both in the training of new scientists and in the conduct of
 everyday research. Most working scientists have witnessed how computing is
 treated as a task of secondary importance that students and postdocs learn
 ``on the go'' with little training to ensure that results are trustworthy,
-comprehensible and ultimately a secure foundation for reproducible outcomes.
-Software and data are stored with poor organization, documentation and tests.
+comprehensible, and ultimately a secure foundation for reproducible outcomes.
+Software and data are stored with poor organization, documentation, and tests.
 A patchwork of software tools is used with limited attention paid to
-capturing the complex workflows that emerge, and the evolution of code is
+capturing the complex workflows that emerge.  The evolution of code is
 often not tracked over time, making it difficult to understand how a result
 was obtained. Finally, many of the software packages used by scientists in
 research are proprietary and closed-source, preventing the community from
 having a complete understanding of the final scientific results.
 
-\ldots
+In this chapter, we present a different approach to role of computing in how
+scientists should be trained and conduct their research. Our approach grows out
+of our experience over the last decade as members of both the research
+community and as part of the open source scientific Python community.  We begin
+(in §~\ref{sec:develop}) by describing our vision for the scientific
+software development should play in everyday research. Then in the following
+sections we provide specific recommendations for computational work. First,
+we describe the routine practices (§~\ref{sec:practice}) that should be
+part of daily conduction of computational work. Next, we discuss some of
+the tools and practices developed by open source communities to enable
+and streamline collaboration (§~\ref{sec:collaboration}). And, finally,
+we present a new approach to communicating computational work that we call
+literate computing and its relation to the more mature approach of literate
+programming (§~\ref{sec:communication}).
 
-In §~\ref{sec:background}, we describe:
 
-why we had the initial meeting
+\section{\label{sec:develop}Open development}
+
+\cite{turk2013scale}.
 
 the basic idea:
 
@@ -150,26 +164,6 @@ the basic idea:
 * shared domain specific libraries (nipy)
 
 * lab-specific development branches
-
-In §~\ref{sec:practice} 
-
-In §~\ref{sec:collaboration} by
-
-In §~\ref{sec:communication} by
-
-%In the next section, we share lessons we've learned from our participation in
-%several open source development projects and describe how these lessons can be
-%applied to scientific practice.  In the following section, we present a
-%comprehensive view of the role computing plays in the life-cycle of scientific
-%investigation.  In addition to surveying the standard approaches, this section
-%ends with a detailed overview of the open source IPython project
-%\cite{PER-GRA:2007}, which is a single software tool capable of spanning the
-%entire life-cycle of computational research.  Finally, we conclude with a brief
-%discussion of how we see the culture changing and the need for reviewing our
-%current incentive models and the training of new scientists.
-
-
-\section{\label{sec:background}Background}
 
 We first describe what we believe to be the typical tools and approaches that
 most working scientists use for each of these phases today, in particular
