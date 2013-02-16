@@ -329,18 +329,25 @@ social aspects of this issue.
 Managing this entire life-cycle in an integral way requires taking a broad view
 of the complete computational ecosystem. This includes not only all the
 software tools, but the way in which these tools are written and used. We begin
-by describing what kinds of software tools we need for scientific research.\footnote{We
-take it as a for gone conclusion that if we are going to be sharing our research
-code with one another, they must be written using open source tools as far
-as practical. For the interested reader, we direct them to ``Open source mathematical software'' for a more sustained argument regarding this point \cite{joyner2007open}.}
-And then in the following section (§~\ref{subsec:community}) argue that the
-scientific community must not only use the right software, but needs to take an
-active role in the creation and maintainence of this software as part of our
-heritage.
+by describing what kinds of software tools we need for scientific
+research.\footnote{We take it as a for gone conclusion that if we are going to
+ be sharing our research code with one another, they must be written using open
+ source tools as far as practical. For the interested reader, we direct them to
+ ``Open source mathematical software'' for a more sustained argument regarding
+ this point \cite{joyner2007open}.} And then in the following section
+(§~\ref{subsec:community}) argue that the scientific community must not only
+use the right software, but needs to take an active role in the creation and
+maintainence of this software as part of our heritage.
 
 Over the last decade, we've had the privilege of participating in a loose-knit
 community of scientists, researchers, and engineers working to create a powerful
-stack of open source tools for scientific computing written in Python.  Among
+stack of open source tools for scientific computing written in Python.\footnote{While
+  we are strong proponents of Python for scientific computing, we obviously don't
+  believe that Python is the only choice for scientific computing or reproducible
+  research. Our point in discussing it is to highlight the properties that make
+  it such a useful tool. Currently we do believe it is the best choice, but there
+  are definite shortcomings as well.  Hopefully these shortcomings will be addressed
+  over time or a better alternative will come along.}  Among
 high-level open source programming languages, Python is today the leading tool
 for general-purpose scientific computing (along with R for statistics),
 finding wide adoption across research disciplines, education and industry and
@@ -348,26 +355,42 @@ being a core infrastructure tool at institutions such as CERN and the Hubble
 Space Telescope Science Institute
 \cite{millman2011python,Perez2011,ganga09,SST}.
 
-Python is open source general purpose programming language initially written
-for teaching. It has a simple, expressive, and accessible syntax that
-emphasizes code readability (see §~\ref{subsec:readability}). Rather than
-imposing a single programming paradigm, it allows one to code at
+Initially written for teaching, Python has a simple, expressive, and accessible
+syntax that emphasizes code readability (see §~\ref{subsec:readability}).
+Rather than imposing a single programming paradigm, it allows one to code at
 many levels of sophistication, including the procedural programming style
 familiar to many scientists. Python is available in an easily installable form
-for almost every platform. It is therefore ideal for a heterogeneous
-computing environment. Python is also powerful enough to manage the complexity
-of large applications, supporting functional programming, object orienting
-programming, generic programming, and metaprogramming.  Python has excellent
-tools to provide scripting support to tools in other languages including C,
-C++, Fortran, and R. This is crucial, both for development and package
-integration.  For this reason, Python is often used as a high-level language
-glue for calling routines in a huge array of high-quality scientific libraries.
+for almost every platform. It is therefore ideal for a heterogeneous computing
+environment. Python is also powerful enough to manage the complexity of large
+applications, supporting functional programming, object-oriented programming,
+generic programming, and metaprogramming.  Python has excellent tools to
+provide scripting support to tools in other languages including C, C++,
+Fortran, and R. This is crucial, both for development and package integration.
+For this reason, Python is often used as a high-level language glue for calling
+routines in a huge array of high-quality scientific libraries. Finally, it
+has an extensive standard library that provides built-in functionality for
+many tasks including database access, internet protocols, data compression,
+and operating system services.
 
+Importantly, Python isn't specifically designed for scientific computing.
+Rather, scientists have used it as a base language on which they have written a
+number of additional libraries that add features necessary for scientific work.
+While there are numerous libraries and extensions for scientific computing in
+Python, the three most widely used are NumPy, SciPy, and matplolib.  NumPy
+provides a high-level multidimensional array object and basic operations to
+manipulate them. SciPy is a collection of common numerical operations used in
+scientific computing. Matplolib is the standard 2D plotting library used in the
+community. In addition to these tools, there are specialized packages that
+provide advanced support and algorithms for machine learning, image processing,
+graph theory, symbolic mathematics, etc. 
 
+We call special attention to one of the core tools used in the scientific
+computing community that we will use as a primary example throughout the
+chapter and discuss in more depth in §~\ref{subsec:IPython}.
 IPython\footnote{\url{http://ipython.org}} is a system for interactive and
 parallel computing that has become the \emph{de facto} standard environment for
 scientific computing and data analysis in the Python programming language.  It
-was created by F. Pérez in in 2001 as an interactive command-line shell for
+was created by one of us (FP) in 2001 as an interactive command-line shell for
 Python, and has evolved into a large collaborative open-source project with
 contributions from a broad team of scientists \cite{PER-GRA:2007}.  IPython
 started with the simple purpose of building a better interactive environment
@@ -384,6 +407,10 @@ enriches our approach to computational research and has helped us build IPython
 into a better scientific tool.
 
 
+\subsection{\label{subsec:community}Communities of practice}
+
+On top of these general scientific libraries, there are numerous libraries
+built for specific scientific domains from astronomy to neuroimaging. And
 the basic idea:
 
 * shared scientific codes (scipy)
@@ -391,8 +418,6 @@ the basic idea:
 * shared domain specific libraries \cite{nipy_cise}.
 
 * lab-specific development branches
-
-\subsection{\label{subsec:community}Communities of practice}
 \cite{turk2013scale},  \cite{prlic2012ten}
 
 There are real issues with attempting to naively transplant the practices of
@@ -1125,7 +1150,7 @@ package, the Sage \mref{sage} mathematical computing system, and the
 interactive computing project IPython, on which we will focus the rest of our
 discussion.
 
-\subsection{IPython notebook}\label{IPython}
+\subsection{IPython notebook}\label{subsec:IPython}
 
 
 In 2011, a web-based notebook was developed in IPython that connects to the
