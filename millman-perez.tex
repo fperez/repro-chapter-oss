@@ -155,10 +155,33 @@ programming (§~\ref{sec:communication}).
 
 \section{\label{sec:research}Computational research}
 
-To frame the question, we view the life-cycle of computational research from an
-admittedly simplified perspective that is still realistic enough to be
-useful. Let us consider that this cycle can be be broken down into the
-following phases:
+
+%need to consider entire lifecycle of computational research in an integral way
+%need to own and maintain an open source ecosystem
+%need to do so based on communities of practice
+
+As research grows increasingly dependent on computing, it becomes critical for
+our computational resources to be developed with the same rigor, open review
+and access as the results they support. In particular, we believe that
+reproducibility in computational research requires: (1) sharing of scientific
+software, data, and knowledge necessary for reproducible research; (2)
+readable, tested, validated, and documented software as the basis for reliable
+scientific outcomes; (3) high standards of computational literacy in the
+education of mathematicians, scientists, and engineers; and (4) open source
+software developed by collaborative, meritocratic communities of practice.
+
+Achieving these goals won't be easy.  It requires changing the educational
+process for new scientists, the incentive models for promotions and rewards,
+the publication system, and more. We do not aim to tackle all of these issues
+here, but focus on the need for an open source ecosystem for scientific
+computing developed by communities of practice.
+
+Based on our experience over the last decade as practicing researchers,
+educators and software developers, we propose an integrated approach to
+computing where the entire life-cycle of scientific research is considered,
+from the initial exploration of ideas and data to the presentation of final
+results.  Briefly, this life-cycle can be broken down into the following
+phases:
 
 \begin{itemize}
 \item \textbf{Individual exploration:} a single investigator tests an idea,
@@ -177,9 +200,28 @@ following phases:
   seeding the next iteration in the cycle of research.
 \end{itemize}
 
-We first describe what we believe to be the typical tools and approaches that
-most working scientists use for each of these phases today, in particular
-considering their impact on the reproducibility of the final outcomes. 
+These can be illustrated with an example: a researcher might use Matlab for
+prototyping, develop high-performance code in C, run post-processing by
+twiddling controls in a Graphical User Interface (GUI), import data back into
+Matlab for generating plots, polish the resulting plots by hand in Adobe
+Illustrator, and finally paste the plots into a publication manuscript or
+PowerPoint presentation. But what if months later the researcher realizes there
+is a problem with the results? What are the chances they will be able to know
+what buttons they clicked, to reproduce the workflow that can generate the
+updated plots, manuscript and presentation? What are the chances that other
+researchers or students could reproduce these steps to learn the new method or
+understand how the result was obtained? How can reviewers validate that the
+programs and overall workflow are free of errors? Even if the researcher
+successfully documents each program and the entire workflow, they have to carry
+an immense cognitive burden just to keep track of everything.
+
+\subsection{Problematic patchwork}
+
+Before presenting our approach, we first explore the problem illustrated in
+the above example more closely by looking at the typical patchwork of tools and
+approaches that most working scientists use for each of these phases today, in
+particular considering their impact on the reproducibility of the final
+outcomes. 
 
 For \textbf{individual work}, researchers use various interactive
 computing environments: Microsoft Excel, Matlab, Mathematica\textregistered,
@@ -403,28 +445,6 @@ Implications
 \end{itemize}
 
 
-
-\subsection{Moving forward}
-
-As research grows increasingly dependent on computing, it becomes critical
-for our computational resources to be developed with the same rigor, open review
-and access as the results they support.  For this reason, we actively promote:
-
-\begin{itemize}
-
-\item sharing of scientific software, data, and knowledge necessary for
-reproducible research
-
-\item readable, tested, validated, and documented software as the basis for
-reliable scientific outcomes
-
-\item high standards of computational literacy in the education of
-mathematicians, scientists, and engineers
-
-\item open source software developed by collaborative, meritocratic
-communities
-
-\end{itemize}
 
 
 \section{\label{sec:practice}Routine practice}
