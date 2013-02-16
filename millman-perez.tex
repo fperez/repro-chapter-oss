@@ -809,31 +809,52 @@ automated in this way, it becomes possible for others (humans or machines, and
 even yourself on a new system or months down the road) to reliably repeat the
 process.  This is therefore a cornerstone of reproducible practices.
 
+\blockpar{Hosted version control: GitHub and similar systems.}
+
 \blockpar{Continuous integration: machine execution of tests.} Once your
 computational codes are stored in version control repositories, have tests and
 have scripts that automate the execution of these tests, then the door is open
-for having a machine do all the testing for you, all the time, bugging you only
-when something goes wrong.  This is known in the software world as
-\emph{continuous integration} (CI for short). CI systems are servers that grab
-the most recent version of a project from version control, execute the test
-suite and gather statistics of this process.  They are typically configured to
-log and summarize these results, and to only produce alerts (typically by
-email, but more aggressive options such as real-time SMS are possible) when
-something goes wrong.  The amount of data collected during the test execution
-can be configured, so it
+for having a machine do all this for you, all the time, bugging you only when
+something goes wrong.  This is known in the software world as \emph{continuous
+  integration} (CI for short). CI systems are servers that grab the most recent
+version of a project from version control, execute the test suite and gather
+statistics of this process.  They are typically configured to log and summarize
+these results, and to only produce alerts when something goes wrong (typically
+by email, but more aggressive options such as SMS are possible).  The amount of
+data collected during the test execution can be configured, so it is possible
+to have setups that range from a basic summary of success and failure to a
+detailed collection of metrics on the performance evolution of a codebase.
 
+These systems are called \emph{continuous} because they are meant to be used
+all the time: as the codebase evolves (typically when changes are committed to
+an official version control repository), the system fires automatically and
+collects its data.  Therefore, these systems can also fulfill a very important
+role: over time they accumulate a \emph{historical retrospective} of a
+project's evolution.  And this is where the importance of collecting detailed
+metrics is realized: a CI system configured to do a fairly detailed analysis of
+a project when it runs becomes an invaluable tool to analyze what is happening
+over time.  Is performance degrading in subtle ways that aren't very evident
+from day to day? Is the fraction of code that is tested (known as the
+\emph{test coverage}) going slowly down, meaning perhaps that new work isn't
+being tested as thoroughly as the old one?  Questions like these are impossible
+to answer in a manually managed worfklow, yet they come ``for free'' once a few
+tools are set up, and can be an extremely important part of managing a healthy
+computational pipeline.
 
+While a number of these tools exist, one of the most widely used by projects
+from many different programming languages and communities is called
+\emph{Jenkins} (\url{http://jenkins-ci.org}).  Jenkins is a highly configurable
+CI system that can be run on a personal laptop or internal server and that is
+available hosted in the cloud as a service from a variety of sources.
+\emph{Travis CI} (\url{https://travis-ci.org}) is a purely hosted CI system
+that, while not as configurable for fine-grained statistics as Jenkins,
+requires minimal setup, is free for open-source projects, and is tightly
+integrated with the version control hosting service GitHub.
 
-\begin{itemize}
+\blockpar{Automatic documentation generation}
 
-\item Tests runners and continuous integration, coverage
-
-\item auto-generated API documentation, NumPy documentation system \cite{SciPyProceedings_27}
-
-\item online resources: trac, redmine, vs hosted project management like
-      sourceforge, github
-
-\end{itemize}
+Auto-generated API documentation, NumPy documentation system
+\cite{SciPyProceedings_27}.
 
 
 \section{\label{sec:collaboration}Collaboration}
