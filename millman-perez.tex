@@ -347,6 +347,18 @@ social aspects of this issue.
 
 \subsection{Open source ecosystem}
 
+Managing this entire life-cycle in an integral way requires taking a broad view
+of the complete computational ecosystem. This includes not only all the
+software tools, but the way in which these tools are written and used. We begin
+by describing what kinds of software tools we need for scientific research.\footnote{We
+take it as a for gone conclusion that if we are going to be sharing our research
+code with one another, they must be written using open source tools as far
+as practical. For the interested reader, we direct them to ``Open source mathematical software'' for a more sustained argument regarding this point \cite{joyner2007open}.}
+And then in the following section (§~\ref{subsec:community}) argue that the
+scientific community must not only use the right software, but needs to take an
+active role in the creation and maintainence of this software as part of our
+heritage.
+
 Over the last decade, we've had the privilege of participating in a loose-knit
 community of scientists, researchers, and engineers working to create a powerful
 stack of open source tools for scientific computing written in Python.  Among
@@ -356,6 +368,22 @@ finding wide adoption across research disciplines, education and industry and
 being a core infrastructure tool at institutions such as CERN and the Hubble
 Space Telescope Science Institute
 \cite{millman2011python,Perez2011,ganga09,SST}.
+
+Python is open source general purpose programming language initially written
+for teaching. It has a simple, expressive, and accessible syntax that
+emphasizes code readability (see §~\ref{subsec:readability}). Rather than
+imposing a single programming paradigm, it allows one to code at
+many levels of sophistication, including the procedural programming style
+familiar to many scientists. Python is available in an easily installable form
+for almost every platform. It is therefore ideal for a heterogeneous
+computing environment. Python is also powerful enough to manage the complexity
+of large applications, supporting functional programming, object orienting
+programming, generic programming, and metaprogramming.  Python has excellent
+tools to provide scripting support to tools in other languages including C,
+C++, Fortran, and R. This is crucial, both for development and package
+integration.  For this reason, Python is often used as a high-level language
+glue for calling routines in a huge array of high-quality scientific libraries.
+
 
 IPython\footnote{\url{http://ipython.org}} is a system for interactive and
 parallel computing that has become the \emph{de facto} standard environment for
@@ -385,8 +413,8 @@ the basic idea:
 
 * lab-specific development branches
 
-\subsection{Communities of practice}
-\cite{turk2013scale}, \cite{joyner2007open}, \cite{prlic2012ten}
+\subsection{\label{subsec:community}Communities of practice}
+\cite{turk2013scale},  \cite{prlic2012ten}
 
 There are real issues with attempting to naively transplant the practices of
 open source development directly to computational research. The open source
@@ -644,7 +672,7 @@ isolate bugs, which makes them easier to fix.\cite{oram2010making}
 %openly shared and discussed, rigorous testing procedures, etc.
 %
 
-\subsection{Readability}
+\subsection{\label{subsec:readability}Readability}
 
 While writing code that is well-tested and systematically managed by a modern
 VCS is important, code that you (and your colleagues) can't read is
