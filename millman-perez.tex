@@ -30,28 +30,7 @@
 %% Now actually use the newly defined style.
 \urlstyle{leo}
 
-%\newcommand{\asterism}{{ \footnotesize \smash{% 
-%    \raisebox{-.2ex}{% 
-%      \setlength{\tabcolsep}{0.5pt}%
-%      \begin{tabular}{@{}cc@{}}% 
-%  \multicolumn2c*\\[-1.5ex] *&*% 
-%\end{tabular}}}}}
-
-\newcommand{\parasep}{\begin{center}*\hspace{6em}*\hspace{6em}*\end{center}}
-
-\newcommand*{\threesim}{%
- \mathrel{\vcenter{\offinterlineskip
-  \hbox{$\sim$}\vskip-.35ex\hbox{$\sim$}\vskip-.35ex\hbox{$\sim$}}}}
-
-\newcommand{\asterism}{\smash{%
-  \raisebox{-.5ex}{%
-    \setlength{\tabcolsep}{-.5pt}%
-    \begin{tabular}{@{}cc@{}%
-  \multicolumn2c*\\[-2ex]*&*%
-\end{tabular}}}}}
-
-\theoremstyle{definition}
-\newtheorem{practice}{Practice}
+\newcommand{\blockpar}[1]{\vspace*{3mm} \noindent \textbf{#1}}
 
 %-----------------------------------------------------------------------------
 %
@@ -588,15 +567,11 @@ management of binary data within a VCS workflow, without creating an explosion
 in the size of the VCS storage area.
 
 In summary, the use of version control should be seen as a ``background
-technology''; in our case its use is so routine that we use it for everything:
-writing grants and papers, teaching materials, homework, slides for talks, etc.
-This leads us to suggest our first ``recipe'' in terms of best practices:
-
-\begin{practice}
-  Pervasive version control: research codes, manuscripts and data analysis
-  projects should be developed, from the beginning, \emph{always} using version
-  control systems that track the actual history of everyone's contributions.
-\end{practice}
+technology''; in our case its use is so routine that we use it for everything.
+We suggest researchers adopt a practice of pervasive version control: research
+codes, teaching materials, manuscripts and data analysis projects should be
+developed, from the beginning, \emph{always} using version control systems that
+track the actual history of everyone's contributions.
 
 \subsection{Testing}
 
@@ -777,21 +752,56 @@ care of these details for you. Even when the project is small enough that you
 can manually manage things, automating these tasks can be extremely beneficial
 \cite{doar2005practical}.
 
-We have often seen scientists shy away from adopting certain practices related
-to the infrastructure that supports their computational research via claims of
-not having time/energy to invest in learning how to use them.  We would like to
-stress, however, that this is a clear case where a small initial investment in
-learning new practices pays off manyfold over time in increased productivity
-and much smoother workflows that more easily support collaboration and scale
-well to complex scenarios.  The manual execution and repetition of common
-computational tasks may appear like an easy solution, but it is error-prone and
-impossible to scale to collaborative settings.
+We have often seen colleagues shy away from adopting certain practices related
+to the infrastructure that supports their computational research with claims of
+not having time/energy to invest in learning how to use them.  This is a good
+example of being penny wise and pound foolish: a small initial investment in
+learning best practices pays off manyfold over time in increased productivity
+and smoother workflows that can support collaboration and scale to complex
+scenarios.  The manual execution and repetition of common computational tasks
+may appear like an easy solution, but it is error-prone and impossible to apply
+reliably in collaborative settings beyond two or three people.
+
+In the next section we will discuss collaborative scenarios, but we want to
+address first how certain tools and practices have enormous value even for the
+individual researcher.  And these are precisely the foundation that will then
+make it possible to naturally evolve a project from a single-person effort into
+a collaboration without a breakdown of complexity.
+
+\blockpar{Execution automation: \texttt{make} and friends.}  In addition to
+pervasive version control, the most basic practice you \emph{must} adopt is to
+automate the execution of as much of your process as you can.  The venerable
+\texttt{make} system is the workhorse of process automation for software
+compilation and building any outcomes that depend on a chain of inputs.  It has
+a syntax for expressing dependencies between sources and targets and a simple
+(timestamp-based) mechanism for resolving when dependencies need to be rebuilt.
+More modern systems also exist, and a detailed review of the options is beyond
+our scope.  But whether it's running a sequence of scripts to produce some
+figures, compiling your software, or creating the final PDFs for a grant
+proposal, you should \emph{always} be able to do so by typing \texttt{make
+  results} or the equivalent syntax in your system of choice.  Once things are
+automated in this way, it becomes possible for others (humans or machines, and
+even yourself on a new system or months down the road) to reliably repeat the
+process.  This is therefore a cornerstone of reproducible practices.
+
+\blockpar{Continuous integration: machine execution of tests.} Once your
+computational codes are stored in version control repositories, have tests and
+have scripts that automate the execution of these tests, then the door is open
+for having a machine do all the testing for you, all the time, bugging you only
+when something goes wrong.  This is known in the software world as
+\emph{continuous integration} (CI for short). CI systems are servers that grab
+the most recent version of a project from version control, execute the test
+suite and gather statistics of this process.  They are typically configured to
+log and summarize these results, and to only produce alerts (typically by
+email, but more aggressive options such as real-time SMS are possible) when
+something goes wrong.  The amount of data collected during the test execution
+can be configured, so it
+
+
 
 \begin{itemize}
 
 \item Tests runners and continuous integration, coverage
-
-\item Make vs IDE
 
 \item auto-generated API documentation, NumPy documentation system \cite{SciPyProceedings_27}
 
