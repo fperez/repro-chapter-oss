@@ -303,6 +303,46 @@ naturally into their everyday practices of research, collaboration and
 publishing, so that we can make simultaneous progress on the technical and
 social aspects of this issue.
 
+\subsection{Open source ecosystem}
+
+Over the last decade, we've had the privilege of participating in a loose-knit
+community of scientists, researchers, and engineers working to create a powerful
+stack of open source tools for scientific computing written in Python.  Among
+high-level open source programming languages, Python is today the leading tool
+for general-purpose scientific computing (along with R for statistics),
+finding wide adoption across research disciplines, education and industry and
+being a core infrastructure tool at institutions such as CERN and the Hubble
+Space Telescope Science Institute
+\cite{millman2011python,Perez2011,ganga09,SST}.
+
+IPython\footnote{\url{http://ipython.org}} is a system for interactive and
+parallel computing that has become the \emph{de facto} standard environment for
+scientific computing and data analysis in the Python programming language.  It
+was created by F. Pérez in in 2001 as an interactive command-line shell for
+Python, and has evolved into a large collaborative open-source project with
+contributions from a broad team of scientists \cite{PER-GRA:2007}.  IPython
+started with the simple purpose of building a better interactive environment
+for everyday computational work by a single researcher.  But as it grew into a
+broader open source project, the team working on it (most of them practicing
+scientists) learned many of the skills of the trade from open source software
+developers.  It is precisely from this interplay between scientific research
+and software development that we highlight here, as through contact with the
+tools and culture of the open source world, we saw how in many respects this
+community had outpaced scientists in its robust and rigorous use of
+computational resources.  Through the years, we have thus led a dual life,
+where the contact with this open source community continually informs and
+enriches our approach to computational research and has helped us build IPython
+into a better scientific tool.
+
+
+the basic idea:
+
+* shared scientific codes (scipy)
+
+* shared domain specific libraries \cite{nipy_cise}.
+
+* lab-specific development branches
+
 \subsection{Communities of practice}
 \cite{turk2013scale}, \cite{joyner2007open}, \cite{prlic2012ten}
 
@@ -363,45 +403,6 @@ Implications
 \end{itemize}
 
 
-\subsection{Open source ecosystem}
-
-Over the last decade, we've had the privilege of participating in a loose-knit
-community of scientists, researchers, and engineers working to create a powerful
-stack of open source tools for scientific computing written in Python.  Among
-high-level open source programming languages, Python is today the leading tool
-for general-purpose scientific computing (along with R for statistics),
-finding wide adoption across research disciplines, education and industry and
-being a core infrastructure tool at institutions such as CERN and the Hubble
-Space Telescope Science Institute
-\cite{millman2011python,Perez2011,ganga09,SST}.
-
-IPython\footnote{\url{http://ipython.org}} is a system for interactive and
-parallel computing that has become the \emph{de facto} standard environment for
-scientific computing and data analysis in the Python programming language.  It
-was created by F. Pérez in in 2001 as an interactive command-line shell for
-Python, and has evolved into a large collaborative open-source project with
-contributions from a broad team of scientists \cite{PER-GRA:2007}.  IPython
-started with the simple purpose of building a better interactive environment
-for everyday computational work by a single researcher.  But as it grew into a
-broader open source project, the team working on it (most of them practicing
-scientists) learned many of the skills of the trade from open source software
-developers.  It is precisely from this interplay between scientific research
-and software development that we highlight here, as through contact with the
-tools and culture of the open source world, we saw how in many respects this
-community had outpaced scientists in its robust and rigorous use of
-computational resources.  Through the years, we have thus led a dual life,
-where the contact with this open source community continually informs and
-enriches our approach to computational research and has helped us build IPython
-into a better scientific tool.
-
-
-the basic idea:
-
-* shared scientific codes (scipy)
-
-* shared domain specific libraries \cite{nipy_cise}.
-
-* lab-specific development branches
 
 \subsection{Moving forward}
 
@@ -425,8 +426,6 @@ communities
 
 \end{itemize}
 
-For more information, we highly recommend the recent archiv preprint
-\ldots \cite{2012arXiv1210.0530A}.
 
 \section{\label{sec:practice}Routine practice}
 
@@ -435,23 +434,25 @@ experience writing and maintaining software, teaching programming courses to
 students and scientists, as well as extensive interaction and discussion with a
 diverse group of scientists and engineers.  Whole books have been dedicated to
 best practices in software development with highly specialized tools and habits
-for individual programming languages and tools.  In this short section, we
-highlight the practices and tools essential to any computational work.
+for individual programming languages and methodologies.  In this short section, we
+highlight the practices and tools essential to any computational work. For more a
+more detailed discussion, we highly recommend the recent arXiv preprint titled
+``Best Practices for Scientific Computing'' \cite{2012arXiv1210.0530A}.
 
 We begin by discussing practices and tools that should be applied to even
 exploratory, individual research.  These practices are so essential to
 efficient and productive use of computational resources that we routinely use
 them whenever we use a computer. In the following section, we discuss how these
-practices and tools naturally extend to collaborative work. 
+practices and tools extend to collaborative work. 
 
 \subsection{Version control}
 
-Whether you are collecting data, running analyses, or writing papers,
-you will inevitably need to keep track of the various versions of your work:
-data is augmented and curated; code is adapted and improved; and writing is
-revised and expanded.  While simply keeping the most recent version of your
-work sounds like a reasonable approach, in practice, this is seldom sufficient.
-There are tentative new directions, detours, and dead ends.
+Whether you are collecting data, running analyses, or writing papers, you will
+inevitably need to keep track of the various versions of your work: data is
+augmented and curated; code is adapted and improved; and writing is revised and
+expanded.  While simply keeping the most recent version of your work is
+possible, in practice, this is seldom sufficient.  There are tentative new
+directions, detours, and dead ends.
 
 We've witnessed numerous researchers attempting to manage different versions of
 their work using manual and laborious kludges. The most common patterns include
@@ -496,7 +497,7 @@ different branches (e.g., edits to the same line of code), then the VCS
 require manual intervention where you have to choose which of the conflicting
 changes should ultimately prevail.  But in all cases, a VCS is the only
 reasonable solution for managing the evolution of multiple branches of parallel
-development in a set of files (whether written documents, computer code or
+development in a set of files (whether written documents, computer code, or
 data).
 
 In the design of more modern VCS such as Mercurial and Git, an important
@@ -575,8 +576,8 @@ input is exactly what the program expects. You will also want to write
 \emph{unit tests} to ensure that unitary code elements like functions, classes,
 and class methods behave correctly. And finally, you will want to write
 \emph{regression tests} to make sure you do not break existing functionality.
-For instance, you could have a previous analysis rerun to make sure that the
-program reproduces your previous results.
+For instance, you could rerun a previous analysis to make sure that the program
+reproduces your previous results.
 
 Testing should be done as early as possible in the development process.
 Writing unit tests early in the process of implementing new functionality
@@ -632,7 +633,7 @@ structure, and comprehensive documentation where necessary.  There is an
 extensive and growing literature (e.g., \cite{boswell2011art, Fow00,
 kernighan1999practice, HT00, mcconnell2009code}) on ``stylistic'' aspects of
 good programming. Because scientific papers and grant submissions have become
-the currency of the scientific realm, many scientists have spent at least some time reading classics such as Strunk \&
+the currency of the scientific realm, many scientists have read classics such as Strunk \&
 White's \emph{Elements of Style}. Yet, even as an increasing amount of our
 work is produced in lines of code, there is a paucity of scientists paying the
 same attention to the elements of good programming style. The emphasis on
@@ -656,26 +657,26 @@ words. For example, you might use the term \texttt{download} rather than
 internet. Expressions are the next block to readability. While mathematical
 manipulation (e.g., De Morgan's laws) can be used to great effect in making
 your expressions more easily understood, it is often important to use the right
-level of abstraction. Higher level programming languages (e.g., Python
-and R) provide data structures (such as $n$-dimensional vectors or statistical
-formulas) that enable the code to be understood at the level of the
-mathematical ideas. Finally, the overall control flow of your code must be
-clear and easy to follow. Finding the best control flow requires a deep
-understanding of your problem and an in-depth knowledge of programming
-methodology and the specifics of the language you are working in. Like good
-writing, good coding is achieved through deliberate practice.
+level of abstraction. Higher level programming languages (e.g., Python and R)
+provide data structures (such as $n$-dimensional vectors or statistical
+formulas) that enable the code to be more readily understood at the level of
+the mathematical ideas they implement. Finally, the overall control flow of
+your code must be clear and easy to follow. Finding the best control flow
+requires a deep understanding of your problem and an in-depth knowledge of
+programming methodology and the specifics of the language you are using.
+Like good writing, good coding is achieved through deliberate practice.
 
-Readability in programming encompasses not just the code itself,
-but also the accompanying documentation. Code comments offer much to readability,
-but are sadly used to little positive effect. Inspired by the idea of
-self-documenting code, we've heard programmers argue that good code doesn't
-need comments. Indeed, liberally commenting your program to counter poorly
-written, obscure code is poor practice. Comments that simply explain how a piece
-of code works are often unhelpful. If code is so obscure to need explanation,
-it is perhaps better to rewrite or refactor it. One problem with comments (as
-with many types of documentation) is that it is often uncoupled with the actual
-code. This means that there is no way to ensure that the two don't diverge.
-And, if they diverge, it may not be obvious which is at fault.
+Readability in programming encompasses not just the code itself, but also the
+accompanying documentation. Code comments offer much to readability, but are
+sadly used to little positive effect. Inspired by the idea of self-documenting
+code, some argue that good code doesn't need comments. Indeed, liberally
+commenting your program to counter poorly written, obscure code is poor
+practice. Comments that simply explain how a piece of code works are often
+unhelpful. If code is so obscure to need explanation, it is perhaps better to
+revise or rewrite it. One problem with comments (as with many types of
+documentation) is that it is often uncoupled with the actual code. This means
+that there is no way to ensure that the two don't diverge.  And, if they
+diverge, it may not be obvious which is at fault.
 
 To illustrate how comments and documentation can enhance readability of your
 code, we discuss the commenting and documentation system that has been
@@ -692,16 +693,16 @@ developers had access to the source code, an almost 400 page ``Guide to
 NumPy'', and an active mailing list. Yet, it was clear that this level of
 documentation wasn't enough. To address this, the community began a year long
 effort to develop a documentation string standard. In Python, a documentation
-string (or docstring) is any string in the first line in an object's (function,
-class, etc.) definition. Since docstrings are embedded in the source code, they
-are readily available to anyone directly viewing the source. The string is
-associated with the object and can be programmatically accessed as well.  They
-can be accessed from an interpreter using any object's \texttt{\_\_doc\_\_}
-attribute.  Docstrings can also be accessed for autogenerating documentation.
-Similar functionality exists in other programming languages such as R. And even
-in language that don't include this functionality, it is common practice to
-include comments at the beginning of object definitions that are used
-similarly.
+string (or docstring) is any string in the first line in an object's (e.g.,
+function, class, etc.) definition. Since docstrings are embedded in the source
+code, they are readily available to anyone directly viewing the source. When
+the code is executed this string is associated with the object and can be
+programmatically accessed.  They can be accessed from an interpreter using the
+object's \texttt{\_\_doc\_\_} attribute.  Docstrings can also be accessed for
+autogenerating documentation.  Similar functionality exists in other
+programming languages such as R. And even in languages that don't include this
+functionality, it is common practice to include comments at the beginning of
+object definitions that are used similarly.
 
 Given a recognized need for better documentation and documentation
 functionality that we wanted to leverage, the discussion focused on what this
@@ -709,14 +710,14 @@ documentation should include. Besides the need to include information such as a
 brief statement of purpose as well as input and output parameters, there were
 several issues that arose with special relevance for scientific applications.
 For instance, many of the algorithms had simple mathematical expressions that
-weren't necessarily obvious from there implementation in Python. In these
-cases, a few equations written in \LaTeX{} were immediately useful. Moreover,
-in several cases, we were implementing functionality that was described in
-peer-reviewed academic journals. And, finally, we could provide extremely
-short examples of how to use the code. As an added benefit, Python makes it
-easy to include examples in the docstrings as part of the test suite; this
-improves the test coverage and helps ensure that the documentation doesn't get
-out of sync with the actual code.
+weren't immediately obvious from there implementation in Python. In these
+cases, a few equations written in \LaTeX{} greatly enhance readability.
+Moreover, it is often the case, we were implementing functionality that was
+described in peer-reviewed academic journals. And, finally, we could provide
+extremely short examples of how to use the code. As an added benefit, Python
+makes it easy to include examples in the docstrings as part of the test suite;
+this improves the test coverage and helps ensure that the documentation doesn't
+get out of sync with the actual code.
 
 \subsection{Infrastructure}
 
@@ -776,7 +777,7 @@ of analysis by two competing labs, then what package gains the widest adoption
 by the community may be decided by factors other than scientific merit. For
 instance, the package that is easiest to install, use, or modify will have
 a much better chance of adoption. And since new algorithm implementations
-are provided in competing, and often none interoperable, packages the
+are provided in competing, and often non-interoperable, packages the
 competition takes place at the level of software---not algorithms. Of course,
 there are also purely wasted effort considerations when each lab is separately
 implementing and maintaining code for all the miscellaneous aspects of
@@ -837,7 +838,7 @@ repository\footnote{We note that this central repository does not change the
   symmetrical to everyone's personal copy in the information it holds, and can
   be replaced at any time in case it is lost or damaged from anyone's copy.} in
 a common location that all parties have access to and where the changes are
-\emph{pushed} to.  Pushing, as the term suggests, means sending the set of
+\emph{pushed}.  Pushing, as the term suggests, means sending the set of
 changes from one repository into another; once the changes have been put into
 this central repository, all parties can \emph{pull} them into their personal
 copies to synchronize their states and continue working again.  So in practice,
@@ -855,17 +856,17 @@ Gitorious\footnote{\url{http://gitorious.org}} play similar roles.  GitHub has
 had a tremendous impact in the open source community, reaching in a few years
 millions of active users and gaining rapidly popularity in scientific circles.
 We can attest to the power of this platform with our own experience: the open
-source IPython project moved its development to GitHub in
-early 2010 and immediately saw a rapid uptick in the pace of contributions.
-The workflow for collaboration enabled by GitHub was so much smoother than all
-previously available tools that many people were more willing to send
-contributions, while the core team was able to review and integrate these
-contributions at a much more rapid pace.
+source IPython project moved its development to GitHub in early 2010 and
+immediately saw a rapid uptick in the pace of contributions.  The workflow for
+collaboration enabled by GitHub was so much smoother than all previously
+available tools that many people were more willing to send contributions, while
+the core team was able to review and integrate these contributions at a much
+more rapid pace.
 
 The core element of the collaborative process on GitHub is known as a
 \emph{pull request}, and it is something akin to a public peer review of a set
 of changes to a manuscript.  Let us illustrate how it works with a simple
-example: Alice wants to contribute to IPython, a project available on github at
+example: Alice wants to contribute to IPython, a project available on GitHub at
 \url{http://github.com/ipython} but to which she does not have write access.
 She can do so by getting her own personal copy of the IPython Git repository
 where she makes all the changes she wants, and once she is ready to share them
@@ -915,12 +916,12 @@ opinion our community could benefit significantly from adopting some of these
 ideas in a more pervasive manner in our own review practices
 \cite{10.3389/fncom.2012.00018}.
 
-It is worth noting that by using a DVCS, authors can maintain private work
-branches in the context of a publicly available project; this can be useful if
-new work needs to be developed in private prior to publication and subsequent
-public release. By tracking the public repository but keeping a private branch,
-they can maintain exclusive access to their new work until it is published,
-while continuing to develop the openly accessible code with the rest of the
+It is worth noting that by using a DVCS, authors can maintain private branches
+in the context of a publicly available project; this can be useful if new work
+needs to be developed in private prior to publication and subsequent public
+release. By tracking the public repository but keeping a private branch, they
+can maintain exclusive access to their new work until it is published, while
+continuing to develop the openly accessible code with the rest of the
 scientific community. Once the code is published, since it was developed using
 the same version control machinery of the public branch, the new contributions
 can be seamlessly merged with the public version and their entire provenance
@@ -929,7 +930,7 @@ the lab) becomes available for inspection.  This simple observation shows how
 these tools can be used to balance the sometimes valid requests for privacy
 that may exist in a research environment with the desire for subsequent
 disclosure and publication, without losing any of the benefits of version
-control with regards to attribution and provenance tracking.
+control with regard to attribution and provenance tracking.
 
 \subsection{Infrastructure redux}
 
@@ -952,6 +953,7 @@ what we want a computer to do.
 }%
 {\textit{Literate programming (1984)}\\ \textsc{Donald Knuth} }
 
+\fix{needs reworking as life-cycle section was moved earlier in document}
 In this section, we will present a perspective on the problem of
 computational research that takes a unified view of the life-cycle of research
 ideas, to show how the majority of existing tools make it difficult to manage
@@ -1074,7 +1076,7 @@ web browser as the user interface, automatically enabling either local or
 remote use as the system running the web browser can be different from that
 executing the code, with all communication happening over the network.
 Fig.~\ref{fig:IPython-notebook} shows a typical notebook session with code,
-text, mathematics and figures.
+text, mathematics, and figures.
 
 \begin{figure}
   \begin{centering}
@@ -1129,7 +1131,7 @@ format is a simple JSON data structure that contains a series of one or more
 ``worksheets'', each of which is a list of cells.  A cell can contain either
 text or code, and code cells can also have the output corresponding to the
 execution.  All sub-structures in the notebook format (the entire notebook, the
-worksheets and the individual cells) have attached flexible metadata
+worksheets, and the individual cells) have attached flexible metadata
 containers; this metadata can be used by post-processing tools.  The file
 format stores the communication protocol's payloads unmodified, so it can be
 thought of as a structured and filtered log (since the user chooses what to
@@ -1144,9 +1146,8 @@ the batch-processing mode encouraged by classic literate programming tools),
 the resulting documents are immediately reproducible sessions that can be
 published in their own right or as companion materials to a more traditional
 manuscript.  Given how IPython also includes support for parallel computing,
-which we haven't discussed here in detail in the interest of conciseness, the
-system provides an end-to-end environment for the creation of reproducible
-research.
+which we don't discuss here in the interest of conciseness, the system provides
+an end-to-end environment for the creation of reproducible research.
 
 The real-world possibilities this offers were demonstrated during a
 collaboration in 2012 between the IPython team, a microbiology team led by Rob
@@ -1239,9 +1240,9 @@ that it is viable to conduct research in an open and reproducible way, with all
 history of the code and manuscripts being held in publicly visible repositories
 that anyone can download and replicate even prior to publication. 
 
-We close this section by noting that the above tools are also playing a role in
-the last stage of the cycle we outlined earlier, education.  We will increase
-our chance that the next generation of scientists adopts improved
+We close this section by noting that the above tools are also playing an
+central role in the last stage of the cycle we outlined earlier, education.  We
+will increase our chance that the next generation of scientists adopts improved
 reproducibility practices if we educate them with the same tools that we use
 for everyday research, and a couple of modern efforts that aim to bring
 improved computational literacy to scientific research have adopted the IPython
@@ -1263,9 +1264,9 @@ at UC Berkeley has led, for a number of years, a 3-day workshops on the use of
 Python as a tool for scientific
 computing\footnote{\url{http://pythonbootcamp.info}}.  These are open to the
 entire campus community and followed by an optional for-credit seminar where
-students learn more advanced skills for using Python as a research tool.
-F. Pérez and other members of the IPython team at UC Berkeley regularly lecture
-in the bootcamp and courses, where the notebook is the means for delivery of
+students learn more advanced skills for using Python as a research tool.  F.
+Pérez and other members of the IPython team at UC Berkeley regularly lecture in
+the bootcamp and courses, where the notebook is the means for delivery of
 course materials and interactive lecturing.  While we have identified a number
 of weaknesses and areas for improvement, we have also found this environment to
 be markedly superior to all previous tools we had used in the past for teaching
@@ -1274,7 +1275,7 @@ in similar contexts.
 In summary, IPython embodies the main ideas we've woven into our discussion: it
 was born out of the interplay between everyday scientific research and open
 source software development, and it tries to be a natural part of the entire
-research cycle in order to make it more fluid, efficient and reproducible.
+research cycle in order to make it more fluid, efficient, and reproducible.
 
 
 \section{Conclusion}\label{conclusion}
