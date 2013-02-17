@@ -90,6 +90,17 @@ Dedicated to the memory of John~D.~Hunter~III, 1968-2012.
 
 \chapter{Developing open source scientific practice}
 
+%In this section, we will present a perspective on the problem of
+%computational research that takes a unified view of the life-cycle of research
+%ideas, to show how the majority of existing tools make it difficult to manage
+%this life-cycle in a way that naturally leads to reproducible outcomes.
+%
+%With the above in mind, our approach to the problem of reproducibility in
+%computational research will then be focused on building tools and practices
+%that enable researchers to naturally consider the entire cycle of research as a
+%continuum, and where ``doing the right thing'' is the easy and natural path
+%rather than the awkward and cumbersome one.
+
 \section{Introduction}\label{intro}
 
 Computational tools are at the core of modern research. In addition to
@@ -1210,28 +1221,16 @@ what we want a computer to do.
 }%
 {\textit{Literate programming (1984)}\\ \textsc{Donald Knuth} }
 
-\fix{needs reworking as life-cycle section was moved earlier in document}
-In this section, we will present a perspective on the problem of
-computational research that takes a unified view of the life-cycle of research
-ideas, to show how the majority of existing tools make it difficult to manage
-this life-cycle in a way that naturally leads to reproducible outcomes.  We
-will briefly review some of the existing prior work dating back to D. Knuth on
-literate programming \cite{Knuth92} and mention current progress in that
-direction mostly coming from the vibrant R community, and we will then focus on
-work recently done in the scientific Python community that takes a slightly
-different angle on these questions than the traditional literate programming
-approach.
-
-With the above in mind, our approach to the problem of reproducibility in
-computational research will then be focused on building tools and practices
-that enable researchers to naturally consider the entire cycle of research as a
-continuum, and where ``doing the right thing'' is the easy and natural path
-rather than the awkward and cumbersome one.  We will first briefly describe the
-existing tools for literate programming as the backdrop against which we will
-introduce a contrasting approach that we refer to as ``literate computing''.
-We argue that this approach is a better fit to the needs of reproducibility in
-computational research and will present tools that have been developed recently
-in the open source community in this direction.
+Unlike traditional open source communities, the scientific community has
+a great need for communicating computational results to one another. Whether
+engaging colleagues in data analysis, educating students about numerical
+algorithms, or publishing computational results scientist need to ultimately
+convery their computational work to others.
+We will first briefly describe the existing tools for literate programming as
+the backdrop against which we will introduce a contrasting approach that we
+refer to as ``literate computing''.  We argue that this approach is a better
+fit to the needs of reproducibility in computational research and will present
+the IPython notebook as an example implementation.
 
 \subsection{Literate programming}
 
