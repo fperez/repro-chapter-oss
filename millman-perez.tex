@@ -835,7 +835,21 @@ these sources is denoted a \emph{remote} in git lingo, and while a remote can
 be simply another location in your hard drive, the most useful kind of remotes
 are those that are physically in other computers.  By synchronizing your local
 repository with an external remote you simultaneously have an automatic backup
-of your entire
+of your entire project's history.  But more importantly, this external remote
+is now available to synchronize with \emph{other} computers, so you can cleanly
+and robustly sync multiple machines, even if you do independent development on
+each of them at some point.
+
+There are many services online that host repositories from Git and other
+version control systems; in recent years
+GitHub\footnote{\url{http://github.com}} has gained very wide adoption amongst
+the community of scientists who write open source software in Python and R, and
+other services such as BitBucket\footnote{\url{http://bitbucket.org}} ,
+Google Code\footnote{\url{http://code.google.com/hosting}} and
+SourceForge\footnote{\url{http://sourceforge.net}} also exist.  As we will
+discuss in the next section, these systems truly shine once you use them to
+\emph{collaborate} with others, since collaboration hinges on the ability of
+multiple parties to synchronize their work.
 
 \blockpar{Continuous integration: machine execution of tests.} Once your
 computational codes are stored in version control repositories, have tests and
@@ -877,10 +891,76 @@ that, while not as configurable for fine-grained statistics as Jenkins,
 requires minimal setup, is free for open-source projects, and is tightly
 integrated with the version control hosting service GitHub.
 
-\blockpar{Automatic documentation generation}
+\blockpar{Documentation generation systems}
 
-Auto-generated API documentation, NumPy documentation system
-\cite{SciPyProceedings_27}.
+We have already discussed the importance of documenting your code, and in
+recent years a number of systems have been developed that allow you to easily
+produce complex documentation that combines hand-written narrative sections
+with parts that are automatically extracted from the code.  While the ability
+to automatically extract and generate documentation is valuable and important,
+we stress that it is critical that your projects have at least a modicum of
+\emph{narrative} parts that explain to the user the purpose of your tools,
+their scope, how to use them --with examples-- and how the various concepts fit
+together.  This kind of information can not be gleaned from automatically
+extracted fragments that refer to individual function calls, and without it,
+your tools will be much less useful as a building block of robust scientific
+practice.
+
+A number of tools exist for the generation of documentation, from the
+well-known \LaTeX{} to systems focused on the generation of source-based
+documentation such as Doxygen\footnote{\url{http://doxygen.org}} and newer ones
+that are from the start designed for a combination of narrative and automatic
+documentation, like Sphinx\footnote{\url{http://sphinx-doc.org}}.  There are
+other such systems, but Doxygen and Sphinx are very widely used in the software
+world, actively developed and with rich toolkits that support very complex
+documentation tasks.
+
+Before discussing these tools, it is important to note that in recent years,
+new formats for \emph{authoring} documentation have emerged, in particular
+reStructuredText\footnote{\url{http://docutils.sourceforge.net/rst.html}}
+(often abbreviated as reST) and
+Markdown\footnote{\url{http://daringfireball.net/projects/markdown/syntax}}.
+These formats have slightly different philosophies, but they both aim at being
+more friendly to manual authoring and reading than \LaTeX{}, while supporting
+more conveniently integration with HTML output workflows.  They both share the
+basic philosophy of looking like plaintext with very simple visual markup for
+commonly used tasks, for example using marking emphasis and boldface with
+asterisks (e.g. \texttt{*italics*} $\rightarrow$ \emph{italics} and
+\texttt{**boldface**} $\rightarrow$ \textbf{boldface}).  But Markdown is
+squarely aimed at the production of HTML and is a strict superset of HTML; it
+defines only a few special markup rules and leaves more complex tasks to be
+done by hand in pure HTML.  In contrast, reST is a highly extensible format,
+where new commands (called ``roles'' and ``directives'' in reST) can be created
+and where the user can define entire new output pipelines by adding plugins
+written in Python to the processing stream.
+
+So while Markdown is simple and very easy for the production of simple HTML, it
+is not well suited to the generation of complex multi-part documents with rich
+internal cross-referencing, bibliographic support, etc.  Both Markdown and reST
+support escaping out to \LaTeX{} for mathematical expressions, and with the
+right toolchain for rendering the output they can generate a final PDF document
+that has been typeset by \LaTeX{} itself.
+
+Finally, in talking about new documentation formats it is important to mention
+pandoc project\footnote{\url{http://johnmacfarlane.net/pandoc}}, ``the
+universal document converter''. Pandoc is capable of translating between many
+document formats, including taking Markdown or reST input and producing html,
+\LaTeX{} and many other formats.  It is an invaluable tool in managing a modern
+documentation workflow.
+
+Doxygen has its own syntax that combines HTML with special commands for many
+tasks specific to computer source code, such as the specification of variable
+types, function arguments and return values, etc.  It also supports Markdown,
+allowing users to use this more readable and concise syntax for the generation
+of common HTML markup.  Sphinx, on the other hand, is designed around
+reStructuredText: it supports the basic format and provides a number of
+additional extensions aimed at the documentation of software projects. Sphinx
+was originally developed to produce the official documentation for the Python
+programming language itself, but it has become very popular beyond that goal.
+Today most Python projects use Sphinx as their documentation system, and
+because of the flexibility and extensibility of reST, it has also become widely
+used as a way of creating rich, complex documents with a strong computational
+base even beyond Python.
 
 
 \section{\label{sec:collaboration}Collaboration}
