@@ -831,12 +831,12 @@ individual researcher.  And these are precisely the foundation that will then
 make it possible to naturally evolve a project from a single-person effort into
 a collaboration without a breakdown of complexity.
 
-\blockpar{Hosted version control: GitHub and similar systems.}  While git can
+\blockpar{Hosted version control: GitHub and similar systems.}  While Git can
 be used purely locally, there are many advantages to having your repositories
 replicated on a server that is externally accessible.  Git's design allows it
 to simultaneously keep track of multiple repositories tied to a single project,
 and it can synchronize and merge work between these multiple sources.  Each of
-these sources is denoted a \emph{remote} in git lingo, and while a remote can
+these sources is denoted a \emph{remote} in Git lingo, and while a remote can
 be simply another location in your hard drive, the most useful kind of remotes
 are those that are physically in other computers.  By synchronizing your local
 repository with an external remote you simultaneously have an automatic backup
@@ -847,7 +847,7 @@ each of them at some point.
 
 There are many services online that host repositories from Git and other
 version control systems; in recent years
-GitHub\footnote{\url{http://github.com}} has gained very wide adoption amongst
+GitHub\footnote{\url{http://github.com}} has gained very wide adoption among
 the community of scientists who write open source software in Python and R, and
 other services such as BitBucket\footnote{\url{http://bitbucket.org}} ,
 Google Code\footnote{\url{http://code.google.com/hosting}} and
@@ -896,8 +896,7 @@ that, while not as configurable for fine-grained statistics as Jenkins,
 requires minimal setup, is free for open-source projects, and is tightly
 integrated with the version control hosting service GitHub.
 
-\blockpar{Documentation generation systems}
-
+\blockpar{Documentation generation systems.}
 We have already discussed the importance of documenting your code, and in
 recent years a number of systems have been developed that allow you to easily
 produce complex documentation that combines hand-written narrative sections
@@ -905,7 +904,7 @@ with parts that are automatically extracted from the code.  While the ability
 to automatically extract and generate documentation is valuable and important,
 we stress that it is critical that your projects have at least a modicum of
 \emph{narrative} parts that explain to the user the purpose of your tools,
-their scope, how to use them --with examples-- and how the various concepts fit
+their scope, how to use them---with examples, and how the various concepts fit
 together.  This kind of information can not be gleaned from automatically
 extracted fragments that refer to individual function calls, and without it,
 your tools will be much less useful as a building block of robust scientific
@@ -945,10 +944,10 @@ internal cross-referencing, bibliographic support, etc.  Both Markdown and reST
 support escaping out to \LaTeX{} for mathematical expressions, and with the
 right toolchain for rendering the output they can generate a final PDF document
 that has been typeset by \LaTeX{} itself.  In talking about new documentation
-formats it is important to mention pandoc
+formats it is important to mention the pandoc
 project\footnote{\url{http://johnmacfarlane.net/pandoc}}, ``the universal
 document converter''. Pandoc is capable of translating between many document
-formats, including taking Markdown or reST input and producing html, \LaTeX{}
+formats, including taking Markdown or reST input and producing HTML, \LaTeX{}
 and many other formats.  It is an invaluable tool in managing a modern
 documentation workflow.
 
@@ -967,7 +966,7 @@ system, and because of the flexibility and extensibility of reST, it has also
 become widely used as a way of creating rich, complex documents with a strong
 computational base even beyond Python.
 
-Let us close this section by noting that all the formats we have discussed
+We close this section by noting that all the formats we have discussed
 here, \LaTeX{}, HTML, Markdown and reST, share one critical feature: they can
 be hand-written in a plain text editor and they are stored in files amenable to
 version control with the tools we described earlier.  This stands in sharp
@@ -1077,8 +1076,8 @@ BitBucket\footnote{\url{https://bitbucket.org}} and
 Gitorious\footnote{\url{http://gitorious.org}} play similar roles.  GitHub has
 had a tremendous impact in the open source community, reaching in a few years
 millions of active users and gaining rapidly popularity in scientific circles.
-We can attest to the power of this platform with our own experience: the open
-source IPython project moved its development to GitHub in early 2010 and
+We can attest to the power of this platform with our own experience:
+IPython moved its development to GitHub in early 2010 and
 immediately saw a rapid uptick in the pace of contributions.  The workflow for
 collaboration enabled by GitHub was so much smoother than all previously
 available tools that many people were more willing to send contributions, while
@@ -1158,28 +1157,29 @@ control with regard to attribution and provenance tracking.
 
 We briefly revisit the topic of infrastructure that improves reproducibility,
 with an eye towards collaboration.  Once we have adopted tools that allow for
-distributed collaboration (e.g. Git and GitHub) and our computational machinery
-has tests and scripts that allow for automated installation and execution of
-the test suite, we achieve a number of important benefits that we can think of
-as ``machine collaboration''.  That is, once we have described in a standard
-way how our software must be installed or tested, then not only can our
-colleagues do that as they start collaborating with us, but so can machines.
-The Travis CI system, for example, can be configured to automatically run a
-project's test suite on every pull request that is created on GitHub.  This
-means that when the humans come to review the proposed code, a report is
-already attached to the pull request that indicates whether the test suite
-passed or not (and provides details of any failures).  This can save enormous
-amounts of time and make the collaboration much smoother, as reviewers don't
-need to wait before starting a new review for the tests to complete on their
-system, and may even review when they are away from a development machine
-capable of actually running the tests.  In the IPython project we have seen the
-value of having this information always ready, as it reduces the small but
-persistent amount of `friction' we had before when each reviewer was
-responsible for running all tests first locally for each new pull request.
-While we still have tools for that and occasionally run tests beyond what
-Travis does (as Travis doesn't install every optional library we require),
-saving even 5 or 10 minutes for each review can make a huge difference for a
-project that sometimes has to process multiple pull requests in a day.
+distributed collaboration (e.g., Git and GitHub) and our computational
+machinery has tests and scripts that allow for automated installation and
+execution of the test suite, we achieve a number of important benefits that we
+can think of as ``machine collaboration''.  That is, once we have described in
+a standard way how our software must be installed or tested, then not only can
+our colleagues do that as they start collaborating with us, but so can
+machines.  The Travis CI system, for example, can be configured to
+automatically run a project's test suite on every pull request that is created
+on GitHub.  This means that when the humans come to review the proposed code,
+a report is already attached to the pull request that indicates whether the
+test suite passed or not (and provides details of any failures).  This can
+save enormous amounts of time and make the collaboration much smoother, as
+reviewers don't need to wait before starting a new review for the tests to
+complete on their system, and may even review when they are away from a
+development machine capable of actually running the tests.  In the IPython
+project we have seen the value of having this information always ready, as it
+reduces the small but persistent amount of `friction' we had before when each
+reviewer was responsible for running all tests first locally for each new pull
+request.  While we still have tools for that and occasionally run tests beyond
+what Travis does (as Travis doesn't install every optional library we
+require), saving even 5 or 10 minutes for each review can make a huge
+difference for a project that sometimes has to process multiple pull requests
+in a day.
 
 In a similar vein, the ReadTheDocs\footnote{\url{https://readthedocs.org}}
 project does for documentation what Travis does for CI.  ReadTheDocs hosts
@@ -1190,10 +1190,10 @@ documentation without developers having to spend time on this.
 
 Automated CI testing and documentation building are only two aspects of the
 benefits that can be gained from building on a foundation of distributed
-version control, well automated processes, integrated test suites and
+version control, well automated processes, integrated test suites, and
 documentation generation.  Once all these elements come together, a virtuous
 cycle can be sustained where the focus of the scientists or developers can be
-on producing new results (be they text, code or computational outputs) and this
+on producing new results (be they text, code, or computational outputs) and this
 machinery ensures that everything is validated and documented along the way.
 
 Finally, we want to emphasize that while some of these points are more easily
