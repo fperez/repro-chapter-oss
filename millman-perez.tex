@@ -598,6 +598,25 @@ codes, teaching materials, manuscripts and data analysis projects should be
 developed, from the beginning, \emph{always} using version control systems that
 track the actual history of everyone's contributions.
 
+\subsection{Execution automation}
+
+In addition to pervasive version control, the most basic practice you
+\emph{must} adopt is to automate the execution of as much of your process as
+you can.  The venerable \texttt{make} system is the workhorse of process
+automation for software compilation and building any outcomes that depend on a
+chain of inputs.  It has a syntax for expressing dependencies between sources
+and targets and a simple (timestamp-based) mechanism for resolving when
+dependencies need to be rebuilt.  More modern systems also exist, and a
+detailed review of the options is beyond our scope.  But whether it's running a
+sequence of scripts to produce some figures, compiling your software, or
+creating the final PDFs for a grant proposal, you should \emph{always} be able
+to do so by typing \texttt{make results} or the equivalent syntax in your
+system of choice.  Once things are automated in this way, it becomes possible
+for others (humans or machines, and even yourself on a new system or months
+down the road) to reliably repeat the process.  This is therefore a cornerstone
+of reproducible practices.
+
+
 \subsection{Testing}
 
 Computing is error-prone. While there is no
@@ -792,22 +811,6 @@ address first how certain tools and practices have enormous value even for the
 individual researcher.  And these are precisely the foundation that will then
 make it possible to naturally evolve a project from a single-person effort into
 a collaboration without a breakdown of complexity.
-
-\blockpar{Execution automation: \texttt{make} and friends.}  In addition to
-pervasive version control, the most basic practice you \emph{must} adopt is to
-automate the execution of as much of your process as you can.  The venerable
-\texttt{make} system is the workhorse of process automation for software
-compilation and building any outcomes that depend on a chain of inputs.  It has
-a syntax for expressing dependencies between sources and targets and a simple
-(timestamp-based) mechanism for resolving when dependencies need to be rebuilt.
-More modern systems also exist, and a detailed review of the options is beyond
-our scope.  But whether it's running a sequence of scripts to produce some
-figures, compiling your software, or creating the final PDFs for a grant
-proposal, you should \emph{always} be able to do so by typing \texttt{make
-  results} or the equivalent syntax in your system of choice.  Once things are
-automated in this way, it becomes possible for others (humans or machines, and
-even yourself on a new system or months down the road) to reliably repeat the
-process.  This is therefore a cornerstone of reproducible practices.
 
 \blockpar{Hosted version control: GitHub and similar systems.}
 
