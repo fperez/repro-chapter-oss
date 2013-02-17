@@ -238,7 +238,7 @@ project and establish reproducible and testable workflows.  While a small group
 can make this work by brute effort, this approach most certainly does not scale
 beyond a few collaborators, as painfully experienced by anyone who has
 participated in the madness of a flurry of email attachments with oddly-named
-files such as {\tt paper-final-v2-REALLY-FINAL-john-oct9.doc}.
+files such as {\tt paper-final-v2-REALLY-FINAL-john-ACT9.doc}.
 
 For \textbf{production-scale execution}, researchers typically turn away from
 the convenience of interactive computing environments to compiled code
@@ -379,7 +379,9 @@ manipulate them. SciPy is a collection of common numerical operations used in
 scientific computing. Matplolib is the standard 2D plotting library used in the
 community. In addition to these tools, there are specialized packages that
 provide advanced support and algorithms for machine learning, image processing,
-graph theory, symbolic mathematics, etc. 
+graph theory, symbolic mathematics, etc. On top of these general scientific
+libraries, there are numerous libraries built for specific scientific domains
+from astrophysics to cell biology.
 
 We call special attention to one of the core tools used in the scientific
 computing community that we will use as a primary example throughout the
@@ -405,16 +407,34 @@ into a better scientific tool.
 
 \subsection{\label{subsec:community}Communities of practice}
 
-On top of these general scientific libraries, there are numerous libraries
-built for specific scientific domains from astronomy to neuroimaging.
-the basic idea:
+While we believe that scientific software needs to be built on top of open
+source software and released as open source, the real benefit comes when open
+source practices are embraced. In particular, our computational tools must move
+from the domain of individual- or lab-based projects to community developed
+ones. The remaining sections of this chapter are devoted to primarily the
+technical aspects of this transition. This is primarily because these issues
+are more tractable and in part because we believe that getting these technical
+aspects out of the way will make dealing with other issues simpler. However, we
+close this section by briefly addressing some of these non-technical issues.
 
-* shared scientific codes (scipy)
+Before delving into these non-technical issues, we first explain what we mean
+by community development. In community developed projects, the distinction
+between users and developers is more fluid than it is in proprietary software
+projects where this distinction is not just expected, but often rigorously
+enforced by legal mechanisms. This isn't to say that everyone becomes a ``core
+developer.'' There are still differing levels of contribution including
+reporting issues, suggesting new functionality, contributing enhancements,
+discussing new use cases, and helping new users.
 
-* shared domain specific libraries \cite{nipy_cise}.
-
-* lab-specific development branches
-\cite{turk2013scale},  \cite{prlic2012ten}
+Community development of scientific codes also needs to be driven by
+communities of practice \cite{turk2013scale}. In other words, it
+needs to driven by a participatory community of active researchers
+that both use and contribute those codes. As our work becomes more
+reliant on computational tools and techniques the questions we can
+ask will be constrained by what are software can do and how easy it
+is to extend. Hence moving the field forward will require scientists
+to become computationally literate. Part of this is learning to use
+the tools and practices developed for open source development.
 
 There are real issues with attempting to naively transplant the practices of
 open source development directly to computational research. The open source
@@ -456,21 +476,6 @@ In summary, we think that a few simple lessons can be learned from the
 practices of the open source world which, if carefully assimilated, can lead to
 substantial improvements in the state of reproducible computational research. 
 
-Scientists as developers
-
-Reasons
-
-\begin{itemize}
-\item  developing state-of-the-art methods
-\item developing as exploration
-\end{itemize}
-
-Implications
-
-\begin{itemize}
-\item need development tools to enable
-\item scientists will need to be computationally literate
-\end{itemize}
 
 \section{\label{sec:practice}Routine practice}
 
@@ -1415,11 +1420,10 @@ that may be informative of the trust we place on the published analysis.
 %panacea in itself; the rigor, openness, culture of validation, collaboration and
 %other aspects of science must become a routine part of our computational practices.
 
-\ldots
 
-This is a large and complex problem that requires changing the educational
-process for new scientists, the incentive models for promotions and
-rewards, the publication system, and more.
+%This is a large and complex problem that requires changing the educational
+%process for new scientists, the incentive models for promotions and
+%rewards, the publication system, and more.
 
 \section*{Acknowledgments}
 We would like to thank \ldots
