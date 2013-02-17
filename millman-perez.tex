@@ -590,17 +590,32 @@ management of binary data within a VCS workflow, without creating an explosion
 in the size of the VCS storage area.
 
 In summary, the use of version control should be seen as a ``background
-technology''; in our case its use is so routine that we use it for everything.
-We suggest researchers adopt a practice of pervasive version control: research
-codes, teaching materials, manuscripts and data analysis projects should be
-developed, from the beginning, \emph{always} using version control systems that
-track the actual history of everyone's contributions.
+technology''; in our case we routinely use it for everything (including the
+writing of this document).  We suggest researchers adopt a practice of
+pervasive version control: research codes, teaching materials, manuscripts and
+data analysis projects should be developed, from the beginning, \emph{always}
+using version control systems that track the actual history of everyone's
+contributions.
 
 \subsection{Execution automation}
 
 In addition to pervasive version control, the most basic practice you
 \emph{must} adopt is to automate the execution of as much of your process as
-you can.  The venerable \texttt{make} system is the workhorse of process
+you can.  Just as it is impossible to reproduce old results if you don't have
+access to the code and data that created them (hence the need for version
+control), it's equally impossible if you didn't record somewhere how the code
+and data were used.  You can obviously simply write everything down in a file
+and follow these instructions to yourself again later on, but a much more
+sensible approach is to record them in a machine-readable way so that they can
+be executed by the computer.  Furthermore, since most computational processes
+are a chain of executions where each step depends on the previous or on inputs
+that may have been modified, ideally you should be able to understand the
+structure of these dependencies and only run things when necessary.
+
+Just like version control, this is a task for which the software development
+world has long ago developed solutions, since the job of building a complex
+software project with many source files is repetitive, full of detail and
+time-consuming.  The venerable \texttt{make} system is the workhorse of process
 automation for software compilation and building any outcomes that depend on a
 chain of inputs.  It has a syntax for expressing dependencies between sources
 and targets and a simple (timestamp-based) mechanism for resolving when
@@ -811,7 +826,16 @@ individual researcher.  And these are precisely the foundation that will then
 make it possible to naturally evolve a project from a single-person effort into
 a collaboration without a breakdown of complexity.
 
-\blockpar{Hosted version control: GitHub and similar systems.}
+\blockpar{Hosted version control: GitHub and similar systems.}  While git can
+be used purely locally, there are many advantages to having your repositories
+replicated on a server that is externally accessible.  Git's design allows it
+to simultaneously keep track of multiple repositories tied to a single project,
+and it can synchronize and merge work between these multiple sources.  Each of
+these sources is denoted a \emph{remote} in git lingo, and while a remote can
+be simply another location in your hard drive, the most useful kind of remotes
+are those that are physically in other computers.  By synchronizing your local
+repository with an external remote you simultaneously have an automatic backup
+of your entire
 
 \blockpar{Continuous integration: machine execution of tests.} Once your
 computational codes are stored in version control repositories, have tests and
