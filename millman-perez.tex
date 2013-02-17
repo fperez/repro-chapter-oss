@@ -90,16 +90,6 @@ Dedicated to the memory of John~D.~Hunter~III, 1968-2012.
 
 \chapter{Developing open source scientific practice}
 
-%In this section, we will present a perspective on the problem of
-%computational research that takes a unified view of the life-cycle of research
-%ideas, to show how the majority of existing tools make it difficult to manage
-%this life-cycle in a way that naturally leads to reproducible outcomes.
-%
-%With the above in mind, our approach to the problem of reproducibility in
-%computational research will then be focused on building tools and practices
-%that enable researchers to naturally consider the entire cycle of research as a
-%continuum, and where ``doing the right thing'' is the easy and natural path
-%rather than the awkward and cumbersome one.
 
 \section{Introduction}\label{intro}
 
@@ -241,15 +231,15 @@ collaborative and reproducible. They allow groups to work collaboratively on
 documents and track how they evolve over time. Ideally, all aspects of
 computational research would be hosted on publicly available version control
 repositories, such GitHub or Google Code. Unfortunately, an all-too common
-approach is still for researchers to email documents to each other with ad-hoc
-naming conventions that effectively provide a poor man's version control (and
-are the source of endless confusion and frequent mistakes). This form of
-collaboration makes it nearly impossible to track the development of a large
-project and establish reproducible and testable workflows.  While a small group
-can make this work by brute effort, this approach most certainly does not scale
-beyond a few collaborators, as painfully experienced by anyone who has
-participated in the madness of a flurry of email attachments with oddly-named
-files such as {\tt paper-final-v2-REALLY-FINAL-john-ACT9.doc}.
+approach is still for researchers to email documents to each other with
+\emph{ad hoc} naming conventions that effectively provide a poor man's version
+control (and are the source of endless confusion and frequent mistakes). This
+form of collaboration makes it nearly impossible to track the development of a
+large project and establish reproducible and testable workflows.  While a
+small group can make this work by brute effort, this approach most certainly
+does not scale beyond a few collaborators, as painfully experienced by anyone
+who has participated in the madness of a flurry of email attachments with
+oddly-named files such as {\tt paper-final-v2-REALLY-FINAL-john-ACT9.doc}.
 
 For \textbf{production-scale execution}, researchers typically turn away from
 the convenience of interactive computing environments to compiled code
@@ -334,8 +324,12 @@ social aspects of this issue.
 
 \subsection{Open source ecosystem}
 
-Managing this entire life-cycle in an integral way requires taking a broad view
-of the complete computational ecosystem. This includes not only all the
+With the above in mind, our approach to the problem of reproducibility in
+computational research focuses on the need for tools and practices
+that enable researchers to naturally consider the entire cycle of research as a
+continuum, and where ``doing the right thing'' is the easy and natural path
+rather than the awkward and cumbersome one. This requires considering the
+complete computational ecosystem not only all the
 software tools, but the way in which these tools are written and used. We begin
 by describing what kinds of software tools we need for scientific
 research.\footnote{We take it as a for gone conclusion that if we are going to
@@ -1225,16 +1219,13 @@ Unlike traditional open source communities, the scientific community has a
 great need for communicating computational results to one another. Whether
 engaging colleagues in data analysis, educating students about numerical
 algorithms, or publishing computational results scientist need to ultimately
-convery their computational work to others.  We will first briefly describe the
+convey their computational work to others.  We will first briefly describe the
 existing tools for literate programming as the backdrop against which we will
 introduce a contrasting approach that we refer to as ``literate computing''.
 
 Our view is shaped by the desire to tackle the life-cycle of computational
-research described in §~\ref{sec:research} in an integrated way: we have
-focused on building tools and practices that enable researchers to naturally
-consider the entire cycle of research as a continuum, and where ``doing the
-right thing'' is the easy and natural path rather than the awkward and
-cumbersome one.  From this perspective, we argue that the literate computing
+research described in §~\ref{sec:research} in an integrated way.
+From this perspective, we argue that the literate computing
 approach is a better fit to the needs of reproducibility in computational
 research than traditional literate programming tools, and will present the
 IPython notebook as an example implementation.
@@ -1585,7 +1576,8 @@ that may be informative of the trust we place on the published analysis.
 We would like to thank all the members of the scientific Python community
 as well as the many scientist from various labs whose work and ideas have
 inspired many of the ideas we've presented here.  In particular, we wish
-to John Hunter, Brian Granger, Matthew Brett, J.-B. Poline, and Min Ragan-Kelley.
+to thank John Hunter, Brian Granger, Matthew Brett, J.-B. Poline, Paul
+Ivanov, and Min Ragan-Kelley.
 
 \bibliographystyle{plain}
 \bibliography{ipython}
