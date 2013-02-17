@@ -131,13 +131,7 @@ we present a new approach to communicating computational work that we call
 literate computing and its relation to the more mature approach of literate
 programming (§~\ref{sec:communication}).
 
-
 \section{\label{sec:research}Computational research}
-
-
-%need to consider entire lifecycle of computational research in an integral way
-%need to own and maintain an open source ecosystem
-%need to do so based on communities of practice
 
 As research grows increasingly dependent on computing, it becomes critical for
 our computational resources to be developed with the same rigor, open review
@@ -179,25 +173,28 @@ phases:
   seeding the next iteration in the cycle of research.
 \end{itemize}
 
-These can be illustrated with an example: a researcher might use Matlab for
-prototyping, develop high-performance code in C, run post-processing by
-twiddling controls in a Graphical User Interface (GUI), import data back into
-Matlab for generating plots, polish the resulting plots by hand in Adobe
-Illustrator, and finally paste the plots into a publication manuscript or
-PowerPoint presentation. But what if months later the researcher realizes there
-is a problem with the results? What are the chances they will be able to know
-what buttons they clicked, to reproduce the workflow that can generate the
-updated plots, manuscript and presentation? What are the chances that other
-researchers or students could reproduce these steps to learn the new method or
-understand how the result was obtained? How can reviewers validate that the
-programs and overall workflow are free of errors? Even if the researcher
-successfully documents each program and the entire workflow, they have to carry
-an immense cognitive burden just to keep track of everything.
+In the next section we argue that the way many researcher navigate these phases
+make the goal of reproducibility nearly unattainable. Before going into the
+problem in more detail we quickly illustrate the crux of our contention with an
+example: a researcher might use Matlab for prototyping, develop
+high-performance code in C, run post-processing by twiddling controls in a
+Graphical User Interface (GUI), import data back into Matlab for generating
+plots, polish the resulting plots by hand in Adobe Illustrator, and finally
+paste the plots into a publication manuscript or PowerPoint presentation. But
+what if months later the researcher realizes there is a problem with the
+results? What are the chances they will be able to know what buttons they
+clicked, to reproduce the workflow that can generate the updated plots,
+manuscript and presentation? What are the chances that other researchers or
+students could reproduce these steps to learn the new method or understand how
+the result was obtained? How can reviewers validate that the programs and
+overall workflow are free of errors? Even if the researcher successfully
+documents each program and the entire workflow, they have to carry an immense
+cognitive burden just to keep track of everything.
 
 \subsection{Problematic patchwork}
 
-Before presenting our approach, we first explore the problem illustrated in
-the above example more closely by looking at the typical patchwork of tools and
+Before presenting our approach, we first explore the problem illustrated in the
+above example more closely by looking at the typical patchwork of tools and
 approaches that most working scientists use for each of these phases today, in
 particular considering their impact on the reproducibility of the final
 outcomes. 
@@ -252,16 +249,16 @@ tools are specialized enough that their mastery requires a substantial
 investment of time. We emphasize that before production-scale computations
 begin, the researchers already have working prototype in an interactive
 computing environment. Therefore, turning to new parallel tools means starting
-over and maintaining at least two versions of the code moving
-forward. Furthermore, data produced by the compiled version is often imported
-back into the interactive environment for visualization and analysis. The
-resulting back-and-forth, complex workflow is nearly impossible to capture and
-put into version control systems, again making the computational research
-difficult to reproduce.  Obviously the alternative, taken by many, is simply to
-run the slow serial codes for a long time and wait for the results while
-working on something else.  This is hardly a solution to our questions, as
-runtimes in the weeks or months become in practice single-shot efforts that
-nobody will attempt to replicate.
+over and maintaining at least two versions of the code moving forward.
+Furthermore, data produced by the compiled version is often imported back into
+the interactive environment for visualization and analysis. The resulting
+back-and-forth, complex workflow is nearly impossible to capture and put into
+version control systems, again making the computational research difficult to
+reproduce.  Obviously the alternative, taken by many, is simply to run the slow
+serial codes for a long time and wait for the results while working on
+something else.  This is hardly a solution to our questions, as runtimes in the
+weeks or months become in practice single-shot efforts that nobody will attempt
+to replicate.
 
 For \textbf{publications} and \textbf{education}, researchers use tools such as
 \LaTeX, Google Docs or Microsoft Word/PowerPoint.  The most important attribute
@@ -337,7 +334,7 @@ research.\footnote{We take it as a for gone conclusion that if we are going to
  this point \cite{joyner2007open}.} And then in the following section
 (§~\ref{subsec:community}) argue that the scientific community must not only
 use the right software, but needs to take an active role in the creation and
-maintainence of this software as part of our heritage.
+maintenance of this software as part of our heritage.
 
 Over the last decade, we've had the privilege of participating in a loose-knit
 community of scientists, researchers, and engineers working to create a powerful
@@ -406,11 +403,10 @@ where the contact with this open source community continually informs and
 enriches our approach to computational research and has helped us build IPython
 into a better scientific tool.
 
-
 \subsection{\label{subsec:community}Communities of practice}
 
 On top of these general scientific libraries, there are numerous libraries
-built for specific scientific domains from astronomy to neuroimaging. And
+built for specific scientific domains from astronomy to neuroimaging.
 the basic idea:
 
 * shared scientific codes (scipy)
@@ -476,9 +472,6 @@ Implications
 \item scientists will need to be computationally literate
 \end{itemize}
 
-
-
-
 \section{\label{sec:practice}Routine practice}
 
 The practices recommended in this section are distilled from years of
@@ -486,10 +479,10 @@ experience writing and maintaining software, teaching programming courses to
 students and scientists, as well as extensive interaction and discussion with a
 diverse group of scientists and engineers.  Whole books have been dedicated to
 best practices in software development with highly specialized tools and habits
-for individual programming languages and methodologies.  In this short section, we
-highlight the practices and tools essential to any computational work. For more a
-more detailed discussion, we highly recommend the recent arXiv preprint titled
-``Best Practices for Scientific Computing'' \cite{2012arXiv1210.0530A}.
+for individual programming languages and methodologies.  In this short section,
+we highlight the practices and tools essential to any computational work. For
+more a more detailed discussion, we highly recommend the recent arXiv preprint
+titled ``Best Practices for Scientific Computing'' \cite{2012arXiv1210.0530A}.
 
 We begin by discussing practices and tools that should be applied to even
 exploratory, individual research.  These practices are so essential to
@@ -694,20 +687,21 @@ isolate bugs, which makes them easier to fix.\cite{oram2010making}
 \subsection{\label{subsec:readability}Readability}
 
 While writing code that is well-tested and systematically managed by a modern
-VCS is important, code that you (and your colleagues) can't read is
-nearly useless. Readable code is written with explanatory names, clear logical
+VCS is important, code that you (and your colleagues) can't read is nearly
+useless. Readable code is written with explanatory names, clear logical
 structure, and comprehensive documentation where necessary.  There is an
 extensive and growing literature (e.g., \cite{boswell2011art, Fow00,
 kernighan1999practice, HT00, mcconnell2009code}) on ``stylistic'' aspects of
 good programming. Because scientific papers and grant submissions have become
-the currency of the scientific realm, many scientists have read classics such as Strunk \&
-White's \emph{Elements of Style}. Yet, even as an increasing amount of our
-work is produced in lines of code, there is a paucity of scientists paying the
-same attention to the elements of good programming style. The emphasis on
-readability is included in this section because even when you are the only one
-using or working on your code, the chance that you will need to read your own
-code is high. Even when your code is widely used and shared, the chances are
-that you still will be the one most frequently reading your own code.
+the currency of the scientific realm, many scientists have read classics such
+as Strunk \& White's \emph{Elements of Style}. Yet, even as an increasing
+amount of our work is produced in lines of code, there is a paucity of
+scientists paying the same attention to the elements of good programming style.
+The emphasis on readability is included in this section because even when you
+are the only one using or working on your code, the chance that you will need
+to read your own code is high. Even when your code is widely used and shared,
+the chances are that you still will be the one most frequently reading your own
+code.
 
 Given the literature on the subject, written by more experienced programmers,
 we will only briefly touch on self-documenting code. Self-documenting code, as
@@ -1072,7 +1066,6 @@ work recently done in the scientific Python community that takes a slightly
 different angle on these questions than the traditional literate programming
 approach.
 
-
 With the above in mind, our approach to the problem of reproducibility in
 computational research will then be focused on building tools and practices
 that enable researchers to naturally consider the entire cycle of research as a
@@ -1084,10 +1077,7 @@ We argue that this approach is a better fit to the needs of reproducibility in
 computational research and will present tools that have been developed recently
 in the open source community in this direction.
 
-
-
 \subsection{Literate programming}
-
 
 The concept of \emph{Literate Programming} was introduced by Donald Knuth in
 the early 1980's \cite{Knuth:1983:LP} and a complete description of this
@@ -1175,7 +1165,6 @@ interactive computing project IPython, on which we will focus the rest of our
 discussion.
 
 \subsection{IPython notebook}\label{subsec:IPython}
-
 
 In 2011, a web-based notebook was developed in IPython that connects to the
 same interactive core as the original command-line shell, but does so using a
@@ -1432,114 +1421,6 @@ This is a large and complex problem that requires changing the educational
 process for new scientists, the incentive models for promotions and
 rewards, the publication system, and more.
 
-
-Changing culture
-
-%Open{*}: software, access (Elsevier), education, review.
-%
-%Internet: interactions for humans, code and data
-%
-%\begin{itemize}
-%\item Open source software
-%
-%\begin{itemize}
-%\item development akin to scientific culture
-%\item viable alternatives to proprietary software
-%\item tools and lessons for improving the scientific process: Github
-%\end{itemize}
-%
-%\item Open access
-%
-%\begin{itemize}
-%\item \url{thecostofknowledge.org}: Elsevier boycott
-%\item FRPAA House hearing on March 29th.
-%\end{itemize}
-%
-%\item Open review
-%Ref \cite{10.3389/fncom.2012.00018}.
-%
-%\item Open education
-%
-%\begin{itemize}
-%\item MIT Open Courseware, Khan Academy\ldots
-%\item Stanford CS 221 in fall 2011: \textasciitilde{}160,000 students.
-%\item Spring 2012:
-%
-%\begin{itemize}
-%\item Sebastian Thrun leaves Stanford: Udacity.
-%\item Stanford: Coursera.
-%\end{itemize}
-%\item MITx, TED-Ed\ldots
-%\end{itemize}
-%\end{itemize}
-
-Incentive models
-
-%Science has become computational, but the incentive models of science
-%are single-mindedly focused on paper-oriented publications that completely
-%ignore the computational process. Papers are accepted 
-%
-%What role should journals play?
-%
-%\begin{itemize}
-%\item Journals should mandate that upon paper \emph{approval} (but before
-%actual publication and with said publication being conditioned on
-%the author meeting this last condition), authors must expose their
-%version control system to the public, and that the publicly available
-%version can faithfully reproduce (within the limitations discussed
-%above) the published results. This public version then becomes available
-%for the scientific community not only for download, but also as a
-%starting point for further contribution and development.
-%
-%\item supplemental material
-%
-%\item peer review
-%
-%\item new BioMed Central journal, Open Research Computation
-%
-% \item ongoing thematic series in Source Code for Biology and Medicine.
-%\cite{neylon2012changing}
-%
-%\end{itemize}
-%
-%How will all this impact scientists?
-%
-%\begin{itemize}
-%
-%\item funding
-%\item academic merit review
-%
-%\end{itemize}
-
-Education and training
-
-%\paragraph{ {\bf Workshops}}
-%
-%\begin{itemize}
-%
-%\item Software carpentry
-%
-%\ldots basic training
-%
-%\item Python
-%
-%\ldots use of git
-%
-%\end{itemize}
-%
-%\paragraph{ {\bf Courses}}
-%
-%\begin{itemize}
-%
-%\item Josh
-%
-%\item Randy
-%
-%\item Titus
-%
-%\end{itemize}
-%
-%
 \section*{Acknowledgments}
 We would like to thank \ldots
 %\begin{itemize}
