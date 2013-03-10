@@ -126,9 +126,9 @@ sections, we provide specific recommendations for computational work.  First,
 we describe the routine practices (§~\ref{sec:practice}) that should be part of
 the daily conduct of computational work. We next discuss tools and practices
 developed by open source communities to enable and streamline collaboration
-(§~\ref{sec:collaboration}). Finally, we present an approach to communicating
-computational work that we call literate computing in contrast to the more
-mature approach of literate programming (§~\ref{sec:communication}).
+(§~\ref{sec:collaboration}). Finally, we present an approach to developing and
+communicating computational work that we call literate computing in contrast to
+the more mature approach of literate programming (§~\ref{sec:communication}).
 
 \section{\label{sec:research}Computational research}
 
@@ -149,23 +149,31 @@ accepted manuscript, but the very term ``reproducibility'' implies repetition
 and thus a requirement to also move \emph{back}---to retrace one's steps,
 question or change assumptions, and move forward again. Unfortunately, the
 all-too-common way scientists conduct computational work makes this necessary
-part of the research process difficult, if not impossible.
+part of the research process difficult at best, and most often impossible.
 
 The open source software development community has cultivated tools and
 practices that, if embraced and adapted by the scientific community, will
-greatly enhance our ability to achieve reproducible outcomes.  Open source
-software development uses public fora for most discussion and systems for
-sharing code and data. There is a strong culture of public disclosure, tracking
-and fixing of bugs, and development often includes exhaustive validation tests
-that are executed automatically whenever changes are made to the software and
-whose output is publicly available on the internet. This helps with early
-detection of problems, mitigates their recurrence, and ensures that the state
-and quality of the software is a known quantity under a wide variety of
-situations (operating systems, inputs, parameter ranges, etc).  Additionally,
-the same systems that are used for sharing the code track the authorship of
-contributions. All of this ensures that open collaboration does not dilute the
-merit or recognition of any individual developer, and allows for a meritocracy
-of contributors to develop while enabling highly effective collaboration.
+greatly enhance our ability to achieve reproducible outcomes.
+\footnote{We take it as a for gone conclusion that if we are going to
+ be sharing our research code with one another, they must be written using open
+ source tools as far as practical. For the interested reader, we direct them to
+ ``Open source mathematical software'' for a more sustained argument regarding
+ this point \cite{joyner2007open}. Instead of discussing the need for using
+ open source software, we focus on adopting development practices used
+ by open source communities.}
+Open source software development uses public fora for most discussion and
+systems for sharing code and data. There is a strong culture of public
+disclosure, tracking and fixing of bugs, and development often includes
+exhaustive validation tests that are executed automatically whenever changes
+are made to the software and whose output is publicly available on the
+internet. This helps with early detection of problems, mitigates their
+recurrence, and ensures that the state and quality of the software is a known
+quantity under a wide variety of situations (operating systems, inputs,
+parameter ranges, etc).  Additionally, the same systems that are used for
+sharing the code track the authorship of contributions. All of this ensures
+that open collaboration does not dilute the merit or recognition of any
+individual developer, and allows for a meritocracy of contributors to develop
+while enabling highly effective collaboration.
 
 As we seek to learn how the open source practice can inform our scientific
 work, we must recognize that the ideal of scientific reproducibility
@@ -177,9 +185,7 @@ can not be reproduced in any realistic sense. At each point in this
 spectrum, however, we can always find ways to improve our confidence
 in the results: whether we reexamine the same unique datasets with
 independently developed packages run by separate groups or we reacquire
-partial sampling of critical data multiple times, we should never
-completely renounce the ideals of reproducibility because of practical
-difficulties.
+partial sampling of critical data multiple times.
 
 Similarly, in computational research we also have certain areas where
 complete reproducibility is more challenging than others. Some projects
@@ -193,6 +199,8 @@ versions of the largest problems run independently, against scaled
 specimens created on the supercomputers for this purpose, and
 sub-sampled datasets can be used to collect at least validation statistics
 that may be informative of the trust we place on the published analysis.
+Fortunately, for the large of bulk of research, these issues are not
+the case.
 
 \subsection{Computational research life cycle}
 
@@ -278,16 +286,16 @@ the interactive environment for visualization and analysis. The resulting
 back-and-forth, complex workflow is nearly impossible to capture and put into
 version control systems, again making the computational research difficult to
 reproduce.  Obviously the alternative, taken by many, is simply to run the slow
-serial codes for a long time and wait for the results while working on
+serial codes for a long time and wait for the results, while working on
 something else.  This is hardly a solution to our questions, as runtimes in the
-weeks or months become in practice single-shot efforts that nobody will attempt
-to replicate.
+weeks or months become in practice single-shot efforts that no one will
+replicate.
 
 For \textbf{publications} and \textbf{education}, researchers use tools such as
-\LaTeX, Google Docs or Microsoft Word/PowerPoint.  The most important attribute
+\LaTeX, Google Docs, or Microsoft Word/PowerPoint.  The most important attribute
 of these tools in this context is that, \LaTeX{} excepted, they integrate
 poorly with version control systems and are ill-suited for workflow automation.
-Digital artifacts (code, data and visualizations) are often manually pasted
+Digital artifacts (code, data, and visualizations) are often manually pasted
 into these documents, which easily leads to a divergence between the
 computational outcomes and the published version.  Managing this requires
 manual updating, something that is error-prone and easy to forget.
@@ -296,10 +304,10 @@ From this perspective, we now draw a few lessons:
 
 \begin{enumerate}[(a)]
 
-\item The common approach and tools used today introduces discontinuities
+\item The common approaches and tools used today introduce discontinuities
   between the stages of this workflow. This forces researchers to switch tools
   at each stage, which in turn makes it difficult to move fluidly back and forth.
-  Driven by the pressure to publish, people will then naturally charge
+  Driven by the pressure to publish, people will naturally charge
   \emph{forward}, pressing on to assemble results in the chase for an accepted
   manuscript but rarely going back to question assumptions, replicate earlier
   experiments with updated versions of code or parameter tweaks, etc.  Because
@@ -308,24 +316,23 @@ From this perspective, we now draw a few lessons:
   inherently difficult will likely result in outcomes that nobody, not even the
   original authors, can reliably reproduce.
 
-
 \item A key element of the problem is the gap that exists between what
   we view as ``final outcomes'' of the scientific effort (papers and
-  presentations that contain artifacts such as figures, tables and other
+  presentations that contain artifacts such as figures, tables, and other
   outcomes of the computation) and the pipeline that feeds these outcomes.
   Because most workflows involve a manual transfer of information (often with
   unrecorded manual changes along the way), the chances that these final
-  outcomes do not match what the computational pipeline actually produces at any
-  given time are high.
+  outcomes match what the computational pipeline actually produces at any
+  given time are low.
 
 \item The problems listed above are \emph{both} technical and social.  While we
   largely focus on the tools aspect in this chapter, it is critical to understand
   that at the end of the day, only when researchers make a conscious decision to
   adopt improved work habits will we see substantial improvements on this problem.
   Obviously higher quality tools will make it easier and more appealing to
-  adopt such changes; but other factors are also at play---from the
-  inertia of ingrained habits to the pressures applied by the
-  incentive models of modern research.
+  adopt such changes; but other factors---from the
+  inertia of ingrained habits to the pressure applied by the
+  incentive models of modern research---are also at play.
 \end{enumerate}
 To ensure that computational research is reproducible, we need
 to consider this entire life cycle in an integral way and from the beginning of
@@ -334,41 +341,35 @@ ready for submission to a journal is simply too late: this problem must be
 tackled from the start, not as an afterthought tacked-on at publication time.
 We must therefore look for approaches that allow researchers to fluidly move
 back and forth between the above stages and that integrate naturally into their
-everyday practices of research, collaboration and publishing, so that we can
+everyday practices of research, collaboration, and publishing, so that we can
 make simultaneous progress on the technical and social aspects of this issue.
 
 \subsection{Open source ecosystem}
 
-\jarrod{rewrite intro para}
-
 With the above in mind, our approach to the problem of reproducibility in
-computational research focuses on the need for tools and practices
-that enable researchers to naturally consider the entire cycle of research as a
-continuum, and where ``doing the right thing'' is the easy and natural path
-rather than the awkward and cumbersome one. This requires considering the
-complete computational ecosystem not only all the
-software tools, but the way in which these tools are written and used. We begin
-by describing what kinds of software tools we need for scientific
-research.\footnote{We take it as a for gone conclusion that if we are going to
- be sharing our research code with one another, they must be written using open
- source tools as far as practical. For the interested reader, we direct them to
- ``Open source mathematical software'' for a more sustained argument regarding
- this point \cite{joyner2007open}.} And then in the following section
-(§~\ref{subsec:community}) argue that the scientific community must not only
-use the right software, but needs to take an active role in the creation and
-maintenance of this software as part of our heritage.
+computational research focuses on the need for tools and practices that enable
+researchers to naturally consider the entire cycle of research as a continuum,
+and where ``doing the right thing'' is the easy and natural path rather than
+the awkward and cumbersome one. This requires considering the complete
+computational ecosystem not only all the software tools, but the way in which
+these tools are written and used. Rather than the haphazard pathwork of tools
+and processes described above, we promote the development and adoption of a
+robust, open source ecosystem.
+
+To illustrate what we mean by this we briefly describe the scientific Python
+ecosystem.  While we are strong proponents of Python for scientific computing,
+we obviously don't believe that Python is the only choice for scientific
+computing or reproducible research. Our point in discussing it is to highlight
+the properties that make it such a useful tool. Currently we do believe it is
+the best choice, but there are definite shortcomings as well.  Hopefully these
+shortcomings will be addressed over time or a better alternative will come
+along.
 
 Over the last decade, we've had the privilege of participating in a loose-knit
-community of scientists, researchers, and engineers working to create a powerful
-stack of open source tools for scientific computing written in Python.\footnote{While
-  we are strong proponents of Python for scientific computing, we obviously don't
-  believe that Python is the only choice for scientific computing or reproducible
-  research. Our point in discussing it is to highlight the properties that make
-  it such a useful tool. Currently we do believe it is the best choice, but there
-  are definite shortcomings as well.  Hopefully these shortcomings will be addressed
-  over time or a better alternative will come along.}  Among
-high-level open source programming languages, Python is today the leading tool
-for general-purpose scientific computing (along with R for statistics),
+community of scientists, researchers, and engineers working to create a
+powerful stack of open source tools for scientific computing written in Python.
+Among high-level open source programming languages, Python is today the leading
+tool for general-purpose scientific computing (along with R for statistics),
 finding wide adoption across research disciplines, education and industry and
 being a core infrastructure tool at institutions such as CERN and the Hubble
 Space Telescope Science Institute
@@ -433,27 +434,24 @@ While we believe that scientific software needs to be built on top of open
 source software and released as open source, the real benefit comes when open
 source practices are embraced. In particular, our computational tools must move
 from the domain of individual- or lab-based projects to community developed
-ones. The remaining sections of this chapter are devoted primarily to the
-technical aspects of this transition.
+ones.
 
-Before delving into these technical issues, we first explain what we mean
-by community development. In community developed projects, the distinction
-between users and developers is more fluid than it is in proprietary software
-projects where this distinction is not just expected, but often rigorously
-enforced by legal mechanisms. This isn't to say that everyone becomes a ``core
-developer.'' There are still differing levels of contribution including
-reporting issues, suggesting new functionality, contributing enhancements,
-discussing new use cases, and helping new users.
+In community developed projects, the distinction between users and developers
+is more fluid than it is in proprietary software projects where this
+distinction is not just expected, but often rigorously enforced by legal
+mechanisms. This isn't to say that everyone becomes a ``core developer.'' There
+are still differing levels of contribution including reporting issues,
+suggesting new functionality, contributing enhancements, discussing new use
+cases, and helping new users.
 
-Community development of scientific codes also needs to be driven by
-communities of practice \cite{turk2013scale}. In other words, it
-needs to driven by a participatory community of active researchers
-that both use and contribute those codes. As our work becomes more
-reliant on computational tools and techniques the questions we can
-ask will be constrained by what are software can do and how easy it
-is to extend. Hence moving the field forward will require scientists
-to become computationally literate. Part of this is learning to use
-the tools and practices developed for open source development.
+Community development of scientific code is driven by communities of practice
+\cite{turk2013scale}. In other words, it needs to driven by a participatory
+community of active researchers that both use and contribute those codes. As
+our work becomes more reliant on computational tools and techniques the
+questions we can ask will be constrained by what are software can do and how
+easy it is to extend. Hence moving the field forward requires scientists to
+become computationally literate. Part of this is learning to use the tools and
+practices developed for open source development.
 
 There are real issues with attempting to naively transplant the practices of
 open source development directly to computational research. The open source
@@ -472,16 +470,16 @@ whatever policies it deems necessary; often contributions are made by
 volunteers for whom an acknowledgment in the project's credits is sufficient
 recognition.
 
-In contrast, the academic world overwhelmingly weighs the authorship of
-scholarly articles and conference proceedings as the main driver of all forms
-of professional advancement and reward. In this system, the pecking order of
-authorship matters enormously (with the many unpleasant consequences familiar
-to all of us), and so does the total number of authors in a publication. While
-in certain communities papers with thousands of authors do exist (experimental
-high-energy physics being the classic example), most scientists need the
-prominent visibility they can achieve in a short author list. The dilution of
-authorship resulting from a largely open collaborative development model is an
-important issue that must be addressed.
+In the academic world, the authorship of scholarly articles and conference
+proceedings is currently the main driver of professional advancement and
+reward. In this system, the pecking order of authorship matters enormously
+(with the many unpleasant consequences familiar to all of us), and so does the
+total number of authors in a publication. While in certain communities papers
+with thousands of authors do exist (experimental high-energy physics being the
+classic example), most scientists need the prominent visibility they can
+achieve in a short author list. The dilution of authorship resulting from a
+largely open collaborative development model is an important issue that must be
+addressed.
 
 Furthermore, the notion of a fully open development model typical of open
 source projects is at odds with another aspect of the scientific publication
@@ -491,15 +489,10 @@ website when in their embryonic stages. The fear of being scooped by others is
 real, and again we must properly address it as we consider how to apply the
 lessons of open source development to the scientific context.
 
-In summary, we think that a few simple lessons can be learned from the
-practices of the open source world which, if carefully assimilated, can lead to
-substantial improvements in the state of reproducible computational research. 
-
-
 \section{\label{sec:practice}Routine practice}
 
-The practices recommended in this section are distilled from years of
-experience writing and maintaining software, teaching programming courses to
+The practices recommended in this section are distilled from 
+writing and maintaining software, teaching programming courses to
 students and scientists, as well as extensive interaction and discussion with a
 diverse group of scientists and engineers.  Whole books have been dedicated to
 best practices in software development with highly specialized tools and habits
@@ -1216,7 +1209,7 @@ environment of robust, reproducible results.  Once we adopt such a mindset, it
 is always possible to adapt to the specifics of any given project and apply
 only what is relevant.
 
-\jarrod{how long? Norvig's programming in 10 years, compare to learning math}
+\fix{how long? Norvig's programming in 10 years, compare to learning math}
 
 \section{\label{sec:communication}Communication}
 
@@ -1364,7 +1357,7 @@ engine, and (b) an equally open format to record these interactions between the
 user and the computational engine, including the results produced by the
 computations.
 
-\fperez{add \%\%julia, \%\%octave to list below?}
+\fix{add \%\%julia, \%\%octave to list below?}
 
 Before diving into the specifics of these two ideas, we note that the above
 design is independent of the Python language: while IPython started its life as
@@ -1537,7 +1530,7 @@ of weaknesses and areas for improvement, we have also found this environment to
 be markedly superior to all previous tools we had used in the past for teaching
 in similar contexts.
 
-\fperez{new problems/challenges presented, testing in notebook, making
+\fix{new problems/challenges presented, testing in notebook, making
 libraries/functions, this is an example of how we need to start thinking
 about software with the same care as the scientific process it supports}
 
@@ -1583,7 +1576,7 @@ practice. \fix{finish summarizing and hint at next steps}
 
 \section*{Acknowledgments}
 
-\fperez{please review this and make sure we have thanked everyone}
+\fix{please review this and make sure we have thanked everyone}
 
 We would like to thank all the members of the scientific Python community as
 well as the many scientist from various labs whose work and ideas have inspired
