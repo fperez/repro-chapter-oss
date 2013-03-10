@@ -98,38 +98,37 @@ experiment and theory, the notions of simulation and data-intensive discovery
 have emerged as third and fourth pillars of science \cite{4th-paradigm}.
 Today, even theory and experiment are computational: experimental work requires
 computing (whether in data collection, preprocessing, or analysis) and
-theoretical work requires symbolic and numerical computing to develop and
-refine models. Scanning the pages of any major scientific journal, one is
-hard-pressed to find a publication that does not depend on computing for its
-findings.
+theoretical work requires symbolic manipulation and numerical exploration to
+develop and refine models. Scanning the pages of any recent scientific journal,
+one is hard-pressed to find an article that does not depend on computing for
+its findings.
 
 Yet, for all its importance, computing receives perfunctory attention in the
-training of new scientists and in the conduct of everyday research.  Computing
-is treated as a task of secondary importance that students and postdoctoral
-researchers learn ``on the go'' with little training to ensure results are
+training of new scientists and in the conduct of everyday research.  It is
+treated as an inconsequential task that students and researchers learn ``on the
+go'' with little consideration for ensuring computational results are
 trustworthy, comprehensible, and ultimately a secure foundation for
 reproducible outcomes.  Software and data are stored with poor organization,
-little documentation, and few tests.  A patchwork of software tools is used
-with limited attention paid to capturing the complex workflows that emerge.
-The evolution of code is not tracked over time, making it difficult to
-understand how a result was obtained.  Finally, many of the software packages
-used by scientists in research are proprietary and closed-source, preventing
-the community from having complete understanding and control of the final
-scientific results.
+little documentation, and few tests.  A haphazard patchwork of software tools
+is used with limited attention paid to capturing the complex workflows that
+emerge.  The evolution of code is not tracked over time, making it difficult to
+understand what iteration of the code was used to obtain any specific result.
+Finally, many of the software packages used by scientists in research are
+proprietary and closed-source, preventing complete understanding and control of
+the final scientific results.
 
-In this chapter, we argue that these considerations should play a much larger
-role in how scientists are trained and conduct their research. Our approach
-grows out of our experience as part of both the research and the open source
-scientific Python communities.  We begin (§~\ref{sec:research}) by outlining
-our vision for the scientific software development in everyday research. In the
-remaining sections, we provide specific recommendations for computational work.
-First, we describe the routine practices (§~\ref{sec:practice}) that should be
-part of the daily conduct of computational work. We next discuss some of the
-tools and practices developed by open source communities to enable and
-streamline collaboration (§~\ref{sec:collaboration}). Finally, we present an
-approach to communicating computational work that we call literate computing in
-contrast to the more mature approach of literate programming
-(§~\ref{sec:communication}).
+We argue that these considerations must play a more central role in how
+scientists are trained and conduct their research. Our approach grows out of
+our experience as part of both the research and the open source scientific
+Python communities.  We begin (§~\ref{sec:research}) by outlining our vision
+for the scientific software development in everyday research. In the remaining
+sections, we provide specific recommendations for computational work.  First,
+we describe the routine practices (§~\ref{sec:practice}) that should be part of
+the daily conduct of computational work. We next discuss tools and practices
+developed by open source communities to enable and streamline collaboration
+(§~\ref{sec:collaboration}). Finally, we present an approach to communicating
+computational work that we call literate computing in contrast to the more
+mature approach of literate programming (§~\ref{sec:communication}).
 
 \section{\label{sec:research}Computational research}
 
@@ -141,20 +140,32 @@ and finally pasting the plots into a publication manuscript or PowerPoint
 presentation. What if months later they realize there is a problem with the
 results? Will they will be able to remember what buttons they clicked to
 reproduce the workflow to generate updated plots, manuscript, and presentation?
-What are the chances other researchers or students could reproduce these steps
-to learn the new method or understand how the result was obtained? How can
-reviewers validate that the programs and overall workflow are free of errors?
-Even if this researcher successfully documents each program and the entire
-workflow, they have to carry an immense cognitive burden just to keep track of
-everything.
+Can they validate that their programs and overall workflow is free of errors?
+Will other researchers or students be able to reproduce these steps to learn
+how a new method works or understand how the presented result were obtained?
 
-The pressure to publish in today's world encourages all scientists to charge
-forward chasing the goal of an accepted manuscript, but the very term
-``reproducibility'' implies repetition and thus a requirement to also move
-\emph{back} to retrace one's steps, question or change assumptions, and move
-forward again.
+The pressure to publish encourages us to charge forward chasing the goal of an
+accepted manuscript, but the very term ``reproducibility'' implies repetition
+and thus a requirement to also move \emph{back}---to retrace one's steps,
+question or change assumptions, and move forward again. Unfortunately, the
+all-too-common way scientists conduct computational work makes this necessary
+part of the research process difficult, if not impossible.
 
-\jarrod{missing}
+The open source software development community has cultivated tools and
+practices that, if embraced and adapted by the scientific community, will
+greatly enhance our ability to achieve reproducible outcomes.  Open source
+software development uses public fora for most discussion and systems for
+sharing code and data. There is a strong culture of public disclosure, tracking
+and fixing of bugs, and development often includes exhaustive validation tests
+that are executed automatically whenever changes are made to the software and
+whose output is publicly available on the internet. This helps with early
+detection of problems, mitigates their recurrence, and ensures that the state
+and quality of the software is a known quantity under a wide variety of
+situations (operating systems, inputs, parameter ranges, etc).  Additionally,
+the same systems that are used for sharing the code track the authorship of
+contributions. All of this ensures that open collaboration does not dilute the
+merit or recognition of any individual developer, and allows for a meritocracy
+of contributors to develop while enabling highly effective collaboration.
 
 As we seek to learn how the open source practice can inform our scientific
 work, we must recognize that the ideal of scientific reproducibility
@@ -185,12 +196,11 @@ that may be informative of the trust we place on the published analysis.
 
 \subsection{Computational research life cycle}
 
-Based on our experience over the last decade as practicing researchers,
-educators, and software developers, we advocate an integrated approach to
-computing where the entire life cycle of scientific research is considered,
-from the initial exploration of ideas and data to the presentation of final
-results.  Briefly, this life cycle can be broken down into the following
-phases:
+Based on our experience as practicing researchers, educators, and software
+developers, we advocate an integrated approach to computing where the entire
+life cycle of scientific research is considered, from the initial exploration
+of ideas and data to the presentation of final results.  Briefly, this life
+cycle can be broken down into the following phases:
 
 \begin{itemize}
 \item \textbf{Individual exploration:} a single investigator tests an idea,
@@ -317,8 +327,7 @@ From this perspective, we now draw a few lessons:
   inertia of ingrained habits to the pressures applied by the
   incentive models of modern research.
 \end{enumerate}
-
-If we want to ensure that any computational research is reproducible, we need
+To ensure that computational research is reproducible, we need
 to consider this entire life cycle in an integral way and from the beginning of
 a research project.  Asking about reproducibility by the time a manuscript is
 ready for submission to a journal is simply too late: this problem must be
@@ -1551,9 +1560,9 @@ software developed by collaborative, meritocratic communities of practice.
 
 Achieving these goals won't be easy.  It requires changing the educational
 process for new scientists, the incentive models for promotions and rewards,
-the publication system, and more. We do not aim to tackle all of these issues
-here, but focus on the need for an open source ecosystem for scientific
-computing developed by communities of practice.
+the publication system, and more. In this chapter, we focused on the need for
+an open source ecosystem for scientific computing developed by communities of
+practice. \fix{finish summarizing and hint at next steps}
 
 
 %\begin{itemize}
