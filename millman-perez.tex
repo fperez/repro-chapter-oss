@@ -93,18 +93,17 @@ Dedicated to the memory of John~D.~Hunter~III, 1968-2012.
 
 \section{Introduction}\label{intro}
 
-\fperez{Note that I reworded this paragraph a little bit, double check to see
-  if you're OK with it}. Computational tools are at the core of modern
-research. In addition to experiment and theory, the notions of simulation and
-data-intensive discovery are often referred to as ``third and fourth pillars''
-of science \cite{4th-paradigm}.  It is probably more realistic to simply accept
-that computing is now inextricably woven into the DNA of science, as today,
-even theory and experiment are computational.  Experimental work requires
-computing (whether in data collection, preprocessing, or analysis) and
-theoretical work requires symbolic manipulation and numerical exploration to
-develop and refine models. Scanning the pages of any recent scientific journal,
-one is hard-pressed to find an article that does not depend on computing for
-its findings.
+Computational tools are at the core of modern research. In addition to
+experiment and theory, the notions of simulation and data-intensive discovery
+are often referred to as ``third and fourth pillars'' of science
+\cite{4th-paradigm}.  It is probably more realistic to simply accept that
+computing is now inextricably woven into the DNA of science, as today, even
+theory and experiment are computational.  Experimental work requires computing
+(whether in data collection, preprocessing, or analysis) and theoretical work
+requires symbolic manipulation and numerical exploration to develop and refine
+models. Scanning the pages of any recent scientific journal, one is
+hard-pressed to find an article that does not depend on computing for its
+findings.
 
 Yet, for all its importance, computing receives perfunctory attention in the
 training of new scientists and in the conduct of everyday research.  It is
@@ -168,46 +167,41 @@ discussion and systems for sharing code and data. There is a strong culture of
 public disclosure, tracking and fixing of bugs, and development often includes
 exhaustive validation tests that are executed automatically whenever changes
 are made to the software and whose output is publicly available on the
-internet. This helps with early detection of problems, mitigates their
-recurrence, and ensures that the state and quality of the software is a known
-quantity under a wide variety of situations (operating systems, inputs,
+Internet. This helps with early detection of problems, mitigates their
+recurrence, and ensures that the state and quality of the software is known
+under a wide variety of situations (operating systems, inputs,
 parameter ranges, etc).  Additionally, the same systems that are used for
-sharing the code track the authorship of contributions. All of this ensures
-that open collaboration does not dilute the merit or recognition of any
-individual developer, and allows for a meritocracy of contributors to develop
+sharing code, track the authorship of contributions. All of this ensures
+that open collaboration does not dilute the recognition of any
+individual developer and allows for a meritocracy of contributors to emerge,
 while enabling highly effective collaboration.
 
 As we seek to learn how the open source practice can inform our scientific
-work, we must recognize that the ideal of scientific reproducibility
-is by necessity a reality of shades. We can see a gradation that goes
-from a pure mathematical result whose proof should be accessible to
-any person skilled in the necessary specialty, to one-of-a-kind experiments
-such as the Large Hadron Collider or the Hubble Space Telescope, that
-can not be reproduced in any realistic sense. At each point in this
-spectrum, however, we can always find ways to improve our confidence
-in the results: whether we reexamine the same unique datasets with
-independently developed packages run by separate groups or we reacquire
-partial sampling of critical data multiple times.
+work, we recognize that the ideal of scientific reproducibility is by necessity
+a reality of shades. We see a gradation from a pure mathematical result whose
+proof should be accessible to any person skilled in the necessary specialty to
+one-of-a-kind experiments such as the Large Hadron Collider or the Hubble Space
+Telescope, that can not be reproduced in any realistic sense. However, it is
+always possible to improve our confidence in the results: whether we reexamine
+the same unique datasets with independently developed packages run by separate
+groups or we reacquire partial sampling of critical data multiple times.
 
-Similarly, in computational research we also have certain areas where
-complete reproducibility is more challenging than others. Some projects
-require computations carried on the largest supercomputers on the
-planet, and these are expensive resources that can not be arbitrarily
-allocated for repeated executions of the same problem. Others may
-require access to enormous datasets that can not easily be transferred
-to the desktop of any researcher wishing to re-execute an analysis.
-But again, alternatives exist: it should be possible to validate scaled
-versions of the largest problems run independently, against scaled
-specimens created on the supercomputers for this purpose, and
-sub-sampled datasets can be used to collect at least validation statistics
-that may be informative of the trust we place on the published analysis.
-Fortunately, for the large of bulk of research, these issues are not
-the case.
+Similarly, in computational research we also have certain areas where complete
+reproducibility is more challenging than others. Some projects require
+computations carried on the largest supercomputers, and these are expensive
+resources that can not be arbitrarily allocated for repeated executions of the
+same problem. Others may require access to enormous datasets that can not
+easily be transferred to the desktop of any researcher wishing to re-execute an
+analysis.  But again, alternatives exist: it should be possible to validate
+scaled versions of the largest problems run independently, against scaled
+specimens created on the supercomputers for this purpose, and sub-sampled
+datasets can be used to collect at least validation statistics to inform us
+how much trust we may place on the published analysis.  Fortunately, for
+the large of bulk of research, these issues are not the case.
 
 \subsection{Computational research life cycle}
 
-Based on our experience as practicing researchers, educators, and software
-developers, we advocate an integrated approach to computing where the entire
+We advocate an integrated approach to computing where the entire
 life cycle of scientific research is considered, from the initial exploration
 of ideas and data to the presentation of final results.  Schematically, this
 life cycle can be broken down into the following phases:
@@ -756,7 +750,7 @@ consistent and uniform naming conventions when programming should be standard
 practice. Brevity in naming should be balanced against explicit and descriptive
 words. For example, you might use the term \texttt{download} rather than
 \texttt{get} in a function call to download a specific dataset from the
-internet. Expressions are the next block to readability. While mathematical
+Internet. Expressions are the next block to readability. While mathematical
 manipulation (e.g., De Morgan's laws) can be used to great effect in making
 your expressions more easily understood, it is often important to use the right
 level of abstraction. Higher level programming languages (e.g., Python and R)
@@ -1059,7 +1053,7 @@ don't have write permission to the original source from where the repository
 was cloned.  This means that once you have a clone of a repository (which could
 be someone else's or yours from a different computer), you can start working on
 that copy and building new history even if you are disconnected from the
-original system, such as when working on a plane or train without internet
+original system, such as when working on a plane or train without network
 access.  If at a later stage you decide to merge your new history with the
 original repository, the merge capabilities in all DVCS make this very
 straightforward.
@@ -1596,19 +1590,18 @@ practice. \fix{finish summarizing and hint at next steps}
 
 \section*{Acknowledgments}
 
-\fix{please review this and make sure we have thanked everyone}
-
 We would like to thank all the members of the scientific Python community as
 well as the many scientist from various labs whose work and ideas have inspired
-the ideas we've presented here.  John D. Hunter, to whom this chapter is
-dedicated, created the matplotlib graphics library that has been a central
-pillar of the Scientific Python ecosystem; his tragic early passing in 2012 was
-a personal blow to the authors as well as a loss to our community.  Brian
-Granger and Min Ragan-Kelley have worked closely with F.P. on the development
-of IPython for a number of years and are responsible for many of the ideas that
-the project embodies.  Matthew Brett is a colleague who \fix{what else about
-  matthew?}.  Titus Brown, Vincent Carey, Paul Ivanov, Jean-Baptiste Poline,
-and Stéfan van der Walt provided valuable feedback on drafts of this chapter.
+what we've presented here.  John D. Hunter, to whom this chapter is dedicated,
+created the matplotlib graphics library that has been a central pillar of the
+Scientific Python ecosystem; his tragic early passing in 2012 was a personal
+blow to the authors as well as a loss to our community.  Brian Granger and Min
+Ragan-Kelley have worked closely with F.P. on the development of IPython for a
+number of years and are responsible for many of the ideas that the project
+embodies.  Matthew Brett has through years of collaboration and patient
+discussion helped clarify and refine many of the ideas presented in this
+chapter.  Titus Brown, Vincent Carey, Paul Ivanov, Jean-Baptiste Poline, and
+Stéfan van der Walt provided valuable feedback on drafts of this chapter.
 
 
 \bibliographystyle{plain}
