@@ -93,10 +93,13 @@ Dedicated to the memory of John~D.~Hunter~III, 1968-2012.
 
 \section{Introduction}\label{intro}
 
-Computational tools are at the core of modern research. In addition to
-experiment and theory, the notions of simulation and data-intensive discovery
-have emerged as third and fourth pillars of science \cite{4th-paradigm}.
-Today, even theory and experiment are computational: experimental work requires
+\fperez{Note that I reworded this paragraph a little bit, double check to see
+  if you're OK with it}. Computational tools are at the core of modern
+research. In addition to experiment and theory, the notions of simulation and
+data-intensive discovery are often referred to as ``third and fourth pillars''
+of science \cite{4th-paradigm}.  It is probably more realistic to simply accept
+that computing is now inextricably woven into the DNA of science, as today,
+even theory and experiment are computational.  Experimental work requires
 computing (whether in data collection, preprocessing, or analysis) and
 theoretical work requires symbolic manipulation and numerical exploration to
 develop and refine models. Scanning the pages of any recent scientific journal,
@@ -149,21 +152,20 @@ accepted manuscript, but the very term ``reproducibility'' implies repetition
 and thus a requirement to also move \emph{back}---to retrace one's steps,
 question or change assumptions, and move forward again. Unfortunately, the
 all-too-common way scientists conduct computational work makes this necessary
-part of the research process difficult at best, and most often impossible.
+part of the research process difficult at best, often impossible.
 
 The open source software development community has cultivated tools and
 practices that, if embraced and adapted by the scientific community, will
-greatly enhance our ability to achieve reproducible outcomes.
-\footnote{We take it as a for gone conclusion that if we are going to
- be sharing our research code with one another, they must be written using open
- source tools as far as practical. For the interested reader, we direct them to
- ``Open source mathematical software'' for a more sustained argument regarding
- this point \cite{joyner2007open}. Instead of discussing the need for using
- open source software, we focus on adopting development practices used
- by open source communities.}
-Open source software development uses public fora for most discussion and
-systems for sharing code and data. There is a strong culture of public
-disclosure, tracking and fixing of bugs, and development often includes
+greatly enhance our ability to achieve reproducible outcomes.\footnote{We take
+  it as a for gone conclusion that if we are going to be sharing our research
+  code with one another, they must be written using open source tools as far as
+  practical. For the interested reader, we direct them to ``Open source
+  mathematical software'' for a more sustained argument regarding this point
+  \cite{joyner2007open}. Instead of discussing the need for using open source
+  software, we focus on adopting development practices used by open source
+  communities.}  Open source software development uses public fora for most
+discussion and systems for sharing code and data. There is a strong culture of
+public disclosure, tracking and fixing of bugs, and development often includes
 exhaustive validation tests that are executed automatically whenever changes
 are made to the software and whose output is publicly available on the
 internet. This helps with early detection of problems, mitigates their
@@ -207,8 +209,8 @@ the case.
 Based on our experience as practicing researchers, educators, and software
 developers, we advocate an integrated approach to computing where the entire
 life cycle of scientific research is considered, from the initial exploration
-of ideas and data to the presentation of final results.  Briefly, this life
-cycle can be broken down into the following phases:
+of ideas and data to the presentation of final results.  Schematically, this
+life cycle can be broken down into the following phases:
 
 \begin{itemize}
 \item \textbf{Individual exploration:} a single investigator tests an idea,
