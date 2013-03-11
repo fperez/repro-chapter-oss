@@ -396,10 +396,11 @@ Importantly, Python isn't specifically designed for scientific computing.
 Rather, scientists have used it as a base language on which they have written a
 number of additional libraries that add features necessary for scientific work.
 While there are numerous libraries and extensions for scientific computing in
-Python, the three most widely used are NumPy, SciPy, and matplolib.  NumPy
-provides a high-level multidimensional array object and basic operations to
-manipulate them. SciPy is a collection of common numerical operations used in
-scientific computing. Matplolib is the standard 2D plotting library used in the
+Python, the three most widely used are NumPy \cite{oliphant-numpy}, SciPy
+\cite{SciPy}, and matplolib \cite{Hunter:2007, jdh-md:2012}.  NumPy provides a
+high-level multidimensional array object and basic operations to manipulate
+them. SciPy is a collection of common numerical operations used in scientific
+computing. Matplolib is the standard 2D plotting library used in the
 community. In addition to these tools, there are specialized packages that
 provide advanced support and algorithms for machine learning, image processing,
 graph theory, symbolic mathematics, etc. On top of these general scientific
@@ -629,33 +630,32 @@ world has long ago developed solutions, since the job of building a complex
 software project with many source files is repetitive, full of detail and
 time-consuming.  The venerable \texttt{make} system is the workhorse of process
 automation for software compilation and building any outcomes that depend on a
-chain of inputs\fix{reference or a resource for make system}.  It has a syntax for expressing dependencies between sources
-and targets and a simple (timestamp-based) mechanism for resolving when
-dependencies need to be rebuilt.  More modern systems also exist, and a
-detailed review of the options is beyond our scope.  But whether it's running a
-sequence of scripts to produce some figures, compiling your software, or
-creating the final PDFs for a grant proposal, you should \emph{always} be able
-to do so by typing \texttt{make results} or the equivalent syntax in your
-system of choice.  Once things are automated in this way, it becomes possible
-for others (humans or machines, and even yourself on a new system or months
-down the road) to reliably repeat the process.  This is therefore a cornerstone
-of reproducible practices.
+chain of inputs \cite{make:2004}.  It has a syntax for expressing dependencies
+between sources and targets and a simple (timestamp-based) mechanism for
+resolving when dependencies need to be rebuilt.  More modern systems also
+exist, and a detailed review of the options is beyond our scope.  But whether
+it's running a sequence of scripts to produce some figures, compiling your
+software, or creating the final PDFs for a grant proposal, you should
+\emph{always} be able to do so by typing \texttt{make results} or the
+equivalent syntax in your system of choice.  Once things are automated in this
+way, it becomes possible for others (humans or machines, and even yourself on a
+new system or months down the road) to reliably repeat the process.  This is
+therefore a cornerstone of reproducible practices.
 
 
 \subsection{Testing}
 
-Computing is error-prone. While there is no
-fool-proof way to rid computing of error, there are ways to limit and reduce
-it. One of the most successful and widely used techniques involves
-comprehensive testing, so that bugs (i.e., errors) are found quickly\fix{suggested resources for unit testing or testing in general}. Finding
-bugs as soon as possible in the development process is extremely valuable.
-Depending on the nature of the bug, it may reveal a fundamental problem with
-the overall design of your code requiring months more of coding.  Even small
-errors that are easily fixed may require rerunning months of analysis.
-Debugging is the process of fixing bugs that you find and it can be a
-painstaking ordeal. To reduce the amount of time it takes to uncover bugs and
-to ease the pain of debugging your code, it is essential to adopt a rigorous
-testing practice up front.%
+Computing is error-prone. While there is no fool-proof way to rid computing of
+error, there are ways to limit and reduce it. One of the most successful and
+widely used techniques involves comprehensive testing, so that bugs (i.e.,
+errors) are found quickly.  Finding bugs as soon as possible in the development
+process is extremely valuable.  Depending on the nature of the bug, it may
+reveal a fundamental problem with the overall design of your code requiring
+months more of coding.  Even small errors that are easily fixed may require
+rerunning months of analysis.  Debugging is the process of fixing bugs that you
+find and it can be a painstaking ordeal. To reduce the amount of time it takes
+to uncover bugs and to ease the pain of debugging your code, it is essential to
+adopt a rigorous testing practice up front.%
 \footnote{While testing is extremely useful
 practice, we should also point out that it is often much more interesting work
 than debugging.} Beware though, as E. W. Dijkstra famously observed, ``Program
@@ -682,7 +682,14 @@ example (i.e., the test case) is often better than an explanation. And if you
 regularly run the test, you will quickly know when your code no longer works
 for the example (something you may never notice in the case of explanatory
 text). Finally, you will have more robust code as you will more quickly
-isolate bugs, which makes them easier to fix.\cite{oram2010making}
+isolate bugs, which makes them easier to fix \cite{oram2010making}.
+
+Testing is mainly a language-specific pursuit (as it must be implemented in the
+programming language of a given project to be most effective).  The authors are
+most familiar with the Python-based world, and \cite{ctb-nose:2006} is a good
+hands-on starting point for the tool most widely used in scientific Python
+projects, namely the Nose
+framework.\footnote{\url{https://nose.readthedocs.org}}
 
 %\paragraph{ {\bf Computational practice}}
 %
@@ -891,7 +898,8 @@ from day to day? Is the fraction of code that is tested (known as the
 being tested as thoroughly as the old one?  Questions like these are impossible
 to answer in a manually managed worfklow, yet they come ``for free'' once a few
 tools are set up, and can be an extremely important part of managing a healthy
-computational pipeline.
+computational pipeline.  A more detailed discussion of Continuous Integration
+can be found in \cite{br-ck:2011}.
 
 While a number of these tools exist, one of the most widely used by projects
 from many different programming languages and communities is called
@@ -1357,20 +1365,22 @@ engine, and (b) an equally open format to record these interactions between the
 user and the computational engine, including the results produced by the
 computations.
 
-\fix{add \%\%julia, \%\%octave to list below?}
-
 Before diving into the specifics of these two ideas, we note that the above
 design is independent of the Python language: while IPython started its life as
 a Python-specific project, the vision of the Notebook system is
 language-agnostic.  First, while working in Python, users can mark entire code
 blocks for execution via a separate language by using a special syntax on the
 block's first line: a user can for example start a block \texttt{\%\%R},
-\texttt{\%\%bash} or \texttt{\%\%ruby} and IPython will execute the entire
-block with the respective system.  Second, an \emph{entire notebook} can be
-executed in a different language if a remote engine (referred to as a
+\texttt{\%\%octave}, \texttt{\%\%bash} or \texttt{\%\%ruby} and IPython will
+execute the entire block with the respective system.  The development community
+is also busy implementing similar support for even new and experimental
+scientific languages such as Julia, enabling a user to control from a single
+IPython notebook a workflow that combines most commonly used high-level
+languages in modern scientific computing.  Second, an \emph{entire notebook}
+can be executed in a different language if a remote engine (referred to as a
 \emph{kernel}) exists that implements the interaction protocol.  As of this
-writing, prototype kernels have been written in Ruby, JavaScript, and R, and
-their development continues.
+writing, prototype kernels are being developed for Ruby, JavaScript, R and
+Julia.
 
 The IPython architecture provides a way to capture, version control, re-execute
 and convert into other output formats, any computational session.  Notebooks
@@ -1530,9 +1540,17 @@ of weaknesses and areas for improvement, we have also found this environment to
 be markedly superior to all previous tools we had used in the past for teaching
 in similar contexts.
 
-\fix{new problems/challenges presented, testing in notebook, making
-libraries/functions, this is an example of how we need to start thinking
-about software with the same care as the scientific process it supports}
+As these capabilities in IPython reach wider usage, with scientists now
+developing complete books and lecture series based on the system, we are
+considering a number of new challenges and questions introduced by these
+capabilities.  The interactive computing model is a fluid and natural one, but
+we need to find ways to extend it into the development of longer-term
+production codes that are robust, documented, tested and integrated into
+reusable libraries.  This means bridging the gap between a 'scripting'
+mentality and a 'developer' one, and while we have already made progress on
+that front in IPython, many questions remain open for the future.  This is an
+example of how we need to start thinking about software with the same care as
+the scientific process it supports.
 
 In summary, IPython embodies the main ideas we've woven into our discussion: it
 was born out of the interplay between everyday scientific research and open
@@ -1580,10 +1598,15 @@ practice. \fix{finish summarizing and hint at next steps}
 
 We would like to thank all the members of the scientific Python community as
 well as the many scientist from various labs whose work and ideas have inspired
-the ideas we've presented here.  In particular, we wish to thank John Hunter,
-Brian Granger, Min Ragan-Kelley, Matthew Brett. Titus Brown, Vincent Carey,
-Paul Ivanov, Jean-Baptiste Poline, and Stéfan van der Walt provided
-valuable feedback on drafts of this chapter.  Finally, we are grateful to
+the ideas we've presented here.  John D. Hunter, to whom this chapter is
+dedicated, created the matplotlib graphics library that has been a central
+pillar of the Scientific Python ecosystem; his tragic early passing in 2012 was
+a personal blow to the authors as well as a loss to our community.  Brian
+Granger and Min Ragan-Kelley have worked closely with F.P. on the development
+of IPython for a number of years and are responsible for many of the ideas that
+the project embodies.  Matthew Brett is a colleague who \fix{what else about
+  matthew?}.  Titus Brown, Vincent Carey, Paul Ivanov, Jean-Baptiste Poline,
+and Stéfan van der Walt provided valuable feedback on drafts of this chapter.
 
 
 \bibliographystyle{plain}
