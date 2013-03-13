@@ -156,11 +156,11 @@ part of the research process difficult at best, often impossible.
 The open source software development community has cultivated tools and
 practices that, if embraced and adapted by the scientific community, will
 greatly enhance our ability to achieve reproducible outcomes.\footnote{We take
-  it as a for gone conclusion that if we are going to be sharing our research
-  code with one another, they must be written using open source tools as far as
-  practical. For the interested reader, we direct them to ``Open source
-  mathematical software'' for a more sustained argument regarding this point
-  \cite{joyner2007open}. Instead of discussing the need for using open source
+  it as a forgone conclusion that if we are going to be sharing our research
+  code with one another, it must be written using open source tools. For the
+  interested reader, we direct them to ``Open source
+  mathematical software''\cite{joyner2007open} for a more sustained argument
+  regarding this point. Instead of discussing the need for using open source
   software, we focus on adopting development practices used by open source
   communities.}  Open source software development uses public forums for most
 discussion and systems for sharing code and data. There is a strong culture of
@@ -172,8 +172,8 @@ recurrence, and ensures that the state and quality of the software is known
 under a wide variety of situations (operating systems, inputs,
 parameter ranges, etc).  The same systems used for
 sharing code also track the authorship of contributions. All of this ensures
-an open collaboration that still recognizes
-individual developer contributions and allows for a meritocracy to emerge.
+an open collaboration that recognizes the work of
+individual developers and allows for a meritocracy to emerge.
 
 As we learn from the open source process how to improve our scientific practice, we
 recognize that the ideal of scientific reproducibility is by necessity a
@@ -198,10 +198,9 @@ used to conduct an analysis that may provide insights into the reliability of
 the full analysis.  While not every quantity can be studied in this manner and
 there are deep research questions embedded in this problem, we should not
 consider this to be a paralyzing impediment to the quest for better
-computational reproducibility.  A large amount of research is conducted in
-smaller/simpler environments where full replication is feasible, and even
-partial progress on these questions is of value.
-
+computational reproducibility.  Fortunately, the vast majority of research is
+conducted in smaller/simpler environments where full replication is feasible,
+and even partial progress on these questions is of value.
 
 \subsection{Computational research life cycle}
 
@@ -237,7 +236,7 @@ statistics. These environments combine interactive, high-level programming
 languages with a rich set of numerical and visualization libraries. The impact
 of these environments cannot be overstated; they are used almost universally by
 researchers for rapid prototyping, interactive exploration and data analysis,
-and visualization. However, these environments have a number of limitations:
+and visualization. However, they have limitations:
 (a) some of them are proprietary and/or expensive (Excel, Matlab, Mathematica),
 (b) most (except for Sage) are focused on coding in a single, relatively slow,
 programming language and (c) most (except for Sage and Mathematica) do not have
@@ -247,8 +246,8 @@ a problem \emph{per se} and may be a good solution in industry, it is a barrier
 to scientific collaboration and to the construction of a common scientific
 heritage where anyone can validate the work of others and build upon it.
 Scientists can not share work unless all colleagues can purchase the same
-package and students are forced to work with black boxes they are legally
-prevented from inspecting (spectacularly defeating the very essence of
+package; students are forced to work with black boxes they are legally
+prevented from inspecting (spectacularly undermining the very essence of
 scientific inquiry). Furthermore, because of their limitations in performance
 and handling large, complex code bases, these tools are mostly used for
 prototyping: researchers eventually have to switch tools for building
@@ -266,7 +265,7 @@ approach is still for researchers to email documents to each other with
 control (and are the source of endless confusion and frequent mistakes). This
 form of collaboration makes it nearly impossible to track the development of a
 large project and establish reproducible and testable workflows.  While a
-small group can make this work by brute effort, this approach most certainly
+small group can make it work, this approach most certainly
 does not scale beyond a few collaborators, as painfully experienced by anyone
 who has participated in the madness of a flurry of email attachments with
 oddly-named files such as {\tt paper-final-v2-REALLY-FINAL-john-ACT9.doc}.
@@ -277,7 +276,7 @@ the convenience of interactive computing environments to compiled code
 interactive systems do not provide the performance necessary for large-scale
 work and have limited support for distributed and parallel computing.  These
 tools are specialized enough that their mastery requires a substantial
-investment of time. We emphasize that before production-scale computations
+investment of time. We emphasize, that before production-scale computations
 begin, the researchers already have a working prototype in an interactive
 computing environment. Therefore, turning to new parallel tools means starting
 over and maintaining at least two versions of the code moving forward.
@@ -287,7 +286,7 @@ back-and-forth, complex workflow is nearly impossible to capture and put into
 version control systems, again making the computational research difficult to
 reproduce.  Obviously the alternative, taken by many, is simply to run the slow
 serial codes for a long time and wait for the results, while working on
-something else.  This is hardly a solution to our questions, as runtimes in the
+something else.  This is hardly a solution to our problem, as runtimes in the
 weeks or months become in practice single-shot efforts that no one will
 replicate.
 
@@ -297,7 +296,7 @@ of these tools in this context is that, \LaTeX{} excepted, they integrate
 poorly with version control systems and are ill-suited for workflow automation.
 Digital artifacts (code, data, and visualizations) are often manually pasted
 into these documents, which easily leads to a divergence between the
-computational outcomes and the published version.  Managing this requires
+computational outcomes and the publication.  The lack of automated integration requires
 manual updating, something that is error-prone and easy to forget.
 
 From this perspective, we now draw a few lessons:
@@ -305,16 +304,16 @@ From this perspective, we now draw a few lessons:
 \begin{enumerate}[(a)]
 
 \item The common approaches and tools used today introduce discontinuities
-  between the stages of this workflow. This forces researchers to switch tools
+  between the different stages of the scientific workflow. Forcing researchers to switch tools
   at each stage, which in turn makes it difficult to move fluidly back and forth.
-  Driven by the pressure to publish, people will naturally charge
-  \emph{forward}, pressing on to assemble results in the chase for an accepted
+  Driven by the pressure to publish, it is natural to charge
+  \emph{forward}, pressing on to assemble results in pursuit of an accepted
   manuscript but rarely going back to question assumptions, replicate earlier
   experiments with updated versions of code or parameter tweaks, etc.  Because
   reproducing results effectively requires going \emph{back} to the
   beginning of the pipeline, a workflow that from the onset makes this
-  inherently difficult will likely result in outcomes that nobody, not even the
-  original authors, can reliably reproduce.
+  inherently difficult will likely result in outcomes that not even the
+  original authors can reliably reproduce.
 
 \item A key element of the problem is the gap that exists between what
   we view as ``final outcomes'' of the scientific effort (papers and
@@ -334,15 +333,13 @@ From this perspective, we now draw a few lessons:
   inertia of ingrained habits to the pressure applied by the
   incentive models of modern research---are also at play.
 \end{enumerate}
-To ensure that computational research is reproducible, we need
-to consider this entire life cycle in an integral way and from the beginning of
-a research project.  Asking about reproducibility by the time a manuscript is
+Asking about reproducibility by the time a manuscript is
 ready for submission to a journal is simply too late: this problem must be
 tackled from the start, not as an afterthought tacked-on at publication time.
 We must therefore look for approaches that allow researchers to fluidly move
 back and forth between the above stages and that integrate naturally into their
 everyday practices of research, collaboration, and publishing, so that we can
-make simultaneous progress on the technical and social aspects of this issue.
+simultaneous address the technical and social aspects of this issue.
 
 \subsection{Open source ecosystem}
 
@@ -350,28 +347,24 @@ With the above in mind, our approach to the problem of reproducibility in
 computational research focuses on the need for tools and practices that enable
 researchers to naturally consider the entire cycle of research as a continuum,
 and where ``doing the right thing'' is the easy and natural path rather than
-the awkward and cumbersome one. This requires considering the complete
-computational ecosystem not only all the software tools, but the way in which
+the awkward and cumbersome one. Considering the complete computational
+ecosystem involves not only all the software tools in themselves, but also the way
 these tools are written and used. Rather than the haphazard pathwork of tools
 and processes described above, we promote the development and adoption of a
-robust, open source ecosystem.
+robust, open source ecosystem that makes reproducible research a central aim.
 
-To illustrate what we mean by this we briefly describe the scientific Python
+To illustrate what we mean, we briefly describe the scientific Python
 ecosystem.  While we are strong proponents of Python for scientific computing,
 we obviously don't believe that Python is the only choice for scientific
 computing or reproducible research. Our point in discussing it is to highlight
-the properties that make it such a useful tool. Currently we do believe it is
-the best choice, but there are definite shortcomings as well.  Hopefully these
-shortcomings will be addressed over time or a better alternative will come
-along.
+the properties that make it such a useful tool. We consider the scientific Python
+ecosystem as a case study for the type of community developed software stack that
+we believe can lead to reproducible computational results.
 
-Over the last decade, we've had the privilege of participating in a loose-knit
-community of scientists, researchers, and engineers working to create a
-powerful stack of open source tools for scientific computing written in Python.
-Among high-level open source programming languages, Python is today the leading
+Among high-level open source programming languages, today Python is the leading
 tool for general-purpose scientific computing (along with R for statistics),
-finding wide adoption across research disciplines, education and industry and
-being a core infrastructure tool at institutions such as CERN and the Hubble
+finding wide adoption across research disciplines, education, and industry as well as
+a core part of the computational infrastructure at institutions such as CERN and the Hubble
 Space Telescope Science Institute
 \cite{millman2011python,Perez2011,ganga09,SST}.
 
@@ -385,16 +378,14 @@ environment. Python is also powerful enough to manage the complexity of large
 applications, supporting functional programming, object-oriented programming,
 generic programming, and metaprogramming.  Python has excellent tools to
 provide scripting support to tools in other languages including C, C++,
-Fortran, and R. This is crucial, both for development and package integration.
-For this reason, Python is often used as a high-level language glue for calling
+Fortran, and R. As such, Python is often used as a high-level language glue for calling
 routines in a huge array of high-quality scientific libraries. Finally, it
 has an extensive standard library that provides built-in functionality for
 many tasks including database access, internet protocols, data compression,
 and operating system services.
 
 Importantly, Python isn't specifically designed for scientific computing.
-Rather, scientists have used it as a base language on which they have written a
-number of additional libraries that add features necessary for scientific work.
+Rather, scientists have extended it with additional libraries that add features necessary for scientific work.
 While there are numerous libraries and extensions for scientific computing in
 Python, the three most widely used are NumPy \cite{oliphant-numpy}, SciPy
 \cite{SciPy}, and matplolib \cite{Hunter:2007, jdh-md:2012}.  NumPy provides a
@@ -431,9 +422,9 @@ into a better scientific tool.
 
 \subsection{\label{subsec:community}Communities of practice}
 
-While we believe that scientific software needs to be built on top of open
-source software and released as open source, the real benefit comes when open
-source practices are embraced. In particular, our computational tools must move
+While the case can be made for the use of open source software in science,
+even more importantly is the benefit that comes with open source community-driven
+development practices. In particular, our computational tools must move
 from the domain of individual- or lab-based projects to community developed
 ones.
 
@@ -451,12 +442,12 @@ community of active researchers that both use and contribute those codes. As
 our work becomes more reliant on computational tools and techniques the
 questions we can ask will be constrained by what are software can do and how
 easy it is to extend. Hence moving the field forward requires scientists to
-become computationally literate. Part of this is learning to use the tools and
-practices developed for open source development.
+become computationally literate, part of which includes embracing the tools and
+practices widely adopted by the open source community.
 
-There are real issues with attempting to naively transplant the practices of
-open source development directly to computational research. The open source
-model ends up being one where, in practice, the copyright and authorship of any
+There are real concerns that arise when attempting to transplant the practices of
+open source development directly to computational research. The open source development
+model is one where, in practice, the copyright and authorship of any
 large collaborative project is spread among many authors, possibly thousands.
 While the source control tools in use do allow for a relatively precise
 provenance analysis to be performed if desired, this is rarely done and its
@@ -468,7 +459,7 @@ more informal and based on the overall recognition of any one contributor in
 the community. Sometimes people contribute to open source projects as part of
 their official work responsibilities, and in that case a company can enact
 whatever policies it deems necessary; often contributions are made by
-volunteers for whom an acknowledgment in the project's credits is sufficient
+volunteers for whom acknowledgment in the project's credits is sufficient
 recognition.
 
 In the academic world, the authorship of scholarly articles and conference
@@ -536,24 +527,22 @@ developed over the years, the most well known being CVS, SVN, Git, and
 Mercurial.
 
 While there are notable differences among these tools, they all share some
-basic concepts.  You store all your project files (code,
-text, figures, etc.) in a \emph{repository} (often represented on disk in a
+basic concepts.  All project files (code,
+text, figures, etc.) are stored in a \emph{repository} (often represented on disk in a
 directory hierarchy).  There are commands to add and remove files to a
-repository.  When you change a file in your repository that you want to track,
-you can \emph{commit} those changes with a \emph{commit message}.  The
+repository.  To track changes to a file, it must be \emph{committed} to the repository,
+idealy with a meaningful \emph{commit message}.  The
 repository and commit mechanism provide a complete historical log of the
 project from inception to current state, including every change made along with
 timestamps, author, comments and other metadata for each modification.
 
-Commonly your changes may follow a simple linear progression of commits.
+Commonly changes may follow a simple linear progression of commits.
 However it is reasonable to have a project evolve so that it does not follow a
 straight route from beginning to end. For example, given the exploratory nature
-of research, you may have several alternative approaches that you want to try
-out. In such cases, your commits will resemble a tree with several
+of research, several approaches may have been explored. In such cases, commits will resemble a tree with several
 \emph{branches} diverging from a common base or trunk. When exploring these
-alternative approaches on different branches, you may find that several
-branches converge. At this point, you will \emph{merge} these
-branches back together.  If the changes in each of these branches don't overlap
+alternative approaches on different branches, several
+branches may eventually converge and may need to be \emph{merged} back together.  If the changes in each of these branches don't overlap
 with one another, the VCS is capable of merging them all together in a
 completely automated fashion.  When you have \emph{conflicting} changes in
 different branches (e.g., edits to the same line of code), then the VCS
@@ -564,7 +553,7 @@ development in a set of files (whether written documents, computer code, or
 data).
 
 In the design of more modern VCS such as Mercurial and Git, an important
-consideration has been woven into the core of the system: built-in \emph{data
+consideration is woven into the core of the system: built-in \emph{data
   integrity verification} via cryptographically robust fingerprinting of all
 content.  The basic idea is that at every commit, the VCS computes a
 ``fingerprint'' of the content being committed as well as the data it depended
@@ -593,7 +582,7 @@ management of human-generated content such as computer source code or text
 documents, not for the handling of large binary data that is common in science.
 By virtue of their design, they tend to be somewhat inefficient if you attempt
 to store all the changes in a project with many frequently changing large
-binary files, and this somewhat limits their use for the tracking of all assets
+binary files, which somewhat limits their use for the tracking of all assets
 in a research project.  But new efforts exist to mitigate these limitations,
 such as the git-annex project\footnote{\url{http://git-annex.branchable.com}}
 that uses Git for storing all metadata about large binary assets, along
@@ -612,18 +601,18 @@ contributions.
 
 \subsection{Execution automation}
 
-In addition to pervasive version control, the most basic practice you
-\emph{must} adopt is to automate the execution of as much of your process as
-you can.  Just as it is impossible to reproduce old results if you don't have
-access to the code and data that created them (hence the need for version
-control), it's equally impossible if you didn't record somewhere how the code
-and data were used.  You can obviously simply write everything down in a file
-and follow these instructions to yourself again later on, but a much more
-sensible approach is to record them in a machine-readable way so that they can
-be executed by the computer.  Furthermore, since most computational processes
-are a chain of executions where each step depends on the previous or on inputs
-that may have been modified, ideally you should be able to understand the
-structure of these dependencies and only run things when necessary.
+In addition to pervasive version control, the next essential practice is
+automating the execution of as much of your process as possible.  Just as it is
+impossible to reproduce old results if you don't have access to the code and
+data that created them (hence the need for version control), it's equally
+impossible if you didn't record somewhere how the code and data were used.  You
+can simply write everything down in a file and follow these
+instructions again later on, but a much more sensible approach is
+to record them in a machine-readable way so that they can be executed by the
+computer.  Furthermore, since most computational processes are a chain of
+executions where each step depends on the previous or on inputs that may have
+been modified, ideally you should be able to understand the structure of these
+dependencies and only run things when necessary.
 
 Just like version control, this is a task for which the software development
 world has long ago developed solutions, since the job of building a complex
@@ -634,13 +623,13 @@ chain of inputs \cite{make:2004}.  It has a syntax for expressing dependencies
 between sources and targets and a simple (timestamp-based) mechanism for
 resolving when dependencies need to be rebuilt.  More modern systems also
 exist, and a detailed review of the options is beyond our scope.  But whether
-it's running a sequence of scripts to produce some figures, compiling your
-software, or creating the final PDFs for a grant proposal, you should
-\emph{always} be able to do so by typing \texttt{make results} or the
-equivalent syntax in your system of choice.  Once things are automated in this
-way, it becomes possible for others (humans or machines, and even yourself on a
-new system or months down the road) to reliably repeat the process.  This is
-therefore a cornerstone of reproducible practices.
+running a sequence of scripts to produce some figures, compiling your
+software, or creating the final PDFs for a grant proposal, you should be able
+to do so by typing \texttt{make results} or the equivalent syntax in your
+system of choice.  Once things are automated in this way, it becomes possible
+for others (humans or machines, and even yourself on a new system or months
+down the road) to reliably repeat the process.  This is therefore a cornerstone
+of reproducible practices.
 
 
 \subsection{Testing}
@@ -652,8 +641,7 @@ errors) are found quickly.  Finding bugs as soon as possible in the development
 process is extremely valuable.  Depending on the nature of the bug, it may
 reveal a fundamental problem with the overall design of your code requiring
 months more of coding.  Even small errors that are easily fixed may require
-rerunning months of analysis.  Debugging is the process of fixing bugs that you
-find and it can be a painstaking ordeal. To reduce the amount of time it takes
+rerunning months of analysis.  To reduce the amount of time it takes
 to uncover bugs and to ease the pain of debugging your code, it is essential to
 adopt a rigorous testing practice up front.%
 \footnote{While testing is extremely useful
@@ -662,6 +650,7 @@ than debugging.} Beware though, as E. W. Dijkstra famously observed, ``Program
 testing can be used to show the presence of bugs, but never to show their
 absence!'' \cite{dahl1972structured}
 
+\fix{too conversational}
 Testing must be performed on multiple levels. If your program takes input
 either from a user or file, then it is important that the code checks that the
 input is exactly what the program expects. You will also want to write
@@ -691,43 +680,12 @@ hands-on starting point for the tool most widely used in scientific Python
 projects, namely the Nose
 framework.\footnote{\url{https://nose.readthedocs.org}}
 
-%\paragraph{ {\bf Computational practice}}
-%
-%\setlength{\epigraphrule}{0pt}
-%\setlength{\epigraphwidth}{.90\textwidth}
-%\epigraph%
-%{%
-%  In ordinary computational practice by hand or by desk machines, it
-%  is the custom to check every step of the computation and, when an
-%  error is found, to localize it by a backward process starting from
-%  the first point where the error is noted.
-%}%
-%{\textit{Cybernetics (1948)}\\ \textsc{Norbert Wiener} }
-%
-%Computing is now synonymous with the use of automated, electronic machines.  So
-%synonymous, in fact, that is easy to forget that computing has always been part
-%of scientific investigation. Of course, the types of problems amenable to
-%computing by hand on paper or with early calculating machines (e.g., abacus)
-%were limited. 
-%
-%Lessons we all were taught in our elementary mathematics classes:
-%
-%- show your work
-%
-%- need to double check answers
-%
-%- ease of making a mistake
-%
-%As automated, electronic computing machines were developed by scientists,
-%those same grade school practices were standard.  Code and methods were
-%openly shared and discussed, rigorous testing procedures, etc.
-%
 
 \subsection{\label{subsec:readability}Readability}
 
 While writing code that is well-tested and systematically managed by a modern
-VCS is important, code that you (and your colleagues) can't read is nearly
-useless. Readable code is written with explanatory names, clear logical
+VCS is important, code that is not easy to read will be difficult to understand,
+correct, and modify. Readable code is written with explanatory names, clear logical
 structure, and comprehensive documentation where necessary.  There is an
 extensive and growing literature (e.g., \cite{boswell2011art, Fow00,
 kernighan1999practice, HT00, mcconnell2009code}) on ``stylistic'' aspects of
@@ -774,9 +732,9 @@ commenting your program to counter poorly written, obscure code is poor
 practice. Comments that simply explain how a piece of code works are often
 unhelpful. If code is so obscure to need explanation, it is perhaps better to
 revise or rewrite it. One problem with comments (as with many types of
-documentation) is that it is often uncoupled with the actual code. This means
+documentation) is that it is often uncoupled from the actual code. This means
 that there is no way to ensure that the two don't diverge.  And, if they
-diverge, it may not be obvious which is at fault.
+diverge, it may not be obvious which is correct.
 
 To illustrate how comments and documentation can enhance readability of your
 code, we discuss the commenting and documentation system that has been
@@ -792,17 +750,18 @@ for the various functions, classes, and modules it provided. Users and
 developers had access to the source code, an almost 400 page ``Guide to
 NumPy'', and an active mailing list. Yet, it was clear that this level of
 documentation wasn't enough. To address this, the community began a year long
-effort to develop a documentation string standard. In Python, a documentation
+effort to develop a documentation string standard.\footnote{cite online doc editor} In Python, a documentation
 string (or docstring) is any string in the first line in an object's (e.g.,
 function, class, etc.) definition. Since docstrings are embedded in the source
 code, they are readily available to anyone directly viewing the source. When
 the code is executed this string is associated with the object and can be
-programmatically accessed.  They can be accessed from an interpreter using the
-object's \texttt{\_\_doc\_\_} attribute.  Docstrings can also be accessed for
-autogenerating documentation.  Similar functionality exists in other
-programming languages such as R. And even in languages that don't include this
-functionality, it is common practice to include comments at the beginning of
-object definitions that are used similarly.
+programmatically accessed or through introspection tools such as IPython.  They
+can be accessed from an interpreter using the object's \texttt{\_\_doc\_\_}
+attribute.  Docstrings can also be accessed for autogenerating documentation.
+Similar functionality exists in other programming languages such as R. And even
+in languages that don't include this functionality, it is common practice to
+include comments at the beginning of object definitions that are used
+similarly.
 
 Given a recognized need for better documentation and documentation
 functionality that we wanted to leverage, the discussion focused on what this
@@ -817,7 +776,9 @@ described in peer-reviewed academic journals. And, finally, we could provide
 extremely short examples of how to use the code. As an added benefit, Python
 makes it easy to include examples in the docstrings as part of the test suite;
 this improves the test coverage and helps ensure that the documentation doesn't
-get out of sync with the actual code.
+get out of sync with the actual code. \fix{benefits of standard include: causes
+authors to explicitly think about input, output, references. makes them more rigorous
+in coding. otherwise when you look for the paper years later and have no idea where to go}
 
 \subsection{Infrastructure}
 
@@ -894,7 +855,7 @@ metrics is realized: a CI system configured to do a fairly detailed analysis of
 a project when it runs becomes an invaluable tool to analyze what is happening
 over time.  Is performance degrading in subtle ways that aren't very evident
 from day to day? Is the fraction of code that is tested (known as the
-\emph{test coverage}) going slowly down, meaning perhaps that new work isn't
+\emph{test coverage}) going down slowly, meaning perhaps that new work isn't
 being tested as thoroughly as the old one?  Questions like these are impossible
 to answer in a manually managed worfklow, yet they come ``for free'' once a few
 tools are set up, and can be an extremely important part of managing a healthy
@@ -903,10 +864,10 @@ can be found in \cite{br-ck:2011}.
 
 While a number of these tools exist, one of the most widely used by projects
 from many different programming languages and communities is called
-\emph{Jenkins} (\url{http://jenkins-ci.org}).  Jenkins is a highly configurable
+\emph{Jenkins}\footnote{\url{http://jenkins-ci.org}}.  Jenkins is a highly configurable
 CI system that can be run on a personal laptop or internal server and that is
 available hosted in the cloud as a service from a variety of sources.
-\emph{Travis CI} (\url{https://travis-ci.org}) is a purely hosted CI system
+\emph{Travis CI}\footnote{\url{https://travis-ci.org}} is a purely hosted CI system
 that, while not as configurable for fine-grained statistics as Jenkins,
 requires minimal setup, is free for open-source projects, and is tightly
 integrated with the version control hosting service GitHub.
@@ -928,7 +889,7 @@ practice.
 A number of tools exist for the generation of documentation, from the
 well-known \LaTeX{} to systems focused on the generation of source-based
 documentation such as Doxygen\footnote{\url{http://doxygen.org}} and newer ones
-that are from the start designed for a combination of narrative and automatic
+designed for a combination of narrative and automatic
 documentation, like Sphinx\footnote{\url{http://sphinx-doc.org}}.  There are
 other such systems, but Doxygen and Sphinx are very widely used in the software
 world, actively developed and with rich toolkits that support very complex
@@ -1421,8 +1382,8 @@ an end-to-end environment for the creation of reproducible research.
 The real-world possibilities this offers were demonstrated during a
 collaboration in 2012 between the IPython team, a microbiology team led by Rob
 Knight from the University of Colorado and Greg Caporaso from the University of
-Northern Arizona, and Justin Riley from MIT who created the StarCluster system
-\footnote{\url{http://star.mit.edu/cluster/}} for deployment and control of
+Northern Arizona, and Justin Riley from MIT who created the StarCluster system\footnote{\url{http://star.mit.edu/cluster/}}
+for deployment and control of
 parallel resources on Amazon's EC2 cloud platform.  As part of an NIH-funded
 workshop to explore the future of genomics data analysis in the cloud, this
 combined team collaborated on creating a fully parallelized analysis comparing
