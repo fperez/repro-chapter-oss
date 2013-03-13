@@ -650,27 +650,21 @@ than debugging.} Beware though, as E. W. Dijkstra famously observed, ``Program
 testing can be used to show the presence of bugs, but never to show their
 absence!'' \cite{dahl1972structured}
 
-\fix{too conversational}
-Testing must be performed on multiple levels. If your program takes input
-either from a user or file, then it is important that the code checks that the
-input is exactly what the program expects. You will also want to write
-\emph{unit tests} to ensure that unitary code elements like functions, classes,
-and class methods behave correctly. And finally, you will want to write
-\emph{regression tests} to make sure you do not break existing functionality.
-For instance, you could rerun a previous analysis to make sure that the program
-reproduces your previous results.
-
-Testing should be done as early as possible in the development process.
+Testing should be performed on multiple levels and begun as early as possible
+in the development process.  For program that accept input either from a user
+or file, it is important that the code checks that the input is exactly what
+the program expects. Test that ensure individual code elements like functions,
+classes, and class methods behave correctly are called \emph{unit tests}. 
 Writing unit tests early in the process of implementing new functionality
-forces you to think about what you want a piece of code to do, rather than how
-it does it. This practice helps improves code quality by forcing you to focus
+helps you think about what you want a piece of code to do, rather than just how
+it does it. This practice improves code quality by focusing your attention
 on use cases rather than getting lost in implementation details. By thinking
 about the test at the outset, you can avoid finding that the code you just
-wrote is a huge untestable mess. It can also improve documentation because an
+wrote is a huge untestable mess. It also improves documentation because an
 example (i.e., the test case) is often better than an explanation. And if you
 regularly run the test, you will quickly know when your code no longer works
 for the example (something you may never notice in the case of explanatory
-text). Finally, you will have more robust code as you will more quickly
+text). Finally, unit testing leads to more robust code as you will more quickly
 isolate bugs, which makes them easier to fix \cite{oram2010making}.
 
 Testing is mainly a language-specific pursuit (as it must be implemented in the
@@ -1177,8 +1171,6 @@ to understand how these ideas and tools work in concert to produce an
 environment of robust, reproducible results.  Once we adopt such a mindset, it
 is always possible to adapt to the specifics of any given project and apply
 only what is relevant.
-
-\fix{how long? Norvig's programming in 10 years, compare to learning math}
 
 \section{\label{sec:communication}Communication}
 
