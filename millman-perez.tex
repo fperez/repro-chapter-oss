@@ -136,7 +136,7 @@ the traditional approach of literate programming (§~\ref{sec:communication}).
 
 Consider a researcher using Matlab for prototyping a new analysis method,
 developing high-performance code in C, post-processing by twiddling controls in
-a Graphical User Interface (GUI), importing data back into Matlab for
+a graphical user interface, importing data back into Matlab for
 generating plots, polishing the resulting plots by hand in Adobe Illustrator,
 and finally pasting the plots into a publication manuscript or PowerPoint
 presentation. What if months later they realize there is a problem with the
@@ -500,7 +500,7 @@ include using \emph{ad hoc} naming schemes (e.g., \texttt{file.txt.bak},
 the application specific functionality such as Microsoft Word's ``Track
 Changes'' feature.  While these approaches are partial solutions to the
 problem, they are also cumbersome, prone to failure, or limited to a specific
-applications.  More importantly, they are unsustainable beyond very simple
+applications.  More importantly, they are unsustainable beyond simple
 scenarios with only one or two files and do not scale to any kind of sensible
 collaboration workflow.
 
@@ -660,8 +660,8 @@ Testing is mainly a language-specific pursuit (as it must be implemented in the
 programming language of a given project to be most effective).  The authors are
 most familiar with the Python-based world, and \cite{ctb-nose:2006} is a good
 hands-on starting point for the tool most widely used in scientific Python
-projects, namely the Nose
-framework.\footnote{\url{http://nose.readthedocs.org}}
+projects, namely the nose\footnote{\url{http://nose.readthedocs.org}} testing
+framework.
 
 
 \subsection{\label{subsec:readability}Readability}
@@ -724,8 +724,8 @@ In 2007, NumPy lacked good reference information for the various functions,
 classes, and modules it provided. Users and developers had access to the source
 code, a nearly 400 page ``Guide to NumPy'', and an active mailing list. Yet, it
 was clear that this level of documentation was not enough. To address this, the
-community began a yearlong effort to develop a documentation string
-standard.\footnote{\url{http://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt}}
+community began a yearlong effort to develop a \emph{documentation string
+standard}.\footnote{\url{http://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt}}
 In Python, a documentation string (or docstring) is any string in the first
 line in an object's (e.g., function, class, etc.) definition. Since docstrings
 are embedded in the source code, they are readily available to anyone directly
@@ -733,7 +733,7 @@ viewing the source. When the code is executed this string is associated with
 the object and can be programmatically accessed and used by introspection tools
 such as IPython.  Docstrings can also be accessed for autogenerating
 documentation.  Similar functionality exists in other programming languages
-such as R. And even in languages that don't include this functionality, it is
+such as R. Even in languages that don't include this functionality, it is
 common practice to include comments at the beginning of object definitions that
 are used similarly.
 
@@ -755,9 +755,9 @@ promote more deliberate and rigorous coding practices. And when reviewing code
 already written, having these details recorded aids in understanding whether
 the code is performing as expected.
 
-\subsection{Infrastructure}
+\subsection{Infrastructure}\label{subsec:infrastructure}
 
-For very small projects, managing everything by hand may be straightforward.
+For small projects, managing everything by hand may be straightforward.
 But as your research project (code, data, and text) evolves, the burden of
 running your tests, building your project, and generating reports will become
 overwhelming. Eventually you will need tools and procedures in place to take
@@ -797,7 +797,7 @@ at some point.
 
 There are many services online that host repositories from Git and other
 version control systems; in recent years
-GitHub\footnote{\url{http://github.com}} has gained very wide adoption among
+GitHub\footnote{\url{http://github.com}} has gained wide adoption among
 the community of scientists who write open source software in Python and R.  As
 we discuss in §~\ref{subsec:code_review}, these systems truly shine once you
 use them to \emph{collaborate} with others, since collaboration hinges on the
@@ -820,12 +820,12 @@ of metrics on the performance evolution of a codebase.
 These systems are called \emph{continuous} because they are meant to be used
 all the time: as the codebase evolves (typically when changes are committed to
 an official version control repository), the system fires automatically and
-collects its data.  Therefore, these systems can also fulfill a very important
+collects its data.  Therefore, these systems can also fulfill an important
 role: over time they accumulate a \emph{historical retrospective} of a
 project's evolution.  And this is where the importance of collecting detailed
 metrics is realized: a CI system configured to do a fairly detailed analysis of
 a project when it runs becomes an invaluable tool to analyze what is happening
-over time.  Is performance degrading in subtle ways that are not very evident
+over time.  Is performance degrading in subtle ways that are not evident
 from day to day? Is the fraction of code that is tested (known as the
 \emph{test coverage}) going down over time, indicating that new contributions
 are not being tested as thoroughly as the older code?  Questions like these are
@@ -862,8 +862,8 @@ well-known \LaTeX{} to systems focused on the generation of source-based
 documentation such as Doxygen\footnote{\url{http://doxygen.org}} and newer ones
 designed for a combination of narrative and automatic documentation, like
 Sphinx.\footnote{\url{http://sphinx-doc.org}}  There are other such systems,
-but Doxygen and Sphinx are very widely used in the software world, actively
-developed and with rich toolkits that support very complex documentation tasks.
+but Doxygen and Sphinx are widely used in the software world, actively
+developed and with rich toolkits that support complex documentation tasks.
 
 Before discussing these tools, it is important to note that in recent years,
 new formats for \emph{authoring} documentation have emerged, in particular
@@ -873,7 +873,7 @@ Markdown.\footnote{\url{http://daringfireball.net/projects/markdown/syntax}}
 These formats have slightly different philosophies, but they both aim at being
 more friendly to manual authoring and reading than \LaTeX{}, while supporting
 more convenient integration with HTML output.  They both share the basic
-philosophy of looking like plaintext with very simple visual markup for
+philosophy of looking like plaintext with simple visual markup for
 commonly used tasks, for example marking emphasis and boldface with asterisks
 (e.g., \texttt{*italics*} $\rightarrow$ \emph{italics} and
 \texttt{**boldface**} $\rightarrow$ \textbf{boldface}).  Markdown is aimed at
@@ -887,7 +887,7 @@ Proceedings\footnote{\url{http://github.com/scipy/scipy_proceedings}} are
 written in reST and the PDF version is generated by a custom \LaTeX{}
 translator written in Python.
 
-So while Markdown is simple and very easy for the production of simple HTML, it
+So while Markdown is simple and easy for the production of simple HTML, it
 is not well suited to the generation of complex multipart documents with rich
 internal cross-referencing, bibliographic support, etc.  Both Markdown and reST
 support \LaTeX{} for mathematical expressions, and with the right toolchain for
@@ -978,12 +978,12 @@ be someone else's or yours from a different computer), you can start working on
 that copy and building new history even if you are disconnected from the
 original system, such as when working on a plane or train without network
 access.  If at a later stage you decide to merge your new history with the
-original repository, the merge capabilities in all DVCS make this very
+original repository, the merge capabilities in all DVCS make this
 straightforward.
 
 This model of cloning an existing repository, building new history in isolation
 and then merging it back into a common history, is the basis for how these
-systems enable a very fluid workflow for collaboration.  When the time comes for
+systems enable a fluid workflow for collaboration.  When the time comes for
 a merge operation, DVCS can communicate the necessary changes even
 via email attachments, but the simplest way to do so is to have a special
 repository\footnote{We note that this central repository does not change the
@@ -1004,7 +1004,7 @@ to a central node where a shared copy exists that is used for synchronization.
 
 In recent years, a number of web services have appeared that play the role of
 this central node; the most popular of them by far is
-GitHub\footnote{\url{http://github.com}}, but others such as
+GitHub,\footnote{\url{http://github.com}} but others such as
 BitBucket\footnote{\url{http://bitbucket.org}} and
 Gitorious\footnote{\url{http://gitorious.org}} play similar roles.  GitHub has
 had a tremendous impact in the open source community, reaching in a few years
@@ -1049,12 +1049,12 @@ all proposed changes to a project.  The only special role that the official
 project authors have is the ability to approve the final merging of new
 changes, but otherwise everyone participates on an equal footing in terms of
 access to tools.  This highly symmetrical structure proves to be extremely
-beneficial in encouraging a very meritocratic process of contribution and
-review, where there are very few points of special authority and where the
+beneficial in encouraging a meritocratic process of contribution and
+review, where there are few points of special authority and where the
 discussions can remain focused around the contribution that initiated the pull
 request.  Paraphrasing how some of the GitHub employees describe the process in
 public presentations: ``a pull request is a conversation that starts with
-code''.
+code.''
 
 From a scientific research perspective, we should consider these ideas in a
 broader context that goes beyond code: while peer review is one of the pillars
@@ -1146,13 +1146,13 @@ what we want a computer to do.
 {\textit{Literate programming (1984)}\\ \textsc{Donald Knuth} }
 
 Whether engaging colleagues in data analysis, educating students about
-numerical algorithms, or publishing computational results scientist need to
+numerical algorithms, or publishing computational results, scientist need to
 ultimately convey their computational work to others---not just the artifacts
 of that work, but the specific details of how those artifacts arose.  We begin
 with a brief description of some existing tools for literate programming as a
 backdrop to present a more recent approach we refer to as literate computing.
 Again, our view is shaped by the desire to tackle the life cycle of
-computational research described in §~\ref{sec:research} in an integrated way.
+computational research described in §~\ref{subsec:lifecycle} in an integrated way.
 From this perspective, we argue that the literate computing approach is a
 better fit to the needs of reproducibility in computational research than
 traditional literate programming tools, and will present the IPython notebook
@@ -1200,10 +1200,11 @@ adopted when the desired final document is intend primarily for human
 consumption.  Few, if any, large software libraries are written this way.  In
 fact, the most prevalent use of literate programming has been among scientists
 to communicate computational ideas and results to one another.  These ideas
-have also impacted open source software projects where tools have been
+have also influenced open source software projects where tools have been
 developed to automatically generate project documentation based on source files
-or in creating \emph{live documentation} with embedded code run during document
-generation (§~\ref{subsec:readability}).
+and to create \emph{live documentation} containing the output from embedded
+code run during document generation (see §~\ref{subsec:infrastructure}).
+
 
 \subsection{Literate computing}
 
@@ -1328,28 +1329,28 @@ an end-to-end environment for the creation of reproducible research.
 The real-world possibilities this offers were demonstrated during a
 collaboration in 2012 between the IPython team, a microbiology team led by Rob
 Knight from the University of Colorado and Greg Caporaso from the University of
-Northern Arizona, and Justin Riley from MIT who created the StarCluster
-system\footnote{\url{http://star.mit.edu/cluster}} for deployment and control
-of parallel resources on Amazon's EC2 cloud platform.  As part of an NIH-funded
-workshop to explore the future of genomics data analysis in the cloud, this
-combined team collaborated on creating a fully parallelized analysis comparing
-the predictive behavior of different sizes and locations of gene sequence reads
-when reconstructing phylogenetic trees.  The microbiologists had developed a
-serial prototype of this idea using their Qiime libraries
-\cite{caporaso2010qiime}, but a large-scale analysis with a full dataset would
-require roughly a month of CPU time on a single workstation.  By locating the
-IPython Notebook server on Amazon cloud instances, the entire team was able to
-log into a single instance and by editing the code directly in the cloud, in a
-single day turn this prototype into a set of production notebooks that would
-execute the analysis in parallel using multiple Amazon servers.  Once the
-parallel code was tested, it became evident that there was not only an interesting
-example of using cloud technologies for rapid development of research ideas but
-also a biologically relevant finding; within a week the team had completed a
-more extensive run using 24 hours of execution on 32 nodes and submitted a
-manuscript for publication \cite{RWM+12}.  This paper is now accompanied by all
-of the IPython notebooks that enable any reader to fully reproduce our
-analysis, change parameters and question our assumptions, without having to
-re-implement anything or be hampered by lack of access to the code
+Northern Arizona, and Justin Riley from MIT who created the
+StarCluster\footnote{\url{http://star.mit.edu/cluster}} system for deployment
+and control of parallel resources on Amazon's EC2 cloud platform.  As part of
+an NIH-funded workshop to explore the future of genomics data analysis in the
+cloud, this combined team collaborated on creating a fully parallelized
+analysis comparing the predictive behavior of different sizes and locations of
+gene sequence reads when reconstructing phylogenetic trees.  The
+microbiologists had developed a serial prototype of this idea using their Qiime
+libraries \cite{caporaso2010qiime}, but a large-scale analysis with a full
+dataset would require roughly a month of CPU time on a single workstation.  By
+locating the IPython Notebook server on Amazon cloud instances, the entire team
+was able to log into a single instance and by editing the code directly in the
+cloud, in a single day turn this prototype into a set of production notebooks
+that would execute the analysis in parallel using multiple Amazon servers.
+Once the parallel code was tested, it became evident that there was not only an
+interesting example of using cloud technologies for rapid development of
+research ideas but also a biologically relevant finding; within a week the team
+had completed a more extensive run using 24 hours of execution on 32 nodes and
+submitted a manuscript for publication \cite{RWM+12}.  This paper is now
+accompanied by all of the IPython notebooks that enable any reader to fully
+reproduce our analysis, change parameters and question our assumptions, without
+having to re-implement anything or be hampered by lack of access to the code
 and data.  We have made available not only the final notebooks, but also the
 Amazon Virtual Machine Images (data files that represent a virtual computer on
 Amazon's cloud platform), so that the entire analysis can literally be
