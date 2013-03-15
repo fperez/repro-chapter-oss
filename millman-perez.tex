@@ -130,7 +130,7 @@ the daily conduct of computational work. We next discuss tools and practices
 developed by open source communities to enable and streamline collaboration
 (§~\ref{sec:collaboration}). Finally, we present an approach to developing and
 communicating computational work that we call literate computing in contrast to
-the more mature approach of literate programming (§~\ref{sec:communication}).
+the traditional approach of literate programming (§~\ref{sec:communication}).
 
 \section{\label{sec:research}Computational research}
 
@@ -199,8 +199,7 @@ the full analysis.  While not every quantity can be studied in this manner and
 there are deep research questions embedded in this problem, we should not
 consider this to be a paralyzing impediment to the quest for better
 computational reproducibility.  Fortunately, the vast majority of research is
-conducted in smaller/simpler environments where full replication is feasible,
-and even partial progress on these questions is of value.
+conducted in smaller, simpler environments where full replication is feasible.
 
 \subsection{Computational research life cycle}
 
@@ -211,12 +210,12 @@ life cycle can be broken down into the following phases:
 
 \begin{itemize}
 \item \textbf{Individual exploration:} a single investigator tests an idea,
-  algorithm or question, likely with a small-scale test data set or simulation.
+  algorithm, or question, likely with a small-scale test data set or simulation.
 \item \textbf{Collaboration:} if the initial exploration appears promising,
   more often than not some kind of collaborative effort ensues to bring
   together complementary expertise from colleagues.
 \item \textbf{Production-scale execution:} large data sets and complex
-  simulations often require the use of clusters, supercomputers or cloud
+  simulations often require the use of clusters, supercomputers, or cloud
   resources in parallel.
 \item \textbf{Publication:} whether as a paper or an internal report for
   discussion with colleagues, results need to be presented to others in a
@@ -253,13 +252,13 @@ production systems.
 
 For \textbf{collaboration}, researchers tend to use a mix of email, version
 control systems and shared network folders (Dropbox, etc.).  Version control
-systems (Git, SVN, CVS, etc.) are critically important in making research
+systems (see §~\ref{subsec:vc}) are critically important in making research
 collaborative and reproducible. They allow groups to work collaboratively on
 documents and track how they evolve over time. Ideally, all aspects of
 computational research would be hosted on publicly available version control
-repositories, such GitHub or Google Code. Unfortunately, an all-too common
-approach is still for researchers to email documents to each other with
-\emph{ad hoc} naming conventions that effectively provide a poor man's version
+repositories, such GitHub or Google Code. Unfortunately, the common
+approach is for researchers to email documents to each other with
+\emph{ad hoc} naming conventions that provide a poor man's version
 control (and are the source of endless confusion and frequent mistakes). This
 form of collaboration makes it nearly impossible to track the development of a
 large project and establish reproducible and testable workflows.  While a
@@ -269,27 +268,26 @@ who has participated in the madness of a flurry of email attachments with
 oddly-named files such as {\tt paper-final-v2-REALLY-FINAL-john-ACT9.doc}.
 
 For \textbf{production-scale execution}, researchers typically turn away from
-the convenience of interactive computing environments to compiled code
-(C/C++/Fortran) and parallel computing libraries (MPI, Hadoop), as most
-interactive systems do not provide the performance necessary for large-scale
-work and have limited support for distributed and parallel computing.  These
-tools are specialized enough that their mastery requires a substantial
-investment of time. We emphasize, that before production-scale computations
-begin, the researchers already have a working prototype in an interactive
-computing environment. Therefore, turning to new parallel tools means starting
-over and maintaining at least two versions of the code moving forward.
-Furthermore, data produced by the compiled version is often imported back into
-the interactive environment for visualization and analysis. The resulting
-back-and-forth, complex workflow is nearly impossible to capture and put into
-version control systems, again making the computational research difficult to
-reproduce.  Obviously the alternative, taken by many, is simply to run the slow
-serial codes for a long time and wait for the results, while working on
-something else.  This is hardly a solution to our problem, as runtimes in the
-weeks or months become in practice single-shot efforts that no one will
-replicate.
+the convenience of interactive computing environments to compiled code (C, C++,
+Fortran) and parallel computing libraries (MPI, Hadoop), as most interactive
+systems do not provide the performance necessary for large-scale work and have
+limited support for distributed and parallel computing.  These tools are
+specialized enough that their mastery requires a substantial investment of
+time. We emphasize, that before production-scale computations begin, the
+researchers already have a working prototype in an interactive computing
+environment. Therefore, turning to new parallel tools means starting over and
+maintaining at least two versions of the code moving forward.  Furthermore,
+data produced by the compiled version is often imported back into the
+interactive environment for visualization and analysis. The resulting
+back-and-forth workflow is nearly impossible to capture and put into version
+control systems, making the computational research difficult to reproduce.
+Obviously the alternative, taken by many, is simply to run the slow serial code
+for as long as it takes.  This is hardly a solution to the reproducibility
+problem, as runtimes in the weeks or months become in practice single-shot
+efforts that no one will replicate.
 
 For \textbf{publications} and \textbf{education}, researchers use tools such as
-\LaTeX{}, Google Docs, or Microsoft Word/PowerPoint.  The most important attribute
+\LaTeX{}, Google Docs, or Microsoft Word and PowerPoint.  The most important attribute
 of these tools in this context is that, \LaTeX{} excepted, they integrate
 poorly with version control systems and are ill-suited for workflow automation.
 Digital artifacts (code, data, and visualizations) are often manually pasted
@@ -350,8 +348,8 @@ processes described above, we promote the development and adoption of a robust,
 open source ecosystem that makes reproducible research a central aim.
 
 To illustrate our point, we briefly describe the scientific Python ecosystem
-\cite{oliphant2007python,millman2011python,Perez2011} and introduce few
-specific projects, which serve as examples throughout the chapter.  While
+\cite{oliphant2007python,millman2011python,Perez2011} and introduce a few
+core projects, which serve as examples throughout the chapter.  While
 strong proponents of Python for scientific computing, we understand Python is
 not the only choice for scientific computing or reproducible research.  Rather
 we consider the scientific Python ecosystem as a case study for the type of
@@ -386,20 +384,19 @@ matplotlib.\footnote{\url{http://matplotlib.org}}  NumPy provides a high-level
 multidimensional array object and basic operations to manipulate them. SciPy is
 a collection of common numerical operations used in scientific computing.
 Matplotlib \cite{hunter2007matplotlib, hunter2012matplotlib} is the standard 2D
-plotting library used in the community. In addition to these tools, there are
-even more specialized packages to provide advanced support and algorithms for
-machine learning, image processing, graph theory, symbolic mathematics, etc. On
-top of these general scientific libraries, there are even more domain specific
-projects developed by those scientific communities. For instance, we are both
-members of the Neuroimaging in Python \cite{MIL-BRE:2007} community in addition
-to participating in the more general parts of the scientific Python software
+plotting library. In addition to these tools, there are even more specialized
+packages to provide advanced support and algorithms for machine learning, image
+processing, graph theory, symbolic mathematics, etc. On top of these general
+scientific libraries, there are even more domain specific projects developed by
+those scientific communities. For instance, we are both members of the
+Neuroimaging in Python \cite{MIL-BRE:2007} community in addition to
+participating in the more general parts of the scientific Python software
 stack. The ability to participate and contribute at multiple levels of the tool
 chain is possible because of the adoption of common tools, standards, and
-procedures---many of which we discuss in this chapter---by the various
-communities involved.
+procedures---many of which we discuss in this chapter.
 
 In addition to this stack of scientific software packages, we briefly
-introduce IPython\footnote{\url{http://ipython.org}}, a system for interactive
+introduce IPython,\footnote{\url{http://ipython.org}} a system for interactive
 and parallel computing that has become the \emph{de facto} standard environment
 for scientific computing and data analysis in the Python community.  It was
 created by one of us (FP) in 2001 as an interactive command-line shell for
@@ -416,10 +413,10 @@ more important is the benefit that comes with open source community-driven
 development practices.  In community-developed projects, the distinction
 between users and developers is more fluid than it is in proprietary software
 projects where this distinction is not just expected, but often rigorously
-enforced by legal mechanisms. This isn't to say that everyone becomes a ``core
-developer.'' There are still differing levels of contribution, which includes
-reporting issues, suggesting new functionality, contributing enhancements,
-discussing new use cases, helping new users, and much more.
+enforced by legal mechanisms. This does not mean that everyone must become a
+\emph{core developer}. There are still differing levels of contribution, which
+includes reporting issues, suggesting functionality, contributing
+enhancements, discussing use cases, answering questions, and much more.
 
 Communities of practice must drive the development of our scientific software
 \cite{turk2013scale}. A participatory community of active researchers using and
@@ -427,16 +424,17 @@ contributing to the development of the code we depend on for our scientific
 output is necessary for robust software ecosystems where we can share and
 verify our work. As this work becomes more reliant on computational tools and
 techniques the questions we can ask will be constrained by what our software
-can do and how easy it is to extend. Hence moving the field forward requires
-scientists to become computationally literate, part of which includes embracing
-the tools and practices widely adopted by the open source community.
+can do and how easy it is to extend. Hence moving a field forward will
+increasingly require scientists to be computationally literate, part of
+which includes embracing the tools and practices widely adopted by the open
+source community.
 
 There are real concerns that arise when attempting to transplant the practices
 of open source development directly to computational research. The open source
 development model is one where, in practice, the copyright and authorship of
 any large collaborative project is spread among many authors, possibly
-thousands.  While the source control tools in use do allow for a relatively
-precise provenance analysis to be performed if desired, this is rarely done and
+thousands.  While the source control tools in use allow for a
+precise provenance analysis to be performed, this is rarely done and
 its success is contingent on the community having followed certain steps
 rigorously to ensure that attribution was correctly recorded during
 development.
@@ -449,16 +447,16 @@ whatever policies it deems necessary; often contributions are made by
 volunteers for whom acknowledgment in the project's credits is sufficient
 recognition.
 
-In the academic world, the authorship of scholarly articles and conference
-proceedings is currently the main driver of professional advancement and
-reward. In this system, the pecking order of authorship matters enormously
-(with the many unpleasant consequences familiar to all of us), and so does the
-total number of authors in a publication. While in certain communities papers
-with thousands of authors do exist (experimental high-energy physics being the
-classic example), most scientists need the prominent visibility they can
-achieve in a short author list. The dilution of authorship resulting from a
-largely open collaborative development model is an important issue that must be
-addressed.
+In the academic world, the authorship of scholarly articles in scientific
+journals and conference proceedings is currently the main driver of
+professional advancement and reward. In this system, the order of authorship
+matters enormously (with the many unpleasant consequences familiar to all of
+us), and so does the total number of authors in a publication. While in certain
+communities papers with thousands of authors do exist (experimental high-energy
+physics being the classic example), most scientists need the prominent
+visibility they can achieve in a short author list. The dilution of authorship
+resulting from a largely open collaborative development model is an important
+issue that must be addressed.
 
 Furthermore, the notion of a fully open development model typical of open
 source projects is at odds with another aspect of the scientific publication
@@ -476,35 +474,35 @@ as well as extensive interaction and discussion with a diverse group of
 scientists and engineers.  Whole books have been dedicated to best practices in
 software development with highly specialized tools and habits for individual
 programming languages and methodologies.  In this short section, we highlight
-the practices and tools essential to any computational work. For more a more
-detailed discussion, we highly recommend the recent arXiv preprint titled
-``Best Practices for Scientific Computing'' \cite{2012arXiv1210.0530A}.
+the practices and tools essential to any computational work. For a more
+detailed discussion, we recommend
+\cite{kernighan1999practice,HT00,2012arXiv1210.0530A}.
 
 We begin by discussing practices and tools that should be applied to even
 exploratory, individual research.  These practices are so essential to
 efficient and productive use of computational resources that we routinely use
-them whenever we use a computer. In the following section, we discuss how these
+them whenever we use a computer. In §~\ref{sec:collaboration}, we discuss how these
 practices and tools extend to collaborative work. 
 
-\subsection{Version control}
+\subsection{Version control}\label{subsec:vc}
 
-When collecting data, running analyses, or writing papers, you will
-inevitably need to keep track of the various versions of your work: data is
-augmented and curated; code is adapted and improved; and writing is revised and
-expanded.  While simply keeping the most recent version of your work is
-possible, in practice, this is seldom sufficient.  There are tentative new
-directions, detours, and dead ends.
+When collecting data, running analyses, or writing papers, you inevitably need
+to keep track of the various versions of your work: data is augmented and
+curated; code is adapted and improved; and writing is revised and expanded.
+While only keeping the most recent version of your work is possible,
+this is seldom sufficient.  There are tentative new directions,
+detours, and dead ends.
 
-We've witnessed numerous researchers attempting to manage different versions of
-their work using manual and laborious kludges. The most common patterns include
-using \emph{ad hoc} naming schemes (e.g., \texttt{file.txt.bak},
+We have witnessed numerous researchers attempting to manage different versions
+of their work using manual and laborious kludges. The most common patterns
+include using \emph{ad hoc} naming schemes (e.g., \texttt{file.txt.bak},
 \texttt{file.txt.1st}, etc.), emailing different versions to yourself, or using
-the specialized functionality built into the tool you happen to use (e.g.,
-Microsoft Word's ``Track Changes'' functionality).  While these approaches are
-partial solutions to the problem, they are also cumbersome and prone to
-failure.  More importantly, they are unsustainable beyond very
-simple scenarios with only one or two files and do not scale to any kind of
-sensible collaboration workflow.
+the application specific functionality such as Microsoft Word's ``Track
+Changes'' feature.  While these approaches are partial solutions to the
+problem, they are also cumbersome, prone to failure, or limited to a specific
+applications.  More importantly, they are unsustainable beyond very simple
+scenarios with only one or two files and do not scale to any kind of sensible
+collaboration workflow.
 
 Because tracking and managing how work evolves over time is so fundamental to
 the workflow of software development, programmers have created specialized
@@ -520,26 +518,28 @@ are commands to add and remove files to a repository.  To track changes to a
 file, it must be \emph{committed} to the repository, ideally with a meaningful
 \emph{commit message}.  The repository and commit mechanism provide a complete
 historical log of the project from inception to current state, including every
-change made along with timestamps, author, comments and other metadata for each
+change made along with timestamps, author, comments, and other metadata for each
 modification.
 
-Commonly changes may follow a simple linear progression of commits.  However it
-is reasonable to have a project evolve so that it does not follow a straight
-route from beginning to end. For example, given the exploratory nature of
-research, several approaches may have been explored. In such cases, commits
-will resemble a tree with several \emph{branches} diverging from a common base
-or trunk. When exploring these alternative approaches on different branches,
-several branches may eventually converge and may need to be \emph{merged} back
-together.  If the changes in each of these branches do not overlap with one
-another, the VCS can merge them together in a completely automated fashion.
-When you have \emph{conflicting} changes in different branches (e.g., edits to
-the same line of code), then the VCS require manual intervention where you have
-to choose which of the conflicting changes should ultimately prevail.  But in
-all cases, a VCS is the only reasonable solution for managing the evolution of
+Code changes may follow a linear progression of commits.  However it is more
+common for projects to include alternate development paths.\footnote{This
+tendency becomes more pronounced in collaborative projects (see
+§~\ref{sec:collaboration}).} Given the exploratory nature of research, several
+approaches to a problem are often pursued simultaneously. In such cases,
+commits will resemble a tree with several \emph{branches} diverging from a
+common base or trunk. When exploring these alternative approaches on different
+branches, several branches may eventually converge and need to be \emph{merged}
+back together.  If the changes in each of these branches do not overlap with
+one another, the VCS can merge them together in a completely automated fashion.
+When there are \emph{conflicting} changes in different branches (e.g., edits to
+the same line of code), then manual intervention is required.  But in all
+cases, a VCS is the only reasonable solution for managing the evolution of
 multiple branches of parallel development in a set of files (whether written
 documents, computer code, or data).
 
-In the design of more modern VCS such as Mercurial and Git, an important
+In the design of more modern VCS such as Git,\footnote{From this point on, we
+will mainly focus on Git, which is our preferred VCS. It is also the one that
+is mostly widely used in the scientific Python community.} an important
 consideration is woven into the core of the system: built-in \emph{data
   integrity verification} via cryptographically robust fingerprinting of all
 content.  The basic idea is that at every commit, the VCS computes a
@@ -550,7 +550,7 @@ on.\footnote{More precisely, a hash function is evaluated on the content of the
   systems employ the SHA1 hash function, but other hashes could be equally used
   if necessary.}  This makes it possible to
 establish the integrity of the entire history of a repository at any point, by
-computingthese fingerprints and comparing them against the stored one.  By the
+computing these fingerprints and comparing them against the stored one.  By the
 nature of hash functions, even small changes will result in new hashes.
 This key design idea is used by VCS for all kinds of internal
 operations; but it also means that when a scientist gets a copy of a
@@ -562,27 +562,27 @@ reproducible workflow, and one of the reasons why we emphasize so much the
 pervasive use of modern version control systems as the foundation of a
 reproducible research environment.
 
-It is important to note that VCS were developed originally for the
-management of human-generated content such as computer source code or text
-documents, not for the handling of large binary data that is common in science.
-By virtue of their design, they tend to be somewhat inefficient if you attempt
-to store all the changes in a project with many frequently changing large
-binary files, which somewhat limits their use for the tracking of all assets
-in a research project.  But new efforts exist to mitigate these limitations,
-such as the git-annex project\footnote{\url{http://git-annex.branchable.com}}
-that uses Git for storing all metadata about large binary assets, along
-with a static (configurable) storage resource external to Git for the assets
-themselves.  This approach makes it possible to smoothly integrate the
-management of binary data within a VCS workflow, without creating an explosion
-in the size of the VCS storage area.
+It is important to note that VCS were developed for the management of
+human-generated content such as computer source code or text documents, not for
+the handling of large binary data that is common in science.  By virtue of
+their design, they tend to be somewhat inefficient if you attempt to store all
+the changes in a project with many frequently changing large binary files,
+which somewhat limits their use for the tracking of all assets in a research
+project.  But new efforts exist to mitigate these limitations, such as the
+git-annex\footnote{\url{http://git-annex.branchable.com}} project, which uses
+Git for storing all metadata about large binary assets, along with a static
+(configurable) storage resource external to Git for the assets themselves.
+This approach makes it possible to smoothly integrate the management of binary
+data within a VCS workflow, without creating an explosion in the size of the
+VCS storage area.
 
-In summary, the use of version control should be seen as a ``background
-technology''; in our case we routinely use it for everything (including the
-writing of this document).  We suggest researchers adopt a practice of
-pervasive version control: research codes, teaching materials, manuscripts and
-data analysis projects should be developed, from the beginning, \emph{always}
-using version control systems that track the actual history of everyone's
-contributions.
+The use of version control should become second nature; we
+routinely use it for everything---including the writing of this
+document.\footnote{\url{http://github.com/fperez/repro-chapter-oss}}  We
+suggest researchers adopt a practice of pervasive version control: research
+codes, teaching materials, manuscripts, and data analysis projects should be
+developed, from the beginning, \emph{always} using version control systems that
+track the actual history of everyone's contributions.
 
 \subsection{Execution automation}
 
@@ -613,9 +613,7 @@ software, or creating the final PDFs for a grant proposal, you should be able
 to do so by typing \texttt{make results} or the equivalent syntax in your
 system of choice.  Once things are automated in this way, it becomes possible
 for others (humans or machines, and even yourself on a new system or months
-down the road) to reliably repeat the process.  This is therefore a cornerstone
-of reproducible practices.
-
+later) to reliably repeat the process.
 
 \subsection{Testing}
 
