@@ -1,13 +1,19 @@
-\documentclass[ChapterTOCs,krantz2]{krantz} % Use krantz2 for 7" x 10" trim size
+\documentclass[11pt,oneside,english]{article}
 
 \usepackage[utf8]{inputenc}
+\usepackage{mathpazo}
 \usepackage{graphicx}
 \usepackage{subfigure}
 \usepackage{epigraph}
+\usepackage{amsthm}
+\usepackage{amssymb}
+
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1.2in,rmargin=1.2in}
+
 %-----------------------------------------------------------------------------
 % Special-purpose color definitions (dark enough to print OK in black and white)
 \usepackage{color}
-\usepackage{amsthm}
 
 % A few colors to replace the defaults for certain link types
 \definecolor{orange}{cmyk}{0,0.4,0.8,0.2}
@@ -18,7 +24,16 @@
 % The hyperref package gives us a pdf with properly built
 % internal navigation ('pdf bookmarks' for the table of contents,
 % internal cross-reference links, web links for URLs, etc.)
-%\usepackage{hyperref}
+\usepackage{hyperref}
+
+\hypersetup{pdftex,  % needed for pdflatex
+  breaklinks=true,  % so long urls are correctly broken across lines
+  colorlinks=true,
+  urlcolor=blue,
+  linkcolor=darkorange,
+  citecolor=darkgreen,
+  }
+
 
 \usepackage{url}
 
@@ -43,7 +58,6 @@
 % For final printing or to simply disable these bright warnings, copy
 % (there's a target macros_off' in the makefile that does this) the file
 % macros_off.tex to macros.tex
-\usepackage{amssymb}
 
 \newcommand{\fix}[1] { \textcolor{red} {
 {\fbox{ {\bf Fix:} \ensuremath{\blacktriangleright }} {\bf #1}
@@ -69,27 +83,32 @@
 %\renewcommand{\jarrod}[1]{}
 %\renewcommand{\mref}[1]{}
 
+\makeatother
+
 \begin{document}
 
-\title{Implementing Reproducible Research}
-\author{Dummy author}
-\chapter*{Dummy chapter needed for the \textbackslash chapterauthor command to work later}
 
-\mainmatter
+\title{Developing open source scientific practice}
 
-\chapterauthor{K. Jarrod Millman}{Division of Biostatistics\\
+
+\author{\textbf{K. Jarrod Millman} \\
+Division of Biostatistics\\
 School of Public Health\\
+University of California, Berkeley
+\\\vspace*{1mm}\\
+\textbf{Fernando Pérez}\\
+Henry H. Wheeler Jr. Brain Imaging Center\\
 University of California, Berkeley}
-\chapterauthor{Fernando Pérez}{Henry H. Wheeler Jr. Brain Imaging Center\\
-Helen Wills Neuroscience Institute\\
-University of California, Berkeley\\
-\\
+
+
+\maketitle
+
+
 \begin{flushright}
-Dedicated to the memory of John~D.~Hunter~III, 1968-2012.
-\end{flushright}}
+\emph{Dedicated to the memory of John~D.~Hunter~III, 1968-2012.}
+\end{flushright} 
 
-\chapter{Developing open source scientific practice}
-
+\tableofcontents
 
 \section{Introduction}\label{intro}
 
@@ -297,7 +316,8 @@ manual updating, something that is error-prone and easy to forget.
 
 From this perspective, we now draw a few lessons:
 
-\begin{enumerate}[(a)]
+\begin{enumerate}
+
 
 \item The common approaches and tools used today introduce discontinuities
   between the different stages of the scientific workflow. Forcing researchers to switch tools

@@ -8,4 +8,4 @@ all:
 
 
 clean:
-	rm -f $(TITLE).{pdf,aux,log,bbl,lof,lot,blg} krantz.log *.toc
+	rm -f $(TITLE).{pdf,aux,log,bbl,lof,lot,blg,out} krantz.log *.toc
