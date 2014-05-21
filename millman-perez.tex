@@ -115,7 +115,7 @@ University of California, Berkeley}
 Computational tools are at the core of modern research. In addition to
 experiment and theory, the notions of simulation and data-intensive discovery
 are often referred to as ``third and fourth pillars'' of science
-\cite{4th-paradigm}.  It is probably more realistic to simply accept that
+\cite{4th-paradigm}.  It is more accurate to simply accept that
 computing is now inextricably woven into the DNA of science, as today, even
 theory and experiment are computational.  Experimental work requires computing
 (whether in data collection, preprocessing, or analysis) and theoretical work
@@ -142,14 +142,15 @@ We argue that these considerations must play a more central role in how
 scientists are trained and conduct their research. Our approach grows out of
 our experience as part of both the research and the open source scientific
 Python communities.  We begin (§~\ref{sec:research}) by outlining our vision
-for the scientific software development in everyday research. In the remaining
+for scientific software development in everyday research. In the remaining
 sections, we provide specific recommendations for computational work.  First,
 we describe the routine practices (§~\ref{sec:practice}) that should be part of
 the daily conduct of computational work. We next discuss tools and practices
 developed by open source communities to enable and streamline collaboration
 (§~\ref{sec:collaboration}). Finally, we present an approach to developing and
-communicating computational work that we call literate computing in contrast to
-the traditional approach of literate programming (§~\ref{sec:communication}).
+communicating computational work that we call \emph{literate computing} in
+contrast to the traditional approach of literate programming
+(§~\ref{sec:communication}).
 
 \section{\label{sec:research}Computational research}
 
@@ -275,29 +276,27 @@ systems (see §~\ref{subsec:vc}) are critically important in making research
 collaborative and reproducible. They allow groups to work collaboratively on
 documents and track how they evolve over time. Ideally, all aspects of
 computational research would be hosted on publicly available version control
-repositories, such GitHub or Google Code. Unfortunately, the common
-approach is for researchers to email documents to each other with
-\emph{ad hoc} naming conventions that provide a poor man's version
-control (and are the source of endless confusion and frequent mistakes). This
-form of collaboration makes it nearly impossible to track the development of a
-large project and establish reproducible and testable workflows.  While a
-small group can make it work, this approach most certainly
-does not scale beyond a few collaborators, as painfully experienced by anyone
-who has participated in the madness of a flurry of email attachments with
-oddly-named files such as {\tt paper-final-v2-REALLY-FINAL-john-ACT9.doc}.
+repositories, such GitHub or Google Code. Unfortunately, the common approach is
+for researchers to email documents to each other with \emph{ad hoc} naming
+conventions that provide poor version control (and are the source of endless
+confusion and frequent mistakes). This form of collaboration makes it nearly
+impossible to track the development of a large project and establish
+reproducible and testable workflows.  While a small group can make it work,
+this approach does not scale beyond a few collaborators, as painfully
+experienced by anyone who has participated in the madness of a flurry of email
+attachments with oddly-named files such as {\tt
+paper-final-v2-REALLY-FINAL-john-OCT9.doc}.
 
 For \textbf{production-scale execution}, researchers typically turn away from
 the convenience of interactive computing environments to compiled code (C, C++,
-Fortran) and parallel computing libraries (MPI, Hadoop), as most interactive
-systems do not provide the performance necessary for large-scale work and have
-limited support for distributed and parallel computing.  These tools are
-specialized enough that their mastery requires a substantial investment of
-time. We emphasize, that before production-scale computations begin, the
-researchers already have a working prototype in an interactive computing
-environment. Therefore, turning to new parallel tools means starting over and
-maintaining at least two versions of the code moving forward.  Furthermore,
-data produced by the compiled version is often imported back into the
-interactive environment for visualization and analysis. The resulting
+Fortran) and libraries for distributed and parallel processing (MPI, Hadoop),
+These tools are specialized enough that their mastery requires a substantial
+investment of time. We emphasize, that before production-scale computations
+begin, the researchers already have a working prototype in an interactive
+computing environment. Therefore, turning to new parallel tools means starting
+over and maintaining at least two versions of the code moving forward.
+Furthermore, data produced by the compiled version is often imported back into
+the interactive environment for visualization and analysis. The resulting
 back-and-forth workflow is nearly impossible to capture and put into version
 control systems, making the computational research difficult to reproduce.
 Obviously the alternative, taken by many, is simply to run the slow serial code
@@ -306,114 +305,108 @@ problem, as runtimes in the weeks or months become in practice single-shot
 efforts that no one will replicate.
 
 For \textbf{publications} and \textbf{education}, researchers use tools such as
-\LaTeX{}, Google Docs, or Microsoft Word and PowerPoint.  The most important attribute
-of these tools in this context is that, \LaTeX{} excepted, they integrate
-poorly with version control systems and are ill-suited for workflow automation.
-Digital artifacts (code, data, and visualizations) are often manually pasted
-into these documents, which easily leads to a divergence between the
-computational outcomes and the publication.  The lack of automated integration requires
-manual updating, something that is error-prone and easy to forget.
+\LaTeX{}, Google Docs, or Microsoft Word and PowerPoint.  The most important
+attribute of these tools in this context is that, \LaTeX{} excepted, they
+integrate poorly with version control systems and are ill-suited for workflow
+automation.  Digital artifacts (code, data, and visualizations) are often
+manually pasted into these documents, which easily leads to a divergence
+between the computational outcomes and the publication.  The lack of automated
+integration requires manual updating, something that is error-prone and easy to
+forget.
 
 From this perspective, we now draw a few lessons:
 
 \begin{enumerate}
 
-
 \item The common approaches and tools used today introduce discontinuities
-  between the different stages of the scientific workflow. Forcing researchers to switch tools
-  at each stage, which in turn makes it difficult to move fluidly back and forth.
-  Driven by the pressure to publish, it is natural to charge
-  \emph{forward}, pressing on to assemble results in pursuit of an accepted
-  manuscript but rarely going back to question assumptions, replicate earlier
-  experiments with updated versions of code or parameter tweaks, etc.  Because
-  reproducing results effectively requires going \emph{back} to the
-  beginning of the pipeline, a workflow that from the onset makes this
-  inherently difficult will likely result in outcomes that not even the
-  original authors can reliably reproduce.
+  between the different stages of the scientific workflow. Forcing researchers
+  to switch tools at each stage, which in turn makes it difficult to move
+  fluidly back and forth.
 
 \item A key element of the problem is the gap that exists between what
   we view as ``final outcomes'' of the scientific effort (papers and
   presentations that contain artifacts such as figures, tables, and other
   outcomes of the computation) and the pipeline that feeds these outcomes.
   Because most workflows involve a manual transfer of information (often with
-  unrecorded manual changes along the way), the chances that these final
+  unrecorded changes along the way), the chances that these final
   outcomes match what the computational pipeline actually produces at any
   given time are low.
 
 \item The problems listed above are \emph{both} technical and social.  While we
   largely focus on the tools aspect in this chapter, it is critical to understand
   that at the end of the day, only when researchers make a conscious decision to
-  adopt improved work habits will we see substantial improvements on this problem.
-  Obviously higher quality tools will make it easier and more appealing to
-  adopt such changes; but other factors---from the
-  inertia of ingrained habits to the pressure applied by the
-  incentive models of modern research---are also at play.
+  adopt better work habits will we see substantial improvements on this problem.
+  Higher quality tools will make it easier and more appealing to adopt such
+  changes; but other factors---from the inertia of ingrained habits to the
+  pressure applied by the incentive models of modern research---are also at play.
+
 \end{enumerate}
-Asking about reproducibility by the time a manuscript is
-ready for submission to a journal is simply too late: this problem must be
-tackled from the start, not as an afterthought tacked-on at publication time.
-We must therefore look for approaches that allow researchers to fluidly move
-back and forth between the above stages and that integrate naturally into their
-everyday practices of research, collaboration, and publishing, so that we can
-simultaneous address the technical and social aspects of this issue.
+
+Asking about reproducibility by the time a manuscript is ready for submission
+to a journal is too late: this problem must be tackled from the start, not as
+an afterthought tacked-on at publication time.  We must therefore look for
+approaches that allow researchers to fluidly move back and forth between the
+above stages and that integrate naturally into their everyday practices of
+research, collaboration, and publishing, so that we can simultaneously address
+the technical and social aspects of this issue.
 
 \subsection{Open source ecosystem}
 
-With the above in mind, our approach to the problem of reproducibility in
-computational research focuses on the need for tools and practices that enable
-researchers to naturally consider the entire cycle of research as a continuum,
-and where ``doing the right thing'' is the easy and natural path rather than an
-awkward and cumbersome one.  Rather than the haphazard patchwork of tools and
-processes described above, we promote the development and adoption of a robust,
-open source ecosystem that makes reproducible research a central aim.
+With the above in mind, our approach focuses on the need for tools and
+practices that enable researchers to naturally consider the entire cycle of
+research as a continuum, and where ``doing the right thing'' is the easy and
+natural path rather than an awkward and cumbersome one.  Rather than the
+haphazard patchwork of tools and processes described above, we promote the
+development and adoption of a robust, open source ecosystem that makes
+reproducible research a central aim.
 
 To illustrate our point, we briefly describe the scientific Python ecosystem
 \cite{oliphant2007python,millman2011python,Perez2011} and introduce a few
 core projects, which serve as examples throughout the chapter.  While
-strong proponents of Python for scientific computing, we understand Python is
+strong proponents of the Python programming language, we understand Python is
 not the only choice for scientific computing or reproducible research.  Rather
 we consider the scientific Python ecosystem as a case study for the type of
 community-developed software stack that we believe necessary for improving the
 reliability and reproducibility of our computational results. 
 
-Initially written for teaching, the Python programming language has a simple,
-expressive, and accessible syntax that emphasizes code readability (see
-§~\ref{subsec:readability}).  Rather than imposing a single programming
-paradigm, it allows one to code at many levels of sophistication, including the
-procedural programming style familiar to many scientists. Python is available
-in an easily installable form for almost every platform and, therefore, ideal
-for a heterogeneous computing environment. It is also powerful enough to manage
-the complexity of large applications, supporting functional programming,
-object-oriented programming, generic programming, and metaprogramming.  Due to
-excellent support for scripting tools written in other languages (including C,
-C++, Fortran, and R), Python is often used as an \emph{integration language} for
-calling routines from a wide array of high-quality scientific libraries.
-Finally, it has an extensive standard library that provides built-in
-functionality for many tasks including database access, Internet protocols,
-data compression, and operating system services.
+The Python language has a simple, expressive, and accessible syntax that
+emphasizes code readability (see §~\ref{subsec:readability}).  Rather than
+imposing a single programming paradigm, it allows one to code at many levels of
+sophistication, including the procedural programming style familiar to many
+scientists. Python is available in an easily installable form for almost every
+platform; and is, therefore, ideal for a heterogeneous computing environment.
+It is also powerful enough to manage the complexity of large applications,
+supporting functional programming, object-oriented programming, generic
+programming, and metaprogramming.  Due to excellent support for scripting tools
+written in other languages (including C, C++, Fortran, and R), Python is often
+used as an \emph{integration language} for calling routines from a wide array
+of high-quality scientific libraries.  Finally, it has an extensive standard
+library that provides built-in functionality for many tasks including database
+access, Internet protocols, data compression, and operating system services.
 
 Importantly, from our perspective, Python is not specifically designed for
-scientific computing.  So it is extremely capable at a diverse set of none
-science-specific tasks. This benefits the scientific community, by providing an
-assortment of useful functionality and features while we focus on extending
-them with the specific features necessary for our research.  While there are
-numerous libraries and extensions for scientific computing in Python, the three
-most widely used are NumPy,\footnote{\url{http://numpy.org}}
+scientific computing.  As a result, it is extremely capable at a diverse set of
+general purpose tasks. This benefits the scientific community, by providing an
+assortment of useful features while we focus on extending them with the
+specific functionality necessary for our research.  While there are numerous
+libraries and extensions for scientific computing in Python, the three most
+widely used are NumPy,\footnote{\url{http://numpy.org}}
 SciPy,\footnote{\url{http://scipy.org}} and
 matplotlib.\footnote{\url{http://matplotlib.org}}  NumPy \cite{van2011numpy}
 provides a high-level multidimensional array object and basic operations to
 manipulate them. SciPy is a collection of common numerical operations used in
 scientific computing.  Matplotlib \cite{hunter2007matplotlib,
-hunter2012matplotlib} is the standard 2D plotting library. In addition to these
-tools, there are even more specialized packages to provide advanced support and
-algorithms for machine learning, image processing, graph theory, symbolic
-mathematics, etc. On top of these general scientific libraries, there are even
-more domain specific projects developed by those scientific communities. For
-instance, we are both members of the Neuroimaging in Python \cite{MIL-BRE:2007}
-community in addition to participating in the more general parts of the
-scientific Python software stack. The ability to participate and contribute at
-multiple levels of the tool chain is possible because of the adoption of common
-tools, standards, and procedures---many of which we discuss in this chapter.
+hunter2012matplotlib} is the standard graphics library in Python with support
+for publication-quality 2- and 3-D plots. In addition to these tools, there are
+even more specialized packages to provide advanced support and algorithms for
+machine learning, image processing, graph theory, symbolic mathematics, etc. On
+top of these general scientific libraries, there are even more domain specific
+projects developed by those scientific communities. For instance, we are both
+members of the Neuroimaging in Python \cite{MIL-BRE:2007} community in addition
+to participating in the more general parts of the scientific Python software
+stack. The ability to participate and contribute at multiple levels of the tool
+chain is possible because of the adoption of common tools, standards, and
+procedures---many of which we discuss in this chapter.
 
 In addition to this stack of scientific software packages, we briefly
 introduce IPython,\footnote{\url{http://ipython.org}} a system for interactive
@@ -517,9 +510,9 @@ We have witnessed numerous researchers attempting to manage different versions
 of their work using manual and laborious kludges. The most common patterns
 include using \emph{ad hoc} naming schemes (e.g., \texttt{file.txt.bak},
 \texttt{file.txt.1st}, etc.), emailing different versions to yourself, or using
-the application specific functionality such as Microsoft Word's ``Track
+application specific functionality such as Microsoft Word's ``Track
 Changes'' feature.  While these approaches are partial solutions to the
-problem, they are also cumbersome, prone to failure, or limited to a specific
+problem, they are also cumbersome, prone to failure, or limited to specific
 applications.  More importantly, they are unsustainable beyond simple
 scenarios with only one or two files and do not scale to any kind of sensible
 collaboration workflow.
@@ -534,12 +527,12 @@ Mercurial.
 While there are notable differences among these tools, they all share some
 basic concepts.  All project files (code, text, figures, etc.) are stored in a
 \emph{repository} (often represented on disk in a directory hierarchy).  There
-are commands to add and remove files to a repository.  To track changes to a
-file, it must be \emph{committed} to the repository, ideally with a meaningful
-\emph{commit message}.  The repository and commit mechanism provide a complete
-historical log of the project from inception to current state, including every
-change made along with timestamps, author, comments, and other metadata for each
-modification.
+are commands to add files to and remove files from a repository.  To track
+changes to a file, it must be \emph{committed} to the repository, ideally with
+a meaningful \emph{commit message}.  The repository and commit mechanism
+provide a complete historical log of the project from inception to current
+state, including every change made along with timestamps, author, comments, and
+other metadata for each modification.
 
 Code changes may follow a linear progression of commits.  However it is more
 common for projects to include alternate development paths.\footnote{This
@@ -559,7 +552,7 @@ documents, computer code, or data).
 
 In the design of more modern VCS such as Git,\footnote{From this point on, we
 will mainly focus on Git, which is our preferred VCS. It is also the one that
-is mostly widely used in the scientific Python community.} an important
+is most widely used in the scientific Python community.} an important
 consideration is woven into the core of the system: built-in \emph{data
   integrity verification} via cryptographically robust fingerprinting of all
 content.  The basic idea is that at every commit, the VCS computes a
@@ -572,7 +565,7 @@ on.\footnote{More precisely, a hash function is evaluated on the content of the
 establish the integrity of the entire history of a repository at any point, by
 computing these fingerprints and comparing them against the stored one.  By the
 nature of hash functions, even small changes will result in new hashes.
-This key design idea is used by VCS for all kinds of internal
+This key design idea is used by Git for all kinds of internal
 operations; but it also means that when a scientist gets a copy of a
 repository, he or she can be confident the content (including every recorded
 change) has not been tampered with in any way.
@@ -707,23 +700,22 @@ documentation by placing an emphasis on clear, well-written code that is easy
 to read and understand.  In mathematics, it is accepted practice to follow
 established naming conventions (e.g., capital letters for sets and lower case
 letter for set elements). It is equally expected that when making a
-mathematical argument, one shouldn't arbitrarily switch from functional to
-relational notation.  Similarly, using consistent and uniform naming
-conventions when programming should be standard practice. Brevity in naming
-should be balanced against explicit and descriptive words. For example, you
-might use the term \texttt{download} rather than \texttt{get} in a function
-call to download a specific dataset from the Internet. Expressions are the next
-block to readability. While mathematical manipulation (e.g., De Morgan's laws)
-can be used to great effect in making your expressions more easily understood,
-it is often important to use the right level of abstraction. Higher-level
-programming languages (e.g., Python and R) provide data structures (such as
-$n$-dimensional vectors or statistical formulas) that enable the code to be
-more readily understood at the level of the mathematical ideas they implement.
-Finally, the overall control flow of your code must be clear and easy to
-follow. Finding the best control flow requires a deep understanding of your
-problem and an in-depth knowledge of programming methodology and the specifics
-of the language you are using.  Like good writing, good coding is achieved
-through deliberate practice.
+mathematical argument, one should not arbitrarily switch notation mid-argument.
+Similarly, using consistent and uniform naming conventions when programming
+should be standard practice. Brevity in naming should be balanced against
+explicit and descriptive words. For example, you might use the term
+\texttt{download} rather than \texttt{get} in a function call to download a
+specific dataset from the Internet. Expressions are the next block to
+readability. While mathematical manipulation (e.g., De Morgan's laws) can be
+used to great effect in making your expressions more easily understood, it is
+often important to use the right level of abstraction. Higher-level programming
+languages (e.g., Python and R) provide data structures (such as $n$-dimensional
+vectors or statistical formulas) that enable the code to be more readily
+understood at the level of the mathematical ideas they implement.  Finally, the
+overall control flow of your code must be clear and easy to follow. Finding the
+best control flow requires a deep understanding of your problem and an in-depth
+knowledge of programming methodology and the specifics of the language you are
+using.  Like good writing, good coding is achieved through deliberate practice.
 
 Inspired by the idea of self-documenting code, some argue that good code does
 not need comments. Indeed, liberally commenting your program to compensate for
@@ -808,11 +800,11 @@ multiple repositories tied to a single project, and it can synchronize and
 merge work between these multiple sources.  Each of these sources is denoted a
 \emph{remote} in Git lingo, and while a remote can be simply another location
 in your hard drive, the most useful kind of remotes are those that are
-physically in other computers.  By synchronizing your local repository with an
+physically on other computers.  By synchronizing your local repository with an
 external remote you simultaneously have an automatic backup of your entire
 project's history.  But more importantly, this external remote is now available
 to synchronize with \emph{other} computers, so you can cleanly and robustly
-sync multiple machines, even if you do independent development on each of them
+synchronize multiple machines, even if you do independent development on each of them
 at some point.
 
 There are many services online that host repositories from Git and other
@@ -824,18 +816,18 @@ use them to \emph{collaborate} with others, since collaboration hinges on the
 ability of multiple parties to synchronize their work.
 
 \blockpar{Continuous integration.} Once your computational code is stored in
-version control repositories, has tests and scripts that automate the
-execution of these tests, then it becomes possible to have a machine do
-this for you, all the time, bugging you only when something goes wrong.  This
-is known as \emph{continuous integration} (CI). CI
-systems are servers that grab the most recent version of a project from version
-control, execute the test suite, and gather statistics of this process.  They
-are typically configured to log and summarize these results, and to only
-produce alerts when something goes wrong (typically by email, but more
-aggressive options such as SMS are possible).  The amount of data collected
-during the test execution can be configured, so it is possible to have setups
-that range from a basic summary of success and failure to a detailed collection
-of metrics on the performance evolution of a codebase.
+version control repositories and has tests and scripts that automate the
+execution of these tests, then it becomes possible to have a machine do this
+for you, all the time, bugging you only when something goes wrong.  This is
+known as \emph{continuous integration} (CI). CI systems are servers that grab
+the most recent version of a project from version control, execute the test
+suite, and gather statistics of this process.  They are typically configured to
+log and summarize these results, and to only produce alerts when something goes
+wrong (typically by email, but more aggressive options such as SMS are
+possible).  The amount of data collected during the test execution can be
+configured, so it is possible to have setups that range from a basic summary of
+success and failure to a detailed collection of metrics on the performance
+evolution of a codebase.
 
 These systems are called \emph{continuous} because they are meant to be used
 all the time: as the codebase evolves (typically when changes are committed to
@@ -903,11 +895,11 @@ HTML.  In contrast, reST is a highly extensible format, where new commands
 (called ``roles'' and ``directives'') can be created and where the user can
 define entire new output pipelines by adding plugins written in Python to the
 processing stream. For example, the SciPy Conference
-Proceedings\footnote{\url{http://github.com/scipy/scipy_proceedings}} are
+Proceedings\footnote{\url{http://github.com/scipy-conference/scipy_proceedings}} are
 written in reST and the PDF version is generated by a custom \LaTeX{}
 translator written in Python.
 
-So while Markdown is simple and easy for the production of simple HTML, it
+So while Markdown is simple and easy for the production of basic HTML, it
 is not well suited to the generation of complex multipart documents with rich
 internal cross-referencing, bibliographic support, etc.  Both Markdown and reST
 support \LaTeX{} for mathematical expressions, and with the right toolchain for
@@ -962,8 +954,8 @@ source world.
 
 Earlier we discussed how version control system (VCS) should be the foundation
 of a reproducible research workflow, even for a single investigator working in
-isolation.  But the true power of these systems comes into its own when
-considering the need to collaborate with others.  Modern systems such as Git
+isolation.  But the true power of these systems comes when
+collaborating with others.  Modern systems such as Git
 and Mercurial were designed from the ground up for large-scale distributed
 collaboration: Git was written by Linus Torvalds, the creator of the Linux
 kernel, to coordinate its development.  The Linux kernel is arguably the
@@ -1003,7 +995,7 @@ straightforward.
 
 This model of cloning an existing repository, building new history in isolation
 and then merging it back into a common history, is the basis for how these
-systems enable a fluid workflow for collaboration.  When the time comes for
+systems enable fluid collaboration.  When the time comes for
 a merge operation, DVCS can communicate the necessary changes even
 via email attachments, but the simplest way to do so is to have a special
 repository\footnote{We note that this central repository does not change the
@@ -1062,7 +1054,7 @@ is credited to Alice from the time she made it while she was working on her
 personal copy.  Furthermore, even closed pull requests remain available on the
 website to inform future discussions, making the entire collaboration process
 an open one.\footnote{\url{http://github.com/ipython/ipython/pull/1732} is an
-example pull request and the entire, recorded review process}
+example pull request and the entire, recorded review process.}
 
 The pull request process allows for a dynamic and open peer review process of
 all proposed changes to a project.  The only special role that the official
@@ -1081,9 +1073,9 @@ broader context that goes beyond code: while peer review is one of the pillars
 of how the scientific community moves forward, in practice modern scientific
 peer review is often an opaque, arbitrary, and limited process.  The open,
 dynamic, and ongoing process of peer review enabled by the GitHub pull request
-system (or the equivalent ones that exist on other similar services) stands in
-sharp contrast to some of our institutional traditions, and our community could
-benefit significantly from adopting these ideas in a in our own review
+system (or the equivalent ones that exist on similar services) stands in sharp
+contrast to some of our institutional traditions, and the scientific community
+could benefit significantly from adopting these ideas in our own review
 practices \cite{10.3389/fncom.2012.00018}.
 
 It is worth noting that by using a DVCS, authors can maintain private branches
@@ -1166,7 +1158,7 @@ what we want a computer to do.
 {\textit{Literate programming (1984)}\\ \textsc{Donald Knuth} }
 
 Whether engaging colleagues in data analysis, educating students about
-numerical algorithms, or publishing computational results, scientist need to
+numerical algorithms, or publishing computational results, scientists need to
 ultimately convey their computational work to others---not just the artifacts
 of that work, but the specific details of how those artifacts arose.  We begin
 with a brief description of some existing tools for literate programming as a
@@ -1187,12 +1179,13 @@ development of a better approach to documenting computer software; he devised a
 process whereby programmers would write literate source files that describe in
 full prose the ideas underlying a given program, interspersed with the code
 fragments implementing the actual computations.  Knuth developed tools that can
-process these input files to produce two different representations: a
-\emph{tangled} code file meant for compilation and execution by a computer, and
-a \emph{woven} file containing the formatted documentation.  Knuth's original
-implementation, the WEB system \cite{Knuth:1983:WSS}, was focused on producing
-Pascal code and \LaTeX{} documentation, but this basic idea has been extended
-to many other programming languages and documentation systems.  
+process these input files to produce two different representations via
+processes he denoted as \emph{tangling} and \emph{weaving}: a \emph{tangled}
+code file meant for compilation and execution by a computer, and a \emph{woven}
+file containing the formatted documentation.  Knuth's original implementation,
+the WEB system \cite{Knuth:1983:WSS}, was focused on producing Pascal code and
+\LaTeX{} documentation, but this basic idea has been extended to many other
+programming languages and documentation systems.  
 
 The R community has embraced the ideas behind literate programming,
 and a mature implementation of the concept exists for R in the Sweave system
@@ -1296,7 +1289,7 @@ results produced by the computations.
 Before diving into the specifics of these two ideas, we note that the above
 design is independent of the Python language: while IPython started its life as
 a Python-specific project, the vision of the Notebook system is
-language-agnostic.  First, while working in Python, users can mark entire code
+language-agnostic.  First, while working in IPython, users can mark entire code
 blocks for execution via a separate language by using a special syntax on the
 block's first line: a user can for example start a block \texttt{\%\%R},
 \texttt{\%\%octave}, \texttt{\%\%bash} or \texttt{\%\%ruby} and IPython will
@@ -1324,15 +1317,14 @@ computational kernel, such as executing code, transferring data, or sending
 results, among many others.  While this protocol is implemented in IPython, it
 can be independently implemented to provide new kernels also able to interact
 with the notebook interface and clients.  The notebook file format is a simple
-JSON data structure that contains a series of one or more worksheets, each of
-which is a list of cells.  A cell can contain either text or code, and code
-cells can also have the output corresponding to the execution.  All
-sub-structures in the notebook format (the entire notebook, the worksheets, and
-the individual cells) have attached flexible metadata containers; this metadata
-can be used by post-processing tools.  The file format stores the communication
-protocol's payloads unmodified, so it can be thought of as a structured and
-filtered log (since the user chooses what to keep while working interactively)
-of the computation.  
+JSON data structure that contains a list of cells.  A cell can contain either
+text or code, and code cells can also have the output corresponding to the
+execution.  All sub-structures in the notebook format (the entire notebook as
+well as the individual cells) have attached flexible metadata containers; this
+metadata can be used by post-processing tools.  The file format stores the
+communication protocol's payloads unmodified, so it can be thought of as a
+structured and filtered log (since the user chooses what to keep while working
+interactively) of the computation.  
 
 The IPython project has taken elements pioneered by the Mathematica and Sage
 notebooks and created a generic protocol and file format to control and record
@@ -1484,7 +1476,7 @@ scientific outcomes; (3) high standards of computational literacy in the
 education of mathematicians, scientists, and engineers; and (4) open source
 software developed by collaborative, meritocratic communities of practice.
 
-Achieving these goals won't be easy.  It requires changing the educational
+Achieving these goals will not be easy.  It requires changing the educational
 process for new scientists, the incentive models for promotions and rewards,
 the publication system \cite{neylon2012changing}, and more. In this chapter, we
 focused on the need for an open source ecosystem for scientific computing
@@ -1492,7 +1484,7 @@ developed by communities of practice.  We then introduced several tools and
 practices necessary---but not sufficient---for reliable code that can be the
 basis of reproducible research.  We illustrated these ideas with examples of
 how they have been applied and advanced in the open source scientific Python
-community.  Finally, we presented the IPython project's powerful combination of
+community.  Finally, we presented the IPython project's combination of
 interactivity, distributed and remote computing features, and literate
 computing functionality as a natural integration point for the computational
 research life cycle in order to make it more fluid, efficient, and
